@@ -80,8 +80,7 @@ body::before {
   z-index:0;
 }
 
-.app { position:relative; z-index:1; max-width:480px; margin:0 auto; padding:0 0 100px; }
-
+.app { position:relative; z-index:1; width:100%; max-width:100% !important; margin:0; padding:0 0 100px; }
 /* ── HEADER / HERO ── */
 .hero {
   background: linear-gradient(180deg, #ece4d8 0%, var(--bg) 100%);
@@ -256,7 +255,7 @@ body::before {
 .quest-section {
   margin: 16px 0 !important; /* This "0" makes it touch the sides */
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 0;
   background: var(--bg2);
   overflow: hidden;
   width: 100% !important; /* This forces it to be wide */
@@ -300,11 +299,13 @@ body::before {
 }
 .quest-item:last-child { border-bottom: none; }
 .quest-item.done { 
-  opacity: 1 !important; /* This keeps the colors bright even when done */
+  opacity: 1 !important; /* Keeps the whole row bright */
 }
-.quest-item.done .qi-name { 
+
+.quest-item.done .qi-name,
+.quest-item.done .qi-detail { 
   text-decoration: line-through; 
-  opacity: 0.6; /* Only the text gets faint, not the whole box */
+  opacity: 0.5; /* Only the text gets faint */
 }
 .quest-item.done .qi-name { text-decoration: line-through; }
 
