@@ -64,9 +64,11 @@ body {
   background: var(--bg);
   color: var(--text);
   min-height: 100vh;
-  font-size: 26px; /* This makes it big! */
-  line-height: 1.6;
-  -webkit-text-size-adjust: 100%;
+  font-size: 26px; 
+  font-weight: 400; /* Change from 600 to 400 for clarity */
+  line-height: 1.4; /* Slightly tighter line height looks sharper */
+  -webkit-font-smoothing: antialiased; /* This sharpens the letters */
+}
 }
 /* BACKGROUND TEXTURE */
 body::before {
@@ -144,7 +146,7 @@ body::before {
   text-transform: uppercase;
   font-family: 'DM Mono', monospace;
 }
-..level-info { 
+.level-info { 
   flex: 1; 
   padding-left: 10px; /* Gives the text a little breathing room from the circle */
 }
@@ -347,8 +349,8 @@ body::before {
 .qi-name {
   font-size: 26px !important; 
   color: var(--text);
-  line-height: 1.3;
-  font-weight: 600;
+  line-height: 1.2;
+  font-weight: 500; /* 500 is the "sweet spot" for bold but crisp */
 }
 
 .qi-detail {
