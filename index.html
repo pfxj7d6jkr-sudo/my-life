@@ -369,11 +369,52 @@ body::before {
 
 .qi-xp {
   font-family: 'DM Mono', monospace;
-  font-size: 13px;
-  color: var(--gold-dim);
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  color: #1e1810 !important; /* Deep brown text */
+  background: #f5c842 !important; /* Bright solid gold */
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #8a6000;
   flex-shrink: 0;
+  opacity: 1 !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  min-width: 65px;
 }
-.quest-item.done .qi-xp { color: var(--green); }
+}/* --- IPAD PRO TABS OVERRIDE --- */
+
+/* PROGRESS TAB */
+.progress-section { padding: 20px !important; margin-bottom: 20px; }
+.progress-title { font-size: 20px !important; margin-bottom: 15px; }
+.progress-name, .progress-val { font-size: 18px !important; }
+.pbar { height: 12px !important; border-radius: 6px; } /* Thicker progress bars */
+
+/* LEVELS TAB */
+.road-title { font-size: 24px !important; }
+.road-detail { font-size: 18px !important; line-height: 1.4; }
+.road-dot { width: 45px !important; height: 45px !important; font-size: 18px !important; }
+.streak-label { font-size: 16px !important; }
+.pip { width: 12px !important; height: 12px !important; }
+
+/* BADGES TAB */
+.badges-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 15px; } /* 2 columns is better for iPad */
+.badge-name { font-size: 18px !important; font-weight: 700; }
+.badge-req { font-size: 14px !important; }
+.badge-icon { font-size: 40px !important; }
+
+/* LOG TAB */
+.log-entry { padding: 15px 10px !important; font-size: 20px !important; }
+.log-time { font-size: 14px !important; min-width: 70px; }
+.log-xp { 
+  font-size: 16px !important; 
+  background: #f5c842; 
+  color: #1e1810; 
+  padding: 4px 8px; 
+  border-radius: 4px; 
+  font-weight: 700; 
+}.quest-item.done .qi-xp { color: var(--green); }
 
 /* ── FS INPUT ── */
 .fs-input-wrap {
