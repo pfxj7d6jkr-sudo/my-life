@@ -64,11 +64,17 @@ body {
   background: var(--bg);
   color: var(--text);
   min-height: 100vh;
-  font-size: 24px;
-  line-height: 1.5;
-  overflow-x: hidden;
+  body {
+    font-size: 26px; /* This will be very clear and readable */
+    line-height: 1.6;
+    -webkit-text-size-adjust: 100%; /* Prevents iPad from shrinking text */
 }
-
+}.app {
+    min-height: 100vh; /* "vh" stands for Viewport Height—it means 100% of the screen height */
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 50px; /* Gives you room at the bottom */
+}
 /* BACKGROUND TEXTURE */
 body::before {
   content:'';
@@ -1596,3 +1602,14 @@ renderAll();
 </script>
 </body>
 </html>
+/* Custom sizing for iPad - Place this at the very end of your file */
+.quest-item input[type="checkbox"] {
+    width: 32px !important;
+    height: 32px !important;
+    margin-right: 15px;
+    accent-color: #d4af37; /* The Gold checkmark */
+}
+
+.quest-item span {
+    font-size: 26px !important; /* Forces the text to stay large */
+}
