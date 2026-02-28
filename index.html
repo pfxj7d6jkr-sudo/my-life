@@ -693,7 +693,26 @@ body::before {
   font-weight: 600;
   letter-spacing: 0.5px;
 }
-</style>
+  /* Paste this ABOVE the </style> tag */
+.quest-item span {
+    font-size: 26px !important;
+    display: inline-block;
+    padding: 5px 0;
+}
+
+.quest-item input[type="checkbox"] {
+    width: 35px !important;
+    height: 35px !important;
+    margin-right: 15px;
+    accent-color: #d4af37;
+}
+
+/* This makes the descriptions under the titles bigger too */
+.quest-item small {
+    font-size: 18px !important;
+    display: block;
+    color: #666;
+}</style>
 </head>
 <body>
 
