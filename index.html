@@ -254,11 +254,12 @@ body::before {
 
 /* ── SECTION CARDS ── */
 .quest-section {
-  margin-bottom: 16px;
+  margin: 16px 0 !important; /* This "0" makes it touch the sides */
   border: 1px solid var(--border);
   border-radius: 8px;
-  overflow: hidden;
   background: var(--bg2);
+  overflow: hidden;
+  width: 100% !important; /* This forces it to be wide */
 }
 .quest-section-head {
   display: flex;
@@ -289,16 +290,22 @@ body::before {
 .quest-item {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 8px 10px 8px 14px;
+  gap: 15px;
+  padding: 18px 16px; /* More room for big iPad fingers */
   cursor: pointer;
   transition: background 0.15s;
   border-bottom: 1px solid var(--border);
   user-select: none;
+  width: 100%;
 }
 .quest-item:last-child { border-bottom: none; }
-.quest-item:active { background: rgba(255,255,255,0.03); }
-.quest-item.done { opacity: 0.55; }
+.quest-item.done { 
+  opacity: 1 !important; /* This keeps the colors bright even when done */
+}
+.quest-item.done .qi-name { 
+  text-decoration: line-through; 
+  opacity: 0.6; /* Only the text gets faint, not the whole box */
+}
 .quest-item.done .qi-name { text-decoration: line-through; }
 
 .qi-check {
