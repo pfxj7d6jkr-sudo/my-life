@@ -64,14 +64,11 @@ body {
   background: var(--bg);
   color: var(--text);
   min-height: 100vh;
-  font-size: 26px; 
-  font-weight: 400;
-  line-height: 1.4;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility !important; /* Forces the iPad to sharpen edges */
-  letter-spacing: -0.01em; /* Tightens the "bleeding" between letters */
+  font-size: 18px;
+  line-height: 1.5;
+  overflow-x: hidden;
 }
-}
+
 /* BACKGROUND TEXTURE */
 body::before {
   content:'';
@@ -84,7 +81,8 @@ body::before {
   z-index:0;
 }
 
-.app { position:relative; z-index:1; width:100%; max-width:100% !important; margin:0; padding:0 0 100px; }
+.app { position:relative; z-index:1; max-width:480px; margin:0 auto; padding:0 0 100px; }
+
 /* ── HEADER / HERO ── */
 .hero {
   background: linear-gradient(180deg, #ece4d8 0%, var(--bg) 100%);
@@ -148,25 +146,20 @@ body::before {
   text-transform: uppercase;
   font-family: 'DM Mono', monospace;
 }
-.level-info { 
-  flex: 1; 
-  padding-left: 10px; /* Gives the text a little breathing room from the circle */
-}
+.level-info { flex: 1; }
 .level-name {
   font-family: 'Cinzel', serif;
   font-size: 14px;
   color: var(--gold);
   margin-bottom: 2px;
 }
-.level-desc { 
-  font-size: 18px !important; /* Increased from 12px */
-  color: var(--text2); 
+.level-desc {
+  font-size: 12px;
+  color: var(--text2);
   font-style: italic;
-  margin-top: 4px;
-  display: block;
-  line-height: 1.4;
+  margin-bottom: 6px;
 }
-  .xp-bar-wrap {
+.xp-bar-wrap {
   background: var(--bg3);
   border-radius: 4px;
   height: 6px;
@@ -232,10 +225,11 @@ body::before {
   top: 160px;
   z-index: 99;
 }
+.tabs::-webkit-scrollbar { display: none; }
 .tab {
   flex-shrink: 0;
-  padding: 15px 20px; /* Increased for better iPad tapping */
-  font-size: 16px !important; /* Increased from 13px */
+  padding: 10px 14px;
+  font-size: 13px;
   letter-spacing: 1px;
   text-transform: uppercase;
   font-family: 'DM Mono', monospace;
@@ -257,12 +251,11 @@ body::before {
 
 /* ── SECTION CARDS ── */
 .quest-section {
-  margin: 16px 0 !important; /* This "0" makes it touch the sides */
+  margin-bottom: 16px;
   border: 1px solid var(--border);
-  border-radius: 0;
-  background: var(--bg2);
+  border-radius: 8px;
   overflow: hidden;
-  width: 100% !important; /* This forces it to be wide */
+  background: var(--bg2);
 }
 .quest-section-head {
   display: flex;
@@ -293,31 +286,22 @@ body::before {
 .quest-item {
   display: flex;
   align-items: center;
-  gap: 15px;
-  padding: 18px 16px; /* More room for big iPad fingers */
+  gap: 10px;
+  padding: 8px 10px 8px 14px;
   cursor: pointer;
   transition: background 0.15s;
   border-bottom: 1px solid var(--border);
   user-select: none;
-  width: 100%;
 }
 .quest-item:last-child { border-bottom: none; }
-.quest-item.done { 
-  opacity: 1 !important; /* Keeps the whole row bright */
-}
-
-.quest-item.done .qi-name,
-.quest-item.done .qi-detail { 
-  text-decoration: line-through; 
-  opacity: 0.5; /* Only the text gets faint */
-}
+.quest-item:active { background: rgba(255,255,255,0.03); }
+.quest-item.done { opacity: 0.55; }
 .quest-item.done .qi-name { text-decoration: line-through; }
 
 .qi-check {
-  width: 38px !important; 
-  height: 38px !important;
+  width: 20px; height: 20px;
   border: 1.5px solid var(--border2);
-  border-radius: 6px;
+  border-radius: 4px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
@@ -325,46 +309,40 @@ body::before {
   transition: all 0.2s;
   background: var(--bg3);
 }
-
 .quest-item.done .qi-check {
   background: var(--green-dim);
   border-color: var(--green);
 }
-
 .qi-check-inner {
-  width: 20px !important; 
-  height: 20px !important;
+  width: 10px; height: 10px;
   background: var(--green2);
-  border-radius: 3px;
+  border-radius: 2px;
   opacity: 0;
   transform: scale(0);
   transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
 }
-
 .quest-item.done .qi-check-inner {
   opacity: 1;
   transform: scale(1);
 }
 
 .qi-content { flex: 1; }
-
 .qi-name {
-  font-size: 26px !important; 
+  font-size: 16px;
+  font-size: 14px;
   color: var(--text);
-  line-height: 1.2;
-  font-weight: 400 !important; /* Matching the body weight makes it perfectly crisp */
+  line-height: 1.3;
 }
-
 .qi-detail {
-  font-size: 18px !important; 
+  font-size: 13px;
+  font-size: 13px;
   color: var(--text2);
   font-style: italic;
   line-height: 1.3;
-  margin-top: 4px;
+  margin-top: 1px;
 }
-
 .qi-nn {
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 600;
   color: var(--gold);
   letter-spacing: 0.5px;
@@ -373,52 +351,11 @@ body::before {
 
 .qi-xp {
   font-family: 'DM Mono', monospace;
-  font-size: 16px !important;
-  font-weight: 800 !important;
-  color: #1e1810 !important; /* Deep brown text */
-  background: #f5c842 !important; /* Bright solid gold */
-  padding: 6px 10px;
-  border-radius: 6px;
-  border: 1px solid #8a6000;
+  font-size: 13px;
+  color: var(--gold-dim);
   flex-shrink: 0;
-  opacity: 1 !important;
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
-  min-width: 65px;
 }
-}/* --- IPAD PRO TABS OVERRIDE --- */
-
-/* PROGRESS TAB */
-.progress-section { padding: 20px !important; margin-bottom: 20px; }
-.progress-title { font-size: 20px !important; margin-bottom: 15px; }
-.progress-name, .progress-val { font-size: 18px !important; }
-.pbar { height: 12px !important; border-radius: 6px; } /* Thicker progress bars */
-
-/* LEVELS TAB */
-.road-title { font-size: 24px !important; }
-.road-detail { font-size: 18px !important; line-height: 1.4; }
-.road-dot { width: 45px !important; height: 45px !important; font-size: 18px !important; }
-.streak-label { font-size: 16px !important; }
-.pip { width: 12px !important; height: 12px !important; }
-
-/* BADGES TAB */
-.badges-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 15px; } /* 2 columns is better for iPad */
-.badge-name { font-size: 18px !important; font-weight: 700; }
-.badge-req { font-size: 14px !important; }
-.badge-icon { font-size: 40px !important; }
-
-/* LOG TAB */
-.log-entry { padding: 15px 10px !important; font-size: 20px !important; }
-.log-time { font-size: 14px !important; min-width: 70px; }
-.log-xp { 
-  font-size: 16px !important; 
-  background: #f5c842; 
-  color: #1e1810; 
-  padding: 4px 8px; 
-  border-radius: 4px; 
-  font-weight: 700; 
-}.quest-item.done .qi-xp { color: var(--green); }
+.quest-item.done .qi-xp { color: var(--green); }
 
 /* ── FS INPUT ── */
 .fs-input-wrap {
@@ -668,6 +605,25 @@ body::before {
 .toast.show { transform: translateX(-50%) translateY(0); }
 
 /* ── RESET BTN ── */
+.quest-item.locked {
+  opacity: 0.35;
+  pointer-events: none;
+  filter: grayscale(0.5);
+}
+.quest-item.locked .qi-name::after {
+  content: ' 🔒';
+  font-size: 11px;
+}
+.qi-level-tag {
+  font-size: 9px;
+  font-family: 'DM Mono', monospace;
+  color: var(--text3);
+  background: var(--bg3);
+  border-radius: 3px;
+  padding: 1px 5px;
+  margin-top: 2px;
+  display: inline-block;
+}
 .reset-btn {
   display: block;
   margin: 20px auto 0;
@@ -824,6 +780,20 @@ body::before {
   <!-- ══ TODAY PANEL ══ -->
   <div class="panel active" id="panel-today">
 
+    <!-- THURSDAY REST DAY BANNER -->
+    <div id="thursdayMsg" style="display:none;background:var(--teal-dim);border:1px solid var(--teal);border-radius:8px;padding:12px 14px;margin-bottom:12px;">
+      <div style="font-family:'Cinzel',serif;font-size:13px;color:var(--teal);margin-bottom:4px;">🌿 Thursday — Rest Day</div>
+      <div style="font-size:13px;color:var(--text2);line-height:1.5;">No field service. No work. Just Bible + Daily Text + taking care of yourself.<br>
+      <span style="font-size:12px;color:var(--text3);font-style:italic;">Low energy rule today: Bible · Daily Text · Brush teeth · Wash face ✓</span></div>
+    </div>
+
+    <!-- LOW ENERGY REMINDER -->
+    <div style="background:var(--blue-dim);border:1px solid var(--blue);border-radius:8px;padding:10px 14px;margin-bottom:12px;">
+      <div style="font-size:12px;color:var(--blue);line-height:1.6;font-style:italic;">
+        💙 <strong>Low energy rule:</strong> Bible (2ch) + Daily Text + Field Service + Brush teeth + Wash face = complete day ✓
+      </div>
+    </div>
+
     <!-- NON-NEGOTIABLES -->
     <div class="quest-section">
       <div class="quest-section-head" onclick="toggleSection(this)">
@@ -874,7 +844,7 @@ body::before {
         <div class="quest-section-xp" id="spir-xp">+0 XP</div>
       </div>
       <div class="quest-section-body collapsed" id="spir-body">
-        <div class="quest-item" onclick="toggleQuest(this,'spir','ls',10)" data-id="spir-ls">
+        <div class="quest-item" onclick="toggleQuest(this,'spir','ls',10)" data-id="spir-ls" data-level="1">
           <div class="qi-check"><div class="qi-check-inner"></div></div>
           <div class="qi-content">
             <div class="qi-name">Life Stories (#2)</div>
@@ -882,7 +852,7 @@ body::before {
           </div>
           <div class="qi-xp">+10 XP</div>
         </div>
-        <div class="quest-item" onclick="toggleQuest(this,'spir','wt',15)" data-id="spir-wt">
+        <div class="quest-item" onclick="toggleQuest(this,'spir','wt',15)" data-id="spir-wt" data-level="2">
           <div class="qi-check"><div class="qi-check-inner"></div></div>
           <div class="qi-content">
             <div class="qi-name">Watchtower Article (#3)</div>
@@ -890,7 +860,7 @@ body::before {
           </div>
           <div style="font-family:monospace;font-size:15px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
         </div>
-        <div class="quest-item" onclick="toggleQuest(this,'spir','tr',15)" data-id="spir-tr">
+        <div class="quest-item" onclick="toggleQuest(this,'spir','tr',15)" data-id="spir-tr" data-level="2">
           <div class="qi-check"><div class="qi-check-inner"></div></div>
           <div class="qi-content">
             <div class="qi-name">Treasures from God's Word (#4)</div>
@@ -898,7 +868,7 @@ body::before {
           </div>
           <div style="font-family:monospace;font-size:15px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
         </div>
-        <div class="quest-item" onclick="toggleQuest(this,'spir','cbs',15)" data-id="spir-cbs">
+        <div class="quest-item" onclick="toggleQuest(this,'spir','cbs',15)" data-id="spir-cbs" data-level="2">
           <div class="qi-check"><div class="qi-check-inner"></div></div>
           <div class="qi-content">
             <div class="qi-name">Congregation Bible Study (#5)</div>
@@ -906,7 +876,7 @@ body::before {
           </div>
           <div style="font-family:monospace;font-size:15px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
         </div>
-        <div class="quest-item" onclick="toggleQuest(this,'spir','lm',15)" data-id="spir-lm">
+        <div class="quest-item" onclick="toggleQuest(this,'spir','lm',15)" data-id="spir-lm" data-level="2">
           <div class="qi-check"><div class="qi-check-inner"></div></div>
           <div class="qi-content">
             <div class="qi-name">Life and Ministry (#6)</div>
@@ -914,7 +884,7 @@ body::before {
           </div>
           <div style="font-family:monospace;font-size:15px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
         </div>
-        <div class="quest-item" onclick="toggleQuest(this,'spir','ps',20)" data-id="spir-ps">
+        <div class="quest-item" onclick="toggleQuest(this,'spir','ps',20)" data-id="spir-ps" data-level="3">
           <div class="qi-check"><div class="qi-check-inner"></div></div>
           <div class="qi-content">
             <div class="qi-name">Personal Study (#7)</div>
@@ -922,7 +892,7 @@ body::before {
           </div>
           <div class="qi-xp">+20 XP</div>
         </div>
-        <div class="quest-item" onclick="toggleQuest(this,'spir','pl',15)" data-id="spir-pl">
+        <div class="quest-item" onclick="toggleQuest(this,'spir','pl',15)" data-id="spir-pl" data-level="3">
           <div class="qi-check"><div class="qi-check-inner"></div></div>
           <div class="qi-content">
             <div class="qi-name">Prophecies / Literature (#8)</div>
@@ -947,7 +917,7 @@ body::before {
           <input class="fs-input" type="number" id="fsHoursInput" min="0" max="12" step="0.5" placeholder="0">
           <button class="fs-log-btn" onclick="logFSHours()">Log</button>
         </div>
-        <div class="quest-item" onclick="toggleQuest(this,'fs','zoom',20)" data-id="fs-zoom">
+        <div class="quest-item" onclick="toggleQuest(this,'fs','zoom',20)" data-id="fs-zoom" data-level="1">
           <div class="qi-check"><div class="qi-check-inner"></div></div>
           <div class="qi-content">
             <div class="qi-name">Zoom Session attended</div>
@@ -955,7 +925,7 @@ body::before {
           </div>
           <div class="qi-xp">+20 XP</div>
         </div>
-        <div class="quest-item" onclick="toggleQuest(this,'fs','brandon',35)" data-id="fs-brandon">
+        <div class="quest-item" onclick="toggleQuest(this,'fs','brandon',35)" data-id="fs-brandon" data-level="1">
           <div class="qi-check"><div class="qi-check-inner"></div></div>
           <div class="qi-content">
             <div class="qi-name">Brandon group — went out</div>
@@ -963,7 +933,7 @@ body::before {
           </div>
           <div class="qi-xp">+35 XP</div>
         </div>
-        <div class="quest-item" onclick="toggleQuest(this,'fs','letters',15)" data-id="fs-letters">
+        <div class="quest-item" onclick="toggleQuest(this,'fs','letters',15)" data-id="fs-letters" data-level="1">
           <div class="qi-check"><div class="qi-check-inner"></div></div>
           <div class="qi-content">
             <div class="qi-name">Letters / Research / Calls</div>
@@ -971,7 +941,7 @@ body::before {
           </div>
           <div style="font-family:monospace;font-size:15px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
         </div>
-        <div class="quest-item" onclick="toggleQuest(this,'fs','riverview',40)" data-id="fs-riverview">
+        <div class="quest-item" onclick="toggleQuest(this,'fs','riverview',40)" data-id="fs-riverview" data-level="4">
           <div class="qi-check"><div class="qi-check-inner"></div></div>
           <div class="qi-content">
             <div class="qi-name">Riverview group visit 🌟</div>
@@ -991,7 +961,7 @@ body::before {
         <div class="quest-section-xp" id="lang-xp">+0 XP</div>
       </div>
       <div class="quest-section-body collapsed" id="lang-body">
-        <div class="quest-item" onclick="toggleQuest(this,'lang','busuu',15)" data-id="lang-busuu">
+        <div class="quest-item" onclick="toggleQuest(this,'lang','busuu',15)" data-id="lang-busuu" data-level="1">
           <div class="qi-check"><div class="qi-check-inner"></div></div>
           <div class="qi-content">
             <div class="qi-name">Spanish — Busuu (1 lesson)</div>
@@ -999,7 +969,7 @@ body::before {
           </div>
           <div style="font-family:monospace;font-size:15px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
         </div>
-        <div class="quest-item" onclick="toggleQuest(this,'lang','assimil',12)" data-id="lang-assimil">
+        <div class="quest-item" onclick="toggleQuest(this,'lang','assimil',12)" data-id="lang-assimil" data-level="2">
           <div class="qi-check"><div class="qi-check-inner"></div></div>
           <div class="qi-content">
             <div class="qi-name">Spanish — Assimil (1 page)</div>
@@ -1007,7 +977,7 @@ body::before {
           </div>
           <div class="qi-xp">+12 XP</div>
         </div>
-        <div class="quest-item" onclick="toggleQuest(this,'lang','dreaming',8)" data-id="lang-dreaming">
+        <div class="quest-item" onclick="toggleQuest(this,'lang','dreaming',8)" data-id="lang-dreaming" data-level="4">
           <div class="qi-check"><div class="qi-check-inner"></div></div>
           <div class="qi-content">
             <div class="qi-name">Spanish — Dreaming Spanish</div>
@@ -1015,7 +985,7 @@ body::before {
           </div>
           <div class="qi-xp">+8 XP</div>
         </div>
-        <div class="quest-item" onclick="toggleQuest(this,'lang','asl',12)" data-id="lang-asl">
+        <div class="quest-item" onclick="toggleQuest(this,'lang','asl',12)" data-id="lang-asl" data-level="3">
           <div class="qi-check"><div class="qi-check-inner"></div></div>
           <div class="qi-content">
             <div class="qi-name">ASL — Lifeprint (next lesson)</div>
@@ -1023,7 +993,7 @@ body::before {
           </div>
           <div class="qi-xp">+12 XP</div>
         </div>
-        <div class="quest-item" onclick="toggleQuest(this,'lang','journal',10)" data-id="lang-journal">
+        <div class="quest-item" onclick="toggleQuest(this,'lang','journal',10)" data-id="lang-journal" data-level="3">
           <div class="qi-check"><div class="qi-check-inner"></div></div>
           <div class="qi-content">
             <div class="qi-name">Language Journal</div>
@@ -1043,7 +1013,7 @@ body::before {
         <div class="quest-section-xp" id="ex-xp">+0 XP</div>
       </div>
       <div class="quest-section-body collapsed" id="ex-body">
-        <div class="quest-item" onclick="toggleQuest(this,'ex','stretch',10)" data-id="ex-stretch">
+        <div class="quest-item" onclick="toggleQuest(this,'ex','stretch',10)" data-id="ex-stretch" data-level="2">
           <div class="qi-check"><div class="qi-check-inner"></div></div>
           <div class="qi-content">
             <div class="qi-name">Gentle stretch / yoga (5–15 min)</div>
@@ -1051,7 +1021,7 @@ body::before {
           </div>
           <div class="qi-xp">+10 XP</div>
         </div>
-        <div class="quest-item" onclick="toggleQuest(this,'ex','workout',20)" data-id="ex-workout">
+        <div class="quest-item" onclick="toggleQuest(this,'ex','workout',20)" data-id="ex-workout" data-level="4">
           <div class="qi-check"><div class="qi-check-inner"></div></div>
           <div class="qi-content">
             <div class="qi-name">Full workout (20–45 min)</div>
@@ -1059,7 +1029,7 @@ body::before {
           </div>
           <div class="qi-xp">+20 XP</div>
         </div>
-        <div class="quest-item" onclick="toggleQuest(this,'ex','walk',12)" data-id="ex-walk">
+        <div class="quest-item" onclick="toggleQuest(this,'ex','walk',12)" data-id="ex-walk" data-level="5">
           <div class="qi-check"><div class="qi-check-inner"></div></div>
           <div class="qi-content">
             <div class="qi-name">Walking</div>
@@ -1079,7 +1049,7 @@ body::before {
         <div class="quest-section-xp" id="wb-xp">+0 XP</div>
       </div>
       <div class="quest-section-body collapsed" id="wb-body">
-        <div class="quest-item" onclick="toggleQuest(this,'wb','journal',15)" data-id="wb-journal">
+        <div class="quest-item" onclick="toggleQuest(this,'wb','journal',15)" data-id="wb-journal" data-level="2">
           <div class="qi-check"><div class="qi-check-inner"></div></div>
           <div class="qi-content">
             <div class="qi-name">Daily journal entry</div>
@@ -1087,7 +1057,7 @@ body::before {
           </div>
           <div style="font-family:monospace;font-size:15px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
         </div>
-        <div class="quest-item" onclick="toggleQuest(this,'wb','meal',10)" data-id="wb-meal">
+        <div class="quest-item" onclick="toggleQuest(this,'wb','meal',10)" data-id="wb-meal" data-level="4">
           <div class="qi-check"><div class="qi-check-inner"></div></div>
           <div class="qi-content">
             <div class="qi-name">Meal prep done</div>
@@ -1095,7 +1065,7 @@ body::before {
           </div>
           <div class="qi-xp">+10 XP</div>
         </div>
-        <div class="quest-item" onclick="toggleQuest(this,'wb','sleep',20)" data-id="wb-sleep">
+        <div class="quest-item" onclick="toggleQuest(this,'wb','sleep',20)" data-id="wb-sleep" data-level="2">
           <div class="qi-check"><div class="qi-check-inner"></div></div>
           <div class="qi-content">
             <div class="qi-name">Sleep target met last night</div>
@@ -1103,13 +1073,211 @@ body::before {
           </div>
           <div class="qi-xp">+20 XP</div>
         </div>
-        <div class="quest-item" onclick="toggleQuest(this,'wb','review',25)" data-id="wb-review">
+        <div class="quest-item" onclick="toggleQuest(this,'wb','review',25)" data-id="wb-review" data-level="5">
           <div class="qi-check"><div class="qi-check-inner"></div></div>
           <div class="qi-content">
             <div class="qi-name">Weekly review completed 🌟</div>
             <div class="qi-detail">Sunday — planner + Notion + notebook all updated</div>
           </div>
           <div style="font-family:monospace;font-size:15px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+25 XP</div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- WORK -->
+    <div class="quest-section">
+      <div class="quest-section-head" onclick="toggleSection(this)">
+        <div class="quest-section-title" style="color:var(--blue)">
+          <span>💼</span><span>Work — Interpreting</span>
+        </div>
+        <div class="quest-section-xp" id="work-xp">+0 XP</div>
+      </div>
+      <div class="quest-section-body collapsed" id="work-body">
+        <div class="fs-input-wrap">
+          <div class="fs-input-label" style="font-size:14px;">Log in hours today:</div>
+          <input class="fs-input" type="number" id="workHoursInput" min="0" max="16" step="0.5" placeholder="0">
+          <button class="fs-log-btn" style="background:var(--blue-dim);border-color:var(--blue);color:var(--blue);" onclick="logWorkHours()">Log</button>
+        </div>
+        <div class="fs-input-wrap">
+          <div class="fs-input-label" style="font-size:14px;">Calls taken today:</div>
+          <input class="fs-input" type="number" id="workCallsInput" min="0" max="99" step="1" placeholder="0">
+          <button class="fs-log-btn" style="background:var(--blue-dim);border-color:var(--blue);color:var(--blue);" onclick="logWorkCalls()">Log</button>
+        </div>
+        <div class="fs-input-wrap">
+          <div class="fs-input-label" style="font-size:14px;">Minutes interpreted:</div>
+          <input class="fs-input" type="number" id="workMinsInput" min="0" max="960" step="1" placeholder="0">
+          <button class="fs-log-btn" style="background:var(--blue-dim);border-color:var(--blue);color:var(--blue);" onclick="logWorkMins()">Log</button>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'work','loggedin',20)" data-id="work-loggedin" data-level="2">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Logged in today ✓</div>
+            <div class="qi-detail">Opened interpreting platform and made myself available</div>
+          </div>
+          <div class="qi-xp">+20 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'work','goal',30)" data-id="work-goal" data-level="2">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Weekly login goal met 🌟</div>
+            <div class="qi-detail">Reached 16 hrs logged in this week</div>
+          </div>
+          <div class="qi-xp">+30 XP</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SELF CARE -->
+    <div class="quest-section">
+      <div class="quest-section-head" onclick="toggleSection(this)">
+        <div class="quest-section-title" style="color:var(--purple)">
+          <span>🌸</span><span>Self Care</span>
+        </div>
+        <div class="quest-section-xp" id="sc-xp">+0 XP</div>
+      </div>
+      <div class="quest-section-body collapsed" id="sc-body">
+        <div class="quest-item" onclick="toggleQuest(this,'sc','teeth',5)" data-id="sc-teeth" data-level="1">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Brush teeth</div>
+            <div class="qi-detail">Morning and/or evening — non-negotiable baseline 🦷</div>
+            <div class="qi-nn" style="color:var(--purple)">BASICS · LOW ENERGY OK</div>
+          </div>
+          <div class="qi-xp">+5 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'sc','face',5)" data-id="sc-face" data-level="1">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Wash face</div>
+            <div class="qi-detail">Splash of water counts — just do it 💧</div>
+            <div class="qi-nn" style="color:var(--purple)">BASICS · LOW ENERGY OK</div>
+          </div>
+          <div class="qi-xp">+5 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'sc','skincare',15)" data-id="sc-skincare" data-level="3">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Skincare routine</div>
+            <div class="qi-detail">Morning and/or evening routine completed</div>
+          </div>
+          <div class="qi-xp">+15 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'sc','shower',15)" data-id="sc-shower" data-level="2">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Bath or shower</div>
+            <div class="qi-detail">Take care of your body — you deserve it 🦋</div>
+          </div>
+          <div class="qi-xp">+15 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'sc','meds',20)" data-id="sc-meds" data-level="1">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Medication / supplements</div>
+            <div class="qi-detail">Taken at the right time today</div>
+          </div>
+          <div class="qi-xp">+20 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'sc','hair',10)" data-id="sc-hair" data-level="4">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Hair care</div>
+            <div class="qi-detail">Wash, moisturize, style — whatever your hair needs today</div>
+          </div>
+          <div class="qi-xp">+10 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'sc','nails',10)" data-id="sc-nails" data-level="5">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Nails / grooming</div>
+            <div class="qi-detail">File, trim, or treat — take your time</div>
+          </div>
+          <div class="qi-xp">+10 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'sc','mental',20)" data-id="sc-mental" data-level="5">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Mental health check-in</div>
+            <div class="qi-detail">How am I really feeling today? Honest answer in journal.</div>
+          </div>
+          <div class="qi-xp">+20 XP</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOME CARE -->
+    <div class="quest-section">
+      <div class="quest-section-head" onclick="toggleSection(this)">
+        <div class="quest-section-title" style="color:var(--teal)">
+          <span>🏡</span><span>Home Care</span>
+        </div>
+        <div class="quest-section-xp" id="hc-xp">+0 XP</div>
+      </div>
+      <div class="quest-section-body collapsed" id="hc-body">
+        <div class="quest-item" onclick="toggleQuest(this,'hc','bed',10)" data-id="hc-bed" data-level="1">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Made my bed</div>
+            <div class="qi-detail">First win of the day — sets the tone</div>
+          </div>
+          <div class="qi-xp">+10 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'hc','tidy',15)" data-id="hc-tidy" data-level="1">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Tidied bedroom</div>
+            <div class="qi-detail">Put things away, clear the floor, reset the space</div>
+          </div>
+          <div class="qi-xp">+15 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'hc','laundry',20)" data-id="hc-laundry" data-level="4">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Laundry</div>
+            <div class="qi-detail">Wash, dry, or put away — any step counts</div>
+          </div>
+          <div class="qi-xp">+20 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'hc','vacuum',20)" data-id="hc-vacuum" data-level="4">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Vacuuming / sweeping</div>
+            <div class="qi-detail">At least one room — done is better than perfect</div>
+          </div>
+          <div class="qi-xp">+20 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'hc','trash',10)" data-id="hc-trash" data-level="1">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Took out trash</div>
+            <div class="qi-detail">Empty bins, take out to collection point</div>
+          </div>
+          <div class="qi-xp">+10 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'hc','declutter',25)" data-id="hc-declutter" data-level="5">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Decluttering session 🌟</div>
+            <div class="qi-detail">15 min minimum — one area, one drawer, one corner</div>
+          </div>
+          <div class="qi-xp">+25 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'hc','restroom',20)" data-id="hc-restroom" data-level="1">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Restroom cleaned</div>
+            <div class="qi-detail">Toilet, sink, mirror, floor — any step counts</div>
+          </div>
+          <div class="qi-xp">+20 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'hc','bedroom',20)" data-id="hc-bedroom" data-level="4">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Bedroom deep clean</div>
+            <div class="qi-detail">Dust, wipe surfaces, organize — your sanctuary deserves it 🦋</div>
+          </div>
+          <div class="qi-xp">+20 XP</div>
         </div>
       </div>
     </div>
@@ -1260,7 +1428,7 @@ body::before {
 // DATA
 // ══════════════════════════════════════════════════════════
 const LEVELS = [
-  { num:1, name:"The Foundation",    desc:"Bible + 1 spiritual item + 1 Busuu lesson. Just 3 things.", xpNeeded:350,  adds:"Bible daily · Daily text · 1 Busuu lesson" },
+  { num:1, name:"The Foundation",    desc:"Bible · Daily Text · FS · Brush teeth · Wash face · Medication. Just these.", xpNeeded:350,  adds:"Bible daily · Daily text · 1 Busuu lesson" },
   { num:2, name:"Rising",            desc:"Add Sunday Brandon group + Sworkit 5 min + sleep shift.",   xpNeeded:600,  adds:"Sunday FS + Exercise begins" },
   { num:3, name:"The Devoted One",       desc:"Full language study + door-to-door at Brandon Fri/Sat/Sun.", xpNeeded:900,  adds:"Spanish 30min + ASL 15min + Language journal" },
   { num:4, name:"The Devoted",       desc:"Morning sequence begins + meal prep + Riverview 1x/month.", xpNeeded:1300, adds:"Morning sequence + Work log + Meal prep" },
@@ -1305,6 +1473,9 @@ function defaultState() {
     log: [],
     fsTotal: 240,
     fsWeek: 0,
+    workHoursWeek: 0,
+    workCallsWeek: 0,
+    workMinsWeek: 0,
     bible: "Isaiah 1",
     weightLost: 0,
     lessons: { busuu:1, asl:1, assimil:1 },
@@ -1436,6 +1607,33 @@ function toggleQuest(el, section, id, xp) {
   renderAll();
 }
 
+function logWorkHours() {
+  const val = parseFloat(document.getElementById('workHoursInput').value) || 0;
+  if (val <= 0) return;
+  S.workHoursWeek += val;
+  const bonus = Math.round(val * 10);
+  addXP(bonus, `Work: ${val} hrs logged in`);
+  document.getElementById('workHoursInput').value = '';
+}
+
+function logWorkCalls() {
+  const val = parseInt(document.getElementById('workCallsInput').value) || 0;
+  if (val <= 0) return;
+  S.workCallsWeek += val;
+  const bonus = val * 5;
+  addXP(bonus, `Work: ${val} call(s) taken`);
+  document.getElementById('workCallsInput').value = '';
+}
+
+function logWorkMins() {
+  const val = parseInt(document.getElementById('workMinsInput').value) || 0;
+  if (val <= 0) return;
+  S.workMinsWeek += val;
+  const bonus = Math.round(val * 0.5);
+  addXP(bonus, `Work: ${val} min interpreted`);
+  document.getElementById('workMinsInput').value = '';
+}
+
 function logFSHours() {
   const val = parseFloat(document.getElementById('fsHoursInput').value) || 0;
   if (val <= 0) return;
@@ -1522,6 +1720,27 @@ function renderAll() {
   document.getElementById('statWeekXP').textContent = S.weekXP;
   document.getElementById('heroDate').textContent = todayLabel();
 
+  // ── THURSDAY: hide FS and Work sections ──
+  const isThursday = new Date().getDay() === 4;
+  const fsSec = document.querySelector('.quest-section:has(#fs-body)');
+  const workSec = document.querySelector('.quest-section:has(#work-body)');
+  if (fsSec) fsSec.style.display = isThursday ? 'none' : '';
+  if (workSec) workSec.style.display = isThursday ? 'none' : '';
+
+  // ── LEVEL LOCKING: hide/show items based on current level ──
+  document.querySelectorAll('.quest-item[data-level]').forEach(el => {
+    const required = parseInt(el.dataset.level || '1');
+    if (required > S.level) {
+      el.classList.add('locked');
+    } else {
+      el.classList.remove('locked');
+    }
+  });
+
+  // ── THURSDAY LOW ENERGY REMINDER ──
+  const thurMsg = document.getElementById('thursdayMsg');
+  if (thurMsg) thurMsg.style.display = isThursday ? 'block' : 'none';
+
   // Section XP tallies
   renderSectionXP('nn',   ['nn-bible','nn-dailytext','nn-fs'], [25,15,30]);
   renderSectionXP('spir', ['spir-ls','spir-wt','spir-tr','spir-cbs','spir-lm','spir-ps','spir-pl'], [10,15,15,15,15,20,15]);
@@ -1550,6 +1769,18 @@ function renderAll() {
   });
 
   // Progress panel
+  // Work section XP tally
+  renderSectionXP('work', ['work-loggedin','work-goal'], [20,30]);
+  renderSectionXP('sc',   ['sc-teeth','sc-face','sc-skincare','sc-shower','sc-meds','sc-hair','sc-nails','sc-mental'], [5,5,15,15,20,10,10,20]);
+  renderSectionXP('hc',   ['hc-bed','hc-tidy','hc-laundry','hc-vacuum','hc-trash','hc-declutter','hc-restroom','hc-bedroom'], [10,15,20,20,10,25,20,20]);
+
+  // Work progress
+  if(safeGet('workHrsDisplay')) safeGet('workHrsDisplay').textContent = S.workHoursWeek.toFixed(1) + ' / 16 hrs';
+  if(safeGet('workHrsPct')) safeGet('workHrsPct').textContent = Math.round((S.workHoursWeek/16)*100) + '%';
+  if(safeGet('workHrsBar')) safeGet('workHrsBar').style.width = Math.min(100,(S.workHoursWeek/16)*100) + '%';
+  if(safeGet('workCallsDisplay')) safeGet('workCallsDisplay').textContent = S.workCallsWeek + ' calls';
+  if(safeGet('workMinsDisplay')) safeGet('workMinsDisplay').textContent = S.workMinsWeek + ' min';
+
   document.getElementById('fsTotalDisplay').textContent = `${S.fsTotal} / 600 hrs`;
   document.getElementById('fsPercent').textContent = Math.round((S.fsTotal/600)*100) + '%';
   document.getElementById('fsTotalBar').style.width = Math.min(100,(S.fsTotal/600)*100) + '%';
@@ -1580,6 +1811,10 @@ function renderSectionXP(section, keys, xps) {
   const earned = keys.reduce((sum, k, i) => sum + (S.checked[k] ? xps[i] : 0), 0);
   const el = document.getElementById(`${section}-xp`);
   if (el && section !== 'nn' && section !== 'fs') el.textContent = `+${earned} XP`;
+}
+
+function safeGet(id) {
+  return document.getElementById(id);
 }
 
 function renderLevelRoad() {
@@ -1654,6 +1889,10 @@ function confirmReset() {
 }
 
 // ── INIT ──
+// Migrate old saved states that might be missing new fields
+if (S.workHoursWeek === undefined) S.workHoursWeek = 0;
+if (S.workCallsWeek === undefined) S.workCallsWeek = 0;
+if (S.workMinsWeek === undefined) S.workMinsWeek = 0;
 checkDailyReset();
 renderAll();
 </script>
