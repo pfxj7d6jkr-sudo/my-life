@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -17,240 +16,240 @@
   --border:  #d4c8ba;
   --border2: #c0b4a4;
 
-/* Text — deep warm browns, strong contrast on light bg */
-–text:  #1e1810;
-–text2: #4a3e34;
-–text3: #6a5e54;
+  /* Text — deep warm browns, strong contrast on light bg */
+  --text:  #1e1810;
+  --text2: #4a3e34;
+  --text3: #6a5e54;
 
-/* Gold → deep amber, clearly readable */
-–gold:     #7a5420;
-–gold2:    #9a7030;
-–gold-dim: #f0e4c4;
+  /* Gold → deep amber, clearly readable */
+  --gold:     #7a5420;
+  --gold2:    #9a7030;
+  --gold-dim: #f0e4c4;
 
-/* Green → deep forest sage */
-–green:     #2a6035;
-–green2:    #1a4825;
-–green-dim: #d4eeda;
+  /* Green → deep forest sage */
+  --green:     #2a6035;
+  --green2:    #1a4825;
+  --green-dim: #d4eeda;
 
-/* Blue → deep ocean slate */
-–blue:     #1e4a6a;
-–blue2:    #0e3050;
-–blue-dim: #d4e8f8;
+  /* Blue → deep ocean slate */
+  --blue:     #1e4a6a;
+  --blue2:    #0e3050;
+  --blue-dim: #d4e8f8;
 
-/* Purple → deep plum */
-–purple:     #4a2868;
-–purple2:    #2a0848;
-–purple-dim: #e8d4f8;
+  /* Purple → deep plum */
+  --purple:     #4a2868;
+  --purple2:    #2a0848;
+  --purple-dim: #e8d4f8;
 
-/* Orange → deep terracotta */
-–orange:     #6a3818;
-–orange2:    #4a1800;
-–orange-dim: #f8dcc8;
+  /* Orange → deep terracotta */
+  --orange:     #6a3818;
+  --orange2:    #4a1800;
+  --orange-dim: #f8dcc8;
 
-/* Teal → deep teal */
-–teal:     #145858;
-–teal2:    #043838;
-–teal-dim: #c8ecec;
+  /* Teal → deep teal */
+  --teal:     #145858;
+  --teal2:    #043838;
+  --teal-dim: #c8ecec;
 
-/* Red → deep rose */
-–red:  #682828;
-–red2: #480808;
+  /* Red → deep rose */
+  --red:  #682828;
+  --red2: #480808;
 
-–xp-color: #7a5420;
-–glow: 0 0 20px rgba(122,84,32,0.12);
+  --xp-color: #7a5420;
+  --glow: 0 0 20px rgba(122,84,32,0.12);
 }
 
-- { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color: transparent; }
+* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color: transparent; }
 
 body {
-font-family: ‘Crimson Pro’, ‘Georgia’, ‘Times New Roman’, serif;
-background: var(–bg);
-color: var(–text);
-min-height: 100vh;
-font-size: 26px;
-line-height: 1.8;
-overflow-x: hidden;
+  font-family: 'Crimson Pro', 'Georgia', 'Times New Roman', serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  font-size: 26px;
+  line-height: 1.8;
+  overflow-x: hidden;
 }
 
 /* BACKGROUND TEXTURE */
 body::before {
-content:’’;
-position:fixed;
-inset:0;
-background:
-radial-gradient(ellipse at 20% 20%, rgba(160,120,64,0.06) 0%, transparent 50%),
-radial-gradient(ellipse at 80% 80%, rgba(90,138,106,0.05) 0%, transparent 50%);
-pointer-events:none;
-z-index:0;
+  content:'';
+  position:fixed;
+  inset:0;
+  background: 
+    radial-gradient(ellipse at 20% 20%, rgba(160,120,64,0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(90,138,106,0.05) 0%, transparent 50%);
+  pointer-events:none;
+  z-index:0;
 }
 
 .app { position:relative; z-index:1; width:100%; padding:0 0 100px; }
 @media (min-width:700px) {
-.quest-section-body { display:grid; grid-template-columns:1fr 1fr; }
-.quest-section-body .fs-input-wrap { grid-column: 1 / -1; }
+  .quest-section-body { display:grid; grid-template-columns:1fr 1fr; }
+  .quest-section-body .fs-input-wrap { grid-column: 1 / -1; }
 }
 
 /* ── HEADER / HERO ── */
 .hero {
-background: linear-gradient(180deg, #ece4d8 0%, var(–bg) 100%);
-padding: 20px 16px 0;
-border-bottom: 1px solid var(–border);
-position: sticky;
-top: 0;
-z-index: 100;
-backdrop-filter: blur(12px);
+  background: linear-gradient(180deg, #ece4d8 0%, var(--bg) 100%);
+  padding: 20px 16px 0;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
 }
 .hero-top {
-display: flex;
-align-items: center;
-justify-content: space-between;
-margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
 }
 .hero-title {
-font-family: ‘Cinzel’, serif;
-font-size: 20px;
-font-weight: 600;
-letter-spacing: 2px;
-color: var(–gold);
-text-transform: uppercase;
+  font-family: 'Cinzel', serif;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--gold);
+  text-transform: uppercase;
 }
 .hero-date {
-font-size: 18px;
-color: var(–text2);
-font-family: ‘DM Mono’, monospace;
+  font-size: 18px;
+  color: var(--text2);
+  font-family: 'DM Mono', monospace;
 }
 
 /* LEVEL DISPLAY */
 .level-display {
-display: flex;
-align-items: center;
-gap: 12px;
-margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
 }
 .level-badge {
-width: 64px; height: 64px;
-border: 2px solid var(–gold);
-border-radius: 50%;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-background: radial-gradient(circle, #f8f0e4 0%, #f0e4d0 100%);
-box-shadow: 0 0 16px rgba(160,120,64,0.2), inset 0 0 8px rgba(160,120,64,0.1);
-flex-shrink: 0;
+  width: 64px; height: 64px;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, #f8f0e4 0%, #f0e4d0 100%);
+  box-shadow: 0 0 16px rgba(160,120,64,0.2), inset 0 0 8px rgba(160,120,64,0.1);
+  flex-shrink: 0;
 }
 .level-num {
-font-family: ‘Cinzel’, serif;
-font-size: 24px;
-font-weight: 700;
-color: var(–gold);
-line-height: 1;
+  font-family: 'Cinzel', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
 }
 .level-word {
-font-size: 7px;
-letter-spacing: 1.5px;
-color: var(–gold-dim);
-text-transform: uppercase;
-font-family: ‘DM Mono’, monospace;
+  font-size: 7px;
+  letter-spacing: 1.5px;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  font-family: 'DM Mono', monospace;
 }
 .level-info { flex: 1; }
 .level-name {
-font-family: ‘Cinzel’, serif;
-font-size: 16px;
-color: var(–gold);
-margin-bottom: 2px;
+  font-family: 'Cinzel', serif;
+  font-size: 16px;
+  color: var(--gold);
+  margin-bottom: 2px;
 }
 .level-desc {
-font-size: 20px;
-color: var(–text2);
-font-style: italic;
-margin-bottom: 6px;
+  font-size: 20px;
+  color: var(--text2);
+  font-style: italic;
+  margin-bottom: 6px;
 }
 .xp-bar-wrap {
-background: var(–bg3);
-border-radius: 4px;
-height: 6px;
-overflow: hidden;
-border: 1px solid var(–border);
+  background: var(--bg3);
+  border-radius: 4px;
+  height: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border);
 }
 .xp-bar-fill {
-height: 100%;
-background: linear-gradient(90deg, var(–gold-dim), var(–gold2));
-border-radius: 4px;
-transition: width 0.6s cubic-bezier(0.4,0,0.2,1);
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold-dim), var(--gold2));
+  border-radius: 4px;
+  transition: width 0.6s cubic-bezier(0.4,0,0.2,1);
 }
 .xp-label {
-display: flex;
-justify-content: space-between;
-font-size: 10px;
-color: var(–text2);
-font-family: ‘DM Mono’, monospace;
-margin-top: 3px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: var(--text2);
+  font-family: 'DM Mono', monospace;
+  margin-top: 3px;
 }
 
 /* STATS ROW */
 .stats-row {
-display: grid;
-grid-template-columns: repeat(4, 1fr);
-gap: 1px;
-background: var(–border);
-border-top: 1px solid var(–border);
-border-bottom: 1px solid var(–border);
-margin: 0 -24px;
-width: calc(100% + 48px);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin: 0 -24px;
+  width: calc(100% + 48px);
 }
 .stat-cell {
-background: var(–bg3);
-padding: 10px 4px;
-text-align: center;
+  background: var(--bg3);
+  padding: 10px 4px;
+  text-align: center;
 }
 .stat-val {
-font-size: 20px;
-font-family: ‘Cinzel’, serif;
-font-size: 20px;
-font-weight: 600;
-line-height: 1;
+  font-size: 20px;
+  font-family: 'Cinzel', serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1;
 }
 .stat-lbl {
-font-size: 14px;
-letter-spacing: 0.5px;
-color: var(–text2);
-font-family: ‘DM Mono’, monospace;
-text-transform: uppercase;
-margin-top: 2px;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  color: var(--text2);
+  font-family: 'DM Mono', monospace;
+  text-transform: uppercase;
+  margin-top: 2px;
 }
 
 /* ── TABS ── */
 .tabs {
-display: flex;
-background: var(–bg2);
-border-bottom: 1px solid var(–border);
-overflow-x: auto;
-scrollbar-width: none;
--ms-overflow-style: none;
-width: 100%;
-position: sticky;
-top: 160px;
-z-index: 99;
+  display: flex;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  width: 100%;
+  position: sticky;
+  top: 160px;
+  z-index: 99;
 }
 .tabs::-webkit-scrollbar { display: none; }
 .tab {
-flex-shrink: 0;
-padding: 16px 26px;
-font-size: 18px;
-letter-spacing: 1px;
-text-transform: uppercase;
-font-family: ‘DM Mono’, monospace;
-color: var(–text2);
-cursor: pointer;
-border-bottom: 2px solid transparent;
-transition: all 0.2s;
-white-space: nowrap;
+  flex-shrink: 0;
+  padding: 16px 26px;
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: 'DM Mono', monospace;
+  color: var(--text2);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+  white-space: nowrap;
 }
 .tab.active {
-color: var(–gold);
-border-bottom-color: var(–gold);
-background: rgba(201,168,76,0.05);
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+  background: rgba(201,168,76,0.05);
 }
 
 /* ── CONTENT PANELS ── */
@@ -259,47 +258,47 @@ background: rgba(201,168,76,0.05);
 
 /* ── SECTION CARDS ── */
 .quest-section {
-margin-bottom: 16px;
-border: 1px solid var(–border);
-border-radius: 8px;
-overflow: hidden;
-background: var(–bg2);
+  margin-bottom: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bg2);
 }
 .quest-section-head {
-display: flex;
-align-items: center;
-justify-content: space-between;
-padding: 10px 14px;
-border-bottom: 1px solid var(–border);
-cursor: pointer;
-user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  user-select: none;
 }
 .quest-section-title {
-display: flex;
-align-items: center;
-gap: 8px;
-font-family: ‘Cinzel’, serif;
-font-size: 20px;
-letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Cinzel', serif;
+  font-size: 20px;
+  letter-spacing: 0.5px;
 }
 .quest-section-xp {
-font-size: 13px;
-font-family: ‘DM Mono’, monospace;
-color: var(–gold);
+  font-size: 13px;
+  font-family: 'DM Mono', monospace;
+  color: var(--gold);
 }
 .quest-section-body { padding: 8px 0; }
 .quest-section-body.collapsed { display: none; }
 
 /* ── QUEST ITEMS ── */
 .quest-item {
-display: flex;
-align-items: center;
-gap: 10px;
-padding: 8px 10px 8px 14px;
-cursor: pointer;
-transition: background 0.15s;
-border-bottom: 1px solid var(–border);
-user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px 8px 14px;
+  cursor: pointer;
+  transition: background 0.15s;
+  border-bottom: 1px solid var(--border);
+  user-select: none;
 }
 .quest-item:last-child { border-bottom: none; }
 .quest-item:active { background: rgba(255,255,255,0.03); }
@@ -307,414 +306,413 @@ user-select: none;
 .quest-item.done .qi-name { text-decoration: line-through; }
 
 .qi-check {
-width: 20px; height: 20px;
-border: 1.5px solid var(–border2);
-border-radius: 4px;
-flex-shrink: 0;
-display: flex;
-align-items: center;
-justify-content: center;
-transition: all 0.2s;
-background: var(–bg3);
+  width: 20px; height: 20px;
+  border: 1.5px solid var(--border2);
+  border-radius: 4px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  background: var(--bg3);
 }
 .quest-item.done .qi-check {
-background: var(–green-dim);
-border-color: var(–green);
+  background: var(--green-dim);
+  border-color: var(--green);
 }
 .qi-check-inner {
-width: 10px; height: 10px;
-background: var(–green2);
-border-radius: 2px;
-opacity: 0;
-transform: scale(0);
-transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+  width: 10px; height: 10px;
+  background: var(--green2);
+  border-radius: 2px;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
 }
 .quest-item.done .qi-check-inner {
-opacity: 1;
-transform: scale(1);
+  opacity: 1;
+  transform: scale(1);
 }
 
 .qi-content { flex: 1; }
 .qi-name {
-font-size: 20px;
-font-weight: 600;
-color: var(–text);
-line-height: 1.4;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.4;
 }
 .qi-detail {
-font-size: 15px;
-color: var(–text2);
-font-style: italic;
-line-height: 1.4;
-margin-top: 2px;
+  font-size: 15px;
+  color: var(--text2);
+  font-style: italic;
+  line-height: 1.4;
+  margin-top: 2px;
 }
 .qi-nn {
-font-size: 13px;
-font-weight: 600;
-color: var(–gold);
-letter-spacing: 0.5px;
-font-family: ‘DM Mono’, monospace;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.5px;
+  font-family: 'DM Mono', monospace;
 }
 
 .qi-xp {
-font-family: ‘DM Mono’, monospace;
-font-size: 13px;
-color: var(–gold-dim);
-flex-shrink: 0;
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  color: var(--gold-dim);
+  flex-shrink: 0;
 }
-.quest-item.done .qi-xp { color: var(–green); }
+.quest-item.done .qi-xp { color: var(--green); }
 
 /* ── FS INPUT ── */
 .fs-input-wrap {
-padding: 10px 14px;
-display: flex;
-align-items: center;
-gap: 10px;
-border-bottom: 1px solid var(–border);
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid var(--border);
 }
-.fs-input-label { font-size: 20px; color: var(–text2); flex:1; }
+.fs-input-label { font-size: 20px; color: var(--text2); flex:1; }
 .fs-input {
-width: 60px;
-background: var(–bg3);
-border: 1px solid var(–border2);
-border-radius: 4px;
-color: var(–text);
-font-family: ‘DM Mono’, monospace;
-font-size: 18px;
-padding: 6px 10px;
-text-align: center;
+  width: 60px;
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  border-radius: 4px;
+  color: var(--text);
+  font-family: 'DM Mono', monospace;
+  font-size: 18px;
+  padding: 6px 10px;
+  text-align: center;
 }
 .fs-log-btn {
-background: var(–purple-dim);
-border: 1px solid var(–purple);
-color: var(–purple2);
-border-radius: 4px;
-padding: 4px 10px;
-font-size: 16px;
-font-family: ‘DM Mono’, monospace;
-cursor: pointer;
-transition: all 0.2s;
+  background: var(--purple-dim);
+  border: 1px solid var(--purple);
+  color: var(--purple2);
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: 16px;
+  font-family: 'DM Mono', monospace;
+  cursor: pointer;
+  transition: all 0.2s;
 }
-.fs-log-btn:active { background: var(–purple); color: white; }
+.fs-log-btn:active { background: var(--purple); color: white; }
 
 /* ── PROGRESS BARS ── */
 .progress-section {
-margin-bottom: 14px;
-background: var(–bg2);
-border: 1px solid var(–border);
-border-radius: 8px;
-padding: 14px;
+  margin-bottom: 14px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px;
 }
 .progress-title {
-font-family: ‘Cinzel’, serif;
-font-size: 18px;
-color: var(–text2);
-letter-spacing: 0.5px;
-margin-bottom: 10px;
-display: flex;
-justify-content: space-between;
-align-items: center;
+  font-family: 'Cinzel', serif;
+  font-size: 18px;
+  color: var(--text2);
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .progress-item { margin-bottom: 12px; }
 .progress-item:last-child { margin-bottom: 0; }
 .progress-row {
-display: flex;
-justify-content: space-between;
-align-items: center;
-margin-bottom: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
 }
 .progress-name { font-size: 20px; }
 .progress-val {
-font-family: ‘DM Mono’, monospace;
-font-size: 13px;
-color: var(–text2);
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  color: var(--text2);
 }
 .pbar {
-height: 5px;
-background: var(–bg3);
-border-radius: 3px;
-overflow: hidden;
-border: 1px solid var(–border);
+  height: 5px;
+  background: var(--bg3);
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid var(--border);
 }
 .pbar-fill {
-height: 100%;
-border-radius: 3px;
-transition: width 0.8s cubic-bezier(0.4,0,0.2,1);
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.8s cubic-bezier(0.4,0,0.2,1);
 }
 
 /* ── BADGES ── */
 .badges-grid {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 12px;
-margin-bottom: 14px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 14px;
 }
 .badge-card {
-background: var(–bg2);
-border: 1px solid var(–border);
-border-radius: 8px;
-padding: 16px 10px;
-text-align: center;
-transition: all 0.3s;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 10px;
+  text-align: center;
+  transition: all 0.3s;
 }
 .badge-card.earned {
-border-color: var(–gold);
-background: radial-gradient(circle at center, rgba(201,168,76,0.1) 0%, var(–bg2) 70%);
-box-shadow: 0 0 12px rgba(201,168,76,0.15);
+  border-color: var(--gold);
+  background: radial-gradient(circle at center, rgba(201,168,76,0.1) 0%, var(--bg2) 70%);
+  box-shadow: 0 0 12px rgba(201,168,76,0.15);
 }
 .badge-icon { font-size: 34px; margin-bottom: 6px; filter: grayscale(1); opacity: 0.3; }
 .badge-card.earned .badge-icon { filter: none; opacity: 1; }
 .badge-name {
-font-size: 15px;
-font-family: ‘DM Mono’, monospace;
-color: var(–text2);
-letter-spacing: 0.3px;
-line-height: 1.4;
+  font-size: 15px;
+  font-family: 'DM Mono', monospace;
+  color: var(--text2);
+  letter-spacing: 0.3px;
+  line-height: 1.4;
 }
-.badge-card.earned .badge-name { color: var(–gold); }
+.badge-card.earned .badge-name { color: var(--gold); }
 .badge-req {
-font-size: 13px;
-color: var(–text2);
-margin-top: 4px;
-font-style: italic;
+  font-size: 13px;
+  color: var(--text2);
+  margin-top: 4px;
+  font-style: italic;
 }
 
 /* ── LEVEL ROAD ── */
 .level-road { margin-bottom: 14px; }
 .road-item {
-display: flex;
-gap: 12px;
-margin-bottom: 2px;
-position: relative;
+  display: flex;
+  gap: 12px;
+  margin-bottom: 2px;
+  position: relative;
 }
 .road-item::before {
-content: ‘’;
-position: absolute;
-left: 21px;
-top: 44px;
-width: 1px;
-height: calc(100% + 2px);
-background: var(–border);
+  content: '';
+  position: absolute;
+  left: 21px;
+  top: 44px;
+  width: 1px;
+  height: calc(100% + 2px);
+  background: var(--border);
 }
 .road-item:last-child::before { display: none; }
 .road-dot {
-width: 42px; height: 42px;
-border-radius: 50%;
-border: 2px solid var(–border2);
-display: flex;
-align-items: center;
-justify-content: center;
-font-family: ‘Cinzel’, serif;
-font-size: 16px;
-flex-shrink: 0;
-background: var(–bg2);
-position: relative;
-z-index: 1;
-transition: all 0.3s;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  border: 2px solid var(--border2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cinzel', serif;
+  font-size: 16px;
+  flex-shrink: 0;
+  background: var(--bg2);
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s;
 }
 .road-item.current .road-dot {
-border-color: var(–gold);
-background: radial-gradient(circle, #2a1e00, #1a1200);
-color: var(–gold);
-box-shadow: 0 0 12px rgba(201,168,76,0.3);
+  border-color: var(--gold);
+  background: radial-gradient(circle, #2a1e00, #1a1200);
+  color: var(--gold);
+  box-shadow: 0 0 12px rgba(201,168,76,0.3);
 }
 .road-item.completed .road-dot {
-border-color: var(–green);
-background: var(–green-dim);
-color: var(–green2);
+  border-color: var(--green);
+  background: var(--green-dim);
+  color: var(--green2);
 }
 .road-item.locked .road-dot { opacity: 0.3; }
 .road-content {
-padding: 6px 0 14px;
-flex: 1;
+  padding: 6px 0 14px;
+  flex: 1;
 }
 .road-title {
-font-family: ‘Cinzel’, serif;
-font-size: 20px;
-color: var(–text);
-margin-bottom: 4px;
+  font-family: 'Cinzel', serif;
+  font-size: 20px;
+  color: var(--text);
+  margin-bottom: 4px;
 }
-.road-item.current .road-title { color: var(–gold2); }
-.road-item.completed .road-title { color: var(–green2); }
-.road-item.locked .road-title { color: var(–text3); }
+.road-item.current .road-title { color: var(--gold2); }
+.road-item.completed .road-title { color: var(--green2); }
+.road-item.locked .road-title { color: var(--text3); }
 .road-detail {
-font-size: 16px;
-color: var(–text2);
-font-style: italic;
-margin-bottom: 6px;
+  font-size: 16px;
+  color: var(--text2);
+  font-style: italic;
+  margin-bottom: 6px;
 }
 .road-streak {
-display: flex;
-align-items: center;
-gap: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 .streak-pips {
-display: flex;
-gap: 3px;
+  display: flex;
+  gap: 3px;
 }
 .pip {
-width: 12px; height: 12px;
-border-radius: 2px;
-background: var(–border);
-transition: background 0.3s;
+  width: 12px; height: 12px;
+  border-radius: 2px;
+  background: var(--border);
+  transition: background 0.3s;
 }
-.pip.filled { background: var(–gold); }
-.pip.filled.green { background: var(–green); }
+.pip.filled { background: var(--gold); }
+.pip.filled.green { background: var(--green); }
 .streak-label {
-font-size: 15px;
-font-family: ‘DM Mono’, monospace;
-color: var(–text2);
+  font-size: 15px;
+  font-family: 'DM Mono', monospace;
+  color: var(--text2);
 }
 
 /* ── LOG ── */
 .log-entry {
-display: flex;
-gap: 10px;
-padding: 8px 0;
-border-bottom: 1px solid var(–border);
-font-size: 18px;
+  display: flex;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 18px;
 }
 .log-time {
-font-family: ‘DM Mono’, monospace;
-font-size: 15px;
-color: var(–text2);
-min-width: 50px;
-margin-top: 2px;
+  font-family: 'DM Mono', monospace;
+  font-size: 15px;
+  color: var(--text2);
+  min-width: 50px;
+  margin-top: 2px;
 }
 .log-text { flex: 1; line-height: 1.4; }
 .log-xp {
-font-family: ‘DM Mono’, monospace;
-font-size: 17px;
-color: var(–gold);
-flex-shrink: 0;
+  font-family: 'DM Mono', monospace;
+  font-size: 17px;
+  color: var(--gold);
+  flex-shrink: 0;
 }
 
 /* ── TOAST / XP POP ── */
 .toast {
-position: fixed;
-top: 20px;
-left: 50%;
-transform: translateX(-50%) translateY(-80px);
-background: var(–bg2);
-border: 1px solid var(–gold);
-border-radius: 8px;
-padding: 10px 18px;
-font-family: ‘Cinzel’, serif;
-font-size: 15px;
-color: var(–gold);
-box-shadow: 0 4px 24px rgba(0,0,0,0.5), 0 0 20px rgba(201,168,76,0.2);
-z-index: 1000;
-transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
-text-align: center;
-max-width: 280px;
-white-space: nowrap;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-80px);
+  background: var(--bg2);
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-family: 'Cinzel', serif;
+  font-size: 15px;
+  color: var(--gold);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.5), 0 0 20px rgba(201,168,76,0.2);
+  z-index: 1000;
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+  text-align: center;
+  max-width: 280px;
+  white-space: nowrap;
 }
 .toast.show { transform: translateX(-50%) translateY(0); }
 
 /* ── RESET BTN ── */
 .quest-item.locked {
-opacity: 0.35;
-pointer-events: none;
-filter: grayscale(0.5);
+  opacity: 0.35;
+  pointer-events: none;
+  filter: grayscale(0.5);
 }
 .quest-item.locked .qi-name::after {
-content: ’ 🔒’;
-font-size: 11px;
+  content: ' 🔒';
+  font-size: 11px;
 }
 .qi-level-tag {
-font-size: 13px;
-font-family: ‘DM Mono’, monospace;
-color: var(–text3);
-background: var(–bg3);
-border-radius: 3px;
-padding: 1px 5px;
-margin-top: 2px;
-display: inline-block;
+  font-size: 13px;
+  font-family: 'DM Mono', monospace;
+  color: var(--text3);
+  background: var(--bg3);
+  border-radius: 3px;
+  padding: 1px 5px;
+  margin-top: 2px;
+  display: inline-block;
 }
 .reset-btn {
-display: block;
-margin: 20px auto 0;
-background: transparent;
-border: 1px solid var(–border2);
-color: var(–text2);
-border-radius: 4px;
-padding: 8px 16px;
-font-size: 16px;
-font-family: ‘DM Mono’, monospace;
-cursor: pointer;
-transition: all 0.2s;
+  display: block;
+  margin: 20px auto 0;
+  background: transparent;
+  border: 1px solid var(--border2);
+  color: var(--text2);
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 16px;
+  font-family: 'DM Mono', monospace;
+  cursor: pointer;
+  transition: all 0.2s;
 }
-.reset-btn:active { border-color: var(–red); color: var(–red2); }
+.reset-btn:active { border-color: var(--red); color: var(--red2); }
 
 /* ── LEVEL UP OVERLAY ── */
 .levelup-overlay {
-position: fixed;
-inset: 0;
-background: rgba(0,0,0,0.85);
-z-index: 2000;
-display: flex;
-align-items: center;
-justify-content: center;
-opacity: 0;
-pointer-events: none;
-transition: opacity 0.4s;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s;
 }
 .levelup-overlay.show { opacity: 1; pointer-events: all; }
 .levelup-box {
-background: var(–bg2);
-border: 2px solid var(–gold);
-border-radius: 16px;
-padding: 32px 24px;
-text-align: center;
-max-width: 300px;
-box-shadow: 0 0 60px rgba(201,168,76,0.3);
-transform: scale(0.8);
-transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+  background: var(--bg2);
+  border: 2px solid var(--gold);
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  max-width: 300px;
+  box-shadow: 0 0 60px rgba(201,168,76,0.3);
+  transform: scale(0.8);
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
 }
 .levelup-overlay.show .levelup-box { transform: scale(1); }
 .levelup-star { font-size: 48px; margin-bottom: 8px; animation: spin 2s linear infinite; }
 @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 .levelup-title {
-font-family: ‘Cinzel’, serif;
-font-size: 13px;
-letter-spacing: 3px;
-color: var(–gold-dim);
-text-transform: uppercase;
-margin-bottom: 6px;
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  margin-bottom: 6px;
 }
 .levelup-level {
-font-family: ‘Cinzel’, serif;
-font-size: 32px;
-font-weight: 700;
-color: var(–gold);
-margin-bottom: 4px;
+  font-family: 'Cinzel', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 4px;
 }
 .levelup-name {
-font-size: 20px;
-color: var(–text);
-margin-bottom: 8px;
-font-style: italic;
+  font-size: 20px;
+  color: var(--text);
+  margin-bottom: 8px;
+  font-style: italic;
 }
 .levelup-desc {
-font-size: 15px;
-color: var(–text2);
-margin-bottom: 20px;
-line-height: 1.5;
+  font-size: 15px;
+  color: var(--text2);
+  margin-bottom: 20px;
+  line-height: 1.5;
 }
 .levelup-btn {
-background: linear-gradient(135deg, var(–gold-dim), var(–gold));
-border: none;
-border-radius: 6px;
-padding: 10px 24px;
-font-family: ‘Cinzel’, serif;
-font-size: 15px;
-color: #1a1000;
-cursor: pointer;
-font-weight: 600;
-letter-spacing: 0.5px;
+  background: linear-gradient(135deg, var(--gold-dim), var(--gold));
+  border: none;
+  border-radius: 6px;
+  padding: 10px 24px;
+  font-family: 'Cinzel', serif;
+  font-size: 15px;
+  color: #1a1000;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 </style>
-
 </head>
 <body>
 
@@ -734,7 +732,6 @@ letter-spacing: 0.5px;
 <div class="app">
 
   <!-- HERO -->
-
   <div class="hero">
     <div class="hero-top">
       <div class="hero-title">🦋 My Life 2026</div>
@@ -778,7 +775,6 @@ letter-spacing: 0.5px;
   </div>
 
   <!-- TABS -->
-
   <div class="tabs">
     <div class="tab active" onclick="switchTab('today')">Today</div>
     <div class="tab" onclick="switchTab('progress')">Progress</div>
@@ -788,707 +784,698 @@ letter-spacing: 0.5px;
   </div>
 
   <!-- ══ TODAY PANEL ══ -->
-
   <div class="panel active" id="panel-today">
 
-```
-<!-- THURSDAY REST DAY BANNER -->
-<div id="thursdayMsg" style="display:none;background:var(--teal-dim);border:1px solid var(--teal);border-radius:8px;padding:12px 14px;margin-bottom:12px;">
-  <div style="font-family:'Cinzel',serif;font-size:20px;color:var(--teal);margin-bottom:4px;">🌿 Thursday — Rest Day</div>
-  <div style="font-size:20px;color:var(--text2);line-height:1.8;">No field service. No work. Just Bible + Daily Text + taking care of yourself.<br>
-  <span style="font-size:18px;color:var(--text3);font-style:italic;">Low energy rule today: Bible + Daily Text + Brush teeth + Wash face &#10003;</span></div>
-</div>
+    <!-- THURSDAY REST DAY BANNER -->
+    <div id="thursdayMsg" style="display:none;background:var(--teal-dim);border:1px solid var(--teal);border-radius:8px;padding:12px 14px;margin-bottom:12px;">
+      <div style="font-family:'Cinzel',serif;font-size:20px;color:var(--teal);margin-bottom:4px;">🌿 Thursday — Rest Day</div>
+      <div style="font-size:20px;color:var(--text2);line-height:1.8;">No field service. No work. Just Bible + Daily Text + taking care of yourself.<br>
+      <span style="font-size:18px;color:var(--text3);font-style:italic;">Low energy rule today: Bible + Daily Text + Brush teeth + Wash face &#10003;</span></div>
+    </div>
 
-<!-- LOW ENERGY REMINDER -->
-<div style="background:var(--blue-dim);border:1px solid var(--blue);border-radius:8px;padding:10px 14px;margin-bottom:12px;">
-  <div style="font-size:20px;color:var(--blue);line-height:1.8;font-style:italic;">
-    💙 <strong>Low energy rule:</strong> Bible (2ch) + Daily Text + Field Service + Brush teeth + Wash face = complete day ✓
-  </div>
-</div>
+    <!-- LOW ENERGY REMINDER -->
+    <div style="background:var(--blue-dim);border:1px solid var(--blue);border-radius:8px;padding:10px 14px;margin-bottom:12px;">
+      <div style="font-size:20px;color:var(--blue);line-height:1.8;font-style:italic;">
+        💙 <strong>Low energy rule:</strong> Bible (2ch) + Daily Text + Field Service + Brush teeth + Wash face = complete day ✓
+      </div>
+    </div>
 
-<!-- NON-NEGOTIABLES -->
-<div class="quest-section">
-  <div class="quest-section-head" onclick="toggleSection(this)">
-    <div class="quest-section-title">
-      <span style="color:var(--gold)">★</span>
-      <span style="color:var(--gold)">Non-Negotiables</span>
-      <span style="font-size:16px;color:var(--text3);font-family:'DM Mono',monospace">(must do daily)</span>
-    </div>
-    <div class="quest-section-xp" id="nn-xp">0/3 done</div>
-  </div>
-  <div class="quest-section-body" id="nn-body" style="background:#fdf6e8;">
-    <div class="quest-item" onclick="toggleQuest(this,'nn','bible',25)" data-id="nn-bible" style="background:#fdf6e8;">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">★ Bible Reading — 2 Chapters</div>
-        <div class="qi-detail">Open NWT → read next 2 chapters from Isaiah onward</div>
-        <div class="qi-nn">NON-NEGOTIABLE</div>
+    <!-- NON-NEGOTIABLES -->
+    <div class="quest-section">
+      <div class="quest-section-head" onclick="toggleSection(this)">
+        <div class="quest-section-title">
+          <span style="color:var(--gold)">★</span>
+          <span style="color:var(--gold)">Non-Negotiables</span>
+          <span style="font-size:16px;color:var(--text3);font-family:'DM Mono',monospace">(must do daily)</span>
+        </div>
+        <div class="quest-section-xp" id="nn-xp">0/3 done</div>
       </div>
-      <div style="font-family:monospace;font-size:20px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+25 XP</div>
-    </div>
-    <div class="quest-item" onclick="toggleQuest(this,'nn','dailytext',15)" data-id="nn-dailytext" style="background:#faeedd;">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">★ Daily Text</div>
-        <div class="qi-detail">JW Library app → Daily Text → read and reflect</div>
-        <div class="qi-nn">NON-NEGOTIABLE</div>
+      <div class="quest-section-body" id="nn-body" style="background:#fdf6e8;">
+        <div class="quest-item" onclick="toggleQuest(this,'nn','bible',25)" data-id="nn-bible" style="background:#fdf6e8;">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">★ Bible Reading — 2 Chapters</div>
+            <div class="qi-detail">Open NWT → read next 2 chapters from Isaiah onward</div>
+            <div class="qi-nn">NON-NEGOTIABLE</div>
+          </div>
+          <div style="font-family:monospace;font-size:20px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+25 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'nn','dailytext',15)" data-id="nn-dailytext" style="background:#faeedd;">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">★ Daily Text</div>
+            <div class="qi-detail">JW Library app → Daily Text → read and reflect</div>
+            <div class="qi-nn">NON-NEGOTIABLE</div>
+          </div>
+          <div style="font-family:monospace;font-size:20px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'nn','fs',30)" data-id="nn-fs" style="background:#fdf6e8;">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">★ Field Service (any form)</div>
+            <div class="qi-detail">Brandon group / Zoom / letters / research / calls</div>
+            <div class="qi-nn">NON-NEGOTIABLE</div>
+          </div>
+          <div style="font-family:monospace;font-size:20px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+30 XP</div>
+        </div>
       </div>
-      <div style="font-family:monospace;font-size:20px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
     </div>
-    <div class="quest-item" onclick="toggleQuest(this,'nn','fs',30)" data-id="nn-fs" style="background:#fdf6e8;">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">★ Field Service (any form)</div>
-        <div class="qi-detail">Brandon group / Zoom / letters / research / calls</div>
-        <div class="qi-nn">NON-NEGOTIABLE</div>
-      </div>
-      <div style="font-family:monospace;font-size:20px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+30 XP</div>
-    </div>
-  </div>
-</div>
 
-<!-- SPIRITUAL -->
-<div class="quest-section">
-  <div class="quest-section-head" onclick="toggleSection(this)">
-    <div class="quest-section-title" style="color:var(--green2)">
-      <span>✦</span><span>Spiritual Study</span>
-    </div>
-    <div class="quest-section-xp" id="spir-xp">+0 XP</div>
-  </div>
-  <div class="quest-section-body collapsed" id="spir-body">
-    <div class="quest-item" onclick="toggleQuest(this,'spir','ls',10)" data-id="spir-ls" data-level="1">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Life Stories (#2)</div>
-        <div class="qi-detail">jw.org → Videos → Life Stories → watch 1 story</div>
+    <!-- SPIRITUAL -->
+    <div class="quest-section">
+      <div class="quest-section-head" onclick="toggleSection(this)">
+        <div class="quest-section-title" style="color:var(--green2)">
+          <span>✦</span><span>Spiritual Study</span>
+        </div>
+        <div class="quest-section-xp" id="spir-xp">+0 XP</div>
       </div>
-      <div class="qi-xp">+10 XP</div>
-    </div>
-    <div class="quest-item" onclick="toggleQuest(this,'spir','wt',15)" data-id="spir-wt" data-level="2">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Watchtower Article (#3)</div>
-        <div class="qi-detail">Open Watchtower study edition → read & mark 1 article</div>
+      <div class="quest-section-body collapsed" id="spir-body">
+        <div class="quest-item" onclick="toggleQuest(this,'spir','ls',10)" data-id="spir-ls" data-level="1">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Life Stories (#2)</div>
+            <div class="qi-detail">jw.org → Videos → Life Stories → watch 1 story</div>
+          </div>
+          <div class="qi-xp">+10 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'spir','wt',15)" data-id="spir-wt" data-level="2">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Watchtower Article (#3)</div>
+            <div class="qi-detail">Open Watchtower study edition → read & mark 1 article</div>
+          </div>
+          <div style="font-family:monospace;font-size:20px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'spir','tr',15)" data-id="spir-tr" data-level="2">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Treasures from God's Word (#4)</div>
+            <div class="qi-detail">JW Library → Meeting Workbook → Treasures section</div>
+          </div>
+          <div style="font-family:monospace;font-size:20px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'spir','cbs',15)" data-id="spir-cbs" data-level="2">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Congregation Bible Study (#5)</div>
+            <div class="qi-detail">JW Library → current CBS material → read & prepare</div>
+          </div>
+          <div style="font-family:monospace;font-size:20px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'spir','lm',15)" data-id="spir-lm" data-level="2">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Life and Ministry (#6)</div>
+            <div class="qi-detail">JW Library → Life & Ministry Meeting Workbook</div>
+          </div>
+          <div style="font-family:monospace;font-size:20px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'spir','ps',20)" data-id="spir-ps" data-level="3">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Personal Study (#7)</div>
+            <div class="qi-detail">Open your study notes → deep study 1 hour</div>
+          </div>
+          <div class="qi-xp">+20 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'spir','pl',15)" data-id="spir-pl" data-level="3">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Prophecies / Literature (#8)</div>
+            <div class="qi-detail">'La prophétie d'Isaïe' or 'Marche courageusement'</div>
+          </div>
+          <div style="font-family:monospace;font-size:20px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
+        </div>
       </div>
-      <div style="font-family:monospace;font-size:20px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
     </div>
-    <div class="quest-item" onclick="toggleQuest(this,'spir','tr',15)" data-id="spir-tr" data-level="2">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Treasures from God's Word (#4)</div>
-        <div class="qi-detail">JW Library → Meeting Workbook → Treasures section</div>
-      </div>
-      <div style="font-family:monospace;font-size:20px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
-    </div>
-    <div class="quest-item" onclick="toggleQuest(this,'spir','cbs',15)" data-id="spir-cbs" data-level="2">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Congregation Bible Study (#5)</div>
-        <div class="qi-detail">JW Library → current CBS material → read & prepare</div>
-      </div>
-      <div style="font-family:monospace;font-size:20px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
-    </div>
-    <div class="quest-item" onclick="toggleQuest(this,'spir','lm',15)" data-id="spir-lm" data-level="2">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Life and Ministry (#6)</div>
-        <div class="qi-detail">JW Library → Life & Ministry Meeting Workbook</div>
-      </div>
-      <div style="font-family:monospace;font-size:20px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
-    </div>
-    <div class="quest-item" onclick="toggleQuest(this,'spir','ps',20)" data-id="spir-ps" data-level="3">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Personal Study (#7)</div>
-        <div class="qi-detail">Open your study notes → deep study 1 hour</div>
-      </div>
-      <div class="qi-xp">+20 XP</div>
-    </div>
-    <div class="quest-item" onclick="toggleQuest(this,'spir','pl',15)" data-id="spir-pl" data-level="3">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Prophecies / Literature (#8)</div>
-        <div class="qi-detail">'La prophétie d'Isaïe' or 'Marche courageusement'</div>
-      </div>
-      <div style="font-family:monospace;font-size:20px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
-    </div>
-  </div>
-</div>
 
-<!-- FIELD SERVICE LOG -->
-<div class="quest-section">
-  <div class="quest-section-head" onclick="toggleSection(this)">
-    <div class="quest-section-title" style="color:var(--purple2)">
-      <span>🟣</span><span>Field Service Log</span>
-    </div>
-    <div class="quest-section-xp" id="fs-xp-display">+0 XP</div>
-  </div>
-  <div class="quest-section-body collapsed" id="fs-body">
-    <div class="fs-input-wrap">
-      <div class="fs-input-label">Log hours today:</div>
-      <input class="fs-input" type="number" id="fsHoursInput" min="0" max="12" step="0.5" placeholder="0">
-      <button class="fs-log-btn" onclick="logFSHours()">Log</button>
-    </div>
-    <div class="quest-item" onclick="toggleQuest(this,'fs','zoom',20)" data-id="fs-zoom" data-level="1">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Zoom Session attended</div>
-        <div class="qi-detail">Mon 5:30 PM or Wed afternoon — log in from home</div>
+    <!-- FIELD SERVICE LOG -->
+    <div class="quest-section">
+      <div class="quest-section-head" onclick="toggleSection(this)">
+        <div class="quest-section-title" style="color:var(--purple2)">
+          <span>🟣</span><span>Field Service Log</span>
+        </div>
+        <div class="quest-section-xp" id="fs-xp-display">+0 XP</div>
       </div>
-      <div class="qi-xp">+20 XP</div>
-    </div>
-    <div class="quest-item" onclick="toggleQuest(this,'fs','brandon',35)" data-id="fs-brandon" data-level="1">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Brandon group — went out</div>
-        <div class="qi-detail">Group met at your house → went door to door</div>
+      <div class="quest-section-body collapsed" id="fs-body">
+        <div class="fs-input-wrap">
+          <div class="fs-input-label">Log hours today:</div>
+          <input class="fs-input" type="number" id="fsHoursInput" min="0" max="12" step="0.5" placeholder="0">
+          <button class="fs-log-btn" onclick="logFSHours()">Log</button>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'fs','zoom',20)" data-id="fs-zoom" data-level="1">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Zoom Session attended</div>
+            <div class="qi-detail">Mon 5:30 PM or Wed afternoon — log in from home</div>
+          </div>
+          <div class="qi-xp">+20 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'fs','brandon',35)" data-id="fs-brandon" data-level="1">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Brandon group — went out</div>
+            <div class="qi-detail">Group met at your house → went door to door</div>
+          </div>
+          <div class="qi-xp">+35 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'fs','letters',15)" data-id="fs-letters" data-level="1">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Letters / Research / Calls</div>
+            <div class="qi-detail">Home-based service — letters, territory research, or calls</div>
+          </div>
+          <div style="font-family:monospace;font-size:20px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'fs','riverview',40)" data-id="fs-riverview" data-level="4">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Riverview group visit 🌟</div>
+            <div class="qi-detail">Mon 10AM–1PM — bonus 3 hrs (Level 3+ only)</div>
+          </div>
+          <div class="qi-xp">+40 XP</div>
+        </div>
       </div>
-      <div class="qi-xp">+35 XP</div>
     </div>
-    <div class="quest-item" onclick="toggleQuest(this,'fs','letters',15)" data-id="fs-letters" data-level="1">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Letters / Research / Calls</div>
-        <div class="qi-detail">Home-based service — letters, territory research, or calls</div>
-      </div>
-      <div style="font-family:monospace;font-size:20px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
-    </div>
-    <div class="quest-item" onclick="toggleQuest(this,'fs','riverview',40)" data-id="fs-riverview" data-level="4">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Riverview group visit 🌟</div>
-        <div class="qi-detail">Mon 10AM–1PM — bonus 3 hrs (Level 3+ only)</div>
-      </div>
-      <div class="qi-xp">+40 XP</div>
-    </div>
-  </div>
-</div>
 
-<!-- LANGUAGES -->
-<div class="quest-section">
-  <div class="quest-section-head" onclick="toggleSection(this)">
-    <div class="quest-section-title" style="color:var(--blue2)">
-      <span>🌐</span><span>Languages</span>
-    </div>
-    <div class="quest-section-xp" id="lang-xp">+0 XP</div>
-  </div>
-  <div class="quest-section-body collapsed" id="lang-body">
-    <div class="quest-item" onclick="toggleQuest(this,'lang','busuu',15)" data-id="lang-busuu" data-level="1">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Spanish — Busuu (1 lesson)</div>
-        <div class="qi-detail">Open Busuu → complete 1 Spanish lesson</div>
+    <!-- LANGUAGES -->
+    <div class="quest-section">
+      <div class="quest-section-head" onclick="toggleSection(this)">
+        <div class="quest-section-title" style="color:var(--blue2)">
+          <span>🌐</span><span>Languages</span>
+        </div>
+        <div class="quest-section-xp" id="lang-xp">+0 XP</div>
       </div>
-      <div style="font-family:monospace;font-size:20px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
-    </div>
-    <div class="quest-item" onclick="toggleQuest(this,'lang','assimil',12)" data-id="lang-assimil" data-level="2">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Spanish — Assimil (1 page)</div>
-        <div class="qi-detail">Open 'Spanish with Ease' → next page or dialogue</div>
+      <div class="quest-section-body collapsed" id="lang-body">
+        <div class="quest-item" onclick="toggleQuest(this,'lang','busuu',15)" data-id="lang-busuu" data-level="1">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Spanish — Busuu (1 lesson)</div>
+            <div class="qi-detail">Open Busuu → complete 1 Spanish lesson</div>
+          </div>
+          <div style="font-family:monospace;font-size:20px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'lang','assimil',12)" data-id="lang-assimil" data-level="2">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Spanish — Assimil (1 page)</div>
+            <div class="qi-detail">Open 'Spanish with Ease' → next page or dialogue</div>
+          </div>
+          <div class="qi-xp">+12 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'lang','dreaming',8)" data-id="lang-dreaming" data-level="4">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Spanish — Dreaming Spanish</div>
+            <div class="qi-detail">YouTube @DreamingSpanish → 1 video (Super Beginner)</div>
+          </div>
+          <div class="qi-xp">+8 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'lang','asl',12)" data-id="lang-asl" data-level="3">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">ASL — Lifeprint (next lesson)</div>
+            <div class="qi-detail">YouTube @Lifeprint → next lesson in sequence</div>
+          </div>
+          <div class="qi-xp">+12 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'lang','journal',10)" data-id="lang-journal" data-level="3">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Language Journal</div>
+            <div class="qi-detail">1 sentence in Spanish + 1 sentence in French</div>
+          </div>
+          <div class="qi-xp">+10 XP</div>
+        </div>
       </div>
-      <div class="qi-xp">+12 XP</div>
     </div>
-    <div class="quest-item" onclick="toggleQuest(this,'lang','dreaming',8)" data-id="lang-dreaming" data-level="4">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Spanish — Dreaming Spanish</div>
-        <div class="qi-detail">YouTube @DreamingSpanish → 1 video (Super Beginner)</div>
-      </div>
-      <div class="qi-xp">+8 XP</div>
-    </div>
-    <div class="quest-item" onclick="toggleQuest(this,'lang','asl',12)" data-id="lang-asl" data-level="3">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">ASL — Lifeprint (next lesson)</div>
-        <div class="qi-detail">YouTube @Lifeprint → next lesson in sequence</div>
-      </div>
-      <div class="qi-xp">+12 XP</div>
-    </div>
-    <div class="quest-item" onclick="toggleQuest(this,'lang','journal',10)" data-id="lang-journal" data-level="3">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Language Journal</div>
-        <div class="qi-detail">1 sentence in Spanish + 1 sentence in French</div>
-      </div>
-      <div class="qi-xp">+10 XP</div>
-    </div>
-  </div>
-</div>
 
-<!-- EXERCISE -->
-<div class="quest-section">
-  <div class="quest-section-head" onclick="toggleSection(this)">
-    <div class="quest-section-title" style="color:var(--orange2)">
-      <span>⚡</span><span>Exercise</span>
-    </div>
-    <div class="quest-section-xp" id="ex-xp">+0 XP</div>
-  </div>
-  <div class="quest-section-body collapsed" id="ex-body">
-    <div class="quest-item" onclick="toggleQuest(this,'ex','stretch',10)" data-id="ex-stretch" data-level="2">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Gentle stretch / yoga (5–15 min)</div>
-        <div class="qi-detail">Sworkit → Stretching or Yoga → any duration</div>
+    <!-- EXERCISE -->
+    <div class="quest-section">
+      <div class="quest-section-head" onclick="toggleSection(this)">
+        <div class="quest-section-title" style="color:var(--orange2)">
+          <span>⚡</span><span>Exercise</span>
+        </div>
+        <div class="quest-section-xp" id="ex-xp">+0 XP</div>
       </div>
-      <div class="qi-xp">+10 XP</div>
-    </div>
-    <div class="quest-item" onclick="toggleQuest(this,'ex','workout',20)" data-id="ex-workout" data-level="4">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Full workout (20–45 min)</div>
-        <div class="qi-detail">Sworkit → Cardio or Strength → heart-safe pace</div>
+      <div class="quest-section-body collapsed" id="ex-body">
+        <div class="quest-item" onclick="toggleQuest(this,'ex','stretch',10)" data-id="ex-stretch" data-level="2">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Gentle stretch / yoga (5–15 min)</div>
+            <div class="qi-detail">Sworkit → Stretching or Yoga → any duration</div>
+          </div>
+          <div class="qi-xp">+10 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'ex','workout',20)" data-id="ex-workout" data-level="4">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Full workout (20–45 min)</div>
+            <div class="qi-detail">Sworkit → Cardio or Strength → heart-safe pace</div>
+          </div>
+          <div class="qi-xp">+20 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'ex','walk',12)" data-id="ex-walk" data-level="5">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Walking</div>
+            <div class="qi-detail">Any walk outside — 10+ minutes</div>
+          </div>
+          <div class="qi-xp">+12 XP</div>
+        </div>
       </div>
-      <div class="qi-xp">+20 XP</div>
     </div>
-    <div class="quest-item" onclick="toggleQuest(this,'ex','walk',12)" data-id="ex-walk" data-level="5">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Walking</div>
-        <div class="qi-detail">Any walk outside — 10+ minutes</div>
-      </div>
-      <div class="qi-xp">+12 XP</div>
-    </div>
-  </div>
-</div>
 
-<!-- WELLBEING -->
-<div class="quest-section">
-  <div class="quest-section-head" onclick="toggleSection(this)">
-    <div class="quest-section-title" style="color:var(--teal2)">
-      <span>🌙</span><span>Wellbeing</span>
-    </div>
-    <div class="quest-section-xp" id="wb-xp">+0 XP</div>
-  </div>
-  <div class="quest-section-body collapsed" id="wb-body">
-    <div class="quest-item" onclick="toggleQuest(this,'wb','journal',15)" data-id="wb-journal" data-level="2">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Daily journal entry</div>
-        <div class="qi-detail">Morning check-in + daily text template in notebook</div>
+    <!-- WELLBEING -->
+    <div class="quest-section">
+      <div class="quest-section-head" onclick="toggleSection(this)">
+        <div class="quest-section-title" style="color:var(--teal2)">
+          <span>🌙</span><span>Wellbeing</span>
+        </div>
+        <div class="quest-section-xp" id="wb-xp">+0 XP</div>
       </div>
-      <div style="font-family:monospace;font-size:20px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
-    </div>
-    <div class="quest-item" onclick="toggleQuest(this,'wb','meal',10)" data-id="wb-meal" data-level="4">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Meal prep done</div>
-        <div class="qi-detail">Prepared healthy meals/snacks (Tue/Thu/Sat)</div>
+      <div class="quest-section-body collapsed" id="wb-body">
+        <div class="quest-item" onclick="toggleQuest(this,'wb','journal',15)" data-id="wb-journal" data-level="2">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Daily journal entry</div>
+            <div class="qi-detail">Morning check-in + daily text template in notebook</div>
+          </div>
+          <div style="font-family:monospace;font-size:20px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'wb','meal',10)" data-id="wb-meal" data-level="4">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Meal prep done</div>
+            <div class="qi-detail">Prepared healthy meals/snacks (Tue/Thu/Sat)</div>
+          </div>
+          <div class="qi-xp">+10 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'wb','sleep',20)" data-id="wb-sleep" data-level="2">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Sleep target met last night</div>
+            <div class="qi-detail">Went to sleep at or before my current target time</div>
+          </div>
+          <div class="qi-xp">+20 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'wb','review',25)" data-id="wb-review" data-level="5">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Weekly review completed 🌟</div>
+            <div class="qi-detail">Sunday — planner + Notion + notebook all updated</div>
+          </div>
+          <div style="font-family:monospace;font-size:20px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+25 XP</div>
+        </div>
       </div>
-      <div class="qi-xp">+10 XP</div>
     </div>
-    <div class="quest-item" onclick="toggleQuest(this,'wb','sleep',20)" data-id="wb-sleep" data-level="2">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Sleep target met last night</div>
-        <div class="qi-detail">Went to sleep at or before my current target time</div>
-      </div>
-      <div class="qi-xp">+20 XP</div>
-    </div>
-    <div class="quest-item" onclick="toggleQuest(this,'wb','review',25)" data-id="wb-review" data-level="5">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Weekly review completed 🌟</div>
-        <div class="qi-detail">Sunday — planner + Notion + notebook all updated</div>
-      </div>
-      <div style="font-family:monospace;font-size:20px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+25 XP</div>
-    </div>
-  </div>
-</div>
 
 
-<!-- WORK -->
-<div class="quest-section">
-  <div class="quest-section-head" onclick="toggleSection(this)">
-    <div class="quest-section-title" style="color:var(--blue)">
-      <span>💼</span><span>Work — Interpreting</span>
-    </div>
-    <div class="quest-section-xp" id="work-xp">+0 XP</div>
-  </div>
-  <div class="quest-section-body collapsed" id="work-body">
-    <div class="fs-input-wrap">
-      <div class="fs-input-label" style="font-size:14px;">Log in hours today:</div>
-      <input class="fs-input" type="number" id="workHoursInput" min="0" max="16" step="0.5" placeholder="0">
-      <button class="fs-log-btn" style="background:var(--blue-dim);border-color:var(--blue);color:var(--blue);" onclick="logWorkHours()">Log</button>
-    </div>
-    <div class="fs-input-wrap">
-      <div class="fs-input-label" style="font-size:14px;">Calls taken today:</div>
-      <input class="fs-input" type="number" id="workCallsInput" min="0" max="99" step="1" placeholder="0">
-      <button class="fs-log-btn" style="background:var(--blue-dim);border-color:var(--blue);color:var(--blue);" onclick="logWorkCalls()">Log</button>
-    </div>
-    <div class="fs-input-wrap">
-      <div class="fs-input-label" style="font-size:14px;">Minutes interpreted:</div>
-      <input class="fs-input" type="number" id="workMinsInput" min="0" max="960" step="1" placeholder="0">
-      <button class="fs-log-btn" style="background:var(--blue-dim);border-color:var(--blue);color:var(--blue);" onclick="logWorkMins()">Log</button>
-    </div>
-    <div class="quest-item" onclick="toggleQuest(this,'work','loggedin',20)" data-id="work-loggedin" data-level="2">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Logged in today ✓</div>
-        <div class="qi-detail">Opened interpreting platform and made myself available</div>
+    <!-- WORK -->
+    <div class="quest-section">
+      <div class="quest-section-head" onclick="toggleSection(this)">
+        <div class="quest-section-title" style="color:var(--blue)">
+          <span>💼</span><span>Work — Interpreting</span>
+        </div>
+        <div class="quest-section-xp" id="work-xp">+0 XP</div>
       </div>
-      <div class="qi-xp">+20 XP</div>
-    </div>
-    <div class="quest-item" onclick="toggleQuest(this,'work','goal',30)" data-id="work-goal" data-level="2">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Weekly login goal met 🌟</div>
-        <div class="qi-detail">Reached 16 hrs logged in this week</div>
+      <div class="quest-section-body collapsed" id="work-body">
+        <div class="fs-input-wrap">
+          <div class="fs-input-label" style="font-size:14px;">Log in hours today:</div>
+          <input class="fs-input" type="number" id="workHoursInput" min="0" max="16" step="0.5" placeholder="0">
+          <button class="fs-log-btn" style="background:var(--blue-dim);border-color:var(--blue);color:var(--blue);" onclick="logWorkHours()">Log</button>
+        </div>
+        <div class="fs-input-wrap">
+          <div class="fs-input-label" style="font-size:14px;">Calls taken today:</div>
+          <input class="fs-input" type="number" id="workCallsInput" min="0" max="99" step="1" placeholder="0">
+          <button class="fs-log-btn" style="background:var(--blue-dim);border-color:var(--blue);color:var(--blue);" onclick="logWorkCalls()">Log</button>
+        </div>
+        <div class="fs-input-wrap">
+          <div class="fs-input-label" style="font-size:14px;">Minutes interpreted:</div>
+          <input class="fs-input" type="number" id="workMinsInput" min="0" max="960" step="1" placeholder="0">
+          <button class="fs-log-btn" style="background:var(--blue-dim);border-color:var(--blue);color:var(--blue);" onclick="logWorkMins()">Log</button>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'work','loggedin',20)" data-id="work-loggedin" data-level="2">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Logged in today ✓</div>
+            <div class="qi-detail">Opened interpreting platform and made myself available</div>
+          </div>
+          <div class="qi-xp">+20 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'work','goal',30)" data-id="work-goal" data-level="2">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Weekly login goal met 🌟</div>
+            <div class="qi-detail">Reached 16 hrs logged in this week</div>
+          </div>
+          <div class="qi-xp">+30 XP</div>
+        </div>
       </div>
-      <div class="qi-xp">+30 XP</div>
     </div>
-  </div>
-</div>
 
-<!-- SELF CARE -->
-<div class="quest-section">
-  <div class="quest-section-head" onclick="toggleSection(this)">
-    <div class="quest-section-title" style="color:var(--purple)">
-      <span>🌸</span><span>Self Care</span>
-    </div>
-    <div class="quest-section-xp" id="sc-xp">+0 XP</div>
-  </div>
-  <div class="quest-section-body collapsed" id="sc-body">
-    <div class="quest-item" onclick="toggleQuest(this,'sc','teeth',5)" data-id="sc-teeth" data-level="1">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Brush teeth</div>
-        <div class="qi-detail">Morning and/or evening — non-negotiable baseline 🦷</div>
-        <div class="qi-nn" style="color:var(--purple)">BASICS — LOW ENERGY OK</div>
+    <!-- SELF CARE -->
+    <div class="quest-section">
+      <div class="quest-section-head" onclick="toggleSection(this)">
+        <div class="quest-section-title" style="color:var(--purple)">
+          <span>🌸</span><span>Self Care</span>
+        </div>
+        <div class="quest-section-xp" id="sc-xp">+0 XP</div>
       </div>
-      <div class="qi-xp">+5 XP</div>
-    </div>
-    <div class="quest-item" onclick="toggleQuest(this,'sc','face',5)" data-id="sc-face" data-level="1">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Wash face</div>
-        <div class="qi-detail">Splash of water counts — just do it 💧</div>
-        <div class="qi-nn" style="color:var(--purple)">BASICS — LOW ENERGY OK</div>
+      <div class="quest-section-body collapsed" id="sc-body">
+        <div class="quest-item" onclick="toggleQuest(this,'sc','teeth',5)" data-id="sc-teeth" data-level="1">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Brush teeth</div>
+            <div class="qi-detail">Morning and/or evening — non-negotiable baseline 🦷</div>
+            <div class="qi-nn" style="color:var(--purple)">BASICS — LOW ENERGY OK</div>
+          </div>
+          <div class="qi-xp">+5 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'sc','face',5)" data-id="sc-face" data-level="1">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Wash face</div>
+            <div class="qi-detail">Splash of water counts — just do it 💧</div>
+            <div class="qi-nn" style="color:var(--purple)">BASICS — LOW ENERGY OK</div>
+          </div>
+          <div class="qi-xp">+5 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'sc','skincare',15)" data-id="sc-skincare" data-level="3">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Skincare routine</div>
+            <div class="qi-detail">Morning and/or evening routine completed</div>
+          </div>
+          <div class="qi-xp">+15 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'sc','shower',15)" data-id="sc-shower" data-level="2">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Bath or shower</div>
+            <div class="qi-detail">Take care of your body — you deserve it 🦋</div>
+          </div>
+          <div class="qi-xp">+15 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'sc','meds',20)" data-id="sc-meds" data-level="1">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Medication / supplements</div>
+            <div class="qi-detail">Taken at the right time today</div>
+          </div>
+          <div class="qi-xp">+20 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'sc','hair-refresh',10)" data-id="sc-hair-refresh" data-level="2">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Hair refresh</div>
+            <div class="qi-detail">Scalp oil, edges, satin bonnet tonight — daily maintenance</div>
+          </div>
+          <div class="qi-xp">+10 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'sc','hair-washday',40)" data-id="sc-hair-washday" data-level="3">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Wash day 💧</div>
+            <div class="qi-detail">Every 2 weeks — shampoo/co-wash, deep condition, moisturize, new protective style</div>
+            <div class="qi-nn" style="color:var(--purple)">BIWEEKLY — DAYS 1 & 15 OF CYCLE</div>
+          </div>
+          <div class="qi-xp">+40 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'sc','hair-treatment',30)" data-id="sc-hair-treatment" data-level="4">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Hair treatment 🌿</div>
+            <div class="qi-detail">Every 2 months — protein OR moisture mask based on what your hair needs (never both same day)</div>
+            <div class="qi-nn" style="color:var(--purple)">EVERY 2 MONTHS</div>
+          </div>
+          <div class="qi-xp">+30 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'sc','nails',10)" data-id="sc-nails" data-level="5">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Nails / grooming</div>
+            <div class="qi-detail">File, trim, or treat — take your time</div>
+          </div>
+          <div class="qi-xp">+10 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'sc','mental',20)" data-id="sc-mental" data-level="5">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Mental health check-in</div>
+            <div class="qi-detail">How am I really feeling today? Honest answer in journal.</div>
+          </div>
+          <div class="qi-xp">+20 XP</div>
+        </div>
       </div>
-      <div class="qi-xp">+5 XP</div>
     </div>
-    <div class="quest-item" onclick="toggleQuest(this,'sc','skincare',15)" data-id="sc-skincare" data-level="3">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Skincare routine</div>
-        <div class="qi-detail">Morning and/or evening routine completed</div>
-      </div>
-      <div class="qi-xp">+15 XP</div>
-    </div>
-    <div class="quest-item" onclick="toggleQuest(this,'sc','shower',15)" data-id="sc-shower" data-level="2">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Bath or shower</div>
-        <div class="qi-detail">Take care of your body — you deserve it 🦋</div>
-      </div>
-      <div class="qi-xp">+15 XP</div>
-    </div>
-    <div class="quest-item" onclick="toggleQuest(this,'sc','meds',20)" data-id="sc-meds" data-level="1">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Medication / supplements</div>
-        <div class="qi-detail">Taken at the right time today</div>
-      </div>
-      <div class="qi-xp">+20 XP</div>
-    </div>
-    <div class="quest-item" onclick="toggleQuest(this,'sc','hair-refresh',10)" data-id="sc-hair-refresh" data-level="2">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Hair refresh</div>
-        <div class="qi-detail">Scalp oil, edges, satin bonnet tonight — daily maintenance</div>
-      </div>
-      <div class="qi-xp">+10 XP</div>
-    </div>
-    <div class="quest-item" onclick="toggleQuest(this,'sc','hair-washday',40)" data-id="sc-hair-washday" data-level="3">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Wash day 💧</div>
-        <div class="qi-detail">Every 2 weeks — shampoo/co-wash, deep condition, moisturize, new protective style</div>
-        <div class="qi-nn" style="color:var(--purple)">BIWEEKLY — DAYS 1 & 15 OF CYCLE</div>
-      </div>
-      <div class="qi-xp">+40 XP</div>
-    </div>
-    <div class="quest-item" onclick="toggleQuest(this,'sc','hair-treatment',30)" data-id="sc-hair-treatment" data-level="4">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Hair treatment 🌿</div>
-        <div class="qi-detail">Every 2 months — protein OR moisture mask based on what your hair needs (never both same day)</div>
-        <div class="qi-nn" style="color:var(--purple)">EVERY 2 MONTHS</div>
-      </div>
-      <div class="qi-xp">+30 XP</div>
-    </div>
-    <div class="quest-item" onclick="toggleQuest(this,'sc','nails',10)" data-id="sc-nails" data-level="5">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Nails / grooming</div>
-        <div class="qi-detail">File, trim, or treat — take your time</div>
-      </div>
-      <div class="qi-xp">+10 XP</div>
-    </div>
-    <div class="quest-item" onclick="toggleQuest(this,'sc','mental',20)" data-id="sc-mental" data-level="5">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Mental health check-in</div>
-        <div class="qi-detail">How am I really feeling today? Honest answer in journal.</div>
-      </div>
-      <div class="qi-xp">+20 XP</div>
-    </div>
-  </div>
-</div>
 
-<!-- HOME CARE -->
-<div class="quest-section">
-  <div class="quest-section-head" onclick="toggleSection(this)">
-    <div class="quest-section-title" style="color:var(--teal)">
-      <span>🏡</span><span>Home Care</span>
-    </div>
-    <div class="quest-section-xp" id="hc-xp">+0 XP</div>
-  </div>
-  <div class="quest-section-body collapsed" id="hc-body">
-    <div class="quest-item" onclick="toggleQuest(this,'hc','bed',10)" data-id="hc-bed" data-level="1">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Made my bed</div>
-        <div class="qi-detail">First win of the day — sets the tone</div>
+    <!-- HOME CARE -->
+    <div class="quest-section">
+      <div class="quest-section-head" onclick="toggleSection(this)">
+        <div class="quest-section-title" style="color:var(--teal)">
+          <span>🏡</span><span>Home Care</span>
+        </div>
+        <div class="quest-section-xp" id="hc-xp">+0 XP</div>
       </div>
-      <div class="qi-xp">+10 XP</div>
-    </div>
-    <div class="quest-item" onclick="toggleQuest(this,'hc','tidy',15)" data-id="hc-tidy" data-level="1">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Tidied bedroom</div>
-        <div class="qi-detail">Put things away, clear the floor, reset the space</div>
+      <div class="quest-section-body collapsed" id="hc-body">
+        <div class="quest-item" onclick="toggleQuest(this,'hc','bed',10)" data-id="hc-bed" data-level="1">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Made my bed</div>
+            <div class="qi-detail">First win of the day — sets the tone</div>
+          </div>
+          <div class="qi-xp">+10 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'hc','tidy',15)" data-id="hc-tidy" data-level="1">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Tidied bedroom</div>
+            <div class="qi-detail">Put things away, clear the floor, reset the space</div>
+          </div>
+          <div class="qi-xp">+15 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'hc','pillowcase',15)" data-id="hc-pillowcase" data-level="2">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Pillowcase washed</div>
+            <div class="qi-detail">Every week — collects the most oil and skin, important for skin & hair health</div>
+            <div class="qi-nn" style="color:var(--teal)">WEEKLY</div>
+          </div>
+          <div class="qi-xp">+15 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'hc','laundry',20)" data-id="hc-laundry" data-level="3">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Laundry — clothes</div>
+            <div class="qi-detail">Wash, dry, or put away — any step counts today</div>
+          </div>
+          <div class="qi-xp">+20 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'hc','towels',15)" data-id="hc-towels" data-level="3">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Towels washed</div>
+            <div class="qi-detail">Every 3–4 uses (roughly twice a week) — keep it fresh</div>
+            <div class="qi-nn" style="color:var(--teal)">2× WEEK</div>
+          </div>
+          <div class="qi-xp">+15 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'hc','bedding',25)" data-id="hc-bedding" data-level="4">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Bed sheets washed 🌟</div>
+            <div class="qi-detail">Every 1–2 weeks — fresh sheets = better sleep = better health</div>
+            <div class="qi-nn" style="color:var(--teal)">BIWEEKLY</div>
+          </div>
+          <div class="qi-xp">+25 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'hc','comforter',20)" data-id="hc-comforter" data-level="5">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Duvet / comforter washed</div>
+            <div class="qi-detail">Every 1–2 months — set a reminder so it doesn't get forgotten</div>
+            <div class="qi-nn" style="color:var(--teal)">MONTHLY</div>
+          </div>
+          <div class="qi-xp">+20 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'hc','vacuum',20)" data-id="hc-vacuum" data-level="4">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Vacuuming / sweeping</div>
+            <div class="qi-detail">At least one room — done is better than perfect</div>
+          </div>
+          <div class="qi-xp">+20 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'hc','trash',10)" data-id="hc-trash" data-level="1">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Took out trash</div>
+            <div class="qi-detail">Empty bins, take out to collection point</div>
+          </div>
+          <div class="qi-xp">+10 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'hc','declutter',25)" data-id="hc-declutter" data-level="5">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Decluttering session 🌟</div>
+            <div class="qi-detail">15 min minimum — one area, one drawer, one corner</div>
+          </div>
+          <div class="qi-xp">+25 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'hc','restroom',20)" data-id="hc-restroom" data-level="1">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Restroom cleaned</div>
+            <div class="qi-detail">Toilet, sink, mirror, floor — any step counts</div>
+          </div>
+          <div class="qi-xp">+20 XP</div>
+        </div>
+        <div class="quest-item" onclick="toggleQuest(this,'hc','bedroom',20)" data-id="hc-bedroom" data-level="4">
+          <div class="qi-check"><div class="qi-check-inner"></div></div>
+          <div class="qi-content">
+            <div class="qi-name">Bedroom deep clean</div>
+            <div class="qi-detail">Dust, wipe surfaces, organize — your sanctuary deserves it 🦋</div>
+          </div>
+          <div class="qi-xp">+20 XP</div>
+        </div>
       </div>
-      <div class="qi-xp">+15 XP</div>
     </div>
-    <div class="quest-item" onclick="toggleQuest(this,'hc','pillowcase',15)" data-id="hc-pillowcase" data-level="2">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Pillowcase washed</div>
-        <div class="qi-detail">Every week — collects the most oil and skin, important for skin & hair health</div>
-        <div class="qi-nn" style="color:var(--teal)">WEEKLY</div>
-      </div>
-      <div class="qi-xp">+15 XP</div>
-    </div>
-    <div class="quest-item" onclick="toggleQuest(this,'hc','laundry',20)" data-id="hc-laundry" data-level="3">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Laundry — clothes</div>
-        <div class="qi-detail">Wash, dry, or put away — any step counts today</div>
-      </div>
-      <div class="qi-xp">+20 XP</div>
-    </div>
-    <div class="quest-item" onclick="toggleQuest(this,'hc','towels',15)" data-id="hc-towels" data-level="3">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Towels washed</div>
-        <div class="qi-detail">Every 3–4 uses (roughly twice a week) — keep it fresh</div>
-        <div class="qi-nn" style="color:var(--teal)">2× WEEK</div>
-      </div>
-      <div class="qi-xp">+15 XP</div>
-    </div>
-    <div class="quest-item" onclick="toggleQuest(this,'hc','bedding',25)" data-id="hc-bedding" data-level="4">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Bed sheets washed 🌟</div>
-        <div class="qi-detail">Every 1–2 weeks — fresh sheets = better sleep = better health</div>
-        <div class="qi-nn" style="color:var(--teal)">BIWEEKLY</div>
-      </div>
-      <div class="qi-xp">+25 XP</div>
-    </div>
-    <div class="quest-item" onclick="toggleQuest(this,'hc','comforter',20)" data-id="hc-comforter" data-level="5">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Duvet / comforter washed</div>
-        <div class="qi-detail">Every 1–2 months — set a reminder so it doesn't get forgotten</div>
-        <div class="qi-nn" style="color:var(--teal)">MONTHLY</div>
-      </div>
-      <div class="qi-xp">+20 XP</div>
-    </div>
-    <div class="quest-item" onclick="toggleQuest(this,'hc','vacuum',20)" data-id="hc-vacuum" data-level="4">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Vacuuming / sweeping</div>
-        <div class="qi-detail">At least one room — done is better than perfect</div>
-      </div>
-      <div class="qi-xp">+20 XP</div>
-    </div>
-    <div class="quest-item" onclick="toggleQuest(this,'hc','trash',10)" data-id="hc-trash" data-level="1">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Took out trash</div>
-        <div class="qi-detail">Empty bins, take out to collection point</div>
-      </div>
-      <div class="qi-xp">+10 XP</div>
-    </div>
-    <div class="quest-item" onclick="toggleQuest(this,'hc','declutter',25)" data-id="hc-declutter" data-level="5">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Decluttering session 🌟</div>
-        <div class="qi-detail">15 min minimum — one area, one drawer, one corner</div>
-      </div>
-      <div class="qi-xp">+25 XP</div>
-    </div>
-    <div class="quest-item" onclick="toggleQuest(this,'hc','restroom',20)" data-id="hc-restroom" data-level="1">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Restroom cleaned</div>
-        <div class="qi-detail">Toilet, sink, mirror, floor — any step counts</div>
-      </div>
-      <div class="qi-xp">+20 XP</div>
-    </div>
-    <div class="quest-item" onclick="toggleQuest(this,'hc','bedroom',20)" data-id="hc-bedroom" data-level="4">
-      <div class="qi-check"><div class="qi-check-inner"></div></div>
-      <div class="qi-content">
-        <div class="qi-name">Bedroom deep clean</div>
-        <div class="qi-detail">Dust, wipe surfaces, organize — your sanctuary deserves it 🦋</div>
-      </div>
-      <div class="qi-xp">+20 XP</div>
-    </div>
-  </div>
-</div>
-```
 
   </div>
 
   <!-- ══ PROGRESS PANEL ══ -->
-
   <div class="panel" id="panel-progress">
 
-```
-<div class="progress-section">
-  <div class="progress-title">
-    🟣 Field Service — Pioneer Goal
-    <span style="color:var(--purple2)" id="fsTotalDisplay">240 / 600 hrs</span>
-  </div>
-  <div class="progress-item">
-    <div class="progress-row">
-      <span class="progress-name">Total completed</span>
-      <span class="progress-val" id="fsPercent">40%</span>
-    </div>
-    <div class="pbar">
-      <div class="pbar-fill" id="fsTotalBar" style="width:40%;background:linear-gradient(90deg,var(--purple-dim),var(--purple2))"></div>
-    </div>
-  </div>
-  <div class="progress-item">
-    <div class="progress-row">
-      <span class="progress-name">This week</span>
-      <span class="progress-val" id="fsWeekDisplay">0 / 15 hrs</span>
-    </div>
-    <div class="pbar">
-      <div class="pbar-fill" id="fsWeekBar" style="width:0%;background:linear-gradient(90deg,var(--purple-dim),var(--purple2))"></div>
-    </div>
-  </div>
-</div>
-
-<div class="progress-section">
-  <div class="progress-title">📖 Bible Reading — Isaiah → Revelation</div>
-  <div class="progress-item">
-    <div class="progress-row">
-      <span class="progress-name">Currently reading</span>
-      <span class="progress-val" id="bibleDisplay">Isaiah 1</span>
-    </div>
-    <div style="display:flex;gap:8px;margin-top:6px;align-items:center">
-      <input id="bibleInput" placeholder="e.g. Isaiah 14" 
-        style="flex:1;background:var(--bg3);border:1px solid var(--border2);border-radius:4px;color:var(--text);font-family:'DM Mono',monospace;font-size:12px;padding:6px 10px">
-      <button onclick="updateBible()" 
-        style="background:var(--green-dim);border:1px solid var(--green);color:var(--green2);border-radius:4px;padding:6px 12px;font-size:12px;font-family:'DM Mono',monospace;cursor:pointer">
-        Update
-      </button>
-    </div>
-  </div>
-  <div class="progress-item" style="margin-top:10px">
-    <div class="progress-row">
-      <span class="progress-name">Q1: Isaiah → Acts</span>
-      <span class="progress-val">Feb–May 30</span>
-    </div>
-    <div class="pbar" style="margin-top:4px">
-      <div class="pbar-fill" id="bibleBar" style="width:2%;background:linear-gradient(90deg,var(--green-dim),var(--green2))"></div>
-    </div>
-  </div>
-</div>
-
-<div class="progress-section">
-  <div class="progress-title">🌐 Languages — Q1</div>
-  <div class="progress-item">
-    <div class="progress-row">
-      <span class="progress-name">Spanish — Busuu</span>
-      <span class="progress-val" id="busuuDisplay">Lesson 1</span>
-    </div>
-    <div style="display:flex;gap:6px;margin-top:4px">
-      <button onclick="updateLesson('busuu',-1)" style="background:var(--bg3);border:1px solid var(--border2);color:var(--text2);border-radius:4px;padding:4px 10px;cursor:pointer;font-size:14px">−</button>
-      <div class="pbar" style="flex:1;margin-top:4px">
-        <div class="pbar-fill" id="busuuBar" style="width:1%;background:linear-gradient(90deg,var(--blue-dim),var(--blue2))"></div>
+    <div class="progress-section">
+      <div class="progress-title">
+        🟣 Field Service — Pioneer Goal
+        <span style="color:var(--purple2)" id="fsTotalDisplay">240 / 600 hrs</span>
       </div>
-      <button onclick="updateLesson('busuu',1)" style="background:var(--blue-dim);border:1px solid var(--blue);color:var(--blue2);border-radius:4px;padding:4px 10px;cursor:pointer;font-size:14px">+</button>
-    </div>
-  </div>
-  <div class="progress-item" style="margin-top:8px">
-    <div class="progress-row">
-      <span class="progress-name">ASL — Lifeprint</span>
-      <span class="progress-val" id="aslDisplay">Lesson 1</span>
-    </div>
-    <div style="display:flex;gap:6px;margin-top:4px">
-      <button onclick="updateLesson('asl',-1)" style="background:var(--bg3);border:1px solid var(--border2);color:var(--text2);border-radius:4px;padding:4px 10px;cursor:pointer;font-size:14px">−</button>
-      <div class="pbar" style="flex:1;margin-top:4px">
-        <div class="pbar-fill" id="aslBar" style="width:1%;background:linear-gradient(90deg,var(--green-dim),var(--green2))"></div>
+      <div class="progress-item">
+        <div class="progress-row">
+          <span class="progress-name">Total completed</span>
+          <span class="progress-val" id="fsPercent">40%</span>
+        </div>
+        <div class="pbar">
+          <div class="pbar-fill" id="fsTotalBar" style="width:40%;background:linear-gradient(90deg,var(--purple-dim),var(--purple2))"></div>
+        </div>
       </div>
-      <button onclick="updateLesson('asl',1)" style="background:var(--green-dim);border:1px solid var(--green);color:var(--green2);border-radius:4px;padding:4px 10px;cursor:pointer;font-size:14px">+</button>
-    </div>
-  </div>
-  <div class="progress-item" style="margin-top:8px">
-    <div class="progress-row">
-      <span class="progress-name">Assimil — Spanish with Ease</span>
-      <span class="progress-val" id="assimilDisplay">Dialogue 1</span>
-    </div>
-    <div style="display:flex;gap:6px;margin-top:4px">
-      <button onclick="updateLesson('assimil',-1)" style="background:var(--bg3);border:1px solid var(--border2);color:var(--text2);border-radius:4px;padding:4px 10px;cursor:pointer;font-size:14px">−</button>
-      <div class="pbar" style="flex:1;margin-top:4px">
-        <div class="pbar-fill" id="assimilBar" style="width:1%;background:linear-gradient(90deg,var(--orange-dim),var(--orange2))"></div>
+      <div class="progress-item">
+        <div class="progress-row">
+          <span class="progress-name">This week</span>
+          <span class="progress-val" id="fsWeekDisplay">0 / 15 hrs</span>
+        </div>
+        <div class="pbar">
+          <div class="pbar-fill" id="fsWeekBar" style="width:0%;background:linear-gradient(90deg,var(--purple-dim),var(--purple2))"></div>
+        </div>
       </div>
-      <button onclick="updateLesson('assimil',1)" style="background:var(--orange-dim);border:1px solid var(--orange);color:var(--orange2);border-radius:4px;padding:4px 10px;cursor:pointer;font-size:14px">+</button>
     </div>
-  </div>
-</div>
 
-<div class="progress-section">
-  <div class="progress-title">⚖️ Weight Goal</div>
-  <div class="progress-item">
-    <div class="progress-row">
-      <span class="progress-name">Goal: lose 25 lbs by Aug 31</span>
-      <span class="progress-val" id="weightDisplay">0 / 25 lbs</span>
+    <div class="progress-section">
+      <div class="progress-title">📖 Bible Reading — Isaiah → Revelation</div>
+      <div class="progress-item">
+        <div class="progress-row">
+          <span class="progress-name">Currently reading</span>
+          <span class="progress-val" id="bibleDisplay">Isaiah 1</span>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:6px;align-items:center">
+          <input id="bibleInput" placeholder="e.g. Isaiah 14" 
+            style="flex:1;background:var(--bg3);border:1px solid var(--border2);border-radius:4px;color:var(--text);font-family:'DM Mono',monospace;font-size:12px;padding:6px 10px">
+          <button onclick="updateBible()" 
+            style="background:var(--green-dim);border:1px solid var(--green);color:var(--green2);border-radius:4px;padding:6px 12px;font-size:12px;font-family:'DM Mono',monospace;cursor:pointer">
+            Update
+          </button>
+        </div>
+      </div>
+      <div class="progress-item" style="margin-top:10px">
+        <div class="progress-row">
+          <span class="progress-name">Q1: Isaiah → Acts</span>
+          <span class="progress-val">Feb–May 30</span>
+        </div>
+        <div class="pbar" style="margin-top:4px">
+          <div class="pbar-fill" id="bibleBar" style="width:2%;background:linear-gradient(90deg,var(--green-dim),var(--green2))"></div>
+        </div>
+      </div>
     </div>
-    <div style="display:flex;gap:8px;margin-top:6px;align-items:center">
-      <input id="weightInput" type="number" min="0" max="25" step="0.5" placeholder="lbs lost so far"
-        style="flex:1;background:var(--bg3);border:1px solid var(--border2);border-radius:4px;color:var(--text);font-family:'DM Mono',monospace;font-size:12px;padding:6px 10px">
-      <button onclick="updateWeight()"
-        style="background:var(--teal-dim);border:1px solid var(--teal);color:var(--teal2);border-radius:4px;padding:6px 12px;font-size:12px;font-family:'DM Mono',monospace;cursor:pointer">
-        Update
-      </button>
+
+    <div class="progress-section">
+      <div class="progress-title">🌐 Languages — Q1</div>
+      <div class="progress-item">
+        <div class="progress-row">
+          <span class="progress-name">Spanish — Busuu</span>
+          <span class="progress-val" id="busuuDisplay">Lesson 1</span>
+        </div>
+        <div style="display:flex;gap:6px;margin-top:4px">
+          <button onclick="updateLesson('busuu',-1)" style="background:var(--bg3);border:1px solid var(--border2);color:var(--text2);border-radius:4px;padding:4px 10px;cursor:pointer;font-size:14px">−</button>
+          <div class="pbar" style="flex:1;margin-top:4px">
+            <div class="pbar-fill" id="busuuBar" style="width:1%;background:linear-gradient(90deg,var(--blue-dim),var(--blue2))"></div>
+          </div>
+          <button onclick="updateLesson('busuu',1)" style="background:var(--blue-dim);border:1px solid var(--blue);color:var(--blue2);border-radius:4px;padding:4px 10px;cursor:pointer;font-size:14px">+</button>
+        </div>
+      </div>
+      <div class="progress-item" style="margin-top:8px">
+        <div class="progress-row">
+          <span class="progress-name">ASL — Lifeprint</span>
+          <span class="progress-val" id="aslDisplay">Lesson 1</span>
+        </div>
+        <div style="display:flex;gap:6px;margin-top:4px">
+          <button onclick="updateLesson('asl',-1)" style="background:var(--bg3);border:1px solid var(--border2);color:var(--text2);border-radius:4px;padding:4px 10px;cursor:pointer;font-size:14px">−</button>
+          <div class="pbar" style="flex:1;margin-top:4px">
+            <div class="pbar-fill" id="aslBar" style="width:1%;background:linear-gradient(90deg,var(--green-dim),var(--green2))"></div>
+          </div>
+          <button onclick="updateLesson('asl',1)" style="background:var(--green-dim);border:1px solid var(--green);color:var(--green2);border-radius:4px;padding:4px 10px;cursor:pointer;font-size:14px">+</button>
+        </div>
+      </div>
+      <div class="progress-item" style="margin-top:8px">
+        <div class="progress-row">
+          <span class="progress-name">Assimil — Spanish with Ease</span>
+          <span class="progress-val" id="assimilDisplay">Dialogue 1</span>
+        </div>
+        <div style="display:flex;gap:6px;margin-top:4px">
+          <button onclick="updateLesson('assimil',-1)" style="background:var(--bg3);border:1px solid var(--border2);color:var(--text2);border-radius:4px;padding:4px 10px;cursor:pointer;font-size:14px">−</button>
+          <div class="pbar" style="flex:1;margin-top:4px">
+            <div class="pbar-fill" id="assimilBar" style="width:1%;background:linear-gradient(90deg,var(--orange-dim),var(--orange2))"></div>
+          </div>
+          <button onclick="updateLesson('assimil',1)" style="background:var(--orange-dim);border:1px solid var(--orange);color:var(--orange2);border-radius:4px;padding:4px 10px;cursor:pointer;font-size:14px">+</button>
+        </div>
+      </div>
     </div>
-    <div class="pbar" style="margin-top:8px">
-      <div class="pbar-fill" id="weightBar" style="width:0%;background:linear-gradient(90deg,var(--teal-dim),var(--teal2))"></div>
+
+    <div class="progress-section">
+      <div class="progress-title">⚖️ Weight Goal</div>
+      <div class="progress-item">
+        <div class="progress-row">
+          <span class="progress-name">Goal: lose 25 lbs by Aug 31</span>
+          <span class="progress-val" id="weightDisplay">0 / 25 lbs</span>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:6px;align-items:center">
+          <input id="weightInput" type="number" min="0" max="25" step="0.5" placeholder="lbs lost so far"
+            style="flex:1;background:var(--bg3);border:1px solid var(--border2);border-radius:4px;color:var(--text);font-family:'DM Mono',monospace;font-size:12px;padding:6px 10px">
+          <button onclick="updateWeight()"
+            style="background:var(--teal-dim);border:1px solid var(--teal);color:var(--teal2);border-radius:4px;padding:6px 12px;font-size:12px;font-family:'DM Mono',monospace;cursor:pointer">
+            Update
+          </button>
+        </div>
+        <div class="pbar" style="margin-top:8px">
+          <div class="pbar-fill" id="weightBar" style="width:0%;background:linear-gradient(90deg,var(--teal-dim),var(--teal2))"></div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-```
 
   </div>
 
   <!-- ══ LEVELS PANEL ══ -->
-
   <div class="panel" id="panel-levels">
     <div class="level-road" id="levelRoad"></div>
   </div>
 
   <!-- ══ BADGES PANEL ══ -->
-
   <div class="panel" id="panel-badges">
     <div class="badges-grid" id="badgesGrid"></div>
   </div>
 
   <!-- ══ LOG PANEL ══ -->
-
   <div class="panel" id="panel-log">
     <div id="logEntries"></div>
     <button class="reset-btn" onclick="confirmReset()">Reset today's checklist</button>
@@ -1969,6 +1956,5 @@ if (S.workMinsWeek === undefined) S.workMinsWeek = 0;
 checkDailyReset();
 renderAll();
 </script>
-
 </body>
 </html>
