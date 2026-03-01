@@ -64,8 +64,8 @@ body {
   background: var(--bg);
   color: var(--text);
   min-height: 100vh;
-  font-size: 22px;
-  line-height: 1.6;
+  font-size: 26px;
+  line-height: 1.8;
   overflow-x: hidden;
 }
 
@@ -105,14 +105,14 @@ body::before {
 }
 .hero-title {
   font-family: 'Cinzel', serif;
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 600;
   letter-spacing: 2px;
   color: var(--gold);
   text-transform: uppercase;
 }
 .hero-date {
-  font-size: 13px;
+  font-size: 18px;
   color: var(--text2);
   font-family: 'DM Mono', monospace;
 }
@@ -125,7 +125,7 @@ body::before {
   margin-bottom: 10px;
 }
 .level-badge {
-  width: 52px; height: 52px;
+  width: 64px; height: 64px;
   border: 2px solid var(--gold);
   border-radius: 50%;
   display: flex;
@@ -138,7 +138,7 @@ body::before {
 }
 .level-num {
   font-family: 'Cinzel', serif;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 700;
   color: var(--gold);
   line-height: 1;
@@ -158,7 +158,7 @@ body::before {
   margin-bottom: 2px;
 }
 .level-desc {
-  font-size: 12px;
+  font-size: 20px;
   color: var(--text2);
   font-style: italic;
   margin-bottom: 6px;
@@ -209,7 +209,7 @@ body::before {
   line-height: 1;
 }
 .stat-lbl {
-  font-size: 11px;
+  font-size: 14px;
   letter-spacing: 0.5px;
   color: var(--text2);
   font-family: 'DM Mono', monospace;
@@ -233,8 +233,8 @@ body::before {
 .tabs::-webkit-scrollbar { display: none; }
 .tab {
   flex-shrink: 0;
-  padding: 14px 24px;
-  font-size: 16px;
+  padding: 16px 26px;
+  font-size: 18px;
   letter-spacing: 1px;
   text-transform: uppercase;
   font-family: 'DM Mono', monospace;
@@ -276,7 +276,7 @@ body::before {
   align-items: center;
   gap: 8px;
   font-family: 'Cinzel', serif;
-  font-size: 16px;
+  font-size: 20px;
   letter-spacing: 0.5px;
 }
 .quest-section-xp {
@@ -333,21 +333,20 @@ body::before {
 
 .qi-content { flex: 1; }
 .qi-name {
-  font-size: 16px;
-  font-size: 14px;
+  font-size: 20px;
+  font-weight: 600;
   color: var(--text);
-  line-height: 1.3;
+  line-height: 1.4;
 }
 .qi-detail {
-  font-size: 13px;
-  font-size: 17px;
+  font-size: 15px;
   color: var(--text2);
   font-style: italic;
-  line-height: 1.3;
-  margin-top: 1px;
+  line-height: 1.4;
+  margin-top: 2px;
 }
 .qi-nn {
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--gold);
   letter-spacing: 0.5px;
@@ -370,7 +369,7 @@ body::before {
   gap: 10px;
   border-bottom: 1px solid var(--border);
 }
-.fs-input-label { font-size: 13px; color: var(--text2); flex:1; }
+.fs-input-label { font-size: 20px; color: var(--text2); flex:1; }
 .fs-input {
   width: 60px;
   background: var(--bg3);
@@ -378,8 +377,8 @@ body::before {
   border-radius: 4px;
   color: var(--text);
   font-family: 'DM Mono', monospace;
-  font-size: 14px;
-  padding: 4px 8px;
+  font-size: 18px;
+  padding: 6px 10px;
   text-align: center;
 }
 .fs-log-btn {
@@ -388,7 +387,7 @@ body::before {
   color: var(--purple2);
   border-radius: 4px;
   padding: 4px 10px;
-  font-size: 12px;
+  font-size: 16px;
   font-family: 'DM Mono', monospace;
   cursor: pointer;
   transition: all 0.2s;
@@ -405,7 +404,7 @@ body::before {
 }
 .progress-title {
   font-family: 'Cinzel', serif;
-  font-size: 12px;
+  font-size: 18px;
   color: var(--text2);
   letter-spacing: 0.5px;
   margin-bottom: 10px;
@@ -421,7 +420,7 @@ body::before {
   align-items: center;
   margin-bottom: 4px;
 }
-.progress-name { font-size: 13px; }
+.progress-name { font-size: 20px; }
 .progress-val {
   font-family: 'DM Mono', monospace;
   font-size: 13px;
@@ -444,14 +443,14 @@ body::before {
 .badges-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
+  gap: 12px;
   margin-bottom: 14px;
 }
 .badge-card {
   background: var(--bg2);
   border: 1px solid var(--border);
   border-radius: 8px;
-  padding: 12px 8px;
+  padding: 16px 10px;
   text-align: center;
   transition: all 0.3s;
 }
@@ -460,20 +459,20 @@ body::before {
   background: radial-gradient(circle at center, rgba(201,168,76,0.1) 0%, var(--bg2) 70%);
   box-shadow: 0 0 12px rgba(201,168,76,0.15);
 }
-.badge-icon { font-size: 24px; margin-bottom: 4px; filter: grayscale(1); opacity: 0.3; }
+.badge-icon { font-size: 34px; margin-bottom: 6px; filter: grayscale(1); opacity: 0.3; }
 .badge-card.earned .badge-icon { filter: none; opacity: 1; }
 .badge-name {
-  font-size: 10px;
+  font-size: 15px;
   font-family: 'DM Mono', monospace;
   color: var(--text2);
   letter-spacing: 0.3px;
-  line-height: 1.3;
+  line-height: 1.4;
 }
 .badge-card.earned .badge-name { color: var(--gold); }
 .badge-req {
-  font-size: 9px;
+  font-size: 13px;
   color: var(--text2);
-  margin-top: 2px;
+  margin-top: 4px;
   font-style: italic;
 }
 
@@ -488,22 +487,22 @@ body::before {
 .road-item::before {
   content: '';
   position: absolute;
-  left: 15px;
-  top: 32px;
+  left: 21px;
+  top: 44px;
   width: 1px;
   height: calc(100% + 2px);
   background: var(--border);
 }
 .road-item:last-child::before { display: none; }
 .road-dot {
-  width: 30px; height: 30px;
+  width: 42px; height: 42px;
   border-radius: 50%;
   border: 2px solid var(--border2);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: 'Cinzel', serif;
-  font-size: 12px;
+  font-size: 16px;
   flex-shrink: 0;
   background: var(--bg2);
   position: relative;
@@ -528,18 +527,18 @@ body::before {
 }
 .road-title {
   font-family: 'Cinzel', serif;
-  font-size: 15px;
+  font-size: 20px;
   color: var(--text);
-  margin-bottom: 2px;
+  margin-bottom: 4px;
 }
 .road-item.current .road-title { color: var(--gold2); }
 .road-item.completed .road-title { color: var(--green2); }
 .road-item.locked .road-title { color: var(--text3); }
 .road-detail {
-  font-size: 12px;
+  font-size: 16px;
   color: var(--text2);
   font-style: italic;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 .road-streak {
   display: flex;
@@ -551,7 +550,7 @@ body::before {
   gap: 3px;
 }
 .pip {
-  width: 8px; height: 8px;
+  width: 12px; height: 12px;
   border-radius: 2px;
   background: var(--border);
   transition: background 0.3s;
@@ -559,7 +558,7 @@ body::before {
 .pip.filled { background: var(--gold); }
 .pip.filled.green { background: var(--green); }
 .streak-label {
-  font-size: 10px;
+  font-size: 15px;
   font-family: 'DM Mono', monospace;
   color: var(--text2);
 }
@@ -570,11 +569,11 @@ body::before {
   gap: 10px;
   padding: 8px 0;
   border-bottom: 1px solid var(--border);
-  font-size: 15px;
+  font-size: 18px;
 }
 .log-time {
   font-family: 'DM Mono', monospace;
-  font-size: 10px;
+  font-size: 15px;
   color: var(--text2);
   min-width: 50px;
   margin-top: 2px;
@@ -582,7 +581,7 @@ body::before {
 .log-text { flex: 1; line-height: 1.4; }
 .log-xp {
   font-family: 'DM Mono', monospace;
-  font-size: 13px;
+  font-size: 17px;
   color: var(--gold);
   flex-shrink: 0;
 }
@@ -620,7 +619,7 @@ body::before {
   font-size: 11px;
 }
 .qi-level-tag {
-  font-size: 9px;
+  font-size: 13px;
   font-family: 'DM Mono', monospace;
   color: var(--text3);
   background: var(--bg3);
@@ -637,7 +636,7 @@ body::before {
   color: var(--text2);
   border-radius: 4px;
   padding: 8px 16px;
-  font-size: 12px;
+  font-size: 16px;
   font-family: 'DM Mono', monospace;
   cursor: pointer;
   transition: all 0.2s;
@@ -787,14 +786,14 @@ body::before {
 
     <!-- THURSDAY REST DAY BANNER -->
     <div id="thursdayMsg" style="display:none;background:var(--teal-dim);border:1px solid var(--teal);border-radius:8px;padding:12px 14px;margin-bottom:12px;">
-      <div style="font-family:'Cinzel',serif;font-size:13px;color:var(--teal);margin-bottom:4px;">🌿 Thursday — Rest Day</div>
-      <div style="font-size:13px;color:var(--text2);line-height:1.5;">No field service. No work. Just Bible + Daily Text + taking care of yourself.<br>
-      <span style="font-size:12px;color:var(--text3);font-style:italic;">Low energy rule today: Bible · Daily Text · Brush teeth · Wash face ✓</span></div>
+      <div style="font-family:'Cinzel',serif;font-size:20px;color:var(--teal);margin-bottom:4px;">🌿 Thursday — Rest Day</div>
+      <div style="font-size:20px;color:var(--text2);line-height:1.8;">No field service. No work. Just Bible + Daily Text + taking care of yourself.<br>
+      <span style="font-size:18px;color:var(--text3);font-style:italic;">Low energy rule today: Bible · Daily Text · Brush teeth · Wash face ✓</span></div>
     </div>
 
     <!-- LOW ENERGY REMINDER -->
     <div style="background:var(--blue-dim);border:1px solid var(--blue);border-radius:8px;padding:10px 14px;margin-bottom:12px;">
-      <div style="font-size:12px;color:var(--blue);line-height:1.6;font-style:italic;">
+      <div style="font-size:20px;color:var(--blue);line-height:1.8;font-style:italic;">
         💙 <strong>Low energy rule:</strong> Bible (2ch) + Daily Text + Field Service + Brush teeth + Wash face = complete day ✓
       </div>
     </div>
@@ -805,7 +804,7 @@ body::before {
         <div class="quest-section-title">
           <span style="color:var(--gold)">★</span>
           <span style="color:var(--gold)">Non-Negotiables</span>
-          <span style="font-size:10px;color:var(--text3);font-family:'DM Mono',monospace">(must do daily)</span>
+          <span style="font-size:16px;color:var(--text3);font-family:'DM Mono',monospace">(must do daily)</span>
         </div>
         <div class="quest-section-xp" id="nn-xp">0/3 done</div>
       </div>
@@ -817,7 +816,7 @@ body::before {
             <div class="qi-detail">Open NWT → read next 2 chapters from Isaiah onward</div>
             <div class="qi-nn">NON-NEGOTIABLE</div>
           </div>
-          <div style="font-family:monospace;font-size:17px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+25 XP</div>
+          <div style="font-family:monospace;font-size:20px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+25 XP</div>
         </div>
         <div class="quest-item" onclick="toggleQuest(this,'nn','dailytext',15)" data-id="nn-dailytext" style="background:#faeedd;">
           <div class="qi-check"><div class="qi-check-inner"></div></div>
@@ -826,7 +825,7 @@ body::before {
             <div class="qi-detail">JW Library app → Daily Text → read and reflect</div>
             <div class="qi-nn">NON-NEGOTIABLE</div>
           </div>
-          <div style="font-family:monospace;font-size:17px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
+          <div style="font-family:monospace;font-size:20px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
         </div>
         <div class="quest-item" onclick="toggleQuest(this,'nn','fs',30)" data-id="nn-fs" style="background:#fdf6e8;">
           <div class="qi-check"><div class="qi-check-inner"></div></div>
@@ -835,7 +834,7 @@ body::before {
             <div class="qi-detail">Brandon group / Zoom / letters / research / calls</div>
             <div class="qi-nn">NON-NEGOTIABLE</div>
           </div>
-          <div style="font-family:monospace;font-size:17px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+30 XP</div>
+          <div style="font-family:monospace;font-size:20px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+30 XP</div>
         </div>
       </div>
     </div>
@@ -863,7 +862,7 @@ body::before {
             <div class="qi-name">Watchtower Article (#3)</div>
             <div class="qi-detail">Open Watchtower study edition → read & mark 1 article</div>
           </div>
-          <div style="font-family:monospace;font-size:17px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
+          <div style="font-family:monospace;font-size:20px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
         </div>
         <div class="quest-item" onclick="toggleQuest(this,'spir','tr',15)" data-id="spir-tr" data-level="2">
           <div class="qi-check"><div class="qi-check-inner"></div></div>
@@ -871,7 +870,7 @@ body::before {
             <div class="qi-name">Treasures from God's Word (#4)</div>
             <div class="qi-detail">JW Library → Meeting Workbook → Treasures section</div>
           </div>
-          <div style="font-family:monospace;font-size:17px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
+          <div style="font-family:monospace;font-size:20px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
         </div>
         <div class="quest-item" onclick="toggleQuest(this,'spir','cbs',15)" data-id="spir-cbs" data-level="2">
           <div class="qi-check"><div class="qi-check-inner"></div></div>
@@ -879,7 +878,7 @@ body::before {
             <div class="qi-name">Congregation Bible Study (#5)</div>
             <div class="qi-detail">JW Library → current CBS material → read & prepare</div>
           </div>
-          <div style="font-family:monospace;font-size:17px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
+          <div style="font-family:monospace;font-size:20px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
         </div>
         <div class="quest-item" onclick="toggleQuest(this,'spir','lm',15)" data-id="spir-lm" data-level="2">
           <div class="qi-check"><div class="qi-check-inner"></div></div>
@@ -887,7 +886,7 @@ body::before {
             <div class="qi-name">Life and Ministry (#6)</div>
             <div class="qi-detail">JW Library → Life & Ministry Meeting Workbook</div>
           </div>
-          <div style="font-family:monospace;font-size:17px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
+          <div style="font-family:monospace;font-size:20px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
         </div>
         <div class="quest-item" onclick="toggleQuest(this,'spir','ps',20)" data-id="spir-ps" data-level="3">
           <div class="qi-check"><div class="qi-check-inner"></div></div>
@@ -903,7 +902,7 @@ body::before {
             <div class="qi-name">Prophecies / Literature (#8)</div>
             <div class="qi-detail">'La prophétie d'Isaïe' or 'Marche courageusement'</div>
           </div>
-          <div style="font-family:monospace;font-size:17px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
+          <div style="font-family:monospace;font-size:20px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
         </div>
       </div>
     </div>
@@ -944,7 +943,7 @@ body::before {
             <div class="qi-name">Letters / Research / Calls</div>
             <div class="qi-detail">Home-based service — letters, territory research, or calls</div>
           </div>
-          <div style="font-family:monospace;font-size:17px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
+          <div style="font-family:monospace;font-size:20px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
         </div>
         <div class="quest-item" onclick="toggleQuest(this,'fs','riverview',40)" data-id="fs-riverview" data-level="4">
           <div class="qi-check"><div class="qi-check-inner"></div></div>
@@ -972,7 +971,7 @@ body::before {
             <div class="qi-name">Spanish — Busuu (1 lesson)</div>
             <div class="qi-detail">Open Busuu → complete 1 Spanish lesson</div>
           </div>
-          <div style="font-family:monospace;font-size:17px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
+          <div style="font-family:monospace;font-size:20px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
         </div>
         <div class="quest-item" onclick="toggleQuest(this,'lang','assimil',12)" data-id="lang-assimil" data-level="2">
           <div class="qi-check"><div class="qi-check-inner"></div></div>
@@ -1060,7 +1059,7 @@ body::before {
             <div class="qi-name">Daily journal entry</div>
             <div class="qi-detail">Morning check-in + daily text template in notebook</div>
           </div>
-          <div style="font-family:monospace;font-size:17px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
+          <div style="font-family:monospace;font-size:20px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+15 XP</div>
         </div>
         <div class="quest-item" onclick="toggleQuest(this,'wb','meal',10)" data-id="wb-meal" data-level="4">
           <div class="qi-check"><div class="qi-check-inner"></div></div>
@@ -1084,7 +1083,7 @@ body::before {
             <div class="qi-name">Weekly review completed 🌟</div>
             <div class="qi-detail">Sunday — planner + Notion + notebook all updated</div>
           </div>
-          <div style="font-family:monospace;font-size:17px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+25 XP</div>
+          <div style="font-family:monospace;font-size:20px;font-weight:900;color:#1a0a00;background:#f5c842;border-radius:6px;padding:4px 10px;flex-shrink:0;border:2px solid #8a6000;min-width:60px;text-align:center;">+25 XP</div>
         </div>
       </div>
     </div>
