@@ -64,7 +64,7 @@ body {
   background: var(--bg);
   color: var(--text);
   min-height: 100vh;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.5;
   overflow-x: hidden;
 }
@@ -81,7 +81,13 @@ body::before {
   z-index:0;
 }
 
-.app { position:relative; z-index:1; max-width:480px; margin:0 auto; padding:0 0 100px; }
+.app { position:relative; z-index:1; width:100%; max-width:900px; margin:0 auto; padding:0 0 100px; }
+@media (min-width:600px) {
+  .quest-section-body { display:grid; grid-template-columns:1fr 1fr; }
+  .quest-section-body .fs-input-wrap { grid-column: 1 / -1; }
+  .hero { max-width:900px; margin:0 auto; left:0; right:0; }
+  .tabs { max-width:900px; margin:0 auto; }
+}
 
 /* ── HEADER / HERO ── */
 .hero {
@@ -149,7 +155,7 @@ body::before {
 .level-info { flex: 1; }
 .level-name {
   font-family: 'Cinzel', serif;
-  font-size: 14px;
+  font-size: 16px;
   color: var(--gold);
   margin-bottom: 2px;
 }
@@ -199,12 +205,12 @@ body::before {
 .stat-val {
   font-size: 20px;
   font-family: 'Cinzel', serif;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
   line-height: 1;
 }
 .stat-lbl {
-  font-size: 9px;
+  font-size: 11px;
   letter-spacing: 0.5px;
   color: var(--text2);
   font-family: 'DM Mono', monospace;
@@ -228,8 +234,8 @@ body::before {
 .tabs::-webkit-scrollbar { display: none; }
 .tab {
   flex-shrink: 0;
-  padding: 10px 14px;
-  font-size: 13px;
+  padding: 12px 18px;
+  font-size: 15px;
   letter-spacing: 1px;
   text-transform: uppercase;
   font-family: 'DM Mono', monospace;
@@ -271,7 +277,7 @@ body::before {
   align-items: center;
   gap: 8px;
   font-family: 'Cinzel', serif;
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 0.5px;
 }
 .quest-section-xp {
@@ -335,7 +341,7 @@ body::before {
 }
 .qi-detail {
   font-size: 13px;
-  font-size: 13px;
+  font-size: 15px;
   color: var(--text2);
   font-style: italic;
   line-height: 1.3;
@@ -683,7 +689,7 @@ body::before {
   margin-bottom: 4px;
 }
 .levelup-name {
-  font-size: 18px;
+  font-size: 20px;
   color: var(--text);
   margin-bottom: 8px;
   font-style: italic;
