@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<!-- bypass jekyll -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>My Life 2026 — Quest Log</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Font definitions with graceful fallbacks */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@400;500&display=swap');
+</style>
 <style>
 :root {
   /* Warm light parchment backgrounds */
@@ -62,7 +64,7 @@
 * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color: transparent; }
 
 body {
-  font-family: 'Crimson Pro', 'Georgia', 'Times New Roman', serif;
+  font-family: 'Crimson Pro', Georgia, 'Times New Roman', serif;
   background: var(--bg);
   color: var(--text);
   min-height: 100vh;
@@ -106,7 +108,7 @@ body::before {
   margin-bottom: 12px;
 }
 .hero-title {
-  font-family: 'Cinzel', serif;
+  font-family: 'Cinzel', 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
   font-size: 20px;
   font-weight: 600;
   letter-spacing: 2px;
@@ -116,7 +118,7 @@ body::before {
 .hero-date {
   font-size: 18px;
   color: var(--text2);
-  font-family: 'DM Mono', monospace;
+  font-family: 'DM Mono', 'Courier New', Courier, monospace;
 }
 
 /* LEVEL DISPLAY */
@@ -139,7 +141,7 @@ body::before {
   flex-shrink: 0;
 }
 .level-num {
-  font-family: 'Cinzel', serif;
+  font-family: 'Cinzel', 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
   font-size: 24px;
   font-weight: 700;
   color: var(--gold);
@@ -150,11 +152,11 @@ body::before {
   letter-spacing: 1.5px;
   color: var(--gold-dim);
   text-transform: uppercase;
-  font-family: 'DM Mono', monospace;
+  font-family: 'DM Mono', 'Courier New', Courier, monospace;
 }
 .level-info { flex: 1; }
 .level-name {
-  font-family: 'Cinzel', serif;
+  font-family: 'Cinzel', 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
   font-size: 16px;
   color: var(--gold);
   margin-bottom: 2px;
@@ -183,7 +185,7 @@ body::before {
   justify-content: space-between;
   font-size: 10px;
   color: var(--text2);
-  font-family: 'DM Mono', monospace;
+  font-family: 'DM Mono', 'Courier New', Courier, monospace;
   margin-top: 3px;
 }
 
@@ -205,7 +207,7 @@ body::before {
 }
 .stat-val {
   font-size: 20px;
-  font-family: 'Cinzel', serif;
+  font-family: 'Cinzel', 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 1;
@@ -214,7 +216,7 @@ body::before {
   font-size: 14px;
   letter-spacing: 0.5px;
   color: var(--text2);
-  font-family: 'DM Mono', monospace;
+  font-family: 'DM Mono', 'Courier New', Courier, monospace;
   text-transform: uppercase;
   margin-top: 2px;
 }
@@ -239,7 +241,7 @@ body::before {
   font-size: 18px;
   letter-spacing: 1px;
   text-transform: uppercase;
-  font-family: 'DM Mono', monospace;
+  font-family: 'DM Mono', 'Courier New', Courier, monospace;
   color: var(--text2);
   cursor: pointer;
   border-bottom: 2px solid transparent;
@@ -277,13 +279,13 @@ body::before {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-family: 'Cinzel', serif;
+  font-family: 'Cinzel', 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
   font-size: 20px;
   letter-spacing: 0.5px;
 }
 .quest-section-xp {
   font-size: 13px;
-  font-family: 'DM Mono', monospace;
+  font-family: 'DM Mono', 'Courier New', Courier, monospace;
   color: var(--gold);
 }
 .quest-section-body { padding: 8px 0; }
@@ -352,11 +354,11 @@ body::before {
   font-weight: 600;
   color: var(--gold);
   letter-spacing: 0.5px;
-  font-family: 'DM Mono', monospace;
+  font-family: 'DM Mono', 'Courier New', Courier, monospace;
 }
 
 .qi-xp {
-  font-family: 'DM Mono', monospace;
+  font-family: 'DM Mono', 'Courier New', Courier, monospace;
   font-size: 13px;
   color: var(--gold-dim);
   flex-shrink: 0;
@@ -378,7 +380,7 @@ body::before {
   border: 1px solid var(--border2);
   border-radius: 4px;
   color: var(--text);
-  font-family: 'DM Mono', monospace;
+  font-family: 'DM Mono', 'Courier New', Courier, monospace;
   font-size: 18px;
   padding: 6px 10px;
   text-align: center;
@@ -390,7 +392,7 @@ body::before {
   border-radius: 4px;
   padding: 4px 10px;
   font-size: 16px;
-  font-family: 'DM Mono', monospace;
+  font-family: 'DM Mono', 'Courier New', Courier, monospace;
   cursor: pointer;
   transition: all 0.2s;
 }
@@ -405,7 +407,7 @@ body::before {
   padding: 14px;
 }
 .progress-title {
-  font-family: 'Cinzel', serif;
+  font-family: 'Cinzel', 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
   font-size: 18px;
   color: var(--text2);
   letter-spacing: 0.5px;
@@ -424,7 +426,7 @@ body::before {
 }
 .progress-name { font-size: 20px; }
 .progress-val {
-  font-family: 'DM Mono', monospace;
+  font-family: 'DM Mono', 'Courier New', Courier, monospace;
   font-size: 13px;
   color: var(--text2);
 }
@@ -465,7 +467,7 @@ body::before {
 .badge-card.earned .badge-icon { filter: none; opacity: 1; }
 .badge-name {
   font-size: 15px;
-  font-family: 'DM Mono', monospace;
+  font-family: 'DM Mono', 'Courier New', Courier, monospace;
   color: var(--text2);
   letter-spacing: 0.3px;
   line-height: 1.4;
@@ -503,7 +505,7 @@ body::before {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Cinzel', serif;
+  font-family: 'Cinzel', 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
   font-size: 16px;
   flex-shrink: 0;
   background: var(--bg2);
@@ -528,7 +530,7 @@ body::before {
   flex: 1;
 }
 .road-title {
-  font-family: 'Cinzel', serif;
+  font-family: 'Cinzel', 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
   font-size: 20px;
   color: var(--text);
   margin-bottom: 4px;
@@ -561,7 +563,7 @@ body::before {
 .pip.filled.green { background: var(--green); }
 .streak-label {
   font-size: 15px;
-  font-family: 'DM Mono', monospace;
+  font-family: 'DM Mono', 'Courier New', Courier, monospace;
   color: var(--text2);
 }
 
@@ -574,7 +576,7 @@ body::before {
   font-size: 18px;
 }
 .log-time {
-  font-family: 'DM Mono', monospace;
+  font-family: 'DM Mono', 'Courier New', Courier, monospace;
   font-size: 15px;
   color: var(--text2);
   min-width: 50px;
@@ -582,7 +584,7 @@ body::before {
 }
 .log-text { flex: 1; line-height: 1.4; }
 .log-xp {
-  font-family: 'DM Mono', monospace;
+  font-family: 'DM Mono', 'Courier New', Courier, monospace;
   font-size: 17px;
   color: var(--gold);
   flex-shrink: 0;
@@ -598,7 +600,7 @@ body::before {
   border: 1px solid var(--gold);
   border-radius: 8px;
   padding: 10px 18px;
-  font-family: 'Cinzel', serif;
+  font-family: 'Cinzel', 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
   font-size: 15px;
   color: var(--gold);
   box-shadow: 0 4px 24px rgba(0,0,0,0.5), 0 0 20px rgba(201,168,76,0.2);
@@ -622,7 +624,7 @@ body::before {
 }
 .qi-level-tag {
   font-size: 13px;
-  font-family: 'DM Mono', monospace;
+  font-family: 'DM Mono', 'Courier New', Courier, monospace;
   color: var(--text3);
   background: var(--bg3);
   border-radius: 3px;
@@ -639,7 +641,7 @@ body::before {
   border-radius: 4px;
   padding: 8px 16px;
   font-size: 16px;
-  font-family: 'DM Mono', monospace;
+  font-family: 'DM Mono', 'Courier New', Courier, monospace;
   cursor: pointer;
   transition: all 0.2s;
 }
@@ -674,7 +676,7 @@ body::before {
 .levelup-star { font-size: 48px; margin-bottom: 8px; animation: spin 2s linear infinite; }
 @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 .levelup-title {
-  font-family: 'Cinzel', serif;
+  font-family: 'Cinzel', 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
   font-size: 13px;
   letter-spacing: 3px;
   color: var(--gold-dim);
@@ -682,7 +684,7 @@ body::before {
   margin-bottom: 6px;
 }
 .levelup-level {
-  font-family: 'Cinzel', serif;
+  font-family: 'Cinzel', 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
   font-size: 32px;
   font-weight: 700;
   color: var(--gold);
@@ -705,7 +707,7 @@ body::before {
   border: none;
   border-radius: 6px;
   padding: 10px 24px;
-  font-family: 'Cinzel', serif;
+  font-family: 'Cinzel', 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
   font-size: 15px;
   color: #1a1000;
   cursor: pointer;
@@ -761,7 +763,7 @@ body::before {
 .bch-label {
   font-size: 18px;
   color: var(--text2);
-  font-family: 'DM Mono', monospace;
+  font-family: 'DM Mono', 'Courier New', Courier, monospace;
   font-size: 15px;
 }
 .bible-ch-item.done .bch-label {
@@ -814,7 +816,7 @@ body::before {
 .bch-label-sm {
   font-size: 14px;
   color: var(--text2);
-  font-family: 'DM Mono', monospace;
+  font-family: 'DM Mono', 'Courier New', Courier, monospace;
 }
 .bch-item-sm.done .bch-label-sm {
   color: var(--green2);
@@ -830,7 +832,7 @@ body::before {
   border: none;
   border-radius: 14px;
   cursor: pointer;
-  font-family: 'DM Mono', monospace;
+  font-family: 'DM Mono', 'Courier New', Courier, monospace;
   font-weight: 600;
   flex-shrink: 0;
 }
@@ -889,7 +891,7 @@ body::before {
 .book-quarter {
   font-size: 16px;
   color: var(--text3);
-  font-family: 'DM Mono', monospace;
+  font-family: 'DM Mono', 'Courier New', Courier, monospace;
   margin-top: 2px;
 }
 
@@ -898,7 +900,7 @@ body::before {
 .bch-book-header {
   grid-column: 1 / -1;
   padding: 8px 12px 4px;
-  font-family: 'Cinzel', serif;
+  font-family: 'Cinzel', 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
   font-size: 14px;
   font-weight: 600;
   color: var(--gold);
@@ -937,7 +939,7 @@ body::before {
 .book-ch-progress {
   font-size: 14px;
   color: var(--green2);
-  font-family: 'DM Mono', monospace;
+  font-family: 'DM Mono', 'Courier New', Courier, monospace;
   margin-top: 3px;
 }
 
@@ -991,7 +993,7 @@ body::before {
 .bkch-label {
   font-size: 15px;
   color: var(--text2);
-  font-family: 'DM Mono', monospace;
+  font-family: 'DM Mono', 'Courier New', Courier, monospace;
 }
 .book-ch-item.done .bkch-label {
   color: var(--green2);
@@ -1023,18 +1025,18 @@ body::before {
   font-size: 20px;
   font-weight: 600;
   color: #2a1a00;
-  font-family: 'Cinzel', serif;
+  font-family: 'Cinzel', 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
 }
 .mem-day.memorial-day .mem-day-label { color: #7a4a00; font-size: 18px; }
 .mem-day-nizan {
   font-size: 13px;
   color: #8a7060;
-  font-family: 'DM Mono', monospace;
+  font-family: 'DM Mono', 'Courier New', Courier, monospace;
   margin-top: 2px;
 }
 .mem-day-progress {
   font-size: 15px;
-  font-family: 'DM Mono', monospace;
+  font-family: 'DM Mono', 'Courier New', Courier, monospace;
   color: #7a5420;
   background: #f0e4c4;
   padding: 3px 8px;
@@ -1452,397 +1454,7 @@ body::before {
             <div id="bible-progress-bar" style="height:100%;background:linear-gradient(90deg,#c8a84b,#7a5420);border-radius:4px;width:0%;transition:width 0.4s;"></div>
           </div>
         </div>
-        <div class="bible-chapters-grid">
-        <div class="bch-book-header">Isaiah <span style="opacity:0.5;font-size:13px;">(66 ch)</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-1" onclick="toggleBibleChapter('isaiah-1')"><div class="bch-check"></div><span class="bch-label">Isaiah 1</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-2" onclick="toggleBibleChapter('isaiah-2')"><div class="bch-check"></div><span class="bch-label">Isaiah 2</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-3" onclick="toggleBibleChapter('isaiah-3')"><div class="bch-check"></div><span class="bch-label">Isaiah 3</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-4" onclick="toggleBibleChapter('isaiah-4')"><div class="bch-check"></div><span class="bch-label">Isaiah 4</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-5" onclick="toggleBibleChapter('isaiah-5')"><div class="bch-check"></div><span class="bch-label">Isaiah 5</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-6" onclick="toggleBibleChapter('isaiah-6')"><div class="bch-check"></div><span class="bch-label">Isaiah 6</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-7" onclick="toggleBibleChapter('isaiah-7')"><div class="bch-check"></div><span class="bch-label">Isaiah 7</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-8" onclick="toggleBibleChapter('isaiah-8')"><div class="bch-check"></div><span class="bch-label">Isaiah 8</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-9" onclick="toggleBibleChapter('isaiah-9')"><div class="bch-check"></div><span class="bch-label">Isaiah 9</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-10" onclick="toggleBibleChapter('isaiah-10')"><div class="bch-check"></div><span class="bch-label">Isaiah 10</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-11" onclick="toggleBibleChapter('isaiah-11')"><div class="bch-check"></div><span class="bch-label">Isaiah 11</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-12" onclick="toggleBibleChapter('isaiah-12')"><div class="bch-check"></div><span class="bch-label">Isaiah 12</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-13" onclick="toggleBibleChapter('isaiah-13')"><div class="bch-check"></div><span class="bch-label">Isaiah 13</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-14" onclick="toggleBibleChapter('isaiah-14')"><div class="bch-check"></div><span class="bch-label">Isaiah 14</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-15" onclick="toggleBibleChapter('isaiah-15')"><div class="bch-check"></div><span class="bch-label">Isaiah 15</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-16" onclick="toggleBibleChapter('isaiah-16')"><div class="bch-check"></div><span class="bch-label">Isaiah 16</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-17" onclick="toggleBibleChapter('isaiah-17')"><div class="bch-check"></div><span class="bch-label">Isaiah 17</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-18" onclick="toggleBibleChapter('isaiah-18')"><div class="bch-check"></div><span class="bch-label">Isaiah 18</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-19" onclick="toggleBibleChapter('isaiah-19')"><div class="bch-check"></div><span class="bch-label">Isaiah 19</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-20" onclick="toggleBibleChapter('isaiah-20')"><div class="bch-check"></div><span class="bch-label">Isaiah 20</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-21" onclick="toggleBibleChapter('isaiah-21')"><div class="bch-check"></div><span class="bch-label">Isaiah 21</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-22" onclick="toggleBibleChapter('isaiah-22')"><div class="bch-check"></div><span class="bch-label">Isaiah 22</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-23" onclick="toggleBibleChapter('isaiah-23')"><div class="bch-check"></div><span class="bch-label">Isaiah 23</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-24" onclick="toggleBibleChapter('isaiah-24')"><div class="bch-check"></div><span class="bch-label">Isaiah 24</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-25" onclick="toggleBibleChapter('isaiah-25')"><div class="bch-check"></div><span class="bch-label">Isaiah 25</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-26" onclick="toggleBibleChapter('isaiah-26')"><div class="bch-check"></div><span class="bch-label">Isaiah 26</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-27" onclick="toggleBibleChapter('isaiah-27')"><div class="bch-check"></div><span class="bch-label">Isaiah 27</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-28" onclick="toggleBibleChapter('isaiah-28')"><div class="bch-check"></div><span class="bch-label">Isaiah 28</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-29" onclick="toggleBibleChapter('isaiah-29')"><div class="bch-check"></div><span class="bch-label">Isaiah 29</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-30" onclick="toggleBibleChapter('isaiah-30')"><div class="bch-check"></div><span class="bch-label">Isaiah 30</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-31" onclick="toggleBibleChapter('isaiah-31')"><div class="bch-check"></div><span class="bch-label">Isaiah 31</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-32" onclick="toggleBibleChapter('isaiah-32')"><div class="bch-check"></div><span class="bch-label">Isaiah 32</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-33" onclick="toggleBibleChapter('isaiah-33')"><div class="bch-check"></div><span class="bch-label">Isaiah 33</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-34" onclick="toggleBibleChapter('isaiah-34')"><div class="bch-check"></div><span class="bch-label">Isaiah 34</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-35" onclick="toggleBibleChapter('isaiah-35')"><div class="bch-check"></div><span class="bch-label">Isaiah 35</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-36" onclick="toggleBibleChapter('isaiah-36')"><div class="bch-check"></div><span class="bch-label">Isaiah 36</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-37" onclick="toggleBibleChapter('isaiah-37')"><div class="bch-check"></div><span class="bch-label">Isaiah 37</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-38" onclick="toggleBibleChapter('isaiah-38')"><div class="bch-check"></div><span class="bch-label">Isaiah 38</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-39" onclick="toggleBibleChapter('isaiah-39')"><div class="bch-check"></div><span class="bch-label">Isaiah 39</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-40" onclick="toggleBibleChapter('isaiah-40')"><div class="bch-check"></div><span class="bch-label">Isaiah 40</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-41" onclick="toggleBibleChapter('isaiah-41')"><div class="bch-check"></div><span class="bch-label">Isaiah 41</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-42" onclick="toggleBibleChapter('isaiah-42')"><div class="bch-check"></div><span class="bch-label">Isaiah 42</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-43" onclick="toggleBibleChapter('isaiah-43')"><div class="bch-check"></div><span class="bch-label">Isaiah 43</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-44" onclick="toggleBibleChapter('isaiah-44')"><div class="bch-check"></div><span class="bch-label">Isaiah 44</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-45" onclick="toggleBibleChapter('isaiah-45')"><div class="bch-check"></div><span class="bch-label">Isaiah 45</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-46" onclick="toggleBibleChapter('isaiah-46')"><div class="bch-check"></div><span class="bch-label">Isaiah 46</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-47" onclick="toggleBibleChapter('isaiah-47')"><div class="bch-check"></div><span class="bch-label">Isaiah 47</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-48" onclick="toggleBibleChapter('isaiah-48')"><div class="bch-check"></div><span class="bch-label">Isaiah 48</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-49" onclick="toggleBibleChapter('isaiah-49')"><div class="bch-check"></div><span class="bch-label">Isaiah 49</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-50" onclick="toggleBibleChapter('isaiah-50')"><div class="bch-check"></div><span class="bch-label">Isaiah 50</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-51" onclick="toggleBibleChapter('isaiah-51')"><div class="bch-check"></div><span class="bch-label">Isaiah 51</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-52" onclick="toggleBibleChapter('isaiah-52')"><div class="bch-check"></div><span class="bch-label">Isaiah 52</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-53" onclick="toggleBibleChapter('isaiah-53')"><div class="bch-check"></div><span class="bch-label">Isaiah 53</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-54" onclick="toggleBibleChapter('isaiah-54')"><div class="bch-check"></div><span class="bch-label">Isaiah 54</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-55" onclick="toggleBibleChapter('isaiah-55')"><div class="bch-check"></div><span class="bch-label">Isaiah 55</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-56" onclick="toggleBibleChapter('isaiah-56')"><div class="bch-check"></div><span class="bch-label">Isaiah 56</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-57" onclick="toggleBibleChapter('isaiah-57')"><div class="bch-check"></div><span class="bch-label">Isaiah 57</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-58" onclick="toggleBibleChapter('isaiah-58')"><div class="bch-check"></div><span class="bch-label">Isaiah 58</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-59" onclick="toggleBibleChapter('isaiah-59')"><div class="bch-check"></div><span class="bch-label">Isaiah 59</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-60" onclick="toggleBibleChapter('isaiah-60')"><div class="bch-check"></div><span class="bch-label">Isaiah 60</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-61" onclick="toggleBibleChapter('isaiah-61')"><div class="bch-check"></div><span class="bch-label">Isaiah 61</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-62" onclick="toggleBibleChapter('isaiah-62')"><div class="bch-check"></div><span class="bch-label">Isaiah 62</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-63" onclick="toggleBibleChapter('isaiah-63')"><div class="bch-check"></div><span class="bch-label">Isaiah 63</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-64" onclick="toggleBibleChapter('isaiah-64')"><div class="bch-check"></div><span class="bch-label">Isaiah 64</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-65" onclick="toggleBibleChapter('isaiah-65')"><div class="bch-check"></div><span class="bch-label">Isaiah 65</span></div>
-        <div class="bible-ch-item" id="bch-isaiah-66" onclick="toggleBibleChapter('isaiah-66')"><div class="bch-check"></div><span class="bch-label">Isaiah 66</span></div>
-        <div class="bch-book-header">Jeremiah <span style="opacity:0.5;font-size:13px;">(52 ch)</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-1" onclick="toggleBibleChapter('jeremiah-1')"><div class="bch-check"></div><span class="bch-label">Jeremiah 1</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-2" onclick="toggleBibleChapter('jeremiah-2')"><div class="bch-check"></div><span class="bch-label">Jeremiah 2</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-3" onclick="toggleBibleChapter('jeremiah-3')"><div class="bch-check"></div><span class="bch-label">Jeremiah 3</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-4" onclick="toggleBibleChapter('jeremiah-4')"><div class="bch-check"></div><span class="bch-label">Jeremiah 4</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-5" onclick="toggleBibleChapter('jeremiah-5')"><div class="bch-check"></div><span class="bch-label">Jeremiah 5</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-6" onclick="toggleBibleChapter('jeremiah-6')"><div class="bch-check"></div><span class="bch-label">Jeremiah 6</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-7" onclick="toggleBibleChapter('jeremiah-7')"><div class="bch-check"></div><span class="bch-label">Jeremiah 7</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-8" onclick="toggleBibleChapter('jeremiah-8')"><div class="bch-check"></div><span class="bch-label">Jeremiah 8</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-9" onclick="toggleBibleChapter('jeremiah-9')"><div class="bch-check"></div><span class="bch-label">Jeremiah 9</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-10" onclick="toggleBibleChapter('jeremiah-10')"><div class="bch-check"></div><span class="bch-label">Jeremiah 10</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-11" onclick="toggleBibleChapter('jeremiah-11')"><div class="bch-check"></div><span class="bch-label">Jeremiah 11</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-12" onclick="toggleBibleChapter('jeremiah-12')"><div class="bch-check"></div><span class="bch-label">Jeremiah 12</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-13" onclick="toggleBibleChapter('jeremiah-13')"><div class="bch-check"></div><span class="bch-label">Jeremiah 13</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-14" onclick="toggleBibleChapter('jeremiah-14')"><div class="bch-check"></div><span class="bch-label">Jeremiah 14</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-15" onclick="toggleBibleChapter('jeremiah-15')"><div class="bch-check"></div><span class="bch-label">Jeremiah 15</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-16" onclick="toggleBibleChapter('jeremiah-16')"><div class="bch-check"></div><span class="bch-label">Jeremiah 16</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-17" onclick="toggleBibleChapter('jeremiah-17')"><div class="bch-check"></div><span class="bch-label">Jeremiah 17</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-18" onclick="toggleBibleChapter('jeremiah-18')"><div class="bch-check"></div><span class="bch-label">Jeremiah 18</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-19" onclick="toggleBibleChapter('jeremiah-19')"><div class="bch-check"></div><span class="bch-label">Jeremiah 19</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-20" onclick="toggleBibleChapter('jeremiah-20')"><div class="bch-check"></div><span class="bch-label">Jeremiah 20</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-21" onclick="toggleBibleChapter('jeremiah-21')"><div class="bch-check"></div><span class="bch-label">Jeremiah 21</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-22" onclick="toggleBibleChapter('jeremiah-22')"><div class="bch-check"></div><span class="bch-label">Jeremiah 22</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-23" onclick="toggleBibleChapter('jeremiah-23')"><div class="bch-check"></div><span class="bch-label">Jeremiah 23</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-24" onclick="toggleBibleChapter('jeremiah-24')"><div class="bch-check"></div><span class="bch-label">Jeremiah 24</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-25" onclick="toggleBibleChapter('jeremiah-25')"><div class="bch-check"></div><span class="bch-label">Jeremiah 25</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-26" onclick="toggleBibleChapter('jeremiah-26')"><div class="bch-check"></div><span class="bch-label">Jeremiah 26</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-27" onclick="toggleBibleChapter('jeremiah-27')"><div class="bch-check"></div><span class="bch-label">Jeremiah 27</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-28" onclick="toggleBibleChapter('jeremiah-28')"><div class="bch-check"></div><span class="bch-label">Jeremiah 28</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-29" onclick="toggleBibleChapter('jeremiah-29')"><div class="bch-check"></div><span class="bch-label">Jeremiah 29</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-30" onclick="toggleBibleChapter('jeremiah-30')"><div class="bch-check"></div><span class="bch-label">Jeremiah 30</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-31" onclick="toggleBibleChapter('jeremiah-31')"><div class="bch-check"></div><span class="bch-label">Jeremiah 31</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-32" onclick="toggleBibleChapter('jeremiah-32')"><div class="bch-check"></div><span class="bch-label">Jeremiah 32</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-33" onclick="toggleBibleChapter('jeremiah-33')"><div class="bch-check"></div><span class="bch-label">Jeremiah 33</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-34" onclick="toggleBibleChapter('jeremiah-34')"><div class="bch-check"></div><span class="bch-label">Jeremiah 34</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-35" onclick="toggleBibleChapter('jeremiah-35')"><div class="bch-check"></div><span class="bch-label">Jeremiah 35</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-36" onclick="toggleBibleChapter('jeremiah-36')"><div class="bch-check"></div><span class="bch-label">Jeremiah 36</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-37" onclick="toggleBibleChapter('jeremiah-37')"><div class="bch-check"></div><span class="bch-label">Jeremiah 37</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-38" onclick="toggleBibleChapter('jeremiah-38')"><div class="bch-check"></div><span class="bch-label">Jeremiah 38</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-39" onclick="toggleBibleChapter('jeremiah-39')"><div class="bch-check"></div><span class="bch-label">Jeremiah 39</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-40" onclick="toggleBibleChapter('jeremiah-40')"><div class="bch-check"></div><span class="bch-label">Jeremiah 40</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-41" onclick="toggleBibleChapter('jeremiah-41')"><div class="bch-check"></div><span class="bch-label">Jeremiah 41</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-42" onclick="toggleBibleChapter('jeremiah-42')"><div class="bch-check"></div><span class="bch-label">Jeremiah 42</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-43" onclick="toggleBibleChapter('jeremiah-43')"><div class="bch-check"></div><span class="bch-label">Jeremiah 43</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-44" onclick="toggleBibleChapter('jeremiah-44')"><div class="bch-check"></div><span class="bch-label">Jeremiah 44</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-45" onclick="toggleBibleChapter('jeremiah-45')"><div class="bch-check"></div><span class="bch-label">Jeremiah 45</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-46" onclick="toggleBibleChapter('jeremiah-46')"><div class="bch-check"></div><span class="bch-label">Jeremiah 46</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-47" onclick="toggleBibleChapter('jeremiah-47')"><div class="bch-check"></div><span class="bch-label">Jeremiah 47</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-48" onclick="toggleBibleChapter('jeremiah-48')"><div class="bch-check"></div><span class="bch-label">Jeremiah 48</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-49" onclick="toggleBibleChapter('jeremiah-49')"><div class="bch-check"></div><span class="bch-label">Jeremiah 49</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-50" onclick="toggleBibleChapter('jeremiah-50')"><div class="bch-check"></div><span class="bch-label">Jeremiah 50</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-51" onclick="toggleBibleChapter('jeremiah-51')"><div class="bch-check"></div><span class="bch-label">Jeremiah 51</span></div>
-        <div class="bible-ch-item" id="bch-jeremiah-52" onclick="toggleBibleChapter('jeremiah-52')"><div class="bch-check"></div><span class="bch-label">Jeremiah 52</span></div>
-        <div class="bch-book-header">Lamentations <span style="opacity:0.5;font-size:13px;">(5 ch)</span></div>
-        <div class="bible-ch-item" id="bch-lamentations-1" onclick="toggleBibleChapter('lamentations-1')"><div class="bch-check"></div><span class="bch-label">Lamentations 1</span></div>
-        <div class="bible-ch-item" id="bch-lamentations-2" onclick="toggleBibleChapter('lamentations-2')"><div class="bch-check"></div><span class="bch-label">Lamentations 2</span></div>
-        <div class="bible-ch-item" id="bch-lamentations-3" onclick="toggleBibleChapter('lamentations-3')"><div class="bch-check"></div><span class="bch-label">Lamentations 3</span></div>
-        <div class="bible-ch-item" id="bch-lamentations-4" onclick="toggleBibleChapter('lamentations-4')"><div class="bch-check"></div><span class="bch-label">Lamentations 4</span></div>
-        <div class="bible-ch-item" id="bch-lamentations-5" onclick="toggleBibleChapter('lamentations-5')"><div class="bch-check"></div><span class="bch-label">Lamentations 5</span></div>
-        <div class="bch-book-header">Ezekiel <span style="opacity:0.5;font-size:13px;">(48 ch)</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-1" onclick="toggleBibleChapter('ezekiel-1')"><div class="bch-check"></div><span class="bch-label">Ezekiel 1</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-2" onclick="toggleBibleChapter('ezekiel-2')"><div class="bch-check"></div><span class="bch-label">Ezekiel 2</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-3" onclick="toggleBibleChapter('ezekiel-3')"><div class="bch-check"></div><span class="bch-label">Ezekiel 3</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-4" onclick="toggleBibleChapter('ezekiel-4')"><div class="bch-check"></div><span class="bch-label">Ezekiel 4</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-5" onclick="toggleBibleChapter('ezekiel-5')"><div class="bch-check"></div><span class="bch-label">Ezekiel 5</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-6" onclick="toggleBibleChapter('ezekiel-6')"><div class="bch-check"></div><span class="bch-label">Ezekiel 6</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-7" onclick="toggleBibleChapter('ezekiel-7')"><div class="bch-check"></div><span class="bch-label">Ezekiel 7</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-8" onclick="toggleBibleChapter('ezekiel-8')"><div class="bch-check"></div><span class="bch-label">Ezekiel 8</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-9" onclick="toggleBibleChapter('ezekiel-9')"><div class="bch-check"></div><span class="bch-label">Ezekiel 9</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-10" onclick="toggleBibleChapter('ezekiel-10')"><div class="bch-check"></div><span class="bch-label">Ezekiel 10</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-11" onclick="toggleBibleChapter('ezekiel-11')"><div class="bch-check"></div><span class="bch-label">Ezekiel 11</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-12" onclick="toggleBibleChapter('ezekiel-12')"><div class="bch-check"></div><span class="bch-label">Ezekiel 12</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-13" onclick="toggleBibleChapter('ezekiel-13')"><div class="bch-check"></div><span class="bch-label">Ezekiel 13</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-14" onclick="toggleBibleChapter('ezekiel-14')"><div class="bch-check"></div><span class="bch-label">Ezekiel 14</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-15" onclick="toggleBibleChapter('ezekiel-15')"><div class="bch-check"></div><span class="bch-label">Ezekiel 15</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-16" onclick="toggleBibleChapter('ezekiel-16')"><div class="bch-check"></div><span class="bch-label">Ezekiel 16</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-17" onclick="toggleBibleChapter('ezekiel-17')"><div class="bch-check"></div><span class="bch-label">Ezekiel 17</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-18" onclick="toggleBibleChapter('ezekiel-18')"><div class="bch-check"></div><span class="bch-label">Ezekiel 18</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-19" onclick="toggleBibleChapter('ezekiel-19')"><div class="bch-check"></div><span class="bch-label">Ezekiel 19</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-20" onclick="toggleBibleChapter('ezekiel-20')"><div class="bch-check"></div><span class="bch-label">Ezekiel 20</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-21" onclick="toggleBibleChapter('ezekiel-21')"><div class="bch-check"></div><span class="bch-label">Ezekiel 21</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-22" onclick="toggleBibleChapter('ezekiel-22')"><div class="bch-check"></div><span class="bch-label">Ezekiel 22</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-23" onclick="toggleBibleChapter('ezekiel-23')"><div class="bch-check"></div><span class="bch-label">Ezekiel 23</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-24" onclick="toggleBibleChapter('ezekiel-24')"><div class="bch-check"></div><span class="bch-label">Ezekiel 24</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-25" onclick="toggleBibleChapter('ezekiel-25')"><div class="bch-check"></div><span class="bch-label">Ezekiel 25</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-26" onclick="toggleBibleChapter('ezekiel-26')"><div class="bch-check"></div><span class="bch-label">Ezekiel 26</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-27" onclick="toggleBibleChapter('ezekiel-27')"><div class="bch-check"></div><span class="bch-label">Ezekiel 27</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-28" onclick="toggleBibleChapter('ezekiel-28')"><div class="bch-check"></div><span class="bch-label">Ezekiel 28</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-29" onclick="toggleBibleChapter('ezekiel-29')"><div class="bch-check"></div><span class="bch-label">Ezekiel 29</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-30" onclick="toggleBibleChapter('ezekiel-30')"><div class="bch-check"></div><span class="bch-label">Ezekiel 30</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-31" onclick="toggleBibleChapter('ezekiel-31')"><div class="bch-check"></div><span class="bch-label">Ezekiel 31</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-32" onclick="toggleBibleChapter('ezekiel-32')"><div class="bch-check"></div><span class="bch-label">Ezekiel 32</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-33" onclick="toggleBibleChapter('ezekiel-33')"><div class="bch-check"></div><span class="bch-label">Ezekiel 33</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-34" onclick="toggleBibleChapter('ezekiel-34')"><div class="bch-check"></div><span class="bch-label">Ezekiel 34</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-35" onclick="toggleBibleChapter('ezekiel-35')"><div class="bch-check"></div><span class="bch-label">Ezekiel 35</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-36" onclick="toggleBibleChapter('ezekiel-36')"><div class="bch-check"></div><span class="bch-label">Ezekiel 36</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-37" onclick="toggleBibleChapter('ezekiel-37')"><div class="bch-check"></div><span class="bch-label">Ezekiel 37</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-38" onclick="toggleBibleChapter('ezekiel-38')"><div class="bch-check"></div><span class="bch-label">Ezekiel 38</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-39" onclick="toggleBibleChapter('ezekiel-39')"><div class="bch-check"></div><span class="bch-label">Ezekiel 39</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-40" onclick="toggleBibleChapter('ezekiel-40')"><div class="bch-check"></div><span class="bch-label">Ezekiel 40</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-41" onclick="toggleBibleChapter('ezekiel-41')"><div class="bch-check"></div><span class="bch-label">Ezekiel 41</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-42" onclick="toggleBibleChapter('ezekiel-42')"><div class="bch-check"></div><span class="bch-label">Ezekiel 42</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-43" onclick="toggleBibleChapter('ezekiel-43')"><div class="bch-check"></div><span class="bch-label">Ezekiel 43</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-44" onclick="toggleBibleChapter('ezekiel-44')"><div class="bch-check"></div><span class="bch-label">Ezekiel 44</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-45" onclick="toggleBibleChapter('ezekiel-45')"><div class="bch-check"></div><span class="bch-label">Ezekiel 45</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-46" onclick="toggleBibleChapter('ezekiel-46')"><div class="bch-check"></div><span class="bch-label">Ezekiel 46</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-47" onclick="toggleBibleChapter('ezekiel-47')"><div class="bch-check"></div><span class="bch-label">Ezekiel 47</span></div>
-        <div class="bible-ch-item" id="bch-ezekiel-48" onclick="toggleBibleChapter('ezekiel-48')"><div class="bch-check"></div><span class="bch-label">Ezekiel 48</span></div>
-        <div class="bch-book-header">Daniel <span style="opacity:0.5;font-size:13px;">(12 ch)</span></div>
-        <div class="bible-ch-item" id="bch-daniel-1" onclick="toggleBibleChapter('daniel-1')"><div class="bch-check"></div><span class="bch-label">Daniel 1</span></div>
-        <div class="bible-ch-item" id="bch-daniel-2" onclick="toggleBibleChapter('daniel-2')"><div class="bch-check"></div><span class="bch-label">Daniel 2</span></div>
-        <div class="bible-ch-item" id="bch-daniel-3" onclick="toggleBibleChapter('daniel-3')"><div class="bch-check"></div><span class="bch-label">Daniel 3</span></div>
-        <div class="bible-ch-item" id="bch-daniel-4" onclick="toggleBibleChapter('daniel-4')"><div class="bch-check"></div><span class="bch-label">Daniel 4</span></div>
-        <div class="bible-ch-item" id="bch-daniel-5" onclick="toggleBibleChapter('daniel-5')"><div class="bch-check"></div><span class="bch-label">Daniel 5</span></div>
-        <div class="bible-ch-item" id="bch-daniel-6" onclick="toggleBibleChapter('daniel-6')"><div class="bch-check"></div><span class="bch-label">Daniel 6</span></div>
-        <div class="bible-ch-item" id="bch-daniel-7" onclick="toggleBibleChapter('daniel-7')"><div class="bch-check"></div><span class="bch-label">Daniel 7</span></div>
-        <div class="bible-ch-item" id="bch-daniel-8" onclick="toggleBibleChapter('daniel-8')"><div class="bch-check"></div><span class="bch-label">Daniel 8</span></div>
-        <div class="bible-ch-item" id="bch-daniel-9" onclick="toggleBibleChapter('daniel-9')"><div class="bch-check"></div><span class="bch-label">Daniel 9</span></div>
-        <div class="bible-ch-item" id="bch-daniel-10" onclick="toggleBibleChapter('daniel-10')"><div class="bch-check"></div><span class="bch-label">Daniel 10</span></div>
-        <div class="bible-ch-item" id="bch-daniel-11" onclick="toggleBibleChapter('daniel-11')"><div class="bch-check"></div><span class="bch-label">Daniel 11</span></div>
-        <div class="bible-ch-item" id="bch-daniel-12" onclick="toggleBibleChapter('daniel-12')"><div class="bch-check"></div><span class="bch-label">Daniel 12</span></div>
-        <div class="bch-book-header">Hosea <span style="opacity:0.5;font-size:13px;">(14 ch)</span></div>
-        <div class="bible-ch-item" id="bch-hosea-1" onclick="toggleBibleChapter('hosea-1')"><div class="bch-check"></div><span class="bch-label">Hosea 1</span></div>
-        <div class="bible-ch-item" id="bch-hosea-2" onclick="toggleBibleChapter('hosea-2')"><div class="bch-check"></div><span class="bch-label">Hosea 2</span></div>
-        <div class="bible-ch-item" id="bch-hosea-3" onclick="toggleBibleChapter('hosea-3')"><div class="bch-check"></div><span class="bch-label">Hosea 3</span></div>
-        <div class="bible-ch-item" id="bch-hosea-4" onclick="toggleBibleChapter('hosea-4')"><div class="bch-check"></div><span class="bch-label">Hosea 4</span></div>
-        <div class="bible-ch-item" id="bch-hosea-5" onclick="toggleBibleChapter('hosea-5')"><div class="bch-check"></div><span class="bch-label">Hosea 5</span></div>
-        <div class="bible-ch-item" id="bch-hosea-6" onclick="toggleBibleChapter('hosea-6')"><div class="bch-check"></div><span class="bch-label">Hosea 6</span></div>
-        <div class="bible-ch-item" id="bch-hosea-7" onclick="toggleBibleChapter('hosea-7')"><div class="bch-check"></div><span class="bch-label">Hosea 7</span></div>
-        <div class="bible-ch-item" id="bch-hosea-8" onclick="toggleBibleChapter('hosea-8')"><div class="bch-check"></div><span class="bch-label">Hosea 8</span></div>
-        <div class="bible-ch-item" id="bch-hosea-9" onclick="toggleBibleChapter('hosea-9')"><div class="bch-check"></div><span class="bch-label">Hosea 9</span></div>
-        <div class="bible-ch-item" id="bch-hosea-10" onclick="toggleBibleChapter('hosea-10')"><div class="bch-check"></div><span class="bch-label">Hosea 10</span></div>
-        <div class="bible-ch-item" id="bch-hosea-11" onclick="toggleBibleChapter('hosea-11')"><div class="bch-check"></div><span class="bch-label">Hosea 11</span></div>
-        <div class="bible-ch-item" id="bch-hosea-12" onclick="toggleBibleChapter('hosea-12')"><div class="bch-check"></div><span class="bch-label">Hosea 12</span></div>
-        <div class="bible-ch-item" id="bch-hosea-13" onclick="toggleBibleChapter('hosea-13')"><div class="bch-check"></div><span class="bch-label">Hosea 13</span></div>
-        <div class="bible-ch-item" id="bch-hosea-14" onclick="toggleBibleChapter('hosea-14')"><div class="bch-check"></div><span class="bch-label">Hosea 14</span></div>
-        <div class="bch-book-header">Joel <span style="opacity:0.5;font-size:13px;">(3 ch)</span></div>
-        <div class="bible-ch-item" id="bch-joel-1" onclick="toggleBibleChapter('joel-1')"><div class="bch-check"></div><span class="bch-label">Joel 1</span></div>
-        <div class="bible-ch-item" id="bch-joel-2" onclick="toggleBibleChapter('joel-2')"><div class="bch-check"></div><span class="bch-label">Joel 2</span></div>
-        <div class="bible-ch-item" id="bch-joel-3" onclick="toggleBibleChapter('joel-3')"><div class="bch-check"></div><span class="bch-label">Joel 3</span></div>
-        <div class="bch-book-header">Amos <span style="opacity:0.5;font-size:13px;">(9 ch)</span></div>
-        <div class="bible-ch-item" id="bch-amos-1" onclick="toggleBibleChapter('amos-1')"><div class="bch-check"></div><span class="bch-label">Amos 1</span></div>
-        <div class="bible-ch-item" id="bch-amos-2" onclick="toggleBibleChapter('amos-2')"><div class="bch-check"></div><span class="bch-label">Amos 2</span></div>
-        <div class="bible-ch-item" id="bch-amos-3" onclick="toggleBibleChapter('amos-3')"><div class="bch-check"></div><span class="bch-label">Amos 3</span></div>
-        <div class="bible-ch-item" id="bch-amos-4" onclick="toggleBibleChapter('amos-4')"><div class="bch-check"></div><span class="bch-label">Amos 4</span></div>
-        <div class="bible-ch-item" id="bch-amos-5" onclick="toggleBibleChapter('amos-5')"><div class="bch-check"></div><span class="bch-label">Amos 5</span></div>
-        <div class="bible-ch-item" id="bch-amos-6" onclick="toggleBibleChapter('amos-6')"><div class="bch-check"></div><span class="bch-label">Amos 6</span></div>
-        <div class="bible-ch-item" id="bch-amos-7" onclick="toggleBibleChapter('amos-7')"><div class="bch-check"></div><span class="bch-label">Amos 7</span></div>
-        <div class="bible-ch-item" id="bch-amos-8" onclick="toggleBibleChapter('amos-8')"><div class="bch-check"></div><span class="bch-label">Amos 8</span></div>
-        <div class="bible-ch-item" id="bch-amos-9" onclick="toggleBibleChapter('amos-9')"><div class="bch-check"></div><span class="bch-label">Amos 9</span></div>
-        <div class="bch-book-header">Obadiah <span style="opacity:0.5;font-size:13px;">(1 ch)</span></div>
-        <div class="bible-ch-item" id="bch-obadiah-1" onclick="toggleBibleChapter('obadiah-1')"><div class="bch-check"></div><span class="bch-label">Obadiah 1</span></div>
-        <div class="bch-book-header">Jonah <span style="opacity:0.5;font-size:13px;">(4 ch)</span></div>
-        <div class="bible-ch-item" id="bch-jonah-1" onclick="toggleBibleChapter('jonah-1')"><div class="bch-check"></div><span class="bch-label">Jonah 1</span></div>
-        <div class="bible-ch-item" id="bch-jonah-2" onclick="toggleBibleChapter('jonah-2')"><div class="bch-check"></div><span class="bch-label">Jonah 2</span></div>
-        <div class="bible-ch-item" id="bch-jonah-3" onclick="toggleBibleChapter('jonah-3')"><div class="bch-check"></div><span class="bch-label">Jonah 3</span></div>
-        <div class="bible-ch-item" id="bch-jonah-4" onclick="toggleBibleChapter('jonah-4')"><div class="bch-check"></div><span class="bch-label">Jonah 4</span></div>
-        <div class="bch-book-header">Micah <span style="opacity:0.5;font-size:13px;">(7 ch)</span></div>
-        <div class="bible-ch-item" id="bch-micah-1" onclick="toggleBibleChapter('micah-1')"><div class="bch-check"></div><span class="bch-label">Micah 1</span></div>
-        <div class="bible-ch-item" id="bch-micah-2" onclick="toggleBibleChapter('micah-2')"><div class="bch-check"></div><span class="bch-label">Micah 2</span></div>
-        <div class="bible-ch-item" id="bch-micah-3" onclick="toggleBibleChapter('micah-3')"><div class="bch-check"></div><span class="bch-label">Micah 3</span></div>
-        <div class="bible-ch-item" id="bch-micah-4" onclick="toggleBibleChapter('micah-4')"><div class="bch-check"></div><span class="bch-label">Micah 4</span></div>
-        <div class="bible-ch-item" id="bch-micah-5" onclick="toggleBibleChapter('micah-5')"><div class="bch-check"></div><span class="bch-label">Micah 5</span></div>
-        <div class="bible-ch-item" id="bch-micah-6" onclick="toggleBibleChapter('micah-6')"><div class="bch-check"></div><span class="bch-label">Micah 6</span></div>
-        <div class="bible-ch-item" id="bch-micah-7" onclick="toggleBibleChapter('micah-7')"><div class="bch-check"></div><span class="bch-label">Micah 7</span></div>
-        <div class="bch-book-header">Nahum <span style="opacity:0.5;font-size:13px;">(3 ch)</span></div>
-        <div class="bible-ch-item" id="bch-nahum-1" onclick="toggleBibleChapter('nahum-1')"><div class="bch-check"></div><span class="bch-label">Nahum 1</span></div>
-        <div class="bible-ch-item" id="bch-nahum-2" onclick="toggleBibleChapter('nahum-2')"><div class="bch-check"></div><span class="bch-label">Nahum 2</span></div>
-        <div class="bible-ch-item" id="bch-nahum-3" onclick="toggleBibleChapter('nahum-3')"><div class="bch-check"></div><span class="bch-label">Nahum 3</span></div>
-        <div class="bch-book-header">Habakkuk <span style="opacity:0.5;font-size:13px;">(3 ch)</span></div>
-        <div class="bible-ch-item" id="bch-habakkuk-1" onclick="toggleBibleChapter('habakkuk-1')"><div class="bch-check"></div><span class="bch-label">Habakkuk 1</span></div>
-        <div class="bible-ch-item" id="bch-habakkuk-2" onclick="toggleBibleChapter('habakkuk-2')"><div class="bch-check"></div><span class="bch-label">Habakkuk 2</span></div>
-        <div class="bible-ch-item" id="bch-habakkuk-3" onclick="toggleBibleChapter('habakkuk-3')"><div class="bch-check"></div><span class="bch-label">Habakkuk 3</span></div>
-        <div class="bch-book-header">Zephaniah <span style="opacity:0.5;font-size:13px;">(3 ch)</span></div>
-        <div class="bible-ch-item" id="bch-zephaniah-1" onclick="toggleBibleChapter('zephaniah-1')"><div class="bch-check"></div><span class="bch-label">Zephaniah 1</span></div>
-        <div class="bible-ch-item" id="bch-zephaniah-2" onclick="toggleBibleChapter('zephaniah-2')"><div class="bch-check"></div><span class="bch-label">Zephaniah 2</span></div>
-        <div class="bible-ch-item" id="bch-zephaniah-3" onclick="toggleBibleChapter('zephaniah-3')"><div class="bch-check"></div><span class="bch-label">Zephaniah 3</span></div>
-        <div class="bch-book-header">Haggai <span style="opacity:0.5;font-size:13px;">(2 ch)</span></div>
-        <div class="bible-ch-item" id="bch-haggai-1" onclick="toggleBibleChapter('haggai-1')"><div class="bch-check"></div><span class="bch-label">Haggai 1</span></div>
-        <div class="bible-ch-item" id="bch-haggai-2" onclick="toggleBibleChapter('haggai-2')"><div class="bch-check"></div><span class="bch-label">Haggai 2</span></div>
-        <div class="bch-book-header">Zechariah <span style="opacity:0.5;font-size:13px;">(14 ch)</span></div>
-        <div class="bible-ch-item" id="bch-zechariah-1" onclick="toggleBibleChapter('zechariah-1')"><div class="bch-check"></div><span class="bch-label">Zechariah 1</span></div>
-        <div class="bible-ch-item" id="bch-zechariah-2" onclick="toggleBibleChapter('zechariah-2')"><div class="bch-check"></div><span class="bch-label">Zechariah 2</span></div>
-        <div class="bible-ch-item" id="bch-zechariah-3" onclick="toggleBibleChapter('zechariah-3')"><div class="bch-check"></div><span class="bch-label">Zechariah 3</span></div>
-        <div class="bible-ch-item" id="bch-zechariah-4" onclick="toggleBibleChapter('zechariah-4')"><div class="bch-check"></div><span class="bch-label">Zechariah 4</span></div>
-        <div class="bible-ch-item" id="bch-zechariah-5" onclick="toggleBibleChapter('zechariah-5')"><div class="bch-check"></div><span class="bch-label">Zechariah 5</span></div>
-        <div class="bible-ch-item" id="bch-zechariah-6" onclick="toggleBibleChapter('zechariah-6')"><div class="bch-check"></div><span class="bch-label">Zechariah 6</span></div>
-        <div class="bible-ch-item" id="bch-zechariah-7" onclick="toggleBibleChapter('zechariah-7')"><div class="bch-check"></div><span class="bch-label">Zechariah 7</span></div>
-        <div class="bible-ch-item" id="bch-zechariah-8" onclick="toggleBibleChapter('zechariah-8')"><div class="bch-check"></div><span class="bch-label">Zechariah 8</span></div>
-        <div class="bible-ch-item" id="bch-zechariah-9" onclick="toggleBibleChapter('zechariah-9')"><div class="bch-check"></div><span class="bch-label">Zechariah 9</span></div>
-        <div class="bible-ch-item" id="bch-zechariah-10" onclick="toggleBibleChapter('zechariah-10')"><div class="bch-check"></div><span class="bch-label">Zechariah 10</span></div>
-        <div class="bible-ch-item" id="bch-zechariah-11" onclick="toggleBibleChapter('zechariah-11')"><div class="bch-check"></div><span class="bch-label">Zechariah 11</span></div>
-        <div class="bible-ch-item" id="bch-zechariah-12" onclick="toggleBibleChapter('zechariah-12')"><div class="bch-check"></div><span class="bch-label">Zechariah 12</span></div>
-        <div class="bible-ch-item" id="bch-zechariah-13" onclick="toggleBibleChapter('zechariah-13')"><div class="bch-check"></div><span class="bch-label">Zechariah 13</span></div>
-        <div class="bible-ch-item" id="bch-zechariah-14" onclick="toggleBibleChapter('zechariah-14')"><div class="bch-check"></div><span class="bch-label">Zechariah 14</span></div>
-        <div class="bch-book-header">Malachi <span style="opacity:0.5;font-size:13px;">(4 ch)</span></div>
-        <div class="bible-ch-item" id="bch-malachi-1" onclick="toggleBibleChapter('malachi-1')"><div class="bch-check"></div><span class="bch-label">Malachi 1</span></div>
-        <div class="bible-ch-item" id="bch-malachi-2" onclick="toggleBibleChapter('malachi-2')"><div class="bch-check"></div><span class="bch-label">Malachi 2</span></div>
-        <div class="bible-ch-item" id="bch-malachi-3" onclick="toggleBibleChapter('malachi-3')"><div class="bch-check"></div><span class="bch-label">Malachi 3</span></div>
-        <div class="bible-ch-item" id="bch-malachi-4" onclick="toggleBibleChapter('malachi-4')"><div class="bch-check"></div><span class="bch-label">Malachi 4</span></div>
-        <div class="bch-book-header">Matthew <span style="opacity:0.5;font-size:13px;">(28 ch)</span></div>
-        <div class="bible-ch-item" id="bch-matthew-1" onclick="toggleBibleChapter('matthew-1')"><div class="bch-check"></div><span class="bch-label">Matthew 1</span></div>
-        <div class="bible-ch-item" id="bch-matthew-2" onclick="toggleBibleChapter('matthew-2')"><div class="bch-check"></div><span class="bch-label">Matthew 2</span></div>
-        <div class="bible-ch-item" id="bch-matthew-3" onclick="toggleBibleChapter('matthew-3')"><div class="bch-check"></div><span class="bch-label">Matthew 3</span></div>
-        <div class="bible-ch-item" id="bch-matthew-4" onclick="toggleBibleChapter('matthew-4')"><div class="bch-check"></div><span class="bch-label">Matthew 4</span></div>
-        <div class="bible-ch-item" id="bch-matthew-5" onclick="toggleBibleChapter('matthew-5')"><div class="bch-check"></div><span class="bch-label">Matthew 5</span></div>
-        <div class="bible-ch-item" id="bch-matthew-6" onclick="toggleBibleChapter('matthew-6')"><div class="bch-check"></div><span class="bch-label">Matthew 6</span></div>
-        <div class="bible-ch-item" id="bch-matthew-7" onclick="toggleBibleChapter('matthew-7')"><div class="bch-check"></div><span class="bch-label">Matthew 7</span></div>
-        <div class="bible-ch-item" id="bch-matthew-8" onclick="toggleBibleChapter('matthew-8')"><div class="bch-check"></div><span class="bch-label">Matthew 8</span></div>
-        <div class="bible-ch-item" id="bch-matthew-9" onclick="toggleBibleChapter('matthew-9')"><div class="bch-check"></div><span class="bch-label">Matthew 9</span></div>
-        <div class="bible-ch-item" id="bch-matthew-10" onclick="toggleBibleChapter('matthew-10')"><div class="bch-check"></div><span class="bch-label">Matthew 10</span></div>
-        <div class="bible-ch-item" id="bch-matthew-11" onclick="toggleBibleChapter('matthew-11')"><div class="bch-check"></div><span class="bch-label">Matthew 11</span></div>
-        <div class="bible-ch-item" id="bch-matthew-12" onclick="toggleBibleChapter('matthew-12')"><div class="bch-check"></div><span class="bch-label">Matthew 12</span></div>
-        <div class="bible-ch-item" id="bch-matthew-13" onclick="toggleBibleChapter('matthew-13')"><div class="bch-check"></div><span class="bch-label">Matthew 13</span></div>
-        <div class="bible-ch-item" id="bch-matthew-14" onclick="toggleBibleChapter('matthew-14')"><div class="bch-check"></div><span class="bch-label">Matthew 14</span></div>
-        <div class="bible-ch-item" id="bch-matthew-15" onclick="toggleBibleChapter('matthew-15')"><div class="bch-check"></div><span class="bch-label">Matthew 15</span></div>
-        <div class="bible-ch-item" id="bch-matthew-16" onclick="toggleBibleChapter('matthew-16')"><div class="bch-check"></div><span class="bch-label">Matthew 16</span></div>
-        <div class="bible-ch-item" id="bch-matthew-17" onclick="toggleBibleChapter('matthew-17')"><div class="bch-check"></div><span class="bch-label">Matthew 17</span></div>
-        <div class="bible-ch-item" id="bch-matthew-18" onclick="toggleBibleChapter('matthew-18')"><div class="bch-check"></div><span class="bch-label">Matthew 18</span></div>
-        <div class="bible-ch-item" id="bch-matthew-19" onclick="toggleBibleChapter('matthew-19')"><div class="bch-check"></div><span class="bch-label">Matthew 19</span></div>
-        <div class="bible-ch-item" id="bch-matthew-20" onclick="toggleBibleChapter('matthew-20')"><div class="bch-check"></div><span class="bch-label">Matthew 20</span></div>
-        <div class="bible-ch-item" id="bch-matthew-21" onclick="toggleBibleChapter('matthew-21')"><div class="bch-check"></div><span class="bch-label">Matthew 21</span></div>
-        <div class="bible-ch-item" id="bch-matthew-22" onclick="toggleBibleChapter('matthew-22')"><div class="bch-check"></div><span class="bch-label">Matthew 22</span></div>
-        <div class="bible-ch-item" id="bch-matthew-23" onclick="toggleBibleChapter('matthew-23')"><div class="bch-check"></div><span class="bch-label">Matthew 23</span></div>
-        <div class="bible-ch-item" id="bch-matthew-24" onclick="toggleBibleChapter('matthew-24')"><div class="bch-check"></div><span class="bch-label">Matthew 24</span></div>
-        <div class="bible-ch-item" id="bch-matthew-25" onclick="toggleBibleChapter('matthew-25')"><div class="bch-check"></div><span class="bch-label">Matthew 25</span></div>
-        <div class="bible-ch-item" id="bch-matthew-26" onclick="toggleBibleChapter('matthew-26')"><div class="bch-check"></div><span class="bch-label">Matthew 26</span></div>
-        <div class="bible-ch-item" id="bch-matthew-27" onclick="toggleBibleChapter('matthew-27')"><div class="bch-check"></div><span class="bch-label">Matthew 27</span></div>
-        <div class="bible-ch-item" id="bch-matthew-28" onclick="toggleBibleChapter('matthew-28')"><div class="bch-check"></div><span class="bch-label">Matthew 28</span></div>
-        <div class="bch-book-header">Mark <span style="opacity:0.5;font-size:13px;">(16 ch)</span></div>
-        <div class="bible-ch-item" id="bch-mark-1" onclick="toggleBibleChapter('mark-1')"><div class="bch-check"></div><span class="bch-label">Mark 1</span></div>
-        <div class="bible-ch-item" id="bch-mark-2" onclick="toggleBibleChapter('mark-2')"><div class="bch-check"></div><span class="bch-label">Mark 2</span></div>
-        <div class="bible-ch-item" id="bch-mark-3" onclick="toggleBibleChapter('mark-3')"><div class="bch-check"></div><span class="bch-label">Mark 3</span></div>
-        <div class="bible-ch-item" id="bch-mark-4" onclick="toggleBibleChapter('mark-4')"><div class="bch-check"></div><span class="bch-label">Mark 4</span></div>
-        <div class="bible-ch-item" id="bch-mark-5" onclick="toggleBibleChapter('mark-5')"><div class="bch-check"></div><span class="bch-label">Mark 5</span></div>
-        <div class="bible-ch-item" id="bch-mark-6" onclick="toggleBibleChapter('mark-6')"><div class="bch-check"></div><span class="bch-label">Mark 6</span></div>
-        <div class="bible-ch-item" id="bch-mark-7" onclick="toggleBibleChapter('mark-7')"><div class="bch-check"></div><span class="bch-label">Mark 7</span></div>
-        <div class="bible-ch-item" id="bch-mark-8" onclick="toggleBibleChapter('mark-8')"><div class="bch-check"></div><span class="bch-label">Mark 8</span></div>
-        <div class="bible-ch-item" id="bch-mark-9" onclick="toggleBibleChapter('mark-9')"><div class="bch-check"></div><span class="bch-label">Mark 9</span></div>
-        <div class="bible-ch-item" id="bch-mark-10" onclick="toggleBibleChapter('mark-10')"><div class="bch-check"></div><span class="bch-label">Mark 10</span></div>
-        <div class="bible-ch-item" id="bch-mark-11" onclick="toggleBibleChapter('mark-11')"><div class="bch-check"></div><span class="bch-label">Mark 11</span></div>
-        <div class="bible-ch-item" id="bch-mark-12" onclick="toggleBibleChapter('mark-12')"><div class="bch-check"></div><span class="bch-label">Mark 12</span></div>
-        <div class="bible-ch-item" id="bch-mark-13" onclick="toggleBibleChapter('mark-13')"><div class="bch-check"></div><span class="bch-label">Mark 13</span></div>
-        <div class="bible-ch-item" id="bch-mark-14" onclick="toggleBibleChapter('mark-14')"><div class="bch-check"></div><span class="bch-label">Mark 14</span></div>
-        <div class="bible-ch-item" id="bch-mark-15" onclick="toggleBibleChapter('mark-15')"><div class="bch-check"></div><span class="bch-label">Mark 15</span></div>
-        <div class="bible-ch-item" id="bch-mark-16" onclick="toggleBibleChapter('mark-16')"><div class="bch-check"></div><span class="bch-label">Mark 16</span></div>
-        <div class="bch-book-header">Luke <span style="opacity:0.5;font-size:13px;">(24 ch)</span></div>
-        <div class="bible-ch-item" id="bch-luke-1" onclick="toggleBibleChapter('luke-1')"><div class="bch-check"></div><span class="bch-label">Luke 1</span></div>
-        <div class="bible-ch-item" id="bch-luke-2" onclick="toggleBibleChapter('luke-2')"><div class="bch-check"></div><span class="bch-label">Luke 2</span></div>
-        <div class="bible-ch-item" id="bch-luke-3" onclick="toggleBibleChapter('luke-3')"><div class="bch-check"></div><span class="bch-label">Luke 3</span></div>
-        <div class="bible-ch-item" id="bch-luke-4" onclick="toggleBibleChapter('luke-4')"><div class="bch-check"></div><span class="bch-label">Luke 4</span></div>
-        <div class="bible-ch-item" id="bch-luke-5" onclick="toggleBibleChapter('luke-5')"><div class="bch-check"></div><span class="bch-label">Luke 5</span></div>
-        <div class="bible-ch-item" id="bch-luke-6" onclick="toggleBibleChapter('luke-6')"><div class="bch-check"></div><span class="bch-label">Luke 6</span></div>
-        <div class="bible-ch-item" id="bch-luke-7" onclick="toggleBibleChapter('luke-7')"><div class="bch-check"></div><span class="bch-label">Luke 7</span></div>
-        <div class="bible-ch-item" id="bch-luke-8" onclick="toggleBibleChapter('luke-8')"><div class="bch-check"></div><span class="bch-label">Luke 8</span></div>
-        <div class="bible-ch-item" id="bch-luke-9" onclick="toggleBibleChapter('luke-9')"><div class="bch-check"></div><span class="bch-label">Luke 9</span></div>
-        <div class="bible-ch-item" id="bch-luke-10" onclick="toggleBibleChapter('luke-10')"><div class="bch-check"></div><span class="bch-label">Luke 10</span></div>
-        <div class="bible-ch-item" id="bch-luke-11" onclick="toggleBibleChapter('luke-11')"><div class="bch-check"></div><span class="bch-label">Luke 11</span></div>
-        <div class="bible-ch-item" id="bch-luke-12" onclick="toggleBibleChapter('luke-12')"><div class="bch-check"></div><span class="bch-label">Luke 12</span></div>
-        <div class="bible-ch-item" id="bch-luke-13" onclick="toggleBibleChapter('luke-13')"><div class="bch-check"></div><span class="bch-label">Luke 13</span></div>
-        <div class="bible-ch-item" id="bch-luke-14" onclick="toggleBibleChapter('luke-14')"><div class="bch-check"></div><span class="bch-label">Luke 14</span></div>
-        <div class="bible-ch-item" id="bch-luke-15" onclick="toggleBibleChapter('luke-15')"><div class="bch-check"></div><span class="bch-label">Luke 15</span></div>
-        <div class="bible-ch-item" id="bch-luke-16" onclick="toggleBibleChapter('luke-16')"><div class="bch-check"></div><span class="bch-label">Luke 16</span></div>
-        <div class="bible-ch-item" id="bch-luke-17" onclick="toggleBibleChapter('luke-17')"><div class="bch-check"></div><span class="bch-label">Luke 17</span></div>
-        <div class="bible-ch-item" id="bch-luke-18" onclick="toggleBibleChapter('luke-18')"><div class="bch-check"></div><span class="bch-label">Luke 18</span></div>
-        <div class="bible-ch-item" id="bch-luke-19" onclick="toggleBibleChapter('luke-19')"><div class="bch-check"></div><span class="bch-label">Luke 19</span></div>
-        <div class="bible-ch-item" id="bch-luke-20" onclick="toggleBibleChapter('luke-20')"><div class="bch-check"></div><span class="bch-label">Luke 20</span></div>
-        <div class="bible-ch-item" id="bch-luke-21" onclick="toggleBibleChapter('luke-21')"><div class="bch-check"></div><span class="bch-label">Luke 21</span></div>
-        <div class="bible-ch-item" id="bch-luke-22" onclick="toggleBibleChapter('luke-22')"><div class="bch-check"></div><span class="bch-label">Luke 22</span></div>
-        <div class="bible-ch-item" id="bch-luke-23" onclick="toggleBibleChapter('luke-23')"><div class="bch-check"></div><span class="bch-label">Luke 23</span></div>
-        <div class="bible-ch-item" id="bch-luke-24" onclick="toggleBibleChapter('luke-24')"><div class="bch-check"></div><span class="bch-label">Luke 24</span></div>
-        <div class="bch-book-header">John <span style="opacity:0.5;font-size:13px;">(21 ch)</span></div>
-        <div class="bible-ch-item" id="bch-john-1" onclick="toggleBibleChapter('john-1')"><div class="bch-check"></div><span class="bch-label">John 1</span></div>
-        <div class="bible-ch-item" id="bch-john-2" onclick="toggleBibleChapter('john-2')"><div class="bch-check"></div><span class="bch-label">John 2</span></div>
-        <div class="bible-ch-item" id="bch-john-3" onclick="toggleBibleChapter('john-3')"><div class="bch-check"></div><span class="bch-label">John 3</span></div>
-        <div class="bible-ch-item" id="bch-john-4" onclick="toggleBibleChapter('john-4')"><div class="bch-check"></div><span class="bch-label">John 4</span></div>
-        <div class="bible-ch-item" id="bch-john-5" onclick="toggleBibleChapter('john-5')"><div class="bch-check"></div><span class="bch-label">John 5</span></div>
-        <div class="bible-ch-item" id="bch-john-6" onclick="toggleBibleChapter('john-6')"><div class="bch-check"></div><span class="bch-label">John 6</span></div>
-        <div class="bible-ch-item" id="bch-john-7" onclick="toggleBibleChapter('john-7')"><div class="bch-check"></div><span class="bch-label">John 7</span></div>
-        <div class="bible-ch-item" id="bch-john-8" onclick="toggleBibleChapter('john-8')"><div class="bch-check"></div><span class="bch-label">John 8</span></div>
-        <div class="bible-ch-item" id="bch-john-9" onclick="toggleBibleChapter('john-9')"><div class="bch-check"></div><span class="bch-label">John 9</span></div>
-        <div class="bible-ch-item" id="bch-john-10" onclick="toggleBibleChapter('john-10')"><div class="bch-check"></div><span class="bch-label">John 10</span></div>
-        <div class="bible-ch-item" id="bch-john-11" onclick="toggleBibleChapter('john-11')"><div class="bch-check"></div><span class="bch-label">John 11</span></div>
-        <div class="bible-ch-item" id="bch-john-12" onclick="toggleBibleChapter('john-12')"><div class="bch-check"></div><span class="bch-label">John 12</span></div>
-        <div class="bible-ch-item" id="bch-john-13" onclick="toggleBibleChapter('john-13')"><div class="bch-check"></div><span class="bch-label">John 13</span></div>
-        <div class="bible-ch-item" id="bch-john-14" onclick="toggleBibleChapter('john-14')"><div class="bch-check"></div><span class="bch-label">John 14</span></div>
-        <div class="bible-ch-item" id="bch-john-15" onclick="toggleBibleChapter('john-15')"><div class="bch-check"></div><span class="bch-label">John 15</span></div>
-        <div class="bible-ch-item" id="bch-john-16" onclick="toggleBibleChapter('john-16')"><div class="bch-check"></div><span class="bch-label">John 16</span></div>
-        <div class="bible-ch-item" id="bch-john-17" onclick="toggleBibleChapter('john-17')"><div class="bch-check"></div><span class="bch-label">John 17</span></div>
-        <div class="bible-ch-item" id="bch-john-18" onclick="toggleBibleChapter('john-18')"><div class="bch-check"></div><span class="bch-label">John 18</span></div>
-        <div class="bible-ch-item" id="bch-john-19" onclick="toggleBibleChapter('john-19')"><div class="bch-check"></div><span class="bch-label">John 19</span></div>
-        <div class="bible-ch-item" id="bch-john-20" onclick="toggleBibleChapter('john-20')"><div class="bch-check"></div><span class="bch-label">John 20</span></div>
-        <div class="bible-ch-item" id="bch-john-21" onclick="toggleBibleChapter('john-21')"><div class="bch-check"></div><span class="bch-label">John 21</span></div>
-        <div class="bch-book-header">Acts <span style="opacity:0.5;font-size:13px;">(28 ch)</span></div>
-        <div class="bible-ch-item" id="bch-acts-1" onclick="toggleBibleChapter('acts-1')"><div class="bch-check"></div><span class="bch-label">Acts 1</span></div>
-        <div class="bible-ch-item" id="bch-acts-2" onclick="toggleBibleChapter('acts-2')"><div class="bch-check"></div><span class="bch-label">Acts 2</span></div>
-        <div class="bible-ch-item" id="bch-acts-3" onclick="toggleBibleChapter('acts-3')"><div class="bch-check"></div><span class="bch-label">Acts 3</span></div>
-        <div class="bible-ch-item" id="bch-acts-4" onclick="toggleBibleChapter('acts-4')"><div class="bch-check"></div><span class="bch-label">Acts 4</span></div>
-        <div class="bible-ch-item" id="bch-acts-5" onclick="toggleBibleChapter('acts-5')"><div class="bch-check"></div><span class="bch-label">Acts 5</span></div>
-        <div class="bible-ch-item" id="bch-acts-6" onclick="toggleBibleChapter('acts-6')"><div class="bch-check"></div><span class="bch-label">Acts 6</span></div>
-        <div class="bible-ch-item" id="bch-acts-7" onclick="toggleBibleChapter('acts-7')"><div class="bch-check"></div><span class="bch-label">Acts 7</span></div>
-        <div class="bible-ch-item" id="bch-acts-8" onclick="toggleBibleChapter('acts-8')"><div class="bch-check"></div><span class="bch-label">Acts 8</span></div>
-        <div class="bible-ch-item" id="bch-acts-9" onclick="toggleBibleChapter('acts-9')"><div class="bch-check"></div><span class="bch-label">Acts 9</span></div>
-        <div class="bible-ch-item" id="bch-acts-10" onclick="toggleBibleChapter('acts-10')"><div class="bch-check"></div><span class="bch-label">Acts 10</span></div>
-        <div class="bible-ch-item" id="bch-acts-11" onclick="toggleBibleChapter('acts-11')"><div class="bch-check"></div><span class="bch-label">Acts 11</span></div>
-        <div class="bible-ch-item" id="bch-acts-12" onclick="toggleBibleChapter('acts-12')"><div class="bch-check"></div><span class="bch-label">Acts 12</span></div>
-        <div class="bible-ch-item" id="bch-acts-13" onclick="toggleBibleChapter('acts-13')"><div class="bch-check"></div><span class="bch-label">Acts 13</span></div>
-        <div class="bible-ch-item" id="bch-acts-14" onclick="toggleBibleChapter('acts-14')"><div class="bch-check"></div><span class="bch-label">Acts 14</span></div>
-        <div class="bible-ch-item" id="bch-acts-15" onclick="toggleBibleChapter('acts-15')"><div class="bch-check"></div><span class="bch-label">Acts 15</span></div>
-        <div class="bible-ch-item" id="bch-acts-16" onclick="toggleBibleChapter('acts-16')"><div class="bch-check"></div><span class="bch-label">Acts 16</span></div>
-        <div class="bible-ch-item" id="bch-acts-17" onclick="toggleBibleChapter('acts-17')"><div class="bch-check"></div><span class="bch-label">Acts 17</span></div>
-        <div class="bible-ch-item" id="bch-acts-18" onclick="toggleBibleChapter('acts-18')"><div class="bch-check"></div><span class="bch-label">Acts 18</span></div>
-        <div class="bible-ch-item" id="bch-acts-19" onclick="toggleBibleChapter('acts-19')"><div class="bch-check"></div><span class="bch-label">Acts 19</span></div>
-        <div class="bible-ch-item" id="bch-acts-20" onclick="toggleBibleChapter('acts-20')"><div class="bch-check"></div><span class="bch-label">Acts 20</span></div>
-        <div class="bible-ch-item" id="bch-acts-21" onclick="toggleBibleChapter('acts-21')"><div class="bch-check"></div><span class="bch-label">Acts 21</span></div>
-        <div class="bible-ch-item" id="bch-acts-22" onclick="toggleBibleChapter('acts-22')"><div class="bch-check"></div><span class="bch-label">Acts 22</span></div>
-        <div class="bible-ch-item" id="bch-acts-23" onclick="toggleBibleChapter('acts-23')"><div class="bch-check"></div><span class="bch-label">Acts 23</span></div>
-        <div class="bible-ch-item" id="bch-acts-24" onclick="toggleBibleChapter('acts-24')"><div class="bch-check"></div><span class="bch-label">Acts 24</span></div>
-        <div class="bible-ch-item" id="bch-acts-25" onclick="toggleBibleChapter('acts-25')"><div class="bch-check"></div><span class="bch-label">Acts 25</span></div>
-        <div class="bible-ch-item" id="bch-acts-26" onclick="toggleBibleChapter('acts-26')"><div class="bch-check"></div><span class="bch-label">Acts 26</span></div>
-        <div class="bible-ch-item" id="bch-acts-27" onclick="toggleBibleChapter('acts-27')"><div class="bch-check"></div><span class="bch-label">Acts 27</span></div>
-        <div class="bible-ch-item" id="bch-acts-28" onclick="toggleBibleChapter('acts-28')"><div class="bch-check"></div><span class="bch-label">Acts 28</span></div>
-        </div>
+        <div class="bible-chapters-grid" id="bible-chapters-grid"><div style="padding:20px;text-align:center;color:var(--text3);font-size:18px;">Tap to load chapters...</div></div></div>
       </div>
     </div>
 
@@ -1872,61 +1484,7 @@ body::before {
               </div>
               <div class="book-expand-icon" id="bkexpicon-book-1">▸</div>
             </div>
-            <div class="book-chapters-grid collapsed" id="bkgrid-book-1">
-              <div class="book-ch-item" id="bkch-book-1-ch1" onclick="toggleBookChapter('book-1','book-1-ch1')"><div class="bkch-check"></div><span class="bkch-label">Chapter 1</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch2" onclick="toggleBookChapter('book-1','book-1-ch2')"><div class="bkch-check"></div><span class="bkch-label">Chapter 2</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch3" onclick="toggleBookChapter('book-1','book-1-ch3')"><div class="bkch-check"></div><span class="bkch-label">Chapter 3</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch4" onclick="toggleBookChapter('book-1','book-1-ch4')"><div class="bkch-check"></div><span class="bkch-label">Chapter 4</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch5" onclick="toggleBookChapter('book-1','book-1-ch5')"><div class="bkch-check"></div><span class="bkch-label">Chapter 5</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch6" onclick="toggleBookChapter('book-1','book-1-ch6')"><div class="bkch-check"></div><span class="bkch-label">Chapter 6</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch7" onclick="toggleBookChapter('book-1','book-1-ch7')"><div class="bkch-check"></div><span class="bkch-label">Chapter 7</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch8" onclick="toggleBookChapter('book-1','book-1-ch8')"><div class="bkch-check"></div><span class="bkch-label">Chapter 8</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch9" onclick="toggleBookChapter('book-1','book-1-ch9')"><div class="bkch-check"></div><span class="bkch-label">Chapter 9</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch10" onclick="toggleBookChapter('book-1','book-1-ch10')"><div class="bkch-check"></div><span class="bkch-label">Chapter 10</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch11" onclick="toggleBookChapter('book-1','book-1-ch11')"><div class="bkch-check"></div><span class="bkch-label">Chapter 11</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch12" onclick="toggleBookChapter('book-1','book-1-ch12')"><div class="bkch-check"></div><span class="bkch-label">Chapter 12</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch13" onclick="toggleBookChapter('book-1','book-1-ch13')"><div class="bkch-check"></div><span class="bkch-label">Chapter 13</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch14" onclick="toggleBookChapter('book-1','book-1-ch14')"><div class="bkch-check"></div><span class="bkch-label">Chapter 14</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch15" onclick="toggleBookChapter('book-1','book-1-ch15')"><div class="bkch-check"></div><span class="bkch-label">Chapter 15</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch16" onclick="toggleBookChapter('book-1','book-1-ch16')"><div class="bkch-check"></div><span class="bkch-label">Chapter 16</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch17" onclick="toggleBookChapter('book-1','book-1-ch17')"><div class="bkch-check"></div><span class="bkch-label">Chapter 17</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch18" onclick="toggleBookChapter('book-1','book-1-ch18')"><div class="bkch-check"></div><span class="bkch-label">Chapter 18</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch19" onclick="toggleBookChapter('book-1','book-1-ch19')"><div class="bkch-check"></div><span class="bkch-label">Chapter 19</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch20" onclick="toggleBookChapter('book-1','book-1-ch20')"><div class="bkch-check"></div><span class="bkch-label">Chapter 20</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch21" onclick="toggleBookChapter('book-1','book-1-ch21')"><div class="bkch-check"></div><span class="bkch-label">Chapter 21</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch22" onclick="toggleBookChapter('book-1','book-1-ch22')"><div class="bkch-check"></div><span class="bkch-label">Chapter 22</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch23" onclick="toggleBookChapter('book-1','book-1-ch23')"><div class="bkch-check"></div><span class="bkch-label">Chapter 23</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch24" onclick="toggleBookChapter('book-1','book-1-ch24')"><div class="bkch-check"></div><span class="bkch-label">Chapter 24</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch25" onclick="toggleBookChapter('book-1','book-1-ch25')"><div class="bkch-check"></div><span class="bkch-label">Chapter 25</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch26" onclick="toggleBookChapter('book-1','book-1-ch26')"><div class="bkch-check"></div><span class="bkch-label">Chapter 26</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch27" onclick="toggleBookChapter('book-1','book-1-ch27')"><div class="bkch-check"></div><span class="bkch-label">Chapter 27</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch28" onclick="toggleBookChapter('book-1','book-1-ch28')"><div class="bkch-check"></div><span class="bkch-label">Chapter 28</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch29" onclick="toggleBookChapter('book-1','book-1-ch29')"><div class="bkch-check"></div><span class="bkch-label">Chapter 29</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch30" onclick="toggleBookChapter('book-1','book-1-ch30')"><div class="bkch-check"></div><span class="bkch-label">Chapter 30</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch31" onclick="toggleBookChapter('book-1','book-1-ch31')"><div class="bkch-check"></div><span class="bkch-label">Chapter 31</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch32" onclick="toggleBookChapter('book-1','book-1-ch32')"><div class="bkch-check"></div><span class="bkch-label">Chapter 32</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch33" onclick="toggleBookChapter('book-1','book-1-ch33')"><div class="bkch-check"></div><span class="bkch-label">Chapter 33</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch34" onclick="toggleBookChapter('book-1','book-1-ch34')"><div class="bkch-check"></div><span class="bkch-label">Chapter 34</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch35" onclick="toggleBookChapter('book-1','book-1-ch35')"><div class="bkch-check"></div><span class="bkch-label">Chapter 35</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch36" onclick="toggleBookChapter('book-1','book-1-ch36')"><div class="bkch-check"></div><span class="bkch-label">Chapter 36</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch37" onclick="toggleBookChapter('book-1','book-1-ch37')"><div class="bkch-check"></div><span class="bkch-label">Chapter 37</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch38" onclick="toggleBookChapter('book-1','book-1-ch38')"><div class="bkch-check"></div><span class="bkch-label">Chapter 38</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch39" onclick="toggleBookChapter('book-1','book-1-ch39')"><div class="bkch-check"></div><span class="bkch-label">Chapter 39</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch40" onclick="toggleBookChapter('book-1','book-1-ch40')"><div class="bkch-check"></div><span class="bkch-label">Chapter 40</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch41" onclick="toggleBookChapter('book-1','book-1-ch41')"><div class="bkch-check"></div><span class="bkch-label">Chapter 41</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch42" onclick="toggleBookChapter('book-1','book-1-ch42')"><div class="bkch-check"></div><span class="bkch-label">Chapter 42</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch43" onclick="toggleBookChapter('book-1','book-1-ch43')"><div class="bkch-check"></div><span class="bkch-label">Chapter 43</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch44" onclick="toggleBookChapter('book-1','book-1-ch44')"><div class="bkch-check"></div><span class="bkch-label">Chapter 44</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch45" onclick="toggleBookChapter('book-1','book-1-ch45')"><div class="bkch-check"></div><span class="bkch-label">Chapter 45</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch46" onclick="toggleBookChapter('book-1','book-1-ch46')"><div class="bkch-check"></div><span class="bkch-label">Chapter 46</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch47" onclick="toggleBookChapter('book-1','book-1-ch47')"><div class="bkch-check"></div><span class="bkch-label">Chapter 47</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch48" onclick="toggleBookChapter('book-1','book-1-ch48')"><div class="bkch-check"></div><span class="bkch-label">Chapter 48</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch49" onclick="toggleBookChapter('book-1','book-1-ch49')"><div class="bkch-check"></div><span class="bkch-label">Chapter 49</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch50" onclick="toggleBookChapter('book-1','book-1-ch50')"><div class="bkch-check"></div><span class="bkch-label">Chapter 50</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch51" onclick="toggleBookChapter('book-1','book-1-ch51')"><div class="bkch-check"></div><span class="bkch-label">Chapter 51</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch52" onclick="toggleBookChapter('book-1','book-1-ch52')"><div class="bkch-check"></div><span class="bkch-label">Chapter 52</span></div>
-              <div class="book-ch-item" id="bkch-book-1-ch53" onclick="toggleBookChapter('book-1','book-1-ch53')"><div class="bkch-check"></div><span class="bkch-label">Chapter 53</span></div>
-            </div>
+            <div class="book-chapters-grid collapsed" id="bkgrid-book-1"></div></div>
           </div>
 
           <div class="book-item-wrap" id="book-2">
@@ -1941,22 +1499,7 @@ body::before {
               </div>
               <div class="book-expand-icon" id="bkexpicon-book-2">▸</div>
             </div>
-            <div class="book-chapters-grid collapsed" id="bkgrid-book-2">
-              <div class="book-ch-item" id="bkch-book-2-ch1" onclick="toggleBookChapter('book-2','book-2-ch1')"><div class="bkch-check"></div><span class="bkch-label">Chapter 1</span></div>
-              <div class="book-ch-item" id="bkch-book-2-ch2" onclick="toggleBookChapter('book-2','book-2-ch2')"><div class="bkch-check"></div><span class="bkch-label">Chapter 2</span></div>
-              <div class="book-ch-item" id="bkch-book-2-ch3" onclick="toggleBookChapter('book-2','book-2-ch3')"><div class="bkch-check"></div><span class="bkch-label">Chapter 3</span></div>
-              <div class="book-ch-item" id="bkch-book-2-ch4" onclick="toggleBookChapter('book-2','book-2-ch4')"><div class="bkch-check"></div><span class="bkch-label">Chapter 4</span></div>
-              <div class="book-ch-item" id="bkch-book-2-ch5" onclick="toggleBookChapter('book-2','book-2-ch5')"><div class="bkch-check"></div><span class="bkch-label">Chapter 5</span></div>
-              <div class="book-ch-item" id="bkch-book-2-ch6" onclick="toggleBookChapter('book-2','book-2-ch6')"><div class="bkch-check"></div><span class="bkch-label">Chapter 6</span></div>
-              <div class="book-ch-item" id="bkch-book-2-ch7" onclick="toggleBookChapter('book-2','book-2-ch7')"><div class="bkch-check"></div><span class="bkch-label">Chapter 7</span></div>
-              <div class="book-ch-item" id="bkch-book-2-ch8" onclick="toggleBookChapter('book-2','book-2-ch8')"><div class="bkch-check"></div><span class="bkch-label">Chapter 8</span></div>
-              <div class="book-ch-item" id="bkch-book-2-ch9" onclick="toggleBookChapter('book-2','book-2-ch9')"><div class="bkch-check"></div><span class="bkch-label">Chapter 9</span></div>
-              <div class="book-ch-item" id="bkch-book-2-ch10" onclick="toggleBookChapter('book-2','book-2-ch10')"><div class="bkch-check"></div><span class="bkch-label">Chapter 10</span></div>
-              <div class="book-ch-item" id="bkch-book-2-ch11" onclick="toggleBookChapter('book-2','book-2-ch11')"><div class="bkch-check"></div><span class="bkch-label">Chapter 11</span></div>
-              <div class="book-ch-item" id="bkch-book-2-ch12" onclick="toggleBookChapter('book-2','book-2-ch12')"><div class="bkch-check"></div><span class="bkch-label">Chapter 12</span></div>
-              <div class="book-ch-item" id="bkch-book-2-ch13" onclick="toggleBookChapter('book-2','book-2-ch13')"><div class="bkch-check"></div><span class="bkch-label">Chapter 13</span></div>
-              <div class="book-ch-item" id="bkch-book-2-ch14" onclick="toggleBookChapter('book-2','book-2-ch14')"><div class="bkch-check"></div><span class="bkch-label">Chapter 14</span></div>
-            </div>
+            <div class="book-chapters-grid collapsed" id="bkgrid-book-2"></div></div>
           </div>
 
           <div class="book-item-wrap" id="book-3">
@@ -1971,22 +1514,7 @@ body::before {
               </div>
               <div class="book-expand-icon" id="bkexpicon-book-3">▸</div>
             </div>
-            <div class="book-chapters-grid collapsed" id="bkgrid-book-3">
-              <div class="book-ch-item" id="bkch-book-3-ch1" onclick="toggleBookChapter('book-3','book-3-ch1')"><div class="bkch-check"></div><span class="bkch-label">Chapter 1</span></div>
-              <div class="book-ch-item" id="bkch-book-3-ch2" onclick="toggleBookChapter('book-3','book-3-ch2')"><div class="bkch-check"></div><span class="bkch-label">Chapter 2</span></div>
-              <div class="book-ch-item" id="bkch-book-3-ch3" onclick="toggleBookChapter('book-3','book-3-ch3')"><div class="bkch-check"></div><span class="bkch-label">Chapter 3</span></div>
-              <div class="book-ch-item" id="bkch-book-3-ch4" onclick="toggleBookChapter('book-3','book-3-ch4')"><div class="bkch-check"></div><span class="bkch-label">Chapter 4</span></div>
-              <div class="book-ch-item" id="bkch-book-3-ch5" onclick="toggleBookChapter('book-3','book-3-ch5')"><div class="bkch-check"></div><span class="bkch-label">Chapter 5</span></div>
-              <div class="book-ch-item" id="bkch-book-3-ch6" onclick="toggleBookChapter('book-3','book-3-ch6')"><div class="bkch-check"></div><span class="bkch-label">Chapter 6</span></div>
-              <div class="book-ch-item" id="bkch-book-3-ch7" onclick="toggleBookChapter('book-3','book-3-ch7')"><div class="bkch-check"></div><span class="bkch-label">Chapter 7</span></div>
-              <div class="book-ch-item" id="bkch-book-3-ch8" onclick="toggleBookChapter('book-3','book-3-ch8')"><div class="bkch-check"></div><span class="bkch-label">Chapter 8</span></div>
-              <div class="book-ch-item" id="bkch-book-3-ch9" onclick="toggleBookChapter('book-3','book-3-ch9')"><div class="bkch-check"></div><span class="bkch-label">Chapter 9</span></div>
-              <div class="book-ch-item" id="bkch-book-3-ch10" onclick="toggleBookChapter('book-3','book-3-ch10')"><div class="bkch-check"></div><span class="bkch-label">Chapter 10</span></div>
-              <div class="book-ch-item" id="bkch-book-3-ch11" onclick="toggleBookChapter('book-3','book-3-ch11')"><div class="bkch-check"></div><span class="bkch-label">Chapter 11</span></div>
-              <div class="book-ch-item" id="bkch-book-3-ch12" onclick="toggleBookChapter('book-3','book-3-ch12')"><div class="bkch-check"></div><span class="bkch-label">Chapter 12</span></div>
-              <div class="book-ch-item" id="bkch-book-3-ch13" onclick="toggleBookChapter('book-3','book-3-ch13')"><div class="bkch-check"></div><span class="bkch-label">Chapter 13</span></div>
-              <div class="book-ch-item" id="bkch-book-3-ch14" onclick="toggleBookChapter('book-3','book-3-ch14')"><div class="bkch-check"></div><span class="bkch-label">Chapter 14</span></div>
-            </div>
+            <div class="book-chapters-grid collapsed" id="bkgrid-book-3"></div></div>
           </div>
 
           <div class="book-item-wrap" id="book-4">
@@ -2001,28 +1529,7 @@ body::before {
               </div>
               <div class="book-expand-icon" id="bkexpicon-book-4">▸</div>
             </div>
-            <div class="book-chapters-grid collapsed" id="bkgrid-book-4">
-              <div class="book-ch-item" id="bkch-book-4-ch1" onclick="toggleBookChapter('book-4','book-4-ch1')"><div class="bkch-check"></div><span class="bkch-label">Chapter 1</span></div>
-              <div class="book-ch-item" id="bkch-book-4-ch2" onclick="toggleBookChapter('book-4','book-4-ch2')"><div class="bkch-check"></div><span class="bkch-label">Chapter 2</span></div>
-              <div class="book-ch-item" id="bkch-book-4-ch3" onclick="toggleBookChapter('book-4','book-4-ch3')"><div class="bkch-check"></div><span class="bkch-label">Chapter 3</span></div>
-              <div class="book-ch-item" id="bkch-book-4-ch4" onclick="toggleBookChapter('book-4','book-4-ch4')"><div class="bkch-check"></div><span class="bkch-label">Chapter 4</span></div>
-              <div class="book-ch-item" id="bkch-book-4-ch5" onclick="toggleBookChapter('book-4','book-4-ch5')"><div class="bkch-check"></div><span class="bkch-label">Chapter 5</span></div>
-              <div class="book-ch-item" id="bkch-book-4-ch6" onclick="toggleBookChapter('book-4','book-4-ch6')"><div class="bkch-check"></div><span class="bkch-label">Chapter 6</span></div>
-              <div class="book-ch-item" id="bkch-book-4-ch7" onclick="toggleBookChapter('book-4','book-4-ch7')"><div class="bkch-check"></div><span class="bkch-label">Chapter 7</span></div>
-              <div class="book-ch-item" id="bkch-book-4-ch8" onclick="toggleBookChapter('book-4','book-4-ch8')"><div class="bkch-check"></div><span class="bkch-label">Chapter 8</span></div>
-              <div class="book-ch-item" id="bkch-book-4-ch9" onclick="toggleBookChapter('book-4','book-4-ch9')"><div class="bkch-check"></div><span class="bkch-label">Chapter 9</span></div>
-              <div class="book-ch-item" id="bkch-book-4-ch10" onclick="toggleBookChapter('book-4','book-4-ch10')"><div class="bkch-check"></div><span class="bkch-label">Chapter 10</span></div>
-              <div class="book-ch-item" id="bkch-book-4-ch11" onclick="toggleBookChapter('book-4','book-4-ch11')"><div class="bkch-check"></div><span class="bkch-label">Chapter 11</span></div>
-              <div class="book-ch-item" id="bkch-book-4-ch12" onclick="toggleBookChapter('book-4','book-4-ch12')"><div class="bkch-check"></div><span class="bkch-label">Chapter 12</span></div>
-              <div class="book-ch-item" id="bkch-book-4-ch13" onclick="toggleBookChapter('book-4','book-4-ch13')"><div class="bkch-check"></div><span class="bkch-label">Chapter 13</span></div>
-              <div class="book-ch-item" id="bkch-book-4-ch14" onclick="toggleBookChapter('book-4','book-4-ch14')"><div class="bkch-check"></div><span class="bkch-label">Chapter 14</span></div>
-              <div class="book-ch-item" id="bkch-book-4-ch15" onclick="toggleBookChapter('book-4','book-4-ch15')"><div class="bkch-check"></div><span class="bkch-label">Chapter 15</span></div>
-              <div class="book-ch-item" id="bkch-book-4-ch16" onclick="toggleBookChapter('book-4','book-4-ch16')"><div class="bkch-check"></div><span class="bkch-label">Chapter 16</span></div>
-              <div class="book-ch-item" id="bkch-book-4-ch17" onclick="toggleBookChapter('book-4','book-4-ch17')"><div class="bkch-check"></div><span class="bkch-label">Chapter 17</span></div>
-              <div class="book-ch-item" id="bkch-book-4-appa" onclick="toggleBookChapter('book-4','book-4-appa')"><div class="bkch-check"></div><span class="bkch-label">App. A</span></div>
-              <div class="book-ch-item" id="bkch-book-4-appb" onclick="toggleBookChapter('book-4','book-4-appb')"><div class="bkch-check"></div><span class="bkch-label">App. B</span></div>
-              <div class="book-ch-item" id="bkch-book-4-appc" onclick="toggleBookChapter('book-4','book-4-appc')"><div class="bkch-check"></div><span class="bkch-label">App. C</span></div>
-            </div>
+            <div class="book-chapters-grid collapsed" id="bkgrid-book-4"></div></div>
           </div>
 
           <div class="book-item-wrap" id="book-5">
@@ -2037,31 +1544,7 @@ body::before {
               </div>
               <div class="book-expand-icon" id="bkexpicon-book-5">▸</div>
             </div>
-            <div class="book-chapters-grid collapsed" id="bkgrid-book-5">
-              <div class="book-ch-item" id="bkch-book-5-ch1" onclick="toggleBookChapter('book-5','book-5-ch1')"><div class="bkch-check"></div><span class="bkch-label">Chapter 1</span></div>
-              <div class="book-ch-item" id="bkch-book-5-ch2" onclick="toggleBookChapter('book-5','book-5-ch2')"><div class="bkch-check"></div><span class="bkch-label">Chapter 2</span></div>
-              <div class="book-ch-item" id="bkch-book-5-ch3" onclick="toggleBookChapter('book-5','book-5-ch3')"><div class="bkch-check"></div><span class="bkch-label">Chapter 3</span></div>
-              <div class="book-ch-item" id="bkch-book-5-ch4" onclick="toggleBookChapter('book-5','book-5-ch4')"><div class="bkch-check"></div><span class="bkch-label">Chapter 4</span></div>
-              <div class="book-ch-item" id="bkch-book-5-ch5" onclick="toggleBookChapter('book-5','book-5-ch5')"><div class="bkch-check"></div><span class="bkch-label">Chapter 5</span></div>
-              <div class="book-ch-item" id="bkch-book-5-ch6" onclick="toggleBookChapter('book-5','book-5-ch6')"><div class="bkch-check"></div><span class="bkch-label">Chapter 6</span></div>
-              <div class="book-ch-item" id="bkch-book-5-ch7" onclick="toggleBookChapter('book-5','book-5-ch7')"><div class="bkch-check"></div><span class="bkch-label">Chapter 7</span></div>
-              <div class="book-ch-item" id="bkch-book-5-ch8" onclick="toggleBookChapter('book-5','book-5-ch8')"><div class="bkch-check"></div><span class="bkch-label">Chapter 8</span></div>
-              <div class="book-ch-item" id="bkch-book-5-ch9" onclick="toggleBookChapter('book-5','book-5-ch9')"><div class="bkch-check"></div><span class="bkch-label">Chapter 9</span></div>
-              <div class="book-ch-item" id="bkch-book-5-ch10" onclick="toggleBookChapter('book-5','book-5-ch10')"><div class="bkch-check"></div><span class="bkch-label">Chapter 10</span></div>
-              <div class="book-ch-item" id="bkch-book-5-ch11" onclick="toggleBookChapter('book-5','book-5-ch11')"><div class="bkch-check"></div><span class="bkch-label">Chapter 11</span></div>
-              <div class="book-ch-item" id="bkch-book-5-ch12" onclick="toggleBookChapter('book-5','book-5-ch12')"><div class="bkch-check"></div><span class="bkch-label">Chapter 12</span></div>
-              <div class="book-ch-item" id="bkch-book-5-ch13" onclick="toggleBookChapter('book-5','book-5-ch13')"><div class="bkch-check"></div><span class="bkch-label">Chapter 13</span></div>
-              <div class="book-ch-item" id="bkch-book-5-ch14" onclick="toggleBookChapter('book-5','book-5-ch14')"><div class="bkch-check"></div><span class="bkch-label">Chapter 14</span></div>
-              <div class="book-ch-item" id="bkch-book-5-ch15" onclick="toggleBookChapter('book-5','book-5-ch15')"><div class="bkch-check"></div><span class="bkch-label">Chapter 15</span></div>
-              <div class="book-ch-item" id="bkch-book-5-ch16" onclick="toggleBookChapter('book-5','book-5-ch16')"><div class="bkch-check"></div><span class="bkch-label">Chapter 16</span></div>
-              <div class="book-ch-item" id="bkch-book-5-ch17" onclick="toggleBookChapter('book-5','book-5-ch17')"><div class="bkch-check"></div><span class="bkch-label">Chapter 17</span></div>
-              <div class="book-ch-item" id="bkch-book-5-ch18" onclick="toggleBookChapter('book-5','book-5-ch18')"><div class="bkch-check"></div><span class="bkch-label">Chapter 18</span></div>
-              <div class="book-ch-item" id="bkch-book-5-ch19" onclick="toggleBookChapter('book-5','book-5-ch19')"><div class="bkch-check"></div><span class="bkch-label">Chapter 19</span></div>
-              <div class="book-ch-item" id="bkch-book-5-ch20" onclick="toggleBookChapter('book-5','book-5-ch20')"><div class="bkch-check"></div><span class="bkch-label">Chapter 20</span></div>
-              <div class="book-ch-item" id="bkch-book-5-ch21" onclick="toggleBookChapter('book-5','book-5-ch21')"><div class="bkch-check"></div><span class="bkch-label">Chapter 21</span></div>
-              <div class="book-ch-item" id="bkch-book-5-ch22" onclick="toggleBookChapter('book-5','book-5-ch22')"><div class="bkch-check"></div><span class="bkch-label">Chapter 22</span></div>
-              <div class="book-ch-item" id="bkch-book-5-ch23" onclick="toggleBookChapter('book-5','book-5-ch23')"><div class="bkch-check"></div><span class="bkch-label">Chapter 23</span></div>
-            </div>
+            <div class="book-chapters-grid collapsed" id="bkgrid-book-5"></div></div>
           </div>
 
           <div class="book-item-wrap" id="book-6">
@@ -2076,30 +1559,7 @@ body::before {
               </div>
               <div class="book-expand-icon" id="bkexpicon-book-6">▸</div>
             </div>
-            <div class="book-chapters-grid collapsed" id="bkgrid-book-6">
-              <div class="book-ch-item" id="bkch-book-6-ch1" onclick="toggleBookChapter('book-6','book-6-ch1')"><div class="bkch-check"></div><span class="bkch-label">Chapter 1</span></div>
-              <div class="book-ch-item" id="bkch-book-6-ch2" onclick="toggleBookChapter('book-6','book-6-ch2')"><div class="bkch-check"></div><span class="bkch-label">Chapter 2</span></div>
-              <div class="book-ch-item" id="bkch-book-6-ch3" onclick="toggleBookChapter('book-6','book-6-ch3')"><div class="bkch-check"></div><span class="bkch-label">Chapter 3</span></div>
-              <div class="book-ch-item" id="bkch-book-6-ch4" onclick="toggleBookChapter('book-6','book-6-ch4')"><div class="bkch-check"></div><span class="bkch-label">Chapter 4</span></div>
-              <div class="book-ch-item" id="bkch-book-6-ch5" onclick="toggleBookChapter('book-6','book-6-ch5')"><div class="bkch-check"></div><span class="bkch-label">Chapter 5</span></div>
-              <div class="book-ch-item" id="bkch-book-6-ch6" onclick="toggleBookChapter('book-6','book-6-ch6')"><div class="bkch-check"></div><span class="bkch-label">Chapter 6</span></div>
-              <div class="book-ch-item" id="bkch-book-6-ch7" onclick="toggleBookChapter('book-6','book-6-ch7')"><div class="bkch-check"></div><span class="bkch-label">Chapter 7</span></div>
-              <div class="book-ch-item" id="bkch-book-6-ch8" onclick="toggleBookChapter('book-6','book-6-ch8')"><div class="bkch-check"></div><span class="bkch-label">Chapter 8</span></div>
-              <div class="book-ch-item" id="bkch-book-6-ch9" onclick="toggleBookChapter('book-6','book-6-ch9')"><div class="bkch-check"></div><span class="bkch-label">Chapter 9</span></div>
-              <div class="book-ch-item" id="bkch-book-6-ch10" onclick="toggleBookChapter('book-6','book-6-ch10')"><div class="bkch-check"></div><span class="bkch-label">Chapter 10</span></div>
-              <div class="book-ch-item" id="bkch-book-6-ch11" onclick="toggleBookChapter('book-6','book-6-ch11')"><div class="bkch-check"></div><span class="bkch-label">Chapter 11</span></div>
-              <div class="book-ch-item" id="bkch-book-6-ch12" onclick="toggleBookChapter('book-6','book-6-ch12')"><div class="bkch-check"></div><span class="bkch-label">Chapter 12</span></div>
-              <div class="book-ch-item" id="bkch-book-6-ch13" onclick="toggleBookChapter('book-6','book-6-ch13')"><div class="bkch-check"></div><span class="bkch-label">Chapter 13</span></div>
-              <div class="book-ch-item" id="bkch-book-6-ch14" onclick="toggleBookChapter('book-6','book-6-ch14')"><div class="bkch-check"></div><span class="bkch-label">Chapter 14</span></div>
-              <div class="book-ch-item" id="bkch-book-6-ch15" onclick="toggleBookChapter('book-6','book-6-ch15')"><div class="bkch-check"></div><span class="bkch-label">Chapter 15</span></div>
-              <div class="book-ch-item" id="bkch-book-6-ch16" onclick="toggleBookChapter('book-6','book-6-ch16')"><div class="bkch-check"></div><span class="bkch-label">Chapter 16</span></div>
-              <div class="book-ch-item" id="bkch-book-6-ch17" onclick="toggleBookChapter('book-6','book-6-ch17')"><div class="bkch-check"></div><span class="bkch-label">Chapter 17</span></div>
-              <div class="book-ch-item" id="bkch-book-6-ch18" onclick="toggleBookChapter('book-6','book-6-ch18')"><div class="bkch-check"></div><span class="bkch-label">Chapter 18</span></div>
-              <div class="book-ch-item" id="bkch-book-6-ch19" onclick="toggleBookChapter('book-6','book-6-ch19')"><div class="bkch-check"></div><span class="bkch-label">Chapter 19</span></div>
-              <div class="book-ch-item" id="bkch-book-6-ch20" onclick="toggleBookChapter('book-6','book-6-ch20')"><div class="bkch-check"></div><span class="bkch-label">Chapter 20</span></div>
-              <div class="book-ch-item" id="bkch-book-6-ch21" onclick="toggleBookChapter('book-6','book-6-ch21')"><div class="bkch-check"></div><span class="bkch-label">Chapter 21</span></div>
-              <div class="book-ch-item" id="bkch-book-6-ch22" onclick="toggleBookChapter('book-6','book-6-ch22')"><div class="bkch-check"></div><span class="bkch-label">Chapter 22</span></div>
-            </div>
+            <div class="book-chapters-grid collapsed" id="bkgrid-book-6"></div></div>
           </div>
 
           <div class="book-item-wrap" id="book-7">
@@ -2114,26 +1574,7 @@ body::before {
               </div>
               <div class="book-expand-icon" id="bkexpicon-book-7">▸</div>
             </div>
-            <div class="book-chapters-grid collapsed" id="bkgrid-book-7">
-              <div class="book-ch-item" id="bkch-book-7-ch1" onclick="toggleBookChapter('book-7','book-7-ch1')"><div class="bkch-check"></div><span class="bkch-label">Chapter 1</span></div>
-              <div class="book-ch-item" id="bkch-book-7-ch2" onclick="toggleBookChapter('book-7','book-7-ch2')"><div class="bkch-check"></div><span class="bkch-label">Chapter 2</span></div>
-              <div class="book-ch-item" id="bkch-book-7-ch3" onclick="toggleBookChapter('book-7','book-7-ch3')"><div class="bkch-check"></div><span class="bkch-label">Chapter 3</span></div>
-              <div class="book-ch-item" id="bkch-book-7-ch4" onclick="toggleBookChapter('book-7','book-7-ch4')"><div class="bkch-check"></div><span class="bkch-label">Chapter 4</span></div>
-              <div class="book-ch-item" id="bkch-book-7-ch5" onclick="toggleBookChapter('book-7','book-7-ch5')"><div class="bkch-check"></div><span class="bkch-label">Chapter 5</span></div>
-              <div class="book-ch-item" id="bkch-book-7-ch6" onclick="toggleBookChapter('book-7','book-7-ch6')"><div class="bkch-check"></div><span class="bkch-label">Chapter 6</span></div>
-              <div class="book-ch-item" id="bkch-book-7-ch7" onclick="toggleBookChapter('book-7','book-7-ch7')"><div class="bkch-check"></div><span class="bkch-label">Chapter 7</span></div>
-              <div class="book-ch-item" id="bkch-book-7-ch8" onclick="toggleBookChapter('book-7','book-7-ch8')"><div class="bkch-check"></div><span class="bkch-label">Chapter 8</span></div>
-              <div class="book-ch-item" id="bkch-book-7-ch9" onclick="toggleBookChapter('book-7','book-7-ch9')"><div class="bkch-check"></div><span class="bkch-label">Chapter 9</span></div>
-              <div class="book-ch-item" id="bkch-book-7-ch10" onclick="toggleBookChapter('book-7','book-7-ch10')"><div class="bkch-check"></div><span class="bkch-label">Chapter 10</span></div>
-              <div class="book-ch-item" id="bkch-book-7-ch11" onclick="toggleBookChapter('book-7','book-7-ch11')"><div class="bkch-check"></div><span class="bkch-label">Chapter 11</span></div>
-              <div class="book-ch-item" id="bkch-book-7-ch12" onclick="toggleBookChapter('book-7','book-7-ch12')"><div class="bkch-check"></div><span class="bkch-label">Chapter 12</span></div>
-              <div class="book-ch-item" id="bkch-book-7-ch13" onclick="toggleBookChapter('book-7','book-7-ch13')"><div class="bkch-check"></div><span class="bkch-label">Chapter 13</span></div>
-              <div class="book-ch-item" id="bkch-book-7-ch14" onclick="toggleBookChapter('book-7','book-7-ch14')"><div class="bkch-check"></div><span class="bkch-label">Chapter 14</span></div>
-              <div class="book-ch-item" id="bkch-book-7-ch15" onclick="toggleBookChapter('book-7','book-7-ch15')"><div class="bkch-check"></div><span class="bkch-label">Chapter 15</span></div>
-              <div class="book-ch-item" id="bkch-book-7-ch16" onclick="toggleBookChapter('book-7','book-7-ch16')"><div class="bkch-check"></div><span class="bkch-label">Chapter 16</span></div>
-              <div class="book-ch-item" id="bkch-book-7-ch17" onclick="toggleBookChapter('book-7','book-7-ch17')"><div class="bkch-check"></div><span class="bkch-label">Chapter 17</span></div>
-              <div class="book-ch-item" id="bkch-book-7-ch18" onclick="toggleBookChapter('book-7','book-7-ch18')"><div class="bkch-check"></div><span class="bkch-label">Chapter 18</span></div>
-            </div>
+            <div class="book-chapters-grid collapsed" id="bkgrid-book-7"></div></div>
           </div>
 
           <div class="book-item-wrap" id="book-8">
@@ -2148,39 +1589,7 @@ body::before {
               </div>
               <div class="book-expand-icon" id="bkexpicon-book-8">▸</div>
             </div>
-            <div class="book-chapters-grid collapsed" id="bkgrid-book-8">
-              <div class="book-ch-item" id="bkch-book-8-ch1" onclick="toggleBookChapter('book-8','book-8-ch1')"><div class="bkch-check"></div><span class="bkch-label">Chapter 1</span></div>
-              <div class="book-ch-item" id="bkch-book-8-ch2" onclick="toggleBookChapter('book-8','book-8-ch2')"><div class="bkch-check"></div><span class="bkch-label">Chapter 2</span></div>
-              <div class="book-ch-item" id="bkch-book-8-ch3" onclick="toggleBookChapter('book-8','book-8-ch3')"><div class="bkch-check"></div><span class="bkch-label">Chapter 3</span></div>
-              <div class="book-ch-item" id="bkch-book-8-ch4" onclick="toggleBookChapter('book-8','book-8-ch4')"><div class="bkch-check"></div><span class="bkch-label">Chapter 4</span></div>
-              <div class="book-ch-item" id="bkch-book-8-ch5" onclick="toggleBookChapter('book-8','book-8-ch5')"><div class="bkch-check"></div><span class="bkch-label">Chapter 5</span></div>
-              <div class="book-ch-item" id="bkch-book-8-ch6" onclick="toggleBookChapter('book-8','book-8-ch6')"><div class="bkch-check"></div><span class="bkch-label">Chapter 6</span></div>
-              <div class="book-ch-item" id="bkch-book-8-ch7" onclick="toggleBookChapter('book-8','book-8-ch7')"><div class="bkch-check"></div><span class="bkch-label">Chapter 7</span></div>
-              <div class="book-ch-item" id="bkch-book-8-ch8" onclick="toggleBookChapter('book-8','book-8-ch8')"><div class="bkch-check"></div><span class="bkch-label">Chapter 8</span></div>
-              <div class="book-ch-item" id="bkch-book-8-ch9" onclick="toggleBookChapter('book-8','book-8-ch9')"><div class="bkch-check"></div><span class="bkch-label">Chapter 9</span></div>
-              <div class="book-ch-item" id="bkch-book-8-ch10" onclick="toggleBookChapter('book-8','book-8-ch10')"><div class="bkch-check"></div><span class="bkch-label">Chapter 10</span></div>
-              <div class="book-ch-item" id="bkch-book-8-ch11" onclick="toggleBookChapter('book-8','book-8-ch11')"><div class="bkch-check"></div><span class="bkch-label">Chapter 11</span></div>
-              <div class="book-ch-item" id="bkch-book-8-ch12" onclick="toggleBookChapter('book-8','book-8-ch12')"><div class="bkch-check"></div><span class="bkch-label">Chapter 12</span></div>
-              <div class="book-ch-item" id="bkch-book-8-ch13" onclick="toggleBookChapter('book-8','book-8-ch13')"><div class="bkch-check"></div><span class="bkch-label">Chapter 13</span></div>
-              <div class="book-ch-item" id="bkch-book-8-ch14" onclick="toggleBookChapter('book-8','book-8-ch14')"><div class="bkch-check"></div><span class="bkch-label">Chapter 14</span></div>
-              <div class="book-ch-item" id="bkch-book-8-ch15" onclick="toggleBookChapter('book-8','book-8-ch15')"><div class="bkch-check"></div><span class="bkch-label">Chapter 15</span></div>
-              <div class="book-ch-item" id="bkch-book-8-ch16" onclick="toggleBookChapter('book-8','book-8-ch16')"><div class="bkch-check"></div><span class="bkch-label">Chapter 16</span></div>
-              <div class="book-ch-item" id="bkch-book-8-ch17" onclick="toggleBookChapter('book-8','book-8-ch17')"><div class="bkch-check"></div><span class="bkch-label">Chapter 17</span></div>
-              <div class="book-ch-item" id="bkch-book-8-ch18" onclick="toggleBookChapter('book-8','book-8-ch18')"><div class="bkch-check"></div><span class="bkch-label">Chapter 18</span></div>
-              <div class="book-ch-item" id="bkch-book-8-ch19" onclick="toggleBookChapter('book-8','book-8-ch19')"><div class="bkch-check"></div><span class="bkch-label">Chapter 19</span></div>
-              <div class="book-ch-item" id="bkch-book-8-ch20" onclick="toggleBookChapter('book-8','book-8-ch20')"><div class="bkch-check"></div><span class="bkch-label">Chapter 20</span></div>
-              <div class="book-ch-item" id="bkch-book-8-ch21" onclick="toggleBookChapter('book-8','book-8-ch21')"><div class="bkch-check"></div><span class="bkch-label">Chapter 21</span></div>
-              <div class="book-ch-item" id="bkch-book-8-ch22" onclick="toggleBookChapter('book-8','book-8-ch22')"><div class="bkch-check"></div><span class="bkch-label">Chapter 22</span></div>
-              <div class="book-ch-item" id="bkch-book-8-ch23" onclick="toggleBookChapter('book-8','book-8-ch23')"><div class="bkch-check"></div><span class="bkch-label">Chapter 23</span></div>
-              <div class="book-ch-item" id="bkch-book-8-ch24" onclick="toggleBookChapter('book-8','book-8-ch24')"><div class="bkch-check"></div><span class="bkch-label">Chapter 24</span></div>
-              <div class="book-ch-item" id="bkch-book-8-ch25" onclick="toggleBookChapter('book-8','book-8-ch25')"><div class="bkch-check"></div><span class="bkch-label">Chapter 25</span></div>
-              <div class="book-ch-item" id="bkch-book-8-ch26" onclick="toggleBookChapter('book-8','book-8-ch26')"><div class="bkch-check"></div><span class="bkch-label">Chapter 26</span></div>
-              <div class="book-ch-item" id="bkch-book-8-ch27" onclick="toggleBookChapter('book-8','book-8-ch27')"><div class="bkch-check"></div><span class="bkch-label">Chapter 27</span></div>
-              <div class="book-ch-item" id="bkch-book-8-ch28" onclick="toggleBookChapter('book-8','book-8-ch28')"><div class="bkch-check"></div><span class="bkch-label">Chapter 28</span></div>
-              <div class="book-ch-item" id="bkch-book-8-ch29" onclick="toggleBookChapter('book-8','book-8-ch29')"><div class="bkch-check"></div><span class="bkch-label">Chapter 29</span></div>
-              <div class="book-ch-item" id="bkch-book-8-ch30" onclick="toggleBookChapter('book-8','book-8-ch30')"><div class="bkch-check"></div><span class="bkch-label">Chapter 30</span></div>
-              <div class="book-ch-item" id="bkch-book-8-ch31" onclick="toggleBookChapter('book-8','book-8-ch31')"><div class="bkch-check"></div><span class="bkch-label">Chapter 31</span></div>
-            </div>
+            <div class="book-chapters-grid collapsed" id="bkgrid-book-8"></div></div>
           </div>
 
           <div class="book-item-wrap" id="book-9">
@@ -2195,24 +1604,7 @@ body::before {
               </div>
               <div class="book-expand-icon" id="bkexpicon-book-9">▸</div>
             </div>
-            <div class="book-chapters-grid collapsed" id="bkgrid-book-9">
-              <div class="book-ch-item" id="bkch-book-9-ch1" onclick="toggleBookChapter('book-9','book-9-ch1')"><div class="bkch-check"></div><span class="bkch-label">Chapter 1</span></div>
-              <div class="book-ch-item" id="bkch-book-9-ch2" onclick="toggleBookChapter('book-9','book-9-ch2')"><div class="bkch-check"></div><span class="bkch-label">Chapter 2</span></div>
-              <div class="book-ch-item" id="bkch-book-9-ch3" onclick="toggleBookChapter('book-9','book-9-ch3')"><div class="bkch-check"></div><span class="bkch-label">Chapter 3</span></div>
-              <div class="book-ch-item" id="bkch-book-9-ch4" onclick="toggleBookChapter('book-9','book-9-ch4')"><div class="bkch-check"></div><span class="bkch-label">Chapter 4</span></div>
-              <div class="book-ch-item" id="bkch-book-9-ch5" onclick="toggleBookChapter('book-9','book-9-ch5')"><div class="bkch-check"></div><span class="bkch-label">Chapter 5</span></div>
-              <div class="book-ch-item" id="bkch-book-9-ch6" onclick="toggleBookChapter('book-9','book-9-ch6')"><div class="bkch-check"></div><span class="bkch-label">Chapter 6</span></div>
-              <div class="book-ch-item" id="bkch-book-9-ch7" onclick="toggleBookChapter('book-9','book-9-ch7')"><div class="bkch-check"></div><span class="bkch-label">Chapter 7</span></div>
-              <div class="book-ch-item" id="bkch-book-9-ch8" onclick="toggleBookChapter('book-9','book-9-ch8')"><div class="bkch-check"></div><span class="bkch-label">Chapter 8</span></div>
-              <div class="book-ch-item" id="bkch-book-9-ch9" onclick="toggleBookChapter('book-9','book-9-ch9')"><div class="bkch-check"></div><span class="bkch-label">Chapter 9</span></div>
-              <div class="book-ch-item" id="bkch-book-9-ch10" onclick="toggleBookChapter('book-9','book-9-ch10')"><div class="bkch-check"></div><span class="bkch-label">Chapter 10</span></div>
-              <div class="book-ch-item" id="bkch-book-9-ch11" onclick="toggleBookChapter('book-9','book-9-ch11')"><div class="bkch-check"></div><span class="bkch-label">Chapter 11</span></div>
-              <div class="book-ch-item" id="bkch-book-9-ch12" onclick="toggleBookChapter('book-9','book-9-ch12')"><div class="bkch-check"></div><span class="bkch-label">Chapter 12</span></div>
-              <div class="book-ch-item" id="bkch-book-9-ch13" onclick="toggleBookChapter('book-9','book-9-ch13')"><div class="bkch-check"></div><span class="bkch-label">Chapter 13</span></div>
-              <div class="book-ch-item" id="bkch-book-9-ch14" onclick="toggleBookChapter('book-9','book-9-ch14')"><div class="bkch-check"></div><span class="bkch-label">Chapter 14</span></div>
-              <div class="book-ch-item" id="bkch-book-9-ch15" onclick="toggleBookChapter('book-9','book-9-ch15')"><div class="bkch-check"></div><span class="bkch-label">Chapter 15</span></div>
-              <div class="book-ch-item" id="bkch-book-9-ch16" onclick="toggleBookChapter('book-9','book-9-ch16')"><div class="bkch-check"></div><span class="bkch-label">Chapter 16</span></div>
-            </div>
+            <div class="book-chapters-grid collapsed" id="bkgrid-book-9"></div></div>
           </div>
         </div>
       </div>
@@ -2861,6 +2253,9 @@ body::before {
 </div>
 
 <script>
+let bibleGridBuilt = false;
+const bookGridBuilt = {};
+
 // ══════════════════════════════════════════════════════════
 // DATA
 // ══════════════════════════════════════════════════════════
@@ -2967,7 +2362,7 @@ function save() {
 // ── TODAY KEY ──
 function todayKey() {
   const d = new Date();
-  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+  return (d.getFullYear()) + "-" + (String(d.getMonth()+1).padStart(2,'0')) + "-" + (String(d.getDate()).padStart(2,'0'));
 }
 
 function todayLabel() {
@@ -2981,7 +2376,7 @@ function checkDailyReset() {
     // check streak
     const yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
-    const yKey = `${yesterday.getFullYear()}-${String(yesterday.getMonth()+1).padStart(2,'0')}-${String(yesterday.getDate()).padStart(2,'0')}`;
+    const yKey = (yesterday.getFullYear()) + "-" + (String(yesterday.getMonth()+1).padStart(2,'0')) + "-" + (String(yesterday.getDate()).padStart(2,'0'));
     
     // Check if ALL tasks for current level were completed yesterday
     const tasksForLevel = LEVEL_TASKS[S.level] || LEVEL_TASKS[1];
@@ -3036,7 +2431,7 @@ function addXP(amount, label) {
   S.log.unshift({ time: new Date().toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'}), text: label, xp: amount, date: todayKey() });
   if (S.log.length > 100) S.log.pop();
   save();
-  showToast(`+${amount} XP — ${label}`);
+  showToast("+" + (amount) + " XP — " + (label));
   checkLevelUp();
   checkBadges();
   renderAll();
@@ -3056,7 +2451,7 @@ function checkLevelUp() {
 }
 
 function showLevelUp(lvl) {
-  document.getElementById('luLevel').textContent = `Level ${lvl.num}`;
+  document.getElementById('luLevel').textContent = "Level " + (lvl.num);
   document.getElementById('luName').textContent = lvl.name;
   document.getElementById('luDesc').textContent = lvl.desc;
   document.getElementById('levelupOverlay').classList.add('show');
@@ -3070,7 +2465,7 @@ function closeLevelUp() {
 // QUEST TOGGLE
 // ══════════════════════════════════════════════════════════
 function toggleQuest(el, section, id, xp) {
-  const key = `${section}-${id}`;
+  const key = (section) + "-" + (id);
   if (S.checked[key]) {
     // uncheck — remove XP
     S.checked[key] = false;
@@ -3104,7 +2499,7 @@ function logWorkHours() {
   if (val <= 0) return;
   S.workHoursWeek += val;
   const bonus = Math.round(val * 10);
-  addXP(bonus, `Work: ${val} hrs logged in`);
+  addXP(bonus, "Work: " + (val) + " hrs logged in");
   document.getElementById('workHoursInput').value = '';
 }
 
@@ -3113,7 +2508,7 @@ function logWorkCalls() {
   if (val <= 0) return;
   S.workCallsWeek += val;
   const bonus = val * 5;
-  addXP(bonus, `Work: ${val} call(s) taken`);
+  addXP(bonus, "Work: " + (val) + " call(s) taken");
   document.getElementById('workCallsInput').value = '';
 }
 
@@ -3122,7 +2517,7 @@ function logWorkMins() {
   if (val <= 0) return;
   S.workMinsWeek += val;
   const bonus = Math.round(val * 0.5);
-  addXP(bonus, `Work: ${val} min interpreted`);
+  addXP(bonus, "Work: " + (val) + " min interpreted");
   document.getElementById('workMinsInput').value = '';
 }
 
@@ -3132,7 +2527,7 @@ function logFSHours() {
   S.fsTotal += val;
   S.fsWeek  += val;
   const bonus = Math.round(val * 15);
-  addXP(bonus, `Field service: ${val} hrs logged`);
+  addXP(bonus, "Field service: " + (val) + " hrs logged");
   document.getElementById('fsHoursInput').value = '';
 }
 
@@ -3150,7 +2545,7 @@ function updateBible() {
 
 function updateLesson(type, delta) {
   S.lessons[type] = Math.max(1, S.lessons[type] + delta);
-  if (delta > 0) addXP(5, `${type} — lesson ${S.lessons[type]}`);
+  if (delta > 0) addXP(5, (type) + " — lesson " + (S.lessons[type]));
   else { save(); renderAll(); }
 }
 
@@ -3159,7 +2554,7 @@ function updateWeight() {
   S.weightLost = Math.min(25, Math.max(0, val));
   save();
   checkBadges();
-  showToast(`Weight updated: ${S.weightLost} lbs lost 💪`);
+  showToast("Weight updated: " + (S.weightLost) + " lbs lost 💪");
   renderAll();
 }
 
@@ -3171,7 +2566,7 @@ function checkBadges() {
     if (!S.earnedBadges.includes(b.id) && b.check(S)) {
       S.earnedBadges.push(b.id);
       save();
-      setTimeout(() => showToast(`🏅 Badge unlocked: ${b.name}!`), 600);
+      setTimeout(() => showToast("🏅 Badge unlocked: " + (b.name) + "!"), 600);
     }
   });
 }
@@ -3214,12 +2609,12 @@ function renderAll() {
   document.getElementById('levelName').textContent = lvlData.name;
   document.getElementById('levelDesc').textContent = lvlData.desc;
   document.getElementById('xpBarFill').style.width = pct + '%';
-  const _streak = (S.levelStreakDays || []).length; document.getElementById('xpCurrent').textContent = `${_streak}/7 days streak · ${S.totalXP} XP total`;
+  const _streak = (S.levelStreakDays || []).length; document.getElementById('xpCurrent').textContent = (_streak) + "/7 days streak · " + (S.totalXP) + " XP total";
   const tasksForLevel = (LEVEL_TASKS && LEVEL_TASKS[S.level]) || [];
   const _checked = S.checked || {};
   const tasksDoneToday = tasksForLevel.filter(id => _checked[id]).length;
   const graceTxt = S.graceDayUsedThisWeek ? ' · grace used' : '';
-  document.getElementById('xpNext').textContent = S.level < 6 ? `${tasksDoneToday}/${tasksForLevel.length} tasks today · ${7 - S.levelStreakDays.length} days left${graceTxt}` : '★ MAX LEVEL ★';
+  document.getElementById('xpNext').textContent = S.level < 6 ? (tasksDoneToday) + "/" + (tasksForLevel.length) + " tasks today · " + (7 - S.levelStreakDays.length) + " days left" + (graceTxt) : '★ MAX LEVEL ★';
 
   document.getElementById('statStreak').textContent = S.streak + '🔥';
   document.getElementById('statXPToday').textContent = S.todayXP;
@@ -3257,14 +2652,14 @@ function renderAll() {
 
   // NN count
   const nnDone = ['nn-bible','nn-dailytext','nn-fs'].filter(k => S.checked[k]).length;
-  document.getElementById('nn-xp').textContent = `${nnDone}/3 done`;
+  document.getElementById('nn-xp').textContent = (nnDone) + "/3 done";
 
   // FS section XP display
   const fsChecked = ['fs-zoom','fs-brandon','fs-letters','fs-riverview'].filter(k=>S.checked[k]);
   const fsXP = fsChecked.length > 0 ? fsChecked.reduce((a,k)=>a+({
     'fs-zoom':20,'fs-brandon':35,'fs-letters':15,'fs-riverview':40
   }[k]||0),0) : 0;
-  document.getElementById('fs-xp-display').textContent = `+${fsXP} XP`;
+  document.getElementById('fs-xp-display').textContent = "+" + (fsXP) + " XP";
 
   // Re-apply checked state to DOM
   document.querySelectorAll('.quest-item').forEach(el => {
@@ -3288,20 +2683,20 @@ function renderAll() {
   if(safeGet('workCallsDisplay')) safeGet('workCallsDisplay').textContent = S.workCallsWeek + ' calls';
   if(safeGet('workMinsDisplay')) safeGet('workMinsDisplay').textContent = S.workMinsWeek + ' min';
 
-  document.getElementById('fsTotalDisplay').textContent = `${S.fsTotal} / 600 hrs`;
+  document.getElementById('fsTotalDisplay').textContent = (S.fsTotal) + " / 600 hrs";
   document.getElementById('fsPercent').textContent = Math.round((S.fsTotal/600)*100) + '%';
   document.getElementById('fsTotalBar').style.width = Math.min(100,(S.fsTotal/600)*100) + '%';
-  document.getElementById('fsWeekDisplay').textContent = `${S.fsWeek} / 15 hrs`;
+  document.getElementById('fsWeekDisplay').textContent = (S.fsWeek) + " / 15 hrs";
   document.getElementById('fsWeekBar').style.width = Math.min(100,(S.fsWeek/15)*100) + '%';
   document.getElementById('bibleDisplay').textContent = S.bible;
-  document.getElementById('weightDisplay').textContent = `${S.weightLost} / 25 lbs`;
+  document.getElementById('weightDisplay').textContent = (S.weightLost) + " / 25 lbs";
   document.getElementById('weightBar').style.width = Math.min(100,(S.weightLost/25)*100) + '%';
 
-  document.getElementById('busuuDisplay').textContent = `Lesson ${S.lessons.busuu}`;
+  document.getElementById('busuuDisplay').textContent = "Lesson " + (S.lessons.busuu);
   document.getElementById('busuuBar').style.width = Math.min(100,(S.lessons.busuu/120)*100) + '%';
-  document.getElementById('aslDisplay').textContent = `Lesson ${S.lessons.asl}`;
+  document.getElementById('aslDisplay').textContent = "Lesson " + (S.lessons.asl);
   document.getElementById('aslBar').style.width = Math.min(100,(S.lessons.asl/60)*100) + '%';
-  document.getElementById('assimilDisplay').textContent = `Dialogue ${S.lessons.assimil}`;
+  document.getElementById('assimilDisplay').textContent = "Dialogue " + (S.lessons.assimil);
   document.getElementById('assimilBar').style.width = Math.min(100,(S.lessons.assimil/100)*100) + '%';
 
   // Level road
@@ -3316,8 +2711,8 @@ function renderAll() {
 
 function renderSectionXP(section, keys, xps) {
   const earned = keys.reduce((sum, k, i) => sum + (S.checked[k] ? xps[i] : 0), 0);
-  const el = document.getElementById(`${section}-xp`);
-  if (el && section !== 'nn' && section !== 'fs') el.textContent = `+${earned} XP`;
+  const el = document.getElementById((section) + "-xp");
+  if (el && section !== 'nn' && section !== 'fs') el.textContent = "+" + (earned) + " XP";
 }
 
 function safeGet(id) {
@@ -3326,49 +2721,46 @@ function safeGet(id) {
 
 function renderLevelRoad() {
   const road = document.getElementById('levelRoad');
+  if (!road) return;
   road.innerHTML = '';
   LEVELS.forEach((lvl, i) => {
-    const num = i + 1;
+    const num = lvl.num;
     const state = num < S.level ? 'completed' : num === S.level ? 'current' : 'locked';
-    const streakFilled = state === 'current' ? S.levelStreakDays.length : state === 'completed' ? 7 : 0;
-    const pips = Array.from({length:7}, (_,j) => 
-      `<div class="pip ${j < streakFilled ? (state==='completed'?'filled green':'filled') : ''}"></div>`
-    ).join('');
-    road.innerHTML += `
-      <div class="road-item ${state}">
-        <div class="road-dot">${state==='completed' ? '✓' : num}</div>
-        <div class="road-content">
-          <div class="road-title">${state==='completed'?'✓ ':state==='current'?'▶ ':''}Level ${num} — ${lvl.name}</div>
-          <div class="road-detail">${lvl.desc}</div>
-          ${state==='current' ? `
-          <div class="road-streak">
-            <div class="streak-pips">${pips}</div>
-            <span class="streak-label">${streakFilled}/7 days → auto level-up</span>
-          </div>` : state==='locked' ? `<div class="road-detail" style="color:var(--text3)">Complete 7 days at previous level to unlock</div>` : ''}
-        </div>
-      </div>`;
+    const streakFilled = state === 'current' ? (S.levelStreakDays||[]).length : state === 'completed' ? 7 : 0;
+    const pips = Array.from({length:7}, function(_,j) {
+      var cls = 'pip';
+      if (j < streakFilled) cls += state === 'completed' ? ' filled green' : ' filled';
+      return '<div class="' + cls + '"></div>';
+    }).join('');
+    
+    var streakHtml = '';
+    if (state === 'current') {
+      streakHtml = '<div class="road-streak"><div class="streak-pips">' + pips + '</div>' +
+        '<span class="streak-label">' + streakFilled + '/7 days → auto level-up</span></div>';
+    } else if (state === 'locked') {
+      streakHtml = '<div class="road-detail" style="color:var(--text3)">Complete 7 days at previous level to unlock</div>';
+    }
+    
+    road.innerHTML += '<div class="road-item ' + state + '">' +
+      '<div class="road-dot">' + (state === 'completed' ? '✓' : num) + '</div>' +
+      '<div class="road-content">' +
+        '<div class="road-title">' + lvl.name + '</div>' +
+        '<div class="road-detail">' + lvl.desc + '</div>' +
+        '<div class="road-detail" style="font-style:normal;color:var(--green2)">✚ ' + lvl.adds + '</div>' +
+        streakHtml +
+      '</div></div>';
   });
 }
 
 function renderBadges() {
   const grid = document.getElementById('badgesGrid');
-  grid.innerHTML = BADGES.map(b => `
-    <div class="badge-card ${S.earnedBadges.includes(b.id) ? 'earned' : ''}">
-      <div class="badge-icon">${b.icon}</div>
-      <div class="badge-name">${b.name}</div>
-      <div class="badge-req">${b.req}</div>
-    </div>`).join('');
+  grid.innerHTML = BADGES.map(b => "\n    <div class=\"badge-card " + (S.earnedBadges.includes(b.id) ? 'earned' : '') + "\">\n      <div class=\"badge-icon\">" + (b.icon) + "</div>\n      <div class=\"badge-name\">" + (b.name) + "</div>\n      <div class=\"badge-req\">" + (b.req) + "</div>\n    </div>").join('');
 }
 
 function renderLog() {
   const el = document.getElementById('logEntries');
   if (!S.log.length) { el.innerHTML = '<div style="color:var(--text3);font-style:italic;padding:16px;text-align:center">No activity yet today. Complete your first quest!</div>'; return; }
-  el.innerHTML = S.log.slice(0,30).map(e => `
-    <div class="log-entry">
-      <div class="log-time">${e.time}</div>
-      <div class="log-text">${e.text}</div>
-      <div class="log-xp">+${e.xp}</div>
-    </div>`).join('');
+  el.innerHTML = S.log.slice(0,30).map(e => "\n    <div class=\"log-entry\">\n      <div class=\"log-time\">" + (e.time) + "</div>\n      <div class=\"log-text\">" + (e.text) + "</div>\n      <div class=\"log-xp\">+" + (e.xp) + "</div>\n    </div>").join('');
 }
 
 // ══════════════════════════════════════════════════════════
@@ -3376,14 +2768,20 @@ function renderLog() {
 // ══════════════════════════════════════════════════════════
 function toggleSection(headEl) {
   const body = headEl.nextElementSibling;
+  const wasCollapsed = body.classList.contains('collapsed');
   body.classList.toggle('collapsed');
+  // Lazy build on first open
+  if (wasCollapsed) {
+    const section = headEl.closest('.quest-section');
+    if (section && section.id === 'bible-section') buildBibleGrid();
+  }
 }
 
 function switchTab(tab) {
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-  document.querySelector(`[onclick="switchTab('${tab}')"]`).classList.add('active');
-  document.getElementById(`panel-${tab}`).classList.add('active');
+  document.querySelector("[onclick=\"switchTab('" + (tab) + "')\"]").classList.add('active');
+  document.getElementById("panel-" + (tab)).classList.add('active');
 }
 
 function confirmReset() {
@@ -3428,11 +2826,13 @@ function renderBibleProgress() {
   if (lbl) lbl.textContent = done + ' / ' + total + ' chapters';
   if (dc) dc.textContent = done;
   if (rc) rc.textContent = total - done;
-  // Restore check state on all visible chapter items
-  document.querySelectorAll('.bible-ch-item').forEach(el => {
-    const cid = el.id.replace('bch-', '');
-    el.classList.toggle('done', !!S.bibleChapters[cid]);
-  });
+  // Only restore if grid already built
+  if (bibleGridBuilt) {
+    document.querySelectorAll('.bible-ch-item').forEach(el => {
+      const cid = el.id.replace('bch-', '');
+      el.classList.toggle('done', !!S.bibleChapters[cid]);
+    });
+  }
 }
 
 // ══════════════════════════════════════════════════════════
@@ -3497,6 +2897,7 @@ function renderBooks() {
 
 // ── BOOK CHAPTER TOGGLE ──
 function toggleBookExpand(bid) {
+  buildBookGrid(bid); // lazy build first
   const grid = document.getElementById('bkgrid-' + bid);
   const wrap = document.getElementById(bid);
   if (!grid) return;
@@ -3546,7 +2947,8 @@ function renderBookChapters(bid) {
 function renderAllBookChapters() {
   if (!S.bookChapters) S.bookChapters = {};
   for (let i = 1; i <= 9; i++) {
-    renderBookChapters('book-' + i);
+    const bid = 'book-' + i;
+    if (bookGridBuilt[bid]) renderBookChapters(bid);
   }
 }
 
@@ -3592,6 +2994,54 @@ function renderMemorial() {
     if (prog) prog.textContent = dayDone + '/' + dayItems.length;
     dayEl.classList.toggle('done', dayDone === dayItems.length && dayItems.length > 0);
   });
+}
+
+const BIBLE_BOOKS = [("Isaiah", 66), ("Jeremiah", 52), ("Lamentations", 5), ("Ezekiel", 48), ("Daniel", 12), ("Hosea", 14), ("Joel", 3), ("Amos", 9), ("Obadiah", 1), ("Jonah", 4), ("Micah", 7), ("Nahum", 3), ("Habakkuk", 3), ("Zephaniah", 3), ("Haggai", 2), ("Zechariah", 14), ("Malachi", 4), ("Matthew", 28), ("Mark", 16), ("Luke", 24), ("John", 21), ("Acts", 28)];
+const JW_BOOKS_DATA = [("book-1", "b1", 53, []), ("book-2", "b2", 14, []), ("book-3", "b3", 14, []), ("book-4", "b4", 17, ["App. A", "App. B", "App. C"]), ("book-5", "b5", 23, []), ("book-6", "b6", 22, []), ("book-7", "b7", 18, []), ("book-8", "b8", 31, []), ("book-9", "b9", 16, [])];
+
+// ═══════════════════════════════════════════════
+// LAZY RENDERING — build chapter grids on demand
+// ═══════════════════════════════════════════════
+
+function buildBibleGrid() {
+  if (bibleGridBuilt) return;
+  bibleGridBuilt = true;
+  const grid = document.getElementById('bible-chapters-grid');
+  if (!grid) return;
+  let html = '';
+  for (const [book, count] of BIBLE_BOOKS) {
+    const key = book.toLowerCase().replace(/ /g,'');
+    html += `<div class="bch-book-header">${book} <span style="opacity:0.5;font-size:13px;">(${count} ch)</span></div>`;
+    for (let ch = 1; ch <= count; ch++) {
+      const cid = `${key}-${ch}`;
+      const done = S.bibleChapters && S.bibleChapters[cid] ? ' done' : '';
+      html += `<div class="bible-ch-item${done}" id="bch-${cid}" onclick="toggleBibleChapter('${cid}')"><div class="bch-check"></div><span class="bch-label">${book} ${ch}</span></div>`;
+    }
+  }
+  grid.innerHTML = html;
+}
+
+function buildBookGrid(bid) {
+  if (bookGridBuilt[bid]) return;
+  bookGridBuilt[bid] = true;
+  const grid = document.getElementById('bkgrid-' + bid);
+  if (!grid) return;
+  const entry = JW_BOOKS_DATA.find(b => b[0] === bid);
+  if (!entry) return;
+  const [, prefix, chapters, extra] = entry;
+  let html = '';
+  for (let i = 1; i <= chapters; i++) {
+    const cid = `${bid}-ch${i}`;
+    const done = S.bookChapters && S.bookChapters[bid] && S.bookChapters[bid][cid] ? ' done' : '';
+    html += `<div class="book-ch-item${done}" id="bkch-${cid}" onclick="toggleBookChapter('${bid}','${cid}')"><div class="bkch-check"></div><span class="bkch-label">Chapter ${i}</span></div>`;
+  }
+  for (const ex of extra) {
+    const cid = `${bid}-${ex.toLowerCase().replace(/ /g,'').replace('.','')}`;
+    const done = S.bookChapters && S.bookChapters[bid] && S.bookChapters[bid][cid] ? ' done' : '';
+    html += `<div class="book-ch-item${done}" id="bkch-${cid}" onclick="toggleBookChapter('${bid}','${cid}')"><div class="bkch-check"></div><span class="bkch-label">${ex}</span></div>`;
+  }
+  grid.innerHTML = html;
+  renderBookChapters(bid);
 }
 
 </script>
