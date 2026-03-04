@@ -89,6 +89,10 @@ body::before {
 @media (min-width:700px) {
   .quest-section-body { display:grid; grid-template-columns:1fr 1fr; }
   .quest-section-body .fs-input-wrap { grid-column: 1 / -1; }
+  /* Single column for book/bible/memorial sections */
+  #bible-section .quest-section-body,
+  #books-section .quest-section-body,
+  #memorial-section .quest-section-body { display:block; }
 }
 
 /* ── HEADER / HERO ── */
@@ -1484,7 +1488,7 @@ body::before {
               </div>
               <div class="book-expand-icon" id="bkexpicon-book-1">▸</div>
             </div>
-            <div class="book-chapters-grid collapsed" id="bkgrid-book-1"></div></div>
+            <div class="book-chapters-grid collapsed" id="bkgrid-book-1"></div>
           </div>
 
           <div class="book-item-wrap" id="book-2">
@@ -1499,7 +1503,7 @@ body::before {
               </div>
               <div class="book-expand-icon" id="bkexpicon-book-2">▸</div>
             </div>
-            <div class="book-chapters-grid collapsed" id="bkgrid-book-2"></div></div>
+            <div class="book-chapters-grid collapsed" id="bkgrid-book-2"></div>
           </div>
 
           <div class="book-item-wrap" id="book-3">
@@ -1514,7 +1518,7 @@ body::before {
               </div>
               <div class="book-expand-icon" id="bkexpicon-book-3">▸</div>
             </div>
-            <div class="book-chapters-grid collapsed" id="bkgrid-book-3"></div></div>
+            <div class="book-chapters-grid collapsed" id="bkgrid-book-3"></div>
           </div>
 
           <div class="book-item-wrap" id="book-4">
@@ -1529,7 +1533,7 @@ body::before {
               </div>
               <div class="book-expand-icon" id="bkexpicon-book-4">▸</div>
             </div>
-            <div class="book-chapters-grid collapsed" id="bkgrid-book-4"></div></div>
+            <div class="book-chapters-grid collapsed" id="bkgrid-book-4"></div>
           </div>
 
           <div class="book-item-wrap" id="book-5">
@@ -1544,7 +1548,7 @@ body::before {
               </div>
               <div class="book-expand-icon" id="bkexpicon-book-5">▸</div>
             </div>
-            <div class="book-chapters-grid collapsed" id="bkgrid-book-5"></div></div>
+            <div class="book-chapters-grid collapsed" id="bkgrid-book-5"></div>
           </div>
 
           <div class="book-item-wrap" id="book-6">
@@ -1559,7 +1563,7 @@ body::before {
               </div>
               <div class="book-expand-icon" id="bkexpicon-book-6">▸</div>
             </div>
-            <div class="book-chapters-grid collapsed" id="bkgrid-book-6"></div></div>
+            <div class="book-chapters-grid collapsed" id="bkgrid-book-6"></div>
           </div>
 
           <div class="book-item-wrap" id="book-7">
@@ -1574,7 +1578,7 @@ body::before {
               </div>
               <div class="book-expand-icon" id="bkexpicon-book-7">▸</div>
             </div>
-            <div class="book-chapters-grid collapsed" id="bkgrid-book-7"></div></div>
+            <div class="book-chapters-grid collapsed" id="bkgrid-book-7"></div>
           </div>
 
           <div class="book-item-wrap" id="book-8">
@@ -1589,7 +1593,7 @@ body::before {
               </div>
               <div class="book-expand-icon" id="bkexpicon-book-8">▸</div>
             </div>
-            <div class="book-chapters-grid collapsed" id="bkgrid-book-8"></div></div>
+            <div class="book-chapters-grid collapsed" id="bkgrid-book-8"></div>
           </div>
 
           <div class="book-item-wrap" id="book-9">
@@ -1604,7 +1608,7 @@ body::before {
               </div>
               <div class="book-expand-icon" id="bkexpicon-book-9">▸</div>
             </div>
-            <div class="book-chapters-grid collapsed" id="bkgrid-book-9"></div></div>
+            <div class="book-chapters-grid collapsed" id="bkgrid-book-9"></div>
           </div>
         </div>
       </div>
@@ -2996,8 +3000,24 @@ function renderMemorial() {
   });
 }
 
-const BIBLE_BOOKS = [("Isaiah", 66), ("Jeremiah", 52), ("Lamentations", 5), ("Ezekiel", 48), ("Daniel", 12), ("Hosea", 14), ("Joel", 3), ("Amos", 9), ("Obadiah", 1), ("Jonah", 4), ("Micah", 7), ("Nahum", 3), ("Habakkuk", 3), ("Zephaniah", 3), ("Haggai", 2), ("Zechariah", 14), ("Malachi", 4), ("Matthew", 28), ("Mark", 16), ("Luke", 24), ("John", 21), ("Acts", 28)];
-const JW_BOOKS_DATA = [("book-1", "b1", 53, []), ("book-2", "b2", 14, []), ("book-3", "b3", 14, []), ("book-4", "b4", 17, ["App. A", "App. B", "App. C"]), ("book-5", "b5", 23, []), ("book-6", "b6", 22, []), ("book-7", "b7", 18, []), ("book-8", "b8", 31, []), ("book-9", "b9", 16, [])];
+const BIBLE_BOOKS = [
+  ["Isaiah",66],["Jeremiah",52],["Lamentations",5],["Ezekiel",48],
+  ["Daniel",12],["Hosea",14],["Joel",3],["Amos",9],["Obadiah",1],
+  ["Jonah",4],["Micah",7],["Nahum",3],["Habakkuk",3],["Zephaniah",3],
+  ["Haggai",2],["Zechariah",14],["Malachi",4],
+  ["Matthew",28],["Mark",16],["Luke",24],["John",21],["Acts",28]
+];
+const JW_BOOKS_DATA = [
+  ["book-1", "b1", 53, []],
+  ["book-2", "b2", 14, []],
+  ["book-3", "b3", 14, []],
+  ["book-4", "b4", 17, ["App. A", "App. B", "App. C"]],
+  ["book-5", "b5", 23, []],
+  ["book-6", "b6", 22, []],
+  ["book-7", "b7", 18, []],
+  ["book-8", "b8", 31, []],
+  ["book-9", "b9", 16, []]
+];
 
 // ═══════════════════════════════════════════════
 // LAZY RENDERING — build chapter grids on demand
