@@ -277,6 +277,23 @@ input[type=number]{padding:8px 10px;border:1px solid var(--border);border-radius
 <!-- ══════════════════ TODAY ══════════════════ -->
 <div id="tab-today" class="tab-content active">
 
+  <!-- MORNING ROUTINE -->
+  <div id="morningRoutineCard" style="margin-bottom:16px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden;">
+    <div onclick="toggleMorning()" style="display:flex;align-items:center;justify-content:space-between;padding:13px 16px;cursor:pointer;user-select:none;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span style="font-size:18px">🌅</span>
+        <div>
+          <div style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold)">Morning Routine</div>
+          <div id="morningProgress" style="font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;margin-top:1px">0 / 10 done</div>
+        </div>
+      </div>
+      <span id="morningArrow" style="font-size:14px;color:var(--text3);transition:transform 0.2s">▶</span>
+    </div>
+    <div id="morningBody" style="display:none;border-top:1px solid var(--border);padding:10px 12px;">
+      <div id="morningSteps"></div>
+    </div>
+  </div>
+
   <!-- NNs -->
   <div class="sec-hdr"><span class="sec-hdr-icon">⚡</span><span class="sec-hdr-title">Non-Negotiables</span><span class="sec-hdr-sub">Every single day</span></div>
   <div class="nn-grid" id="nnGrid"></div>
@@ -339,6 +356,9 @@ input[type=number]{padding:8px 10px;border:1px solid var(--border);border-radius
 
       <div class="sec-hdr"><span class="sec-hdr-icon">⚡</span><span class="sec-hdr-title">Exercise</span></div>
       <div id="exerciseToday"></div>
+
+      <div class="sec-hdr"><span class="sec-hdr-icon">🌐</span><span class="sec-hdr-title">Passive Languages</span><span class="sec-hdr-sub">Whenever you feel like it</span></div>
+      <div id="passiveLangToday"></div>
 
       <div class="sec-hdr"><span class="sec-hdr-icon">🌙</span><span class="sec-hdr-title">Wellbeing</span></div>
       <div id="wellbeingToday"></div>
@@ -520,21 +540,89 @@ const DAY_COLORS=['gold','blue','rose','green','purple','orange','teal'];
 const NNS=[
   {key:'meds',icon:'💊',label:'Meds',xp:20,desc:'With food — non-negotiable'},
   {key:'water',icon:'💧',label:'Water',xp:10,desc:'8 glasses target'},
+  {key:'teeth_am',icon:'🦷',label:'Teeth AM',xp:5,desc:'Morning brush — cardiac protection'},
   {key:'bible',icon:'📖',label:'Bible',xp:25,desc:'2 chapters or audio'},
   {key:'dailytext',icon:'✨',label:'Daily Text',xp:15,desc:'Read + reflect'},
   {key:'fs',icon:'🌿',label:'Field Svc',xp:30,desc:'Any form counts'},
   {key:'walk',icon:'🚶',label:'Walk',xp:15,desc:'10+ minutes outside'},
   {key:'meal',icon:'🥗',label:'Plant Meal',xp:10,desc:'At least one today'},
+  {key:'teeth_pm',icon:'🦷',label:'Teeth PM',xp:5,desc:'Before bed — cardiac protection'},
 ];
 
 const DAY_TASKS={
-  0:[{text:'Bible 2ch + Daily Text',tag:'spirit'},{text:'Life Stories (2) — 15 min',tag:'spirit'},{text:'Watchtower session 1 (3) — 30 min',tag:'spirit'},{text:'Weekly Review — planner + journal',tag:'spirit'},{text:'Exercise 35 min',tag:'health'},{text:'Meal prep',tag:'health'},{text:'Primary language 30 min (Spanish)',tag:'lang'},{text:'Secondary language 30 min (ASL)',tag:'lang'},{text:'Language journal — 1 sentence',tag:'lang'},{text:'Morning routine + self-care',tag:'self'}],
-  1:[{text:'Bible 2ch + Daily Text',tag:'spirit'},{text:'Personal Study (7) — 1 hour',tag:'spirit'},{text:'Exercise 35 min',tag:'health'},{text:'Primary language 30 min (Spanish)',tag:'lang'},{text:'Secondary language 30 min (ASL)',tag:'lang'},{text:'Language journal — 1 sentence',tag:'lang'},{text:'Morning routine + self-care',tag:'self'}],
-  2:[{text:'Bible 2ch + Daily Text',tag:'spirit'},{text:'Life Stories (2) — 15 min',tag:'spirit'},{text:'Prophecies / Literature (8) — 30 min',tag:'spirit'},{text:'Exercise 35 min',tag:'health'},{text:'Meal prep',tag:'health'},{text:'Primary language 30 min (Spanish)',tag:'lang'},{text:'Secondary language 30 min (ASL)',tag:'lang'},{text:'Language journal — 1 sentence',tag:'lang'},{text:'Morning routine + self-care',tag:'self'}],
-  3:[{text:'Bible 2ch + Daily Text',tag:'spirit'},{text:"Treasures from God's Word (4) — 30 min",tag:'spirit'},{text:'Congregation Bible Study (5) — 30 min',tag:'spirit'},{text:'Exercise 35 min',tag:'health'},{text:'Primary language 30 min (Spanish)',tag:'lang'},{text:'Secondary language 30 min (ASL)',tag:'lang'},{text:'Language journal — 1 sentence',tag:'lang'},{text:'Morning routine + self-care',tag:'self'}],
-  4:[{text:'Bible 2ch + Daily Text',tag:'spirit'},{text:'Life Stories (2) — 15 min',tag:'spirit'},{text:'Watchtower session 2 (3) — 30 min',tag:'spirit'},{text:'Life & Ministry (6) — 30 min',tag:'spirit'},{text:'Exercise 35 min (gentle)',tag:'health'},{text:'Primary language 30 min (Spanish)',tag:'lang'},{text:'Secondary language 30 min (ASL)',tag:'lang'},{text:'Language journal — 1 sentence',tag:'lang'},{text:'REST — no work, no field service',tag:'self'},{text:'Morning routine + self-care',tag:'self'}],
-  5:[{text:'Bible 2ch + Daily Text',tag:'spirit'},{text:'Prophecies / Literature (8) — 30 min',tag:'spirit'},{text:'Exercise 35 min',tag:'health'},{text:'Meal prep',tag:'health'},{text:'Primary language 30 min (Spanish)',tag:'lang'},{text:'Secondary language 30 min (ASL)',tag:'lang'},{text:'Language journal — 1 sentence',tag:'lang'},{text:'Morning routine + self-care',tag:'self'}],
-  6:[{text:'Bible 2ch + Daily Text',tag:'spirit'},{text:'Life Stories (2) — 15 min',tag:'spirit'},{text:'Life & Ministry (6) — catch-up if needed',tag:'spirit'},{text:'Exercise 35 min',tag:'health'},{text:'Meal prep',tag:'health'},{text:'Primary language 30 min (Spanish)',tag:'lang'},{text:'Secondary language 30 min (ASL)',tag:'lang'},{text:'Language journal — 1 sentence',tag:'lang'},{text:'Morning routine + self-care',tag:'self'}],
+  0:[
+    {text:'Morning routine + self-care',tag:'self'},
+    {text:'Bible 2ch + Daily Text',tag:'spirit'},
+    {text:'Prophecies / Literature (8) — 15 min',tag:'spirit'},
+    {text:'Field service — any form',tag:'spirit'},
+    {text:'Watchtower session 1 (3) — 30 min · prep for Sunday meeting',tag:'spirit'},
+    {text:'Weekly Review — planner + journal',tag:'spirit'},
+    {text:'Exercise 35 min',tag:'health'},
+    {text:'Meal prep',tag:'health'},
+    {text:'Primary language 30 min (Spanish)',tag:'lang'},
+    {text:'Secondary language 30 min (ASL)',tag:'lang'},
+  ],
+  1:[
+    {text:'Morning routine + self-care',tag:'self'},
+    {text:'Bible 2ch + Daily Text',tag:'spirit'},
+    {text:'Personal Study (7) — 1 hour',tag:'spirit'},
+    {text:'Prophecies / Literature (8) — 15 min',tag:'spirit'},
+    {text:'Zoom field service — 2 hrs (5:30–7:30 PM)',tag:'spirit'},
+    {text:'Exercise 35 min',tag:'health'},
+    {text:'Primary language 30 min (Spanish)',tag:'lang'},
+    {text:'Secondary language 30 min (ASL)',tag:'lang'},
+  ],
+  2:[
+    {text:'Morning routine + self-care',tag:'self'},
+    {text:'Bible 2ch + Daily Text',tag:'spirit'},
+    {text:'Life Stories (2) — 30 min',tag:'spirit'},
+    {text:'Apply Yourself to the Field Ministry — 30 min · Friday meeting prep pt.2',tag:'spirit'},
+    {text:'Letter writing / research field service — 2 hrs',tag:'spirit'},
+    {text:'Exercise 35 min',tag:'health'},
+    {text:'Primary language 30 min (Spanish)',tag:'lang'},
+    {text:'Secondary language 30 min (ASL)',tag:'lang'},
+  ],
+  3:[
+    {text:'Morning routine + self-care',tag:'self'},
+    {text:'Bible 2ch + Daily Text',tag:'spirit'},
+    {text:"Treasures from God's Word (4) — 30 min · Friday meeting prep pt.1",tag:'spirit'},
+    {text:'Prophecies / Literature (8) — 15 min',tag:'spirit'},
+    {text:'Zoom field service — 2 hrs (5:30–7:30 PM)',tag:'spirit'},
+    {text:'Exercise 35 min',tag:'health'},
+    {text:'Primary language 30 min (Spanish)',tag:'lang'},
+    {text:'Secondary language 30 min (ASL)',tag:'lang'},
+  ],
+  4:[
+    {text:'REST — no work, no field service 🕊️',tag:'self'},
+    {text:'Morning routine + self-care',tag:'self'},
+    {text:'Bible 2ch + Daily Text',tag:'spirit'},
+    {text:'Life Stories (2) — 30 min',tag:'spirit'},
+    {text:'Living as Christian — 30 min · Friday meeting prep pt.3',tag:'spirit'},
+    {text:'Exercise 35 min (gentle)',tag:'health'},
+    {text:'Primary language 30 min (Spanish)',tag:'lang'},
+    {text:'Secondary language 30 min (ASL)',tag:'lang'},
+  ],
+  5:[
+    {text:'Morning routine + self-care',tag:'self'},
+    {text:'Bible 2ch + Daily Text',tag:'spirit'},
+    {text:'Door-to-door field service — 2 hrs (10AM–1PM window)',tag:'spirit'},
+    {text:'Prophecies / Literature (8) — 15 min',tag:'spirit'},
+    {text:'Exercise 35 min',tag:'health'},
+    {text:'Meal prep',tag:'health'},
+    {text:'Primary language 30 min (Spanish)',tag:'lang'},
+    {text:'Secondary language 30 min (ASL)',tag:'lang'},
+  ],
+  6:[
+    {text:'Morning routine + self-care',tag:'self'},
+    {text:'Bible 2ch + Daily Text',tag:'spirit'},
+    {text:'Door-to-door field service — 4 hrs',tag:'spirit'},
+    {text:'Life Stories (2) — 15 min',tag:'spirit'},
+    {text:'Watchtower session 2 (3) — 30 min · prep for Sunday meeting',tag:'spirit'},
+    {text:'Exercise 35 min',tag:'health'},
+    {text:'Meal prep',tag:'health'},
+    {text:'Primary language 30 min (Spanish)',tag:'lang'},
+    {text:'Secondary language 30 min (ASL)',tag:'lang'},
+  ],
 };
 
 const SPIRIT_QUESTS=[
@@ -568,7 +656,7 @@ const WELLBEING_QUESTS=[
 ];
 
 const SELFCARE_QUESTS=[
-  {key:'q_teeth',icon:'🦷',title:'Brush teeth',desc:'Morning and/or evening — baseline',xp:5,tag:'BASICS'},
+  {key:'q_teeth_pm',icon:'🦷',title:'Brush teeth before bed',desc:'Evening brush — cardiac protection, non-negotiable for your heart health',xp:5,tag:'EVENING'},
   {key:'q_washface',icon:'💧',title:'Wash face',desc:'Splash of water counts — just do it',xp:5,tag:'BASICS'},
   {key:'q_skincare',icon:'✨',title:'Skincare routine',desc:'Morning and/or evening routine completed',xp:15},
   {key:'q_shower',icon:'🚿',title:'Bath or shower',desc:'Take care of your body — you deserve it 🦋',xp:15},
@@ -599,6 +687,15 @@ const WORK_QUESTS=[
   {key:'q_weeklygoal',icon:'🌟',title:'Weekly login goal met',desc:'Reached 16 hrs logged in this week',xp:30},
 ];
 
+const PASSIVE_LANG_QUESTS=[
+  {key:'q_fr_shadow',icon:'🇫🇷',title:'French — shadow RFI or TV5Monde',desc:'rfi.fr or tv5monde.com — 2 min shadowing, speak what you heard in your own words',xp:12},
+  {key:'q_fr_listen',icon:'🇫🇷',title:'French — passive listening',desc:'RFI, TV5Monde, or French Bible audio in the background',xp:8},
+  {key:'q_ko_vocab',icon:'🇰🇷',title:'Korean — 5 vocab words',desc:'Anki spaced repetition — light maintenance',xp:8},
+  {key:'q_ko_listen',icon:'🇰🇷',title:'Korean — passive listening',desc:'K-drama, TTMIK podcast, any Korean audio',xp:8},
+  {key:'q_ar_passive',icon:'🇸🇦',title:'Arabic MSA — passive listening',desc:'Al Jazeera, BBC Arabic, or Simple & Easy Arabic podcast — background only',xp:8},
+  {key:'q_ht_maintain',icon:'🇭🇹',title:'Kreyòl — use it today',desc:'Speak, read, or listen in Haitian Creole',xp:8},
+];
+
 const LEVELS=[
   {key:'spirit',icon:'✨',name:'Spiritual Life',color:'gold',max:5,steps:[
     {name:'The Seed',desc:'Bible 2ch or audio · Prayer · Field service any form · Meeting prep before meeting day'},
@@ -615,10 +712,10 @@ const LEVELS=[
     {name:'Thriving',desc:'Everything in L4 + Sleep 11PM–7AM locked · Full Mediterranean · ~1 lb/week loss'},
   ]},
   {key:'lang',icon:'🗣️',name:'Languages',color:'blue',max:4,steps:[
-    {name:'Listening',desc:'Active language: 1 structured lesson/day · Passive listening in any target language'},
-    {name:'Reading',desc:'Everything in L1 + Assimil dialogue · Language journal: 1 sentence in primary language'},
-    {name:'Speaking',desc:'Everything in L2 + Secondary language 30 min daily · Subtitles-on immersion content'},
-    {name:'Flowing',desc:'Everything in L3 + Full quarterly cycle running · Output attempts (speaking / writing)'},
+    {name:'Listening',desc:'Easy Spanish Step-by-Step: 1 section + exercises (Q1) or RFI/TV5Monde shadowing (Q2) → speak 1 paragraph aloud → write 1 paragraph in bullet journal · Passive: Spanish After Hours Shorts or Dreaming Spanish (background)'},
+    {name:'Speaking',desc:"Everything in L1 + Secondary language: 5 ASL signs (InterSign ASL) or 5 Korean vocab (Anki) · Paragraph journal — no skipping · Save weekly voice recording every Sunday"},
+    {name:'Writing',desc:"Everything in L2 + Secondary language: 10 min intentional daily time · Ministry prep paragraph weekly — write what you'd say at the door in your active language"},
+    {name:'Flowing',desc:'Everything in L3 + Full quarterly cycle: primary 30 min + secondary 20 min + journal + immersion · Output attempts in real contexts (ministry, conversation)'},
   ]},
   {key:'selfcare',icon:'🌿',name:'Self-Care & Routine',color:'teal',max:4,steps:[
     {name:'Basics',desc:'Brush teeth · Wash face · Take medications'},
@@ -684,8 +781,8 @@ const MEMORIAL=[
 ];
 
 const LANGUAGES=[
-  {key:'es',flag:'🇪🇸',name:'Spanish',status:'active',resource:'Busuu / Assimil',quarter:'Q1 Primary',goal:'A1 → B1'},
-  {key:'asl',flag:'🤟',name:'ASL',status:'secondary',resource:'Lifeprint / SigningSavvy',quarter:'Q1 Secondary',goal:'Beginner → Adv. Beginner'},
+  {key:'es',flag:'🇪🇸',name:'Spanish',status:'active',resource:'Easy Spanish Step-by-Step · Spanish After Hours · Dreaming Spanish',quarter:'Q1 Primary',goal:'A1 → B1'},
+  {key:'asl',flag:'🤟',name:'ASL',status:'secondary',resource:'InterSign ASL app (daily) · Lifeprint curriculum (Tue + Thu)',quarter:'Q1 Secondary',goal:'Beginner → Adv. Beginner'},
   {key:'fr',flag:'🇫🇷',name:'French',status:'passive',resource:'Assimil / Conversation',quarter:'Q2 Primary',goal:'B1 → C2 push'},
   {key:'ko',flag:'🇰🇷',name:'Korean',status:'passive',resource:'Duolingo / TTMIK',quarter:'Q2 Secondary',goal:'A1 → B1'},
   {key:'ar',flag:'🇸🇦',name:'Arabic',status:'passive',resource:'Sep 2026+',quarter:'Future',goal:'Alphabet stage'},
@@ -818,6 +915,7 @@ function renderTodayQuests(){
   renderQuestList('wellbeingToday',WELLBEING_QUESTS,dow);
   renderQuestList('workQuestItems',WORK_QUESTS,dow);
   renderQuestList('fsQuestItems',FS_QUESTS,dow);
+  renderQuestList('passiveLangToday',PASSIVE_LANG_QUESTS,dow);
 }
 
 // ══════════════════════════════════════════════════
@@ -901,9 +999,9 @@ function renderBibleBooks(){
     let chHTML='';
     for(let c=1;c<=book.ch;c++){
       const isRead=S.bibleRead[book.key].includes(c);
-      chHTML+=`<div class="bible-ch${isRead?' read':''}" onclick="toggleBibleCh('${book.key}',${c})">${c}</div>`;
+      chHTML+=`<div class="bible-ch${isRead?' read':''}" onclick="toggleBibleCh('${book.key}',${c},this)">${c}</div>`;
     }
-    const card=document.createElement('div');card.className='book-card';
+    const card=document.createElement('div');card.className='book-card';card.dataset.total=book.ch;
     card.innerHTML=`
       <div class="book-title-row" onclick="toggleBody(this)">
         <div><div class="book-title">${book.name}</div><div class="book-meta">${read}/${book.ch} chapters · ${pct}%</div></div>
@@ -915,7 +1013,7 @@ function renderBibleBooks(){
   });
   document.getElementById('bibleProgLabel').textContent=totalRead+'/367 chapters';
 }
-function toggleBibleCh(book,ch){
+function toggleBibleCh(book,ch,el){
   if(!S.bibleRead[book])S.bibleRead[book]=[];
   const idx=S.bibleRead[book].indexOf(ch);
   if(idx===-1){
@@ -923,11 +1021,26 @@ function toggleBibleCh(book,ch){
     awardXP(5,'📖 '+book+' ch.'+ch);
     const tot=totalBibleCh();
     if(tot===10)earnBadge('ch10');if(tot===50)earnBadge('ch50');
+    if(el){el.classList.add('read');el.textContent=ch;}
   }else{
     S.bibleRead[book].splice(idx,1);
     S.xp=Math.max(0,S.xp-5);S.xpToday=Math.max(0,(S.xpToday||0)-5);
+    if(el){el.classList.remove('read');el.textContent=ch;}
   }
-  save();renderBibleBooks();
+  // Update book progress label without closing dropdown
+  const card=el?el.closest('.book-card'):null;
+  if(card){
+    const readCount=S.bibleRead[book].length;
+    const metaEl=card.querySelector('.book-meta');
+    const fillEl=card.querySelector('.book-fill');
+    const totalCh=parseInt(card.dataset.total)||0;
+    if(metaEl)metaEl.textContent=readCount+'/'+totalCh+' chapters · '+Math.round(readCount/totalCh*100)+'%';
+    if(fillEl)fillEl.style.width=Math.round(readCount/totalCh*100)+'%';
+  }
+  save();renderHero();
+  // Update bible progress label
+  const prog=document.getElementById('bibleProgLabel');
+  if(prog)prog.textContent=totalBibleCh()+'/367 chapters';
 }
 
 // ══════════════════════════════════════════════════
@@ -978,9 +1091,9 @@ function renderJWBooks(){
     let chHTML='';
     for(let c=1;c<=book.ch;c++){
       const isRead=readArr.includes(c);
-      chHTML+=`<div class="ch-btn${isRead?' done':''}" onclick="toggleJWCh('${book.key}',${c})">${isRead?'✓':c}</div>`;
+      chHTML+=`<div class="ch-btn${isRead?' done':''}" onclick="toggleJWCh('${book.key}',${c},this)">${isRead?'✓':c}</div>`;
     }
-    const card=document.createElement('div');card.className='book-card';
+    const card=document.createElement('div');card.className='book-card';card.dataset.total=book.ch;
     card.innerHTML=`
       <div class="book-title-row" onclick="toggleBody(this)">
         <div>
@@ -996,12 +1109,34 @@ function renderJWBooks(){
   });
   document.getElementById('jwProgLabel').textContent=booksComplete+'/9 books';
 }
-function toggleJWCh(key,ch){
+function toggleJWCh(key,ch,el){
   if(!S.jwBooks[key])S.jwBooks[key]=[];
   const idx=S.jwBooks[key].indexOf(ch);
-  if(idx===-1){S.jwBooks[key].push(ch);awardXP(10,'📚 '+key+' ch.'+ch);}
-  else{S.jwBooks[key].splice(idx,1);S.xp=Math.max(0,S.xp-10);S.xpToday=Math.max(0,(S.xpToday||0)-10);}
-  save();renderJWBooks();
+  if(idx===-1){
+    S.jwBooks[key].push(ch);
+    awardXP(10,'📚 '+key+' ch.'+ch);
+    if(el){el.classList.add('done');el.textContent='✓';}
+  }else{
+    S.jwBooks[key].splice(idx,1);
+    S.xp=Math.max(0,S.xp-10);S.xpToday=Math.max(0,(S.xpToday||0)-10);
+    if(el){el.classList.remove('done');el.textContent=ch;}
+  }
+  // Update book progress without closing dropdown
+  const card=el?el.closest('.book-card'):null;
+  if(card){
+    const readCount=S.jwBooks[key].length;
+    const totalCh=parseInt(card.dataset.total)||0;
+    const metas=card.querySelectorAll('.book-meta');
+    if(metas[1])metas[1].textContent=readCount+' / '+totalCh+' chapters';
+    const fillEl=card.querySelector('.book-fill');
+    if(fillEl)fillEl.style.width=Math.round(readCount/totalCh*100)+'%';
+  }
+  save();renderHero();
+  const prog=document.getElementById('jwProgLabel');
+  if(prog){
+    const done=Object.keys(S.jwBooks).filter(k=>S.jwBooks[k]&&S.jwBooks[k].length>0).length;
+    prog.textContent=done+'/9 books started';
+  }
 }
 
 // ══════════════════════════════════════════════════
@@ -1164,7 +1299,7 @@ function renderBare(){
     {key:'meds',icon:'💊',text:'Take ALL medications — with food, no skips'},
     {key:'water',icon:'💧',text:'Drink 3+ glasses of water'},
     {key:'eat',icon:'🍽️',text:'Eat at least once today'},
-    {key:'shower',icon:'🚿',text:'Shower'},
+    {key:'teeth',icon:'🦷',text:'Brush teeth — at least once (cardiac protection)'},
     {key:'bible',icon:'📖',text:'Bible audio or JW.org — 10 min'},
     {key:'kind',icon:'🤍',text:'Say one kind thing to yourself'},
   ];
@@ -1189,15 +1324,85 @@ function renderBare(){
 // INIT
 // ══════════════════════════════════════════════════
 
+
+// ══════════════════════════════════════════════════
+// MORNING ROUTINE
+// ══════════════════════════════════════════════════
+const MORNING_STEPS = [
+  {key:'mr_bed',      icon:'🛏️', text:'Make your bed'},
+  {key:'mr_video',    icon:'▶️', text:'Morning Worship video on (JW app → Programs & Events → Morning Worship)'},
+  {key:'mr_blinds',   icon:'🪟', text:'Open the blinds'},
+  {key:'mr_water',    icon:'💧', text:'Drink the water on your nightstand'},
+  {key:'mr_meds',     icon:'💊', text:'Meds + something small to eat'},
+  {key:'mr_move',     icon:'🚶', text:'Light movement while the video plays — tidy, move, exist'},
+  {key:'mr_washface', icon:'💧', text:'Wash face'},
+  {key:'mr_teeth',    icon:'🦷', text:'Brush teeth'},
+  {key:'mr_skincare', icon:'✨', text:'Skincare AM'},
+  {key:'mr_dressed',  icon:'👗', text:'Get dressed'},
+  {key:'mr_dailytext',icon:'📖', text:'Daily Text — read and reflect'},
+  {key:'mr_prayer',   icon:'🙏', text:'Prayer'},
+];
+
+function renderMorning(){
+  const key = todayStr();
+  if(!S.tasks[key]) S.tasks[key] = {};
+  const el = document.getElementById('morningSteps');
+  if(!el) return;
+  el.innerHTML = '';
+  let done = 0;
+  MORNING_STEPS.forEach(step => {
+    const isDone = S.tasks[key][step.key];
+    if(isDone) done++;
+    const row = document.createElement('div');
+    row.style.cssText = 'display:flex;align-items:center;gap:12px;padding:10px 4px;border-bottom:1px solid var(--border);cursor:pointer;user-select:none;';
+    row.innerHTML = '<div style="width:22px;height:22px;border-radius:50%;border:2px solid var(--border2);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all 0.2s;background:'+(isDone?'var(--green)':'transparent')+';border-color:'+(isDone?'var(--green)':'var(--border2)')+';">'+(isDone?'<span style="color:#fff;font-size:11px">✓</span>':'')+'</div>'
+      +'<span style="font-size:15px;flex-shrink:0">'+step.icon+'</span>'
+      +'<span style="font-size:14px;color:'+(isDone?'var(--text3)':'var(--text)')+';'+(isDone?'text-decoration:line-through;':'')+'line-height:1.4">'+step.text+'</span>';
+    row.onclick = () => {
+      if(!S.tasks[key]) S.tasks[key] = {};
+      const was = S.tasks[key][step.key];
+      S.tasks[key][step.key] = !was;
+      if(!was) awardXP(5, '🌅 ' + step.text.slice(0,30));
+      else { S.xp = Math.max(0,S.xp-5); S.xpToday = Math.max(0,(S.xpToday||0)-5); }
+      save(); renderMorning(); renderHero();
+    };
+    el.appendChild(row);
+  });
+  // Remove border from last item
+  if(el.lastChild) el.lastChild.style.borderBottom = 'none';
+  const total = MORNING_STEPS.length;
+  const prog = document.getElementById('morningProgress');
+  if(prog) prog.textContent = done + ' / ' + total + (done===total ? ' ✨ done' : ' done');
+}
+
+function toggleMorning(){
+  const body = document.getElementById('morningBody');
+  const arrow = document.getElementById('morningArrow');
+  const isOpen = body.style.display !== 'none';
+  body.style.display = isOpen ? 'none' : 'block';
+  arrow.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(90deg)';
+  if(!isOpen) renderMorning();
+}
+
 // ══════════════════════════════════════════════════
 // TODAY — L1 REQUIRED TASKS (filtered by day)
 // ══════════════════════════════════════════════════
+const MEETING_PREP_BY_DAY = {
+  0: {key:'l1_meetprep', text:'Watchtower session 1 — 30 min (prep for Sunday meeting)', xp:20},
+  1: {key:'l1_meetprep', text:'Personal Study (7) — 1 hour', xp:20},
+  2: {key:'l1_meetprep', text:'Apply Yourself to the Field Ministry — 30 min (Friday meeting prep)', xp:20},
+  3: {key:'l1_meetprep', text:"Treasures from God's Word — 30 min (Friday meeting prep)", xp:20},
+  4: {key:'l1_meetprep', text:'Living as Christian — 30 min (Friday meeting prep)', xp:20},
+  6: {key:'l1_meetprep', text:'Watchtower session 2 — 30 min (prep for Sunday meeting)', xp:20},
+  // Friday (5) has no spiritual study task
+};
+
 const L1_CATEGORIES = [
   { cat:'Spiritual', icon:'✨', color:'gold', tasks:[
     {key:'l1_bible',     text:'Bible — 2 chapters or audio', xp:25},
     {key:'l1_dailytext', text:'Daily Text — read and reflect', xp:15},
     {key:'l1_fs',        text:'Field service — any form (letters, Zoom, calls, in-person)', xp:30},
-    {key:'l1_meetprep',  text:'Meeting prep — before Friday meeting / before Sunday meeting', xp:20},
+    // meeting prep is injected dynamically per day - see MEETING_PREP_BY_DAY
   ]},
   { cat:'Health', icon:'🫀', color:'orange', tasks:[
     {key:'l1_meds',  text:'Medications — with food, no skips 💊', xp:20},
@@ -1209,9 +1414,15 @@ const L1_CATEGORIES = [
     {key:'l1_teeth',    text:'Brush teeth', xp:5},
     {key:'l1_washface', text:'Wash face', xp:5},
   ]},
-  { cat:'Languages', icon:'🗣️', color:'blue', tasks:[
-    {key:'l1_lesson', text:'Spanish — 1 Busuu lesson', xp:12},
-    {key:'l1_listen', text:'Passive listening — any target language (background is fine)', xp:8},
+  { cat:'Spanish 🇪🇸', icon:'🗣️', color:'blue', tasks:[
+    {key:'l1_consume', text:'Easy Spanish Step-by-Step — 1 section + exercises → speak 1 paragraph aloud', xp:15},
+    {key:'l1_write',   text:'Write 1 paragraph in bullet journal (same topic, ministry, or your day)', xp:15},
+    {key:'l1_passive', text:'Passive listening — Spanish After Hours Shorts or Dreaming Spanish (background)', xp:8},
+    {key:'l1_sunday_rec', text:'⭐ Save weekly voice recording in Spanish + note comfort level', xp:10, days:[0]},
+  ]},
+  { cat:'ASL 🤟', icon:'🤟', color:'blue', tasks:[
+    {key:'l1_asl_app', text:'InterSign ASL app — 1 lesson or review', xp:10},
+    {key:'l1_asl_lifeprint', text:'Lifeprint video lesson (Tue + Thu only)', xp:8, days:[2,4]},
   ]},
   { cat:'Wellbeing', icon:'🧠', color:'purple', tasks:[
     {key:'l1_gratitude', text:'1 gratitude — say it or write it', xp:10},
@@ -1237,7 +1448,12 @@ function renderTodayL1(){
 
   L1_CATEGORIES.forEach(cat => {
     if(cat.showOnDays && !cat.showOnDays.includes(dow)) return;
-    const tasks = cat.tasks;
+    // Inject day-specific meeting prep into Spiritual category
+    let tasks = cat.tasks.filter(t => t.key !== 'l1_meetprep');
+    if(cat.cat === 'Spiritual') {
+      const prep = MEETING_PREP_BY_DAY[dow];
+      if(prep) tasks = [...tasks, prep];
+    }
     if(!tasks.length) return;
     totalCount += tasks.length;
     tasks.forEach(t => { if(S.tasks[key] && S.tasks[key][t.key]) doneCount++; });
@@ -1282,7 +1498,7 @@ function toggleDoMore(){
 
 function init(){
   load();
-  renderHero();renderNN();renderTodayL1();renderTodayQuests();
+  renderHero();renderNN();renderMorning();renderTodayL1();renderTodayQuests();
   renderScheduleTasks();renderLevels();
   renderBibleBooks();renderMemorial();renderJWBooks();renderFS();
   renderLangCards();renderProgress();renderBadges();renderActivityLog();
