@@ -438,6 +438,28 @@ input[type=number]{padding:8px 10px;border:1px solid var(--border);border-radius
       </div>
     </div>
 
+    <!-- ── EVENING ROUTINE ── -->
+    <div style="margin-top:16px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden;">
+      <div onclick="toggleEvening()" style="display:flex;align-items:center;justify-content:space-between;padding:13px 16px;cursor:pointer;user-select:none;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="font-size:18px">🌙</span>
+          <div>
+            <div style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue)">Evening Routine</div>
+            <div id="eveningProgress" style="font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;margin-top:1px">0 / 16 done · starts 8 PM</div>
+          </div>
+        </div>
+        <span id="eveningArrow" style="font-size:14px;color:var(--text3);transition:transform 0.2s">▶</span>
+      </div>
+      <div id="eveningBody" style="display:none;border-top:1px solid var(--border);padding:10px 12px;">
+        <!-- Phase 1 -->
+        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid var(--border);">Phase 1 — Evening · 8 PM</div>
+        <div id="eveningSteps"></div>
+        <!-- Phase 2 divider -->
+        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--teal);margin:12px 0 8px;padding-bottom:4px;border-bottom:1px solid var(--border);">🌑 Wind-Down · quiet mode</div>
+        <div id="winddownSteps"></div>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -1007,6 +1029,28 @@ const MORNING_STEPS=[
   {key:'mr_prayer',icon:'🙏',text:'Prayer'},
 ];
 
+const EVENING_STEPS=[
+  {key:'ev_walk',icon:'🚶',text:'Go for a walk — get some air before the night closes in'},
+  {key:'ev_shower',icon:'🚿',text:'Shower'},
+  {key:'ev_teeth',icon:'🦷',text:'Brush teeth PM — cardiac protection, every night'},
+  {key:'ev_skincare',icon:'✨',text:'Skincare PM'},
+  {key:'ev_hair',icon:'💆',text:'Hair routine — bonnet, edges, scalp oil'},
+  {key:'ev_clothes',icon:'👗',text:'Lay out clothes for tomorrow'},
+  {key:'ev_tidy',icon:'🧹',text:'Tidy your space — reset the room before you rest'},
+  {key:'ev_notebook',icon:'📓',text:'Open your notebook — journal, think on paper, process the day'},
+  {key:'ev_read',icon:'📖',text:'Read something — Bible, JW book, or anything good'},
+  {key:'ev_log',icon:'✅',text:'Log your day in Clore — check XP, mark what\'s done'},
+  {key:'ev_alarms',icon:'⏰',text:'Set alarms for tomorrow'},
+];
+
+const WINDDOWN_STEPS=[
+  {key:'wd_charger',icon:'🔌',text:'Phone on charger — across the room, not beside you'},
+  {key:'wd_noscroll',icon:'📵',text:'No more scrolling — phone face down, screen off'},
+  {key:'wd_prayer',icon:'🙏',text:'Prayer — end the day the way it deserves to end'},
+  {key:'wd_lights',icon:'💡',text:'Lights off by 11 PM'},
+  {key:'wd_inbed',icon:'🛌',text:'In bed'},
+];
+
 const MEETING_PREP_BY_DAY={
   0:{key:'l1_meetprep',text:'Watchtower session 1 — 30 min (Sunday meeting prep)',xp:20},
   1:{key:'l1_meetprep',text:'Personal Study (7) — 1 hour',xp:20},
@@ -1518,6 +1562,57 @@ function toggleMorning(){
   body.style.display=isOpen?'none':'block';
   arrow.style.transform=isOpen?'rotate(0deg)':'rotate(90deg)';
   if(!isOpen)renderMorning();
+}
+
+/* ══════════════════════════════════════════════════
+   EVENING ROUTINE
+══════════════════════════════════════════════════ */
+function renderEveningStepList(containerId,steps,phaseColor){
+  const key=todayStr();
+  if(!S.tasks[key])S.tasks[key]={};
+  const el=document.getElementById(containerId);if(!el)return;
+  el.innerHTML='';
+  steps.forEach(step=>{
+    const isDone=S.tasks[key][step.key];
+    const row=document.createElement('div');
+    row.style.cssText='display:flex;align-items:center;gap:12px;padding:10px 4px;border-bottom:1px solid var(--border);cursor:pointer;user-select:none;';
+    row.innerHTML='<div style="width:22px;height:22px;border-radius:50%;border:2px solid '+(isDone?phaseColor:'var(--border2)')+';flex-shrink:0;display:flex;align-items:center;justify-content:center;background:'+(isDone?phaseColor:'transparent')+';">'+(isDone?'<span style="color:#fff;font-size:11px">✓</span>':'')+'</div>'
+      +'<span style="font-size:15px;flex-shrink:0">'+step.icon+'</span>'
+      +'<span style="font-size:14px;color:'+(isDone?'var(--text3)':'var(--text)')+';'+(isDone?'text-decoration:line-through;':'')+'line-height:1.4;flex:1;">'+step.text+'</span>';
+    row.onclick=()=>{
+      if(!S.tasks[key])S.tasks[key]={};
+      const was=S.tasks[key][step.key];
+      S.tasks[key][step.key]=!was;
+      if(!was)awardXP(5,'🌙 '+step.text.slice(0,30));
+      else{S.xp=Math.max(0,S.xp-5);S.xpToday=Math.max(0,(S.xpToday||0)-5);}
+      save();renderEvening();renderHero();
+    };
+    el.appendChild(row);
+  });
+  if(el.lastChild)el.lastChild.style.borderBottom='none';
+}
+
+function renderEvening(){
+  const key=todayStr();
+  if(!S.tasks[key])S.tasks[key]={};
+  renderEveningStepList('eveningSteps',EVENING_STEPS,'var(--blue)');
+  renderEveningStepList('winddownSteps',WINDDOWN_STEPS,'var(--teal)');
+  // Update progress label
+  const allSteps=[...EVENING_STEPS,...WINDDOWN_STEPS];
+  const done=allSteps.filter(s=>S.tasks[key]&&S.tasks[key][s.key]).length;
+  const prog=document.getElementById('eveningProgress');
+  if(prog)prog.textContent=done===allSteps.length
+    ?'✨ Night is won — rest well'
+    :done+' / '+allSteps.length+' done · starts 8 PM';
+}
+
+function toggleEvening(){
+  const body=document.getElementById('eveningBody');
+  const arrow=document.getElementById('eveningArrow');
+  const isOpen=body.style.display!=='none';
+  body.style.display=isOpen?'none':'block';
+  arrow.style.transform=isOpen?'rotate(0deg)':'rotate(90deg)';
+  if(!isOpen)renderEvening();
 }
 
 /* ══════════════════════════════════════════════════
@@ -2476,6 +2571,7 @@ function renderWeekCategories(){
 
 function renderWeekScreen(){
   renderMorning();
+  renderEvening();
   renderNN();
   renderTodayL1();
   renderTodayQuests();
