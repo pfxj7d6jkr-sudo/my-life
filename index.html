@@ -79,7 +79,52 @@ body::after {
 }
 
 /* ── LAYOUT ── */
-.app { position:relative; max-width:480px; margin:0 auto; padding-bottom:calc(var(--nav-h) + 20px); min-height:100vh; }
+.app { position:relative; width:100%; padding-bottom:calc(var(--nav-h) + 20px); min-height:100vh; }
+
+/* ── DESKTOP RESPONSIVE ── */
+@media (min-width:700px) {
+  .header { padding:16px 40px 0; }
+  .nav { left:0; right:0; max-width:100%; }
+
+  .energy-section,
+  .launch-section,
+  .challenge-wrap,
+  .bonus-pool,
+  .progress-strip,
+  .win-banner,
+  #fsSectionToday,
+  .scroll-hint { max-width:720px; margin-left:auto; margin-right:auto; padding-left:40px; padding-right:40px; }
+
+  .progress-strip { margin-top:16px; }
+  .win-banner     { margin-top:16px; }
+
+  .sec-div { max-width:960px; margin-left:auto; margin-right:auto; padding-left:40px; padding-right:40px; }
+
+  .pioneer-row,
+  .weight-card { max-width:960px; margin-left:auto; margin-right:auto; }
+
+  .log-card { max-width:960px; margin-left:auto; margin-right:auto; }
+
+  .book-row,
+  .jw-book-row,
+  .mem-day { max-width:960px; margin-left:auto; margin-right:auto; }
+
+  .badge-grid { max-width:960px; margin-left:auto; margin-right:auto; padding:0 40px;
+                grid-template-columns:repeat(8,1fr); }
+
+  #actLog { max-width:960px; margin:0 auto 16px; }
+
+  .course-grid { max-width:960px; margin:0 auto; padding:0 40px;
+                 display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+
+  #plan-home > div:first-child { padding:20px 40px 12px; max-width:960px; margin:0 auto; }
+
+  #screen-progress > div,
+  #screen-reading > div,
+  #screen-career > div { max-width:960px; margin:0 auto; }
+
+  .stats-row { max-width:100%; }
+}
 
 /* ── SCREENS ── */
 .screen { display:none; }
@@ -133,8 +178,6 @@ body::after {
   position: fixed;
   bottom: 0; left: 0; right: 0;
   height: var(--nav-h);
-  max-width: 480px;
-  margin: 0 auto;
   background: var(--paper2);
   border-top: 1px solid var(--paper3);
   display: flex;
