@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -8,23 +7,23 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Mono:wght@300;400;500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet">
 <style>
 :root {
-  --paper:#e8ede6;--paper2:#dde5da;--paper3:#cfdacc;
-  --ink:#161e14;--ink2:#2e3d2a;--ink3:#5a7055;--ink4:#8aa485;
-  --moss:#3a6b34;--moss2:#265220;--moss-l:#c4dbbf;
-  --gold:#7a6820;--gold2:#504410;--gold-l:#ede8c0;
-  --sky:#2c4e5a;--sky-l:#bcd4dc;
-  --plum:#4a3060;--plum-l:#d8ccec;
-  --rose:#7a3a30;--rose-l:#e8d0cc;
-  --nav-h:60px;--radius:14px;
+  --paper:#e8ede6;--paper2:#dde5da;--paper3:#cfdacc;
+  --ink:#161e14;--ink2:#2e3d2a;--ink3:#5a7055;--ink4:#8aa485;
+  --moss:#3a6b34;--moss2:#265220;--moss-l:#c4dbbf;
+  --gold:#7a6820;--gold2:#504410;--gold-l:#ede8c0;
+  --sky:#2c4e5a;--sky-l:#bcd4dc;
+  --plum:#4a3060;--plum-l:#d8ccec;
+  --rose:#7a3a30;--rose-l:#e8d0cc;
+  --nav-h:60px;--radius:14px;
 }
 body.dark{
-  --paper:#111a10;--paper2:#182016;--paper3:#1f2a1d;
-  --ink:#e4ede0;--ink2:#c0d4bc;--ink3:#7a9876;--ink4:#4a6048;
-  --moss:#6ab860;--moss2:#4a9840;--moss-l:#162814;
-  --gold:#c8b040;--gold2:#e8d060;--gold-l:#282210;
-  --sky:#58a0b0;--sky-l:#0c2028;
-  --plum:#9878c0;--plum-l:#180e28;
-  --rose:#c06858;--rose-l:#281410;
+  --paper:#111a10;--paper2:#182016;--paper3:#1f2a1d;
+  --ink:#e4ede0;--ink2:#c0d4bc;--ink3:#7a9876;--ink4:#4a6048;
+  --moss:#6ab860;--moss2:#4a9840;--moss-l:#162814;
+  --gold:#c8b040;--gold2:#e8d060;--gold-l:#282210;
+  --sky:#58a0b0;--sky-l:#0c2028;
+  --plum:#9878c0;--plum-l:#180e28;
+  --rose:#c06858;--rose-l:#281410;
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
 html{scroll-behavior:smooth;}
@@ -32,12 +31,12 @@ body{font-family:'Cormorant Garamond',Georgia,serif;background:var(--paper);colo
 body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:0.4;}
 .app{position:relative;width:100%;padding-bottom:calc(var(--nav-h) + 20px);min-height:100vh;}
 @media(min-width:700px){
-  .header{padding:16px 40px 0;}
-  .energy-section,.launch-section,.challenge-wrap,.bonus-pool,.progress-strip,.win-banner,.rollover-section,.scroll-hint{max-width:720px;margin-left:auto;margin-right:auto;padding-left:40px;padding-right:40px;}
-  .sec-div,.log-card,.pioneer-row,.book-row,.jw-book-row,.badge-grid,#actLog{max-width:960px;margin-left:auto;margin-right:auto;}
-  .course-grid{max-width:960px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
-  #screen-progress>div,#screen-reading>div{max-width:960px;margin:0 auto;}
-  .bible-target-card{max-width:960px;margin-left:auto;margin-right:auto;}
+  .header{padding:16px 40px 0;}
+  .energy-section,.launch-section,.challenge-wrap,.bonus-pool,.progress-strip,.win-banner,.rollover-section,.scroll-hint{max-width:720px;margin-left:auto;margin-right:auto;padding-left:40px;padding-right:40px;}
+  .sec-div,.log-card,.pioneer-row,.book-row,.jw-book-row,.badge-grid,#actLog{max-width:960px;margin-left:auto;margin-right:auto;}
+  .course-grid{max-width:960px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+  #screen-progress>div,#screen-reading>div{max-width:960px;margin:0 auto;}
+  .bible-target-card{max-width:960px;margin-left:auto;margin-right:auto;}
 }
 .screen{display:none;}.screen.active{display:block;animation:riseIn 0.22s ease;}
 @keyframes riseIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
@@ -237,181 +236,174 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 <div class="app">
 
 <div class="header">
-  <div class="header-brand">Clore</div>
-  <div class="header-right">
-    <div class="header-date" id="headerDate"></div>
-    <button class="icon-btn" onclick="toggleDark()" id="darkBtn">🌙</button>
-    <button class="icon-btn" onclick="exportData()" title="Backup">↓</button>
-  </div>
+  <div class="header-brand">Clore</div>
+  <div class="header-right">
+    <div class="header-date" id="headerDate"></div>
+    <button class="icon-btn" onclick="toggleDark()" id="darkBtn">🌙</button>
+    <button class="icon-btn" onclick="exportData()" title="Backup">↓</button>
+  </div>
 </div>
 
 <div class="stats-row">
-  <div class="stat-cell"><div class="stat-val" id="statXP">0</div><div class="stat-lbl">XP</div></div>
-  <div class="stat-cell"><div class="stat-val" id="statStreak">0🔥</div><div class="stat-lbl">Streak</div></div>
-  <div class="stat-cell"><div class="stat-val" id="statFS">339</div><div class="stat-lbl">FS Hrs</div></div>
+  <div class="stat-cell"><div class="stat-val" id="statXP">0</div><div class="stat-lbl">XP</div></div>
+  <div class="stat-cell"><div class="stat-val" id="statStreak">0🔥</div><div class="stat-lbl">Streak</div></div>
+  <div class="stat-cell"><div class="stat-val" id="statFS">339</div><div class="stat-lbl">FS Hrs</div></div>
 </div>
 <div class="timeline-banner">
-  <div class="timeline-date" id="timelineDate">—</div>
-  <div class="timeline-right">
-    <div class="timeline-chip" id="timelineQ">Q1</div>
-    <div class="timeline-chip wk" id="timelineWk">Wk 1</div>
-  </div>
+  <div class="timeline-date" id="timelineDate">—</div>
+  <div class="timeline-right">
+    <div class="timeline-chip" id="timelineQ">Q1</div>
+    <div class="timeline-chip wk" id="timelineWk">Wk 1</div>
+  </div>
 </div>
 
 <!-- TODAY -->
-
 <div id="screen-today" class="screen active">
-  <div class="energy-section">
-    <div class="energy-label">How's your energy right now?</div>
-    <div class="energy-grid">
-      <div class="energy-btn" data-e="low" onclick="setEnergy('low')"><span class="energy-emoji">🌊</span><span class="energy-name">Low</span><span class="energy-sub">anchors only</span></div>
-      <div class="energy-btn" data-e="mid" onclick="setEnergy('mid')"><span class="energy-emoji">✦</span><span class="energy-name">Medium</span><span class="energy-sub">5 tasks</span></div>
-      <div class="energy-btn" data-e="high" onclick="setEnergy('high')"><span class="energy-emoji">🌿</span><span class="energy-name">High</span><span class="energy-sub">full day</span></div>
-    </div>
-  </div>
-  <div class="progress-strip" id="progressStrip" style="display:none">
-    <div class="progress-ring-wrap">
-      <svg class="progress-ring" width="48" height="48" viewBox="0 0 48 48">
-        <circle class="progress-ring-bg" cx="24" cy="24" r="19"/>
-        <circle class="progress-ring-fill" id="ringFill" cx="24" cy="24" r="19"/>
-      </svg>
-      <div class="progress-ring-num" id="ringNum">0%</div>
-    </div>
-    <div class="progress-info">
-      <div class="progress-title" id="progressTitle">Launch set ready</div>
-      <div class="progress-sub" id="progressSub">Tap a task to begin</div>
-    </div>
-    <div class="progress-xp" id="progressXP">+0 XP</div>
-  </div>
-  <div class="win-banner" id="winBanner"><div class="win-banner-title">✦ Day complete ✦</div><div class="win-banner-sub">Tap Challenge to keep going</div></div>
-  <div class="launch-section" id="launchSection" style="display:none">
-    <div class="section-eyebrow"><span>Today's tasks</span><span class="section-count" id="launchCount">0/0</span></div>
-    <div id="launchTasks"></div>
-  </div>
-  <div class="rollover-section" id="rolloverSection" style="display:none">
-    <div class="rollover-header"><span>Still to do this week</span><span id="rolloverCount" style="font-size:10px;color:var(--rose)"></span></div>
-    <div id="rolloverList"></div>
-  </div>
-  <div class="challenge-wrap" id="challengeWrap" style="display:none">
-    <button class="challenge-btn" id="challengeBtn" onclick="toggleChallenge()"><span>⚡</span><span id="challengeLabel">Challenge me — unlock more</span></button>
-  </div>
-  <div class="bonus-pool" id="bonusPool" style="display:none"><div class="bonus-pool-label">Bonus tasks</div><div id="bonusTasks"></div></div>
-  <div class="scroll-hint" id="scrollHint" style="display:none">· scroll for field service log ·</div>
-  <div id="fsSectionToday" style="display:none">
-    <div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-label">Field service log</div><div class="sec-div-line"></div></div>
-    <div class="log-card">
-      <div class="input-row">
-        <input class="num-input" type="number" id="fsHrsIn" placeholder="hrs" min="0" max="12" step="0.5">
-        <input class="text-input" type="text" id="fsNoteIn" placeholder="Zoom / Letters / Territory...">
-        <button class="pill-btn" onclick="logFS()">Log</button>
-      </div>
-      <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--ink3);">Total: <strong id="fsTodayTotal" style="color:var(--moss)">339</strong> / 600 · <span id="fsWeeklyPace" style="color:var(--gold)"></span></div>
-    </div>
-  </div>
+  <div class="energy-section">
+    <div class="energy-label">How's your energy right now?</div>
+    <div class="energy-grid">
+      <div class="energy-btn" data-e="low" onclick="setEnergy('low')"><span class="energy-emoji">🌊</span><span class="energy-name">Low</span><span class="energy-sub">anchors only</span></div>
+      <div class="energy-btn" data-e="mid" onclick="setEnergy('mid')"><span class="energy-emoji">✦</span><span class="energy-name">Medium</span><span class="energy-sub">5 tasks</span></div>
+      <div class="energy-btn" data-e="high" onclick="setEnergy('high')"><span class="energy-emoji">🌿</span><span class="energy-name">High</span><span class="energy-sub">full day</span></div>
+    </div>
+  </div>
+  <div class="progress-strip" id="progressStrip" style="display:none">
+    <div class="progress-ring-wrap">
+      <svg class="progress-ring" width="48" height="48" viewBox="0 0 48 48">
+        <circle class="progress-ring-bg" cx="24" cy="24" r="19"/>
+        <circle class="progress-ring-fill" id="ringFill" cx="24" cy="24" r="19"/>
+      </svg>
+      <div class="progress-ring-num" id="ringNum">0%</div>
+    </div>
+    <div class="progress-info">
+      <div class="progress-title" id="progressTitle">Launch set ready</div>
+      <div class="progress-sub" id="progressSub">Tap a task to begin</div>
+    </div>
+    <div class="progress-xp" id="progressXP">+0 XP</div>
+  </div>
+  <div class="win-banner" id="winBanner"><div class="win-banner-title">✦ Day complete ✦</div><div class="win-banner-sub">Tap Challenge to keep going</div></div>
+  <div class="launch-section" id="launchSection" style="display:none">
+    <div class="section-eyebrow"><span>Today's tasks</span><span class="section-count" id="launchCount">0/0</span></div>
+    <div id="launchTasks"></div>
+  </div>
+  <div class="rollover-section" id="rolloverSection" style="display:none">
+    <div class="rollover-header"><span>Still to do this week</span><span id="rolloverCount" style="font-size:10px;color:var(--rose)"></span></div>
+    <div id="rolloverList"></div>
+  </div>
+  <div class="challenge-wrap" id="challengeWrap" style="display:none">
+    <button class="challenge-btn" id="challengeBtn" onclick="toggleChallenge()"><span>⚡</span><span id="challengeLabel">Challenge me — unlock more</span></button>
+  </div>
+  <div class="bonus-pool" id="bonusPool" style="display:none"><div class="bonus-pool-label">Bonus tasks</div><div id="bonusTasks"></div></div>
+  <div class="scroll-hint" id="scrollHint" style="display:none">· scroll for field service log ·</div>
+  <div id="fsSectionToday" style="display:none">
+    <div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-label">Field service log</div><div class="sec-div-line"></div></div>
+    <div class="log-card">
+      <div class="input-row">
+        <input class="num-input" type="number" id="fsHrsIn" placeholder="hrs" min="0" max="12" step="0.5">
+        <input class="text-input" type="text" id="fsNoteIn" placeholder="Zoom / Letters / Territory...">
+        <button class="pill-btn" onclick="logFS()">Log</button>
+      </div>
+      <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--ink3);">Total: <strong id="fsTodayTotal" style="color:var(--moss)">339</strong> / 600 · <span id="fsWeeklyPace" style="color:var(--gold)"></span></div>
+    </div>
+  </div>
 </div>
 
 <!-- PROGRESS -->
-
 <div id="screen-progress" class="screen">
-  <div>
-    <div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-label">Field service · 2025–2026</div><div class="sec-div-line"></div></div>
-    <div class="pioneer-row">
-      <div class="pioneer-nums">
-        <div><div class="pioneer-total" id="fsTotalBig">339</div><div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--ink3)">hours logged</div></div>
-        <div style="text-align:right"><div style="font-family:'Fraunces',serif;font-size:14px;color:var(--ink2)" id="fsPctBig">57%</div><div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--ink3)">of 600 hr goal</div></div>
-      </div>
-      <div class="bar-track"><div class="bar-fill" id="fsPioneerBar" style="width:57%;background:linear-gradient(90deg,var(--moss-l),var(--moss))"></div></div>
-      <div style="margin-top:8px;font-family:'DM Mono',monospace;font-size:10px;color:var(--ink3)"><span id="fsRemBig">261</span> hrs remaining · ends Aug 31 · need ~16.5 hrs/week</div>
-    </div>
-    <div class="log-card">
-      <div class="log-card-title"><span>Log hours</span><span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--ink3)" id="fsMonthDisp">0 this month</span></div>
-      <div class="input-row">
-        <input class="num-input" type="number" id="fsHrsIn2" placeholder="hrs" min="0" max="10" step="0.5">
-        <input class="text-input" type="text" id="fsNoteIn2" placeholder="Zoom / Letters / Territory...">
-        <button class="pill-btn" onclick="logFS2()">Log</button>
-      </div>
-      <div id="fsLogEntries" style="max-height:120px;overflow-y:auto;border-top:1px solid var(--paper3);padding-top:8px;margin-top:4px;"></div>
-    </div>
+  <div>
+    <div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-label">Field service · 2025–2026</div><div class="sec-div-line"></div></div>
+    <div class="pioneer-row">
+      <div class="pioneer-nums">
+        <div><div class="pioneer-total" id="fsTotalBig">339</div><div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--ink3)">hours logged</div></div>
+        <div style="text-align:right"><div style="font-family:'Fraunces',serif;font-size:14px;color:var(--ink2)" id="fsPctBig">57%</div><div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--ink3)">of 600 hr goal</div></div>
+      </div>
+      <div class="bar-track"><div class="bar-fill" id="fsPioneerBar" style="width:57%;background:linear-gradient(90deg,var(--moss-l),var(--moss))"></div></div>
+      <div style="margin-top:8px;font-family:'DM Mono',monospace;font-size:10px;color:var(--ink3)"><span id="fsRemBig">261</span> hrs remaining · ends Aug 31 · need ~16.5 hrs/week</div>
+    </div>
+    <div class="log-card">
+      <div class="log-card-title"><span>Log hours</span><span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--ink3)" id="fsMonthDisp">0 this month</span></div>
+      <div class="input-row">
+        <input class="num-input" type="number" id="fsHrsIn2" placeholder="hrs" min="0" max="10" step="0.5">
+        <input class="text-input" type="text" id="fsNoteIn2" placeholder="Zoom / Letters / Territory...">
+        <button class="pill-btn" onclick="logFS2()">Log</button>
+      </div>
+      <div id="fsLogEntries" style="max-height:120px;overflow-y:auto;border-top:1px solid var(--paper3);padding-top:8px;margin-top:4px;"></div>
+    </div>
 
-```
-<div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-label">Weekly service schedule</div><div class="sec-div-line"></div></div>
-<div class="log-card">
-  <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--ink3);margin-bottom:10px">Target: 16.5 hrs/week · 603 hrs by Aug 31 · buffer from Sept 1</div>
-  <div id="scheduleRows"></div>
-  <div style="display:flex;justify-content:space-between;padding-top:8px;border-top:1px solid var(--paper3);font-family:'DM Mono',monospace;font-size:10px;"><span style="color:var(--ink3)">Weekly total</span><span style="color:var(--moss);font-weight:500">16.5 hrs</span></div>
-</div>
+    <div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-label">Weekly service schedule</div><div class="sec-div-line"></div></div>
+    <div class="log-card">
+      <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--ink3);margin-bottom:10px">Target: 16.5 hrs/week · 603 hrs by Aug 31 · buffer from Sept 1</div>
+      <div id="scheduleRows"></div>
+      <div style="display:flex;justify-content:space-between;padding-top:8px;border-top:1px solid var(--paper3);font-family:'DM Mono',monospace;font-size:10px;"><span style="color:var(--ink3)">Weekly total</span><span style="color:var(--moss);font-weight:500">16.5 hrs</span></div>
+    </div>
 
-<div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-label">Badges</div><div class="sec-div-line"></div></div>
-<div class="badge-grid" id="badgeGrid"></div>
-<div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-label">Activity log</div><div class="sec-div-line"></div></div>
-<div id="actLog" style="margin:0 20px 16px;background:var(--paper2);border:1px solid var(--paper3);border-radius:var(--radius);max-height:240px;overflow-y:auto;"></div>
-<div style="padding:0 20px 8px;display:flex;gap:8px;">
-  <button class="pill-btn" onclick="exportData()" style="flex:1;text-align:center">↓ Export backup</button>
-  <button class="pill-btn" onclick="importData()" style="flex:1;text-align:center;border-color:var(--paper3);color:var(--ink3)">↑ Restore</button>
-</div>
-```
-
-  </div>
+    <div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-label">Badges</div><div class="sec-div-line"></div></div>
+    <div class="badge-grid" id="badgeGrid"></div>
+    <div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-label">Activity log</div><div class="sec-div-line"></div></div>
+    <div id="actLog" style="margin:0 20px 16px;background:var(--paper2);border:1px solid var(--paper3);border-radius:var(--radius);max-height:240px;overflow-y:auto;"></div>
+    <div style="padding:0 20px 8px;display:flex;gap:8px;">
+      <button class="pill-btn" onclick="exportData()" style="flex:1;text-align:center">↓ Export backup</button>
+      <button class="pill-btn" onclick="importData()" style="flex:1;text-align:center;border-color:var(--paper3);color:var(--ink3)">↑ Restore</button>
+    </div>
+  </div>
 </div>
 
 <!-- READING -->
-
 <div id="screen-reading" class="screen">
-  <div class="read-tabs">
-    <button class="read-tab active" onclick="switchReadTab('bible',this)">📖 Bible</button>
-    <button class="read-tab" onclick="switchReadTab('books',this)">📚 Books</button>
-  </div>
-  <!-- BIBLE PANEL -->
-  <div class="read-panel active" id="rpanel-bible">
-    <div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-label">Today's reading</div><div class="sec-div-line"></div></div>
-    <div class="bible-target-card">
-      <div class="bible-target-label">Today's portion — <span id="bibleTargetDate"></span></div>
-      <div class="bible-target-range" id="bibleTargetRange">Loading...</div>
-      <div class="bible-target-sub" id="bibleTargetSub"></div>
-      <div class="bible-log-row" id="bibleLogRow">
-        <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--gold2);white-space:nowrap">Ended at chapter:</div>
-        <input class="num-input" type="number" id="bibleLastChIn" placeholder="ch#" min="1" style="width:64px;background:rgba(255,255,255,0.5)">
-        <button class="pill-btn" onclick="logBibleProgress()" style="background:var(--gold);color:#fff;border-color:var(--gold2)">Record</button>
-      </div>
-    </div>
-    <div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-label">Genesis → Revelation · <span id="bibleCount" style="color:var(--gold)">0/1189</span></div><div class="sec-div-line"></div></div>
-    <div style="padding:0 20px 8px;font-family:'DM Mono',monospace;font-size:9px;color:var(--ink3);letter-spacing:0.5px">May 11, 2026 – May 10, 2027 · 4 chapters/day · Mon–Sat · self-adjusting</div>
-    <div id="bibleList"></div>
-  </div>
-  <!-- BOOKS PANEL -->
-  <div class="read-panel" id="rpanel-books">
-    <div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-label">JW books · <span id="jwCount" style="color:var(--gold)">0/9 started</span></div><div class="sec-div-line"></div></div>
-    <div id="jwList"></div>
-  </div>
+  <div class="read-tabs">
+    <button class="read-tab active" onclick="switchReadTab('bible',this)">📖 Bible</button>
+    <button class="read-tab" onclick="switchReadTab('books',this)">📚 Books</button>
+  </div>
+  <!-- BIBLE PANEL -->
+  <div class="read-panel active" id="rpanel-bible">
+    <div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-label">Today's reading</div><div class="sec-div-line"></div></div>
+    <div class="bible-target-card">
+      <div class="bible-target-label">Today's portion — <span id="bibleTargetDate"></span></div>
+      <div class="bible-target-range" id="bibleTargetRange">Loading...</div>
+      <div class="bible-target-sub" id="bibleTargetSub"></div>
+      <div class="bible-log-row" id="bibleLogRow">
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--gold2);white-space:nowrap">Ended at chapter:</div>
+        <input class="num-input" type="number" id="bibleLastChIn" placeholder="ch#" min="1" style="width:64px;background:rgba(255,255,255,0.5)">
+        <button class="pill-btn" onclick="logBibleProgress()" style="background:var(--gold);color:#fff;border-color:var(--gold2)">Record</button>
+      </div>
+    </div>
+    <div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-label">Genesis → Revelation · <span id="bibleCount" style="color:var(--gold)">0/1189</span></div><div class="sec-div-line"></div></div>
+    <div style="padding:0 20px 8px;font-family:'DM Mono',monospace;font-size:9px;color:var(--ink3);letter-spacing:0.5px">May 11, 2026 – May 10, 2027 · 4 chapters/day · Mon–Sat · self-adjusting</div>
+    <div id="bibleList"></div>
+  </div>
+  <!-- BOOKS PANEL -->
+  <div class="read-panel" id="rpanel-books">
+    <div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-label">JW books · <span id="jwCount" style="color:var(--gold)">0/9 started</span></div><div class="sec-div-line"></div></div>
+    <div id="jwList"></div>
+  </div>
 </div>
 
 <!-- MY PLAN -->
-
 <div id="screen-plan" class="screen">
-  <div id="plan-home">
-    <div style="padding:20px 20px 12px">
-      <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);margin-bottom:4px">May 2026 – May 2028 · Baptism Anniversary Year</div>
-      <div style="font-family:'Fraunces',serif;font-size:26px;font-weight:300;font-style:italic;color:var(--gold);margin-bottom:4px">My Plan</div>
-      <div style="font-size:13px;color:var(--ink3);font-style:italic">Tap a course to open it.</div>
-    </div>
-    <div class="course-grid" id="courseGrid"></div>
-  </div>
-  <div id="plan-detail" class="course-detail">
-    <div class="cd-bar">
-      <button class="cd-back" onclick="closeCourse()">← My Plan</button>
-      <div class="cd-prog-track"><div class="cd-prog-fill" id="cdProgFill" style="width:0%"></div></div>
-      <div class="cd-prog-pct" id="cdProgPct">0%</div>
-    </div>
-    <div id="cdContent"></div>
-  </div>
+  <div id="plan-home">
+    <div style="padding:20px 20px 12px">
+      <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);margin-bottom:4px">May 2026 – May 2028 · Baptism Anniversary Year</div>
+      <div style="font-family:'Fraunces',serif;font-size:26px;font-weight:300;font-style:italic;color:var(--gold);margin-bottom:4px">My Plan</div>
+      <div style="font-size:13px;color:var(--ink3);font-style:italic">Tap a course to open it.</div>
+    </div>
+    <div class="course-grid" id="courseGrid"></div>
+  </div>
+  <div id="plan-detail" class="course-detail">
+    <div class="cd-bar">
+      <button class="cd-back" onclick="closeCourse()">← My Plan</button>
+      <div class="cd-prog-track"><div class="cd-prog-fill" id="cdProgFill" style="width:0%"></div></div>
+      <div class="cd-prog-pct" id="cdProgPct">0%</div>
+    </div>
+    <div id="cdContent"></div>
+  </div>
 </div>
 
 </div>
 <nav class="nav">
-  <button class="nav-btn active" onclick="showScreen('today',this)"><span class="nav-icon">✦</span><span class="nav-label">Today</span></button>
-  <button class="nav-btn" onclick="showScreen('progress',this)"><span class="nav-icon">◎</span><span class="nav-label">Progress</span></button>
-  <button class="nav-btn" onclick="showScreen('reading',this)"><span class="nav-icon">📖</span><span class="nav-label">Reading</span></button>
-  <button class="nav-btn" onclick="showScreen('plan',this)"><span class="nav-icon">🗺</span><span class="nav-label">My Plan</span></button>
+  <button class="nav-btn active" onclick="showScreen('today',this)"><span class="nav-icon">✦</span><span class="nav-label">Today</span></button>
+  <button class="nav-btn" onclick="showScreen('progress',this)"><span class="nav-icon">◎</span><span class="nav-label">Progress</span></button>
+  <button class="nav-btn" onclick="showScreen('reading',this)"><span class="nav-icon">📖</span><span class="nav-label">Reading</span></button>
+  <button class="nav-btn" onclick="showScreen('plan',this)"><span class="nav-icon">🗺</span><span class="nav-label">My Plan</span></button>
 </nav>
 <div class="toast" id="toast"></div>
 
@@ -425,274 +417,274 @@ function today(){return new Date().toISOString().slice(0,10);}
 function dow(){return new Date().getDay();}
 function weekKey(){const d=new Date();const sun=new Date(d);sun.setDate(d.getDate()-d.getDay());return sun.toISOString().slice(0,10);}
 function checkNewDay(){
-  if(S.lastDate!==today()){
-    if(S.lastDate){const p=new Date(S.lastDate),n=new Date(today());S.streak=(n-p)/86400000<=1?(S.streak||0)+1:0;}
-    S.lastDate=today();S.energy=null;
-    if(!S.dailyChecks)S.dailyChecks={};
-    S.dailyChecks[today()]=S.dailyChecks[today()]||{};
-    computeRollovers();save();
-  }
+  if(S.lastDate!==today()){
+    if(S.lastDate){const p=new Date(S.lastDate),n=new Date(today());S.streak=(n-p)/86400000<=1?(S.streak||0)+1:0;}
+    S.lastDate=today();S.energy=null;
+    if(!S.dailyChecks)S.dailyChecks={};
+    S.dailyChecks[today()]=S.dailyChecks[today()]||{};
+    computeRollovers();save();
+  }
 }
 
 // BIBLE DATA
 const ALL_BOOKS=[
-  {key:'genesis',name:'Genesis',ch:50},{key:'exodus',name:'Exodus',ch:40},{key:'leviticus',name:'Leviticus',ch:27},
-  {key:'numbers',name:'Numbers',ch:36},{key:'deuteronomy',name:'Deuteronomy',ch:34},{key:'joshua',name:'Joshua',ch:24},
-  {key:'judges',name:'Judges',ch:21},{key:'ruth',name:'Ruth',ch:4},{key:'1samuel',name:'1 Samuel',ch:31},
-  {key:'2samuel',name:'2 Samuel',ch:24},{key:'1kings',name:'1 Kings',ch:22},{key:'2kings',name:'2 Kings',ch:25},
-  {key:'1chronicles',name:'1 Chronicles',ch:29},{key:'2chronicles',name:'2 Chronicles',ch:36},{key:'ezra',name:'Ezra',ch:10},
-  {key:'nehemiah',name:'Nehemiah',ch:13},{key:'esther',name:'Esther',ch:10},{key:'job',name:'Job',ch:42},
-  {key:'psalms',name:'Psalms',ch:150},{key:'proverbs',name:'Proverbs',ch:31},{key:'ecclesiastes',name:'Ecclesiastes',ch:12},
-  {key:'songofsolomon',name:'Song of Solomon',ch:8},{key:'isaiah',name:'Isaiah',ch:66},{key:'jeremiah',name:'Jeremiah',ch:52},
-  {key:'lamentations',name:'Lamentations',ch:5},{key:'ezekiel',name:'Ezekiel',ch:48},{key:'daniel',name:'Daniel',ch:12},
-  {key:'hosea',name:'Hosea',ch:14},{key:'joel',name:'Joel',ch:3},{key:'amos',name:'Amos',ch:9},
-  {key:'obadiah',name:'Obadiah',ch:1},{key:'jonah',name:'Jonah',ch:4},{key:'micah',name:'Micah',ch:7},
-  {key:'nahum',name:'Nahum',ch:3},{key:'habakkuk',name:'Habakkuk',ch:3},{key:'zephaniah',name:'Zephaniah',ch:3},
-  {key:'haggai',name:'Haggai',ch:2},{key:'zechariah',name:'Zechariah',ch:14},{key:'malachi',name:'Malachi',ch:4},
-  {key:'matthew',name:'Matthew',ch:28},{key:'mark',name:'Mark',ch:16},{key:'luke',name:'Luke',ch:24},
-  {key:'john',name:'John',ch:21},{key:'acts',name:'Acts',ch:28},{key:'romans',name:'Romans',ch:16},
-  {key:'1corinthians',name:'1 Corinthians',ch:16},{key:'2corinthians',name:'2 Corinthians',ch:13},
-  {key:'galatians',name:'Galatians',ch:6},{key:'ephesians',name:'Ephesians',ch:6},{key:'philippians',name:'Philippians',ch:4},
-  {key:'colossians',name:'Colossians',ch:4},{key:'1thessalonians',name:'1 Thessalonians',ch:5},
-  {key:'2thessalonians',name:'2 Thessalonians',ch:3},{key:'1timothy',name:'1 Timothy',ch:6},
-  {key:'2timothy',name:'2 Timothy',ch:4},{key:'titus',name:'Titus',ch:3},{key:'philemon',name:'Philemon',ch:1},
-  {key:'hebrews',name:'Hebrews',ch:13},{key:'james',name:'James',ch:5},{key:'1peter',name:'1 Peter',ch:5},
-  {key:'2peter',name:'2 Peter',ch:3},{key:'1john',name:'1 John',ch:5},{key:'2john',name:'2 John',ch:1},
-  {key:'3john',name:'3 John',ch:1},{key:'jude',name:'Jude',ch:1},{key:'revelation',name:'Revelation',ch:22},
+  {key:'genesis',name:'Genesis',ch:50},{key:'exodus',name:'Exodus',ch:40},{key:'leviticus',name:'Leviticus',ch:27},
+  {key:'numbers',name:'Numbers',ch:36},{key:'deuteronomy',name:'Deuteronomy',ch:34},{key:'joshua',name:'Joshua',ch:24},
+  {key:'judges',name:'Judges',ch:21},{key:'ruth',name:'Ruth',ch:4},{key:'1samuel',name:'1 Samuel',ch:31},
+  {key:'2samuel',name:'2 Samuel',ch:24},{key:'1kings',name:'1 Kings',ch:22},{key:'2kings',name:'2 Kings',ch:25},
+  {key:'1chronicles',name:'1 Chronicles',ch:29},{key:'2chronicles',name:'2 Chronicles',ch:36},{key:'ezra',name:'Ezra',ch:10},
+  {key:'nehemiah',name:'Nehemiah',ch:13},{key:'esther',name:'Esther',ch:10},{key:'job',name:'Job',ch:42},
+  {key:'psalms',name:'Psalms',ch:150},{key:'proverbs',name:'Proverbs',ch:31},{key:'ecclesiastes',name:'Ecclesiastes',ch:12},
+  {key:'songofsolomon',name:'Song of Solomon',ch:8},{key:'isaiah',name:'Isaiah',ch:66},{key:'jeremiah',name:'Jeremiah',ch:52},
+  {key:'lamentations',name:'Lamentations',ch:5},{key:'ezekiel',name:'Ezekiel',ch:48},{key:'daniel',name:'Daniel',ch:12},
+  {key:'hosea',name:'Hosea',ch:14},{key:'joel',name:'Joel',ch:3},{key:'amos',name:'Amos',ch:9},
+  {key:'obadiah',name:'Obadiah',ch:1},{key:'jonah',name:'Jonah',ch:4},{key:'micah',name:'Micah',ch:7},
+  {key:'nahum',name:'Nahum',ch:3},{key:'habakkuk',name:'Habakkuk',ch:3},{key:'zephaniah',name:'Zephaniah',ch:3},
+  {key:'haggai',name:'Haggai',ch:2},{key:'zechariah',name:'Zechariah',ch:14},{key:'malachi',name:'Malachi',ch:4},
+  {key:'matthew',name:'Matthew',ch:28},{key:'mark',name:'Mark',ch:16},{key:'luke',name:'Luke',ch:24},
+  {key:'john',name:'John',ch:21},{key:'acts',name:'Acts',ch:28},{key:'romans',name:'Romans',ch:16},
+  {key:'1corinthians',name:'1 Corinthians',ch:16},{key:'2corinthians',name:'2 Corinthians',ch:13},
+  {key:'galatians',name:'Galatians',ch:6},{key:'ephesians',name:'Ephesians',ch:6},{key:'philippians',name:'Philippians',ch:4},
+  {key:'colossians',name:'Colossians',ch:4},{key:'1thessalonians',name:'1 Thessalonians',ch:5},
+  {key:'2thessalonians',name:'2 Thessalonians',ch:3},{key:'1timothy',name:'1 Timothy',ch:6},
+  {key:'2timothy',name:'2 Timothy',ch:4},{key:'titus',name:'Titus',ch:3},{key:'philemon',name:'Philemon',ch:1},
+  {key:'hebrews',name:'Hebrews',ch:13},{key:'james',name:'James',ch:5},{key:'1peter',name:'1 Peter',ch:5},
+  {key:'2peter',name:'2 Peter',ch:3},{key:'1john',name:'1 John',ch:5},{key:'2john',name:'2 John',ch:1},
+  {key:'3john',name:'3 John',ch:1},{key:'jude',name:'Jude',ch:1},{key:'revelation',name:'Revelation',ch:22},
 ];
 const TOTAL_CH=ALL_BOOKS.reduce((a,b)=>a+b.ch,0);
 
 function globalToRef(n){
-  let c=0;
-  for(const b of ALL_BOOKS){if(n<=c+b.ch)return{book:b,ch:n-c,key:b.key};c+=b.ch;}
-  return null;
+  let c=0;
+  for(const b of ALL_BOOKS){if(n<=c+b.ch)return{book:b,ch:n-c,key:b.key};c+=b.ch;}
+  return null;
 }
 function refLabel(n){const r=globalToRef(n);if(!r)return'Complete ✓';return`${r.book.name} ${r.ch}`;}
 function bookStartGlobal(key){let c=0;for(const b of ALL_BOOKS){if(b.key===key)return c;c+=b.ch;}return 0;}
 
 function getTodayTarget(){
-  const pos=S.biblePos||1;
-  return{start:pos,end:Math.min(pos+3,TOTAL_CH)};
+  const pos=S.biblePos||1;
+  return{start:pos,end:Math.min(pos+3,TOTAL_CH)};
 }
 
 function logBibleProgress(){
-  const inp=document.getElementById('bibleLastChIn');
-  const val=parseInt(inp.value);
-  if(!val||isNaN(val)||val<1)return;
-  const t=getTodayTarget();
-  const startRef=globalToRef(t.start);
-  if(!startRef)return;
-  // val = chapter number within the current book the user ended on
-  const bStart=bookStartGlobal(startRef.key);
-  const newGlobal=bStart+val;
-  if(newGlobal>S.biblePos){
-    const chRead=newGlobal-S.biblePos;
-    // mark chapters read
-    for(let g=S.biblePos;g<newGlobal&&g<=TOTAL_CH;g++){
-      const ref=globalToRef(g);
-      if(ref){if(!S.bibleRead[ref.key])S.bibleRead[ref.key]=[];if(!S.bibleRead[ref.key].includes(ref.ch))S.bibleRead[ref.key].push(ref.ch);}
-    }
-    S.biblePos=newGlobal;
-    awardXP(chRead*5,`📖 ${chRead} ch`);
-    inp.value='';
-    renderBibleTarget();renderBibleList();
-    toast(`${chRead} chapters recorded 📖`);
-  }
+  const inp=document.getElementById('bibleLastChIn');
+  const val=parseInt(inp.value);
+  if(!val||isNaN(val)||val<1)return;
+  const t=getTodayTarget();
+  const startRef=globalToRef(t.start);
+  if(!startRef)return;
+  // val = chapter number within the current book the user ended on
+  const bStart=bookStartGlobal(startRef.key);
+  const newGlobal=bStart+val;
+  if(newGlobal>S.biblePos){
+    const chRead=newGlobal-S.biblePos;
+    // mark chapters read
+    for(let g=S.biblePos;g<newGlobal&&g<=TOTAL_CH;g++){
+      const ref=globalToRef(g);
+      if(ref){if(!S.bibleRead[ref.key])S.bibleRead[ref.key]=[];if(!S.bibleRead[ref.key].includes(ref.ch))S.bibleRead[ref.key].push(ref.ch);}
+    }
+    S.biblePos=newGlobal;
+    awardXP(chRead*5,`📖 ${chRead} ch`);
+    inp.value='';
+    renderBibleTarget();renderBibleList();
+    toast(`${chRead} chapters recorded 📖`);
+  }
 }
 function totalBible(){return(S.biblePos||1)-1;}
 
 // JW BOOKS
 const JW_BOOKS=[
-  {key:'walk',name:'Walk Courageously With God',period:'May–Jul 2026',lang:'English',ch:53},
-  {key:'dieu',name:'Dieu nous parle par Jérémie',period:'Aug–Oct 2026',lang:'Français 🇫🇷',ch:14},
-  {key:'vivez',name:"Vivez en gardant à l'esprit le jour de Jéhovah",period:'Nov 2026',lang:'Français 🇫🇷',ch:14},
-  {key:'retabli',name:'Jewova retabli vrè adorasyon an!',period:'2027',lang:'Kreyòl 🇭🇹',ch:20},
-  {key:'wayom',name:'Wayòm Bondye a ap dirije',period:'2027',lang:'Kreyòl 🇭🇹',ch:23},
-  {key:'suiv',name:'Vin suiv mwen',period:'2027',lang:'Kreyòl 🇭🇹',ch:22},
-  {key:'pwoche',name:'Annou pwoche bò kote Jewova',period:'2027–28',lang:'Kreyòl 🇭🇹',ch:18},
-  {key:'sekre',name:'Sekrè pou gen kè kontan nan yon fanmi',period:'2028',lang:'Kreyòl 🇭🇹',ch:31},
-  {key:'organize',name:'Nou òganize pou nou fè volonte Jewova',period:'2026–27',lang:'Kreyòl 🇭🇹',ch:16},
+  {key:'walk',name:'Walk Courageously With God',period:'May–Jul 2026',lang:'English',ch:53},
+  {key:'dieu',name:'Dieu nous parle par Jérémie',period:'Aug–Oct 2026',lang:'Français 🇫🇷',ch:14},
+  {key:'vivez',name:"Vivez en gardant à l'esprit le jour de Jéhovah",period:'Nov 2026',lang:'Français 🇫🇷',ch:14},
+  {key:'retabli',name:'Jewova retabli vrè adorasyon an!',period:'2027',lang:'Kreyòl 🇭🇹',ch:20},
+  {key:'wayom',name:'Wayòm Bondye a ap dirije',period:'2027',lang:'Kreyòl 🇭🇹',ch:23},
+  {key:'suiv',name:'Vin suiv mwen',period:'2027',lang:'Kreyòl 🇭🇹',ch:22},
+  {key:'pwoche',name:'Annou pwoche bò kote Jewova',period:'2027–28',lang:'Kreyòl 🇭🇹',ch:18},
+  {key:'sekre',name:'Sekrè pou gen kè kontan nan yon fanmi',period:'2028',lang:'Kreyòl 🇭🇹',ch:31},
+  {key:'organize',name:'Nou òganize pou nou fè volonte Jewova',period:'2026–27',lang:'Kreyòl 🇭🇹',ch:16},
 ];
 
 // BADGES
 const BADGES=[
-  {key:'first',icon:'🌱',name:'First Step',check:s=>s.xp>=10},
-  {key:'pioneer',icon:'🕊️',name:'Pioneer Heart',check:s=>s.fsTotal>=400},
-  {key:'fs500',icon:'🔮',name:'500 Hours',check:s=>s.fsTotal>=500},
-  {key:'fs600',icon:'👑',name:'Pioneer Crown',check:s=>s.fsTotal>=600},
-  {key:'newyr',icon:'🌟',name:'New Year!',check:s=>s.fsTotal>=50&&new Date()>new Date('2026-09-01')},
-  {key:'bible50',icon:'📖',name:'50 Chapters',check:s=>totalBible()>=50},
-  {key:'bible200',icon:'📜',name:'200 Chapters',check:s=>totalBible()>=200},
-  {key:'bible595',icon:'✨',name:'Halfway Home',check:s=>totalBible()>=595},
-  {key:'bible1189',icon:'🌠',name:'Full Bible!',check:s=>totalBible()>=1189},
-  {key:'streak7',icon:'🔥',name:'7-Day Streak',check:s=>s.streak>=7},
-  {key:'streak30',icon:'⚡',name:'30-Day Streak',check:s=>s.streak>=30},
-  {key:'xp500',icon:'💫',name:'500 XP',check:s=>s.xp>=500},
-  {key:'xp2k',icon:'🏅',name:'2000 XP',check:s=>s.xp>=2000},
+  {key:'first',icon:'🌱',name:'First Step',check:s=>s.xp>=10},
+  {key:'pioneer',icon:'🕊️',name:'Pioneer Heart',check:s=>s.fsTotal>=400},
+  {key:'fs500',icon:'🔮',name:'500 Hours',check:s=>s.fsTotal>=500},
+  {key:'fs600',icon:'👑',name:'Pioneer Crown',check:s=>s.fsTotal>=600},
+  {key:'newyr',icon:'🌟',name:'New Year!',check:s=>s.fsTotal>=50&&new Date()>new Date('2026-09-01')},
+  {key:'bible50',icon:'📖',name:'50 Chapters',check:s=>totalBible()>=50},
+  {key:'bible200',icon:'📜',name:'200 Chapters',check:s=>totalBible()>=200},
+  {key:'bible595',icon:'✨',name:'Halfway Home',check:s=>totalBible()>=595},
+  {key:'bible1189',icon:'🌠',name:'Full Bible!',check:s=>totalBible()>=1189},
+  {key:'streak7',icon:'🔥',name:'7-Day Streak',check:s=>s.streak>=7},
+  {key:'streak30',icon:'⚡',name:'30-Day Streak',check:s=>s.streak>=30},
+  {key:'xp500',icon:'💫',name:'500 XP',check:s=>s.xp>=500},
+  {key:'xp2k',icon:'🏅',name:'2000 XP',check:s=>s.xp>=2000},
 ];
 
 // TASKS
 const NN=[
-  {id:'nn_bible',cat:'spirit',name:'Bible — today\'s portion',detail:()=>dow()===0?'Meeting day — Treasures only (personal reading Mon–Sat)':`${refLabel(getTodayTarget().start)} – ${refLabel(getTodayTarget().end)}`,tag:'nn',xp:25,mins:20},
-  {id:'nn_dailytext',cat:'spirit',name:'Daily Text',detail:'JW Library → read & reflect',tag:'nn',xp:15,mins:5},
-  {id:'nn_fs',cat:'spirit',name:'Field service — any form',detail:()=>{const d=dow();if(d===1||d===3)return'Zoom PM 5:30–7:30';if(d===2)return'Letters — 1.5 hrs';if(d===4)return'Territory research — 3 hrs';if(d===5)return'Field service early AM · 4 hrs · meeting tonight';if(d===6)return'Field service early AM · 4 hrs';return'Rest day — optional letters/informal witnessing';},tag:'nn',xp:30,mins:15},
+  {id:'nn_bible',cat:'spirit',name:'Bible — today\'s portion',detail:()=>dow()===0?'Meeting day — Treasures only (personal reading Mon–Sat)':`${refLabel(getTodayTarget().start)} – ${refLabel(getTodayTarget().end)}`,tag:'nn',xp:25,mins:20},
+  {id:'nn_dailytext',cat:'spirit',name:'Daily Text',detail:'JW Library → read & reflect',tag:'nn',xp:15,mins:5},
+  {id:'nn_fs',cat:'spirit',name:'Field service — any form',detail:()=>{const d=dow();if(d===1||d===3)return'Zoom PM 5:30–7:30';if(d===2)return'Letters — 1.5 hrs';if(d===4)return'Territory research — 3 hrs';if(d===5)return'Field service early AM · 4 hrs · meeting tonight';if(d===6)return'Field service early AM · 4 hrs';return'Rest day — optional letters/informal witnessing';},tag:'nn',xp:30,mins:15},
 ];
 
 const SPIRIT_POOL=[
-  {id:'sp_treasures',cat:'spirit',name:'Treasures from God\'s Word',detail:'Life & Ministry Workbook — Part 1',xp:15,mins:15,days:[0]},
-  {id:'sp_field_min',cat:'spirit',name:'Apply Yourself to Field Ministry',detail:'Life & Ministry Workbook — Part 2',xp:15,mins:20,days:[1]},
-  {id:'sp_wt_preview',cat:'spirit',name:'Watchtower preview — listen',detail:'Listen to WT article audio anytime today · crochet-compatible',xp:10,mins:30,days:[1]},
-  {id:'sp_post_sun',cat:'spirit',name:'Post-Sunday reflection',detail:'What stood out? Research notes. Ministry ideas.',xp:10,mins:10,days:[1]},
-  {id:'sp_personal',cat:'spirit',name:'Personal study — 1 hour',detail:'Deep study · open notes · Monday is your day',xp:20,mins:60,days:[1]},
-  {id:'sp_living',cat:'spirit',name:'Living as Christians',detail:'Life & Ministry Workbook — Part 3',xp:15,mins:20,days:[2]},
-  {id:'sp_midweek_review',cat:'spirit',name:'Midweek meeting prep — review',detail:'Review all 3 parts before Friday meeting',xp:15,mins:20,days:[3]},
-  {id:'sp_wt_study1',cat:'spirit',name:'Watchtower study — session 1',detail:'30 min · read & mark patiently',xp:15,mins:30,days:[4]},
-  {id:'sp_wt_study2',cat:'spirit',name:'Watchtower study — session 2',detail:'30 min · mark & underline · before tonight\'s meeting',xp:15,mins:30,days:[5]},
-  {id:'sp_post_fri',cat:'spirit',name:'Post-Friday meeting reflection',detail:'What did I learn? What can I use in ministry? Journal.',xp:10,mins:10,days:[6]},
-  {id:'sp_wt_review',cat:'spirit',name:'Watchtower review',detail:'Quick review before Sunday meeting tonight',xp:10,mins:15,days:[6]},
-  {id:'sp_lit',cat:'spirit',name:'Walk Courageously — 1 chapter',detail:'Read slowly · mark freely · no rush',xp:15,mins:20},
+  {id:'sp_treasures',cat:'spirit',name:'Treasures from God\'s Word',detail:'Life & Ministry Workbook — Part 1',xp:15,mins:15,days:[0]},
+  {id:'sp_field_min',cat:'spirit',name:'Apply Yourself to Field Ministry',detail:'Life & Ministry Workbook — Part 2',xp:15,mins:20,days:[1]},
+  {id:'sp_wt_preview',cat:'spirit',name:'Watchtower preview — listen',detail:'Listen to WT article audio anytime today · crochet-compatible',xp:10,mins:30,days:[1]},
+  {id:'sp_post_sun',cat:'spirit',name:'Post-Sunday reflection',detail:'What stood out? Research notes. Ministry ideas.',xp:10,mins:10,days:[1]},
+  {id:'sp_personal',cat:'spirit',name:'Personal study — 1 hour',detail:'Deep study · open notes · Monday is your day',xp:20,mins:60,days:[1]},
+  {id:'sp_living',cat:'spirit',name:'Living as Christians',detail:'Life & Ministry Workbook — Part 3',xp:15,mins:20,days:[2]},
+  {id:'sp_midweek_review',cat:'spirit',name:'Midweek meeting prep — review',detail:'Review all 3 parts before Friday meeting',xp:15,mins:20,days:[3]},
+  {id:'sp_wt_study1',cat:'spirit',name:'Watchtower study — session 1',detail:'30 min · read & mark patiently',xp:15,mins:30,days:[4]},
+  {id:'sp_wt_study2',cat:'spirit',name:'Watchtower study — session 2',detail:'30 min · mark & underline · before tonight\'s meeting',xp:15,mins:30,days:[5]},
+  {id:'sp_post_fri',cat:'spirit',name:'Post-Friday meeting reflection',detail:'What did I learn? What can I use in ministry? Journal.',xp:10,mins:10,days:[6]},
+  {id:'sp_wt_review',cat:'spirit',name:'Watchtower review',detail:'Quick review before Sunday meeting tonight',xp:10,mins:15,days:[6]},
+  {id:'sp_lit',cat:'spirit',name:'Walk Courageously — 1 chapter',detail:'Read slowly · mark freely · no rush',xp:15,mins:20},
 ];
 
 const LANG_POOL=[
-  // Q1+Q2 Spanish (active)
-  {id:'lg_lt',cat:'lang',name:'Language Transfer — Spanish',detail:'Next lesson · walk or crochet · no notes · trust it',xp:15,mins:15,lang:'es',sched:true,schedDay:1,quarters:[1,2]},
-  {id:'lg_sbs',cat:'lang',name:'Easy Spanish Step-by-Step',detail:'Next section · read · speak 1 paragraph aloud',xp:15,mins:20,lang:'es',quarters:[1,2]},
-  {id:'lg_ds',cat:'lang',name:'Dreaming Spanish — active',detail:'15 min eyes-on · beginner playlist · full presence',xp:10,mins:15,lang:'es',quarters:[1,2]},
-  {id:'lg_rec',cat:'lang',name:'⭐ Sunday voice recording',detail:'1–2 min in Spanish · no script · just talk · save it',xp:15,mins:5,days:[0],lang:'es',quarters:[1,2]},
-  // Q1+Q2 ASL (active)
-  {id:'lg_asl',cat:'lang',name:'ASL — Bill Vicars lesson',detail:'YouTube Bill Vicars playlist · next in sequence',xp:12,mins:45,lang:'asl',sched:true,schedDay:[2,4],quarters:[1,2]},
-  {id:'lg_asl_extra',cat:'lang',name:'ASL — practice & review',detail:'Review signs from last lesson · 15 min drill',xp:8,mins:15,lang:'asl',quarters:[1,2]},
-  // Q3+Q4 Arabic (active)
-  {id:'lg_ar',cat:'lang',name:'Language Transfer — Arabic',detail:'Next lesson · audio only · no notes',xp:15,mins:20,lang:'ar',sched:true,schedDay:1,quarters:[3,4]},
-  {id:'lg_ar_extra',cat:'lang',name:'Arabic — Dr. Imran Alawiye',detail:'YouTube "In just 8 lessons" · next episode',xp:12,mins:20,lang:'ar',quarters:[3,4]},
-  // Q3+Q4 French (active)
-  {id:'lg_fr',cat:'lang',name:'French — podcast episode',detail:'B2 maintenance · note 1 new expression',xp:10,mins:25,lang:'fr',sched:true,schedDay:[2,4],quarters:[3,4]},
-  // Q3+Q4 Spanish passive
-  {id:'lg_es_passive',cat:'lang',name:'Dreaming Spanish — passive',detail:'Background listening · no effort · just exposure',xp:5,mins:20,lang:'es',quarters:[3,4]},
-  // Q3+Q4 ASL passive
-  {id:'lg_asl_passive',cat:'lang',name:'ASL — review lesson',detail:'Rewatch a Bill Vicars lesson you know · keep the signs fresh',xp:5,mins:20,lang:'asl',quarters:[3,4]},
+  // Q1+Q2 Spanish (active)
+  {id:'lg_lt',cat:'lang',name:'Language Transfer — Spanish',detail:'Next lesson · walk or crochet · no notes · trust it',xp:15,mins:15,lang:'es',sched:true,schedDay:1,quarters:[1,2]},
+  {id:'lg_sbs',cat:'lang',name:'Easy Spanish Step-by-Step',detail:'Next section · read · speak 1 paragraph aloud',xp:15,mins:20,lang:'es',quarters:[1,2]},
+  {id:'lg_ds',cat:'lang',name:'Dreaming Spanish — active',detail:'15 min eyes-on · beginner playlist · full presence',xp:10,mins:15,lang:'es',quarters:[1,2]},
+  {id:'lg_rec',cat:'lang',name:'⭐ Sunday voice recording',detail:'1–2 min in Spanish · no script · just talk · save it',xp:15,mins:5,days:[0],lang:'es',quarters:[1,2]},
+  // Q1+Q2 ASL (active)
+  {id:'lg_asl',cat:'lang',name:'ASL — Bill Vicars lesson',detail:'YouTube Bill Vicars playlist · next in sequence',xp:12,mins:45,lang:'asl',sched:true,schedDay:[2,4],quarters:[1,2]},
+  {id:'lg_asl_extra',cat:'lang',name:'ASL — practice & review',detail:'Review signs from last lesson · 15 min drill',xp:8,mins:15,lang:'asl',quarters:[1,2]},
+  // Q3+Q4 Arabic (active)
+  {id:'lg_ar',cat:'lang',name:'Language Transfer — Arabic',detail:'Next lesson · audio only · no notes',xp:15,mins:20,lang:'ar',sched:true,schedDay:1,quarters:[3,4]},
+  {id:'lg_ar_extra',cat:'lang',name:'Arabic — Dr. Imran Alawiye',detail:'YouTube "In just 8 lessons" · next episode',xp:12,mins:20,lang:'ar',quarters:[3,4]},
+  // Q3+Q4 French (active)
+  {id:'lg_fr',cat:'lang',name:'French — podcast episode',detail:'B2 maintenance · note 1 new expression',xp:10,mins:25,lang:'fr',sched:true,schedDay:[2,4],quarters:[3,4]},
+  // Q3+Q4 Spanish passive
+  {id:'lg_es_passive',cat:'lang',name:'Dreaming Spanish — passive',detail:'Background listening · no effort · just exposure',xp:5,mins:20,lang:'es',quarters:[3,4]},
+  // Q3+Q4 ASL passive
+  {id:'lg_asl_passive',cat:'lang',name:'ASL — review lesson',detail:'Rewatch a Bill Vicars lesson you know · keep the signs fresh',xp:5,mins:20,lang:'asl',quarters:[3,4]},
 ];
 
 function currentQuarterNum(){
-  const quarters=[
-    {q:1,start:'2026-05-11',end:'2026-08-31'},
-    {q:2,start:'2026-09-01',end:'2026-12-31'},
-    {q:3,start:'2027-01-01',end:'2027-04-30'},
-    {q:4,start:'2027-05-01',end:'2027-08-31'},
-    {q:5,start:'2027-09-01',end:'2027-12-31'},
-    {q:6,start:'2028-01-01',end:'2028-05-10'},
-  ];
-  const now=new Date(today());
-  for(const q of quarters){if(now>=new Date(q.start)&&now<=new Date(q.end))return q.q;}
-  return 1;
+  const quarters=[
+    {q:1,start:'2026-05-11',end:'2026-08-31'},
+    {q:2,start:'2026-09-01',end:'2026-12-31'},
+    {q:3,start:'2027-01-01',end:'2027-04-30'},
+    {q:4,start:'2027-05-01',end:'2027-08-31'},
+    {q:5,start:'2027-09-01',end:'2027-12-31'},
+    {q:6,start:'2028-01-01',end:'2028-05-10'},
+  ];
+  const now=new Date(today());
+  for(const q of quarters){if(now>=new Date(q.start)&&now<=new Date(q.end))return q.q;}
+  return 1;
 }
 
 function activeLangPool(){
-  const q=currentQuarterNum();
-  return LANG_POOL.filter(t=>!t.quarters||t.quarters.includes(q));
+  const q=currentQuarterNum();
+  return LANG_POOL.filter(t=>!t.quarters||t.quarters.includes(q));
 }
 
 function getScheduledLangTasks(){
-  // Returns language tasks that are SCHEDULED for today — always in main set, never bonus
-  const d=dow();const q=currentQuarterNum();
-  const pool=activeLangPool().filter(t=>t.sched);
-  return pool.filter(t=>{
-    if(Array.isArray(t.schedDay))return t.schedDay.includes(d);
-    return t.schedDay===d;
-  });
+  // Returns language tasks that are SCHEDULED for today — always in main set, never bonus
+  const d=dow();const q=currentQuarterNum();
+  const pool=activeLangPool().filter(t=>t.sched);
+  return pool.filter(t=>{
+    if(Array.isArray(t.schedDay))return t.schedDay.includes(d);
+    return t.schedDay===d;
+  });
 }
 
 function getBonusLangTasks(){
-  // Returns language tasks for bonus — excludes today's scheduled tasks and day-specific tasks already shown
-  const d=dow();const q=currentQuarterNum();
-  const scheduled=getScheduledLangTasks().map(t=>t.id);
-  const pool=activeLangPool().filter(t=>!t.sched&&(!t.days||t.days.includes(d)));
-  return pool.filter(t=>!scheduled.includes(t.id));
+  // Returns language tasks for bonus — excludes today's scheduled tasks and day-specific tasks already shown
+  const d=dow();const q=currentQuarterNum();
+  const scheduled=getScheduledLangTasks().map(t=>t.id);
+  const pool=activeLangPool().filter(t=>!t.sched&&(!t.days||t.days.includes(d)));
+  return pool.filter(t=>!scheduled.includes(t.id));
 }
 
 function seededShuffle(arr,seed){
-  const a=[...arr];let s=seed;
-  for(let i=a.length-1;i>0;i--){s=(s*1664525+1013904223)&0xffffffff;const j=Math.abs(s)%(i+1);[a[i],a[j]]=[a[j],a[i]];}
-  return a;
+  const a=[...arr];let s=seed;
+  for(let i=a.length-1;i>0;i--){s=(s*1664525+1013904223)&0xffffffff;const j=Math.abs(s)%(i+1);[a[i],a[j]]=[a[j],a[i]];}
+  return a;
 }
 function dateSeed(){return parseInt(today().replace(/-/g,''));}
 
 function getDaySpecific(){const d=dow();return SPIRIT_POOL.filter(t=>t.days&&t.days.includes(d));}
 
 function getPoolTasks(){
-  // Spirit: 1 undated task from pool (shuffled daily)
-  const seed=dateSeed();
-  const spirit=seededShuffle(SPIRIT_POOL.filter(t=>!t.days),seed).slice(0,1);
-  // Lang: today's scheduled language tasks (never bonus)
-  const lang=getScheduledLangTasks();
-  return[...spirit,...lang];
+  // Spirit: 1 undated task from pool (shuffled daily)
+  const seed=dateSeed();
+  const spirit=seededShuffle(SPIRIT_POOL.filter(t=>!t.days),seed).slice(0,1);
+  // Lang: today's scheduled language tasks (never bonus)
+  const lang=getScheduledLangTasks();
+  return[...spirit,...lang];
 }
 
 function getLaunchSet(energy){
-  const all=[...getDaySpecific(),...getPoolTasks()];
-  if(energy==='low')return all.slice(0,3);
-  if(energy==='mid')return all.slice(0,5);
-  return all;
+  const all=[...getDaySpecific(),...getPoolTasks()];
+  if(energy==='low')return all.slice(0,3);
+  if(energy==='mid')return all.slice(0,5);
+  return all;
 }
 
 function getBonusPool(energy){
-  // Day-specific spirit tasks already shown — exclude them
-  // Pool tasks already shown — exclude them
-  // Only add genuinely extra tasks
-  const daySpec=getDaySpecific().map(t=>t.id);
-  const poolShown=getPoolTasks().map(t=>t.id);
-  const shownIds=new Set([...daySpec,...poolShown]);
-  const seed=dateSeed();
+  // Day-specific spirit tasks already shown — exclude them
+  // Pool tasks already shown — exclude them
+  // Only add genuinely extra tasks
+  const daySpec=getDaySpecific().map(t=>t.id);
+  const poolShown=getPoolTasks().map(t=>t.id);
+  const shownIds=new Set([...daySpec,...poolShown]);
+  const seed=dateSeed();
 
-  // Extra spirit (undated, not already shown)
-  const extraSpirit=seededShuffle(
-    SPIRIT_POOL.filter(t=>!t.days&&!shownIds.has(t.id)),seed+1
-  ).slice(0,2);
+  // Extra spirit (undated, not already shown)
+  const extraSpirit=seededShuffle(
+    SPIRIT_POOL.filter(t=>!t.days&&!shownIds.has(t.id)),seed+1
+  ).slice(0,2);
 
-  // Extra lang (bonus pool, not already shown)
-  const extraLang=seededShuffle(
-    getBonusLangTasks().filter(t=>!shownIds.has(t.id)),seed+2
-  ).slice(0,2);
+  // Extra lang (bonus pool, not already shown)
+  const extraLang=seededShuffle(
+    getBonusLangTasks().filter(t=>!shownIds.has(t.id)),seed+2
+  ).slice(0,2);
 
-  return[...extraSpirit,...extraLang];
+  return[...extraSpirit,...extraLang];
 }
 
 // ROLLOVERS
 function computeRollovers(){
-  if(!S.weekRollovers)S.weekRollovers={};
-  const wk=weekKey();
-  if(!S.weekRollovers[wk])S.weekRollovers[wk]=[];
-  const yesterday=new Date();yesterday.setDate(yesterday.getDate()-1);
-  const yStr=yesterday.toISOString().slice(0,10);
-  const yCks=(S.dailyChecks&&S.dailyChecks[yStr])||{};
-  const yDow=yesterday.getDay();
-  SPIRIT_POOL.filter(t=>t.days&&t.days.includes(yDow)).forEach(t=>{
-    if(!yCks[t.id]&&!S.weekRollovers[wk].find(r=>r.id===t.id&&r.origDate===yStr)){
-      S.weekRollovers[wk].push({id:t.id,name:t.name,origDate:yStr,skipped:false,done:false,cat:t.cat});
-    }
-  });
+  if(!S.weekRollovers)S.weekRollovers={};
+  const wk=weekKey();
+  if(!S.weekRollovers[wk])S.weekRollovers[wk]=[];
+  const yesterday=new Date();yesterday.setDate(yesterday.getDate()-1);
+  const yStr=yesterday.toISOString().slice(0,10);
+  const yCks=(S.dailyChecks&&S.dailyChecks[yStr])||{};
+  const yDow=yesterday.getDay();
+  SPIRIT_POOL.filter(t=>t.days&&t.days.includes(yDow)).forEach(t=>{
+    if(!yCks[t.id]&&!S.weekRollovers[wk].find(r=>r.id===t.id&&r.origDate===yStr)){
+      S.weekRollovers[wk].push({id:t.id,name:t.name,origDate:yStr,skipped:false,done:false,cat:t.cat});
+    }
+  });
 }
 function getRollovers(){const wk=weekKey();return(S.weekRollovers&&S.weekRollovers[wk]||[]).filter(r=>!r.skipped&&!r.done);}
 function acceptRollover(id,origDate){
-  const wk=weekKey();setCheck(id,true);
-  const r=(S.weekRollovers[wk]||[]).find(x=>x.id===id&&x.origDate===origDate);
-  if(r)r.done=true;
-  const task=[...SPIRIT_POOL,...LANG_POOL].find(t=>t.id===id);
-  if(task)awardXP(task.xp,task.name);
-  save();renderRollovers();
+  const wk=weekKey();setCheck(id,true);
+  const r=(S.weekRollovers[wk]||[]).find(x=>x.id===id&&x.origDate===origDate);
+  if(r)r.done=true;
+  const task=[...SPIRIT_POOL,...LANG_POOL].find(t=>t.id===id);
+  if(task)awardXP(task.xp,task.name);
+  save();renderRollovers();
 }
 function skipRollover(id,origDate){
-  const wk=weekKey();
-  const r=(S.weekRollovers[wk]||[]).find(x=>x.id===id&&x.origDate===origDate);
-  if(r)r.skipped=true;
-  save();renderRollovers();
+  const wk=weekKey();
+  const r=(S.weekRollovers[wk]||[]).find(x=>x.id===id&&x.origDate===origDate);
+  if(r)r.skipped=true;
+  save();renderRollovers();
 }
 
 // XP
 function awardXP(xp,label){
-  S.xp=(S.xp||0)+xp;S.log=S.log||[];S.log.unshift({date:today(),text:label,xp});
-  if(S.log.length>80)S.log.pop();
-  checkBadges();save();toast(`+${xp} XP`);renderStats();
+  S.xp=(S.xp||0)+xp;S.log=S.log||[];S.log.unshift({date:today(),text:label,xp});
+  if(S.log.length>80)S.log.pop();
+  checkBadges();save();toast(`+${xp} XP`);renderStats();
 }
 function checkBadges(){BADGES.forEach(b=>{if(!S.badges[b.key]&&b.check(S)){S.badges[b.key]=true;S.xp=(S.xp||0)+50;toast(`🏅 ${b.name} unlocked!`);}});}
 
@@ -701,97 +693,97 @@ function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t
 
 // ENERGY
 function setEnergy(level){
-  S.energy=level;save();
-  document.querySelectorAll('.energy-btn').forEach(b=>b.classList.toggle('selected',b.dataset.e===level));
-  renderLaunchSet();
+  S.energy=level;save();
+  document.querySelectorAll('.energy-btn').forEach(b=>b.classList.toggle('selected',b.dataset.e===level));
+  renderLaunchSet();
 }
 function getChecks(){return(S.dailyChecks&&S.dailyChecks[today()])||{};}
 function setCheck(id,val){if(!S.dailyChecks)S.dailyChecks={};if(!S.dailyChecks[today()])S.dailyChecks[today()]={};S.dailyChecks[today()][id]=val;save();}
 
 function renderLaunchSet(){
-  const energy=S.energy;
-  const strip=document.getElementById('progressStrip');
-  const launch=document.getElementById('launchSection');
-  const cWrap=document.getElementById('challengeWrap');
-  const fsSec=document.getElementById('fsSectionToday');
-  const hint=document.getElementById('scrollHint');
-  const bonusPool=document.getElementById('bonusPool');
-  if(!energy){
-    strip.style.display='none';launch.style.display='none';cWrap.style.display='none';
-    fsSec.style.display='none';hint.style.display='none';bonusPool.style.display='none';
-    return;
-  }
-  strip.style.display='flex';launch.style.display='block';cWrap.style.display='block';
-  fsSec.style.display='block';hint.style.display='block';
-  const checks=getChecks();
-  const launchItems=[...NN,...getLaunchSet(energy)];
-  const tasksEl=document.getElementById('launchTasks');tasksEl.innerHTML='';
-  launchItems.forEach(t=>tasksEl.appendChild(makeTaskCard(t,checks[t.id],false)));
-  const total=launchItems.length,done=launchItems.filter(t=>checks[t.id]).length;
-  document.getElementById('launchCount').textContent=`${done}/${total}`;
-  updateRing(done,total);
-  document.getElementById('winBanner').classList.toggle('show',done===total&&total>0);
-  document.getElementById('fsTodayTotal').textContent=(S.fsTotal||339).toFixed(1);
-  const rem=Math.max(0,600-(S.fsTotal||339));
-  const weeksLeft=Math.max(1,Math.ceil((new Date('2026-08-31')-new Date())/604800000));
-  document.getElementById('fsWeeklyPace').textContent=`need ~${(rem/weeksLeft).toFixed(1)}h/wk`;
-  renderBonusPoolTasks(getBonusPool(energy));
-  renderRollovers();
+  const energy=S.energy;
+  const strip=document.getElementById('progressStrip');
+  const launch=document.getElementById('launchSection');
+  const cWrap=document.getElementById('challengeWrap');
+  const fsSec=document.getElementById('fsSectionToday');
+  const hint=document.getElementById('scrollHint');
+  const bonusPool=document.getElementById('bonusPool');
+  if(!energy){
+    strip.style.display='none';launch.style.display='none';cWrap.style.display='none';
+    fsSec.style.display='none';hint.style.display='none';bonusPool.style.display='none';
+    return;
+  }
+  strip.style.display='flex';launch.style.display='block';cWrap.style.display='block';
+  fsSec.style.display='block';hint.style.display='block';
+  const checks=getChecks();
+  const launchItems=[...NN,...getLaunchSet(energy)];
+  const tasksEl=document.getElementById('launchTasks');tasksEl.innerHTML='';
+  launchItems.forEach(t=>tasksEl.appendChild(makeTaskCard(t,checks[t.id],false)));
+  const total=launchItems.length,done=launchItems.filter(t=>checks[t.id]).length;
+  document.getElementById('launchCount').textContent=`${done}/${total}`;
+  updateRing(done,total);
+  document.getElementById('winBanner').classList.toggle('show',done===total&&total>0);
+  document.getElementById('fsTodayTotal').textContent=(S.fsTotal||339).toFixed(1);
+  const rem=Math.max(0,600-(S.fsTotal||339));
+  const weeksLeft=Math.max(1,Math.ceil((new Date('2026-08-31')-new Date())/604800000));
+  document.getElementById('fsWeeklyPace').textContent=`need ~${(rem/weeksLeft).toFixed(1)}h/wk`;
+  renderBonusPoolTasks(getBonusPool(energy));
+  renderRollovers();
 }
 
 function makeTaskCard(task,isDone,isBonus){
-  const el=document.createElement('div');
-  el.className=`task-card cat-${task.cat}${isDone?' done':''}`;
-  const detail=typeof task.detail==='function'?task.detail():task.detail;
-  const tagLabel=task.tag==='nn'?'anchor':isBonus?'bonus':'';
-  const tagClass=task.tag==='nn'?'tag-nn':isBonus?'tag-bonus':'';
-  el.innerHTML=`<div class="task-check"><span class="task-check-mark">✓</span></div><div class="task-body"><div class="task-name">${task.name}</div><div class="task-detail">${detail}</div>${tagLabel?`<span class="task-tag ${tagClass}">${tagLabel}${task.mins?` · ${task.mins}min`:''}</span>`:''}</div>`;
-  el.onclick=()=>toggleTask(task,el,isBonus);
-  return el;
+  const el=document.createElement('div');
+  el.className=`task-card cat-${task.cat}${isDone?' done':''}`;
+  const detail=typeof task.detail==='function'?task.detail():task.detail;
+  const tagLabel=task.tag==='nn'?'anchor':isBonus?'bonus':'';
+  const tagClass=task.tag==='nn'?'tag-nn':isBonus?'tag-bonus':'';
+  el.innerHTML=`<div class="task-check"><span class="task-check-mark">✓</span></div><div class="task-body"><div class="task-name">${task.name}</div><div class="task-detail">${detail}</div>${tagLabel?`<span class="task-tag ${tagClass}">${tagLabel}${task.mins?` · ${task.mins}min`:''}</span>`:''}</div>`;
+  el.onclick=()=>toggleTask(task,el,isBonus);
+  return el;
 }
 function toggleTask(task,el){
-  const checks=getChecks();const was=checks[task.id];
-  setCheck(task.id,!was);
-  if(!was){el.classList.add('done');awardXP(task.xp,task.name);}
-  else{el.classList.remove('done');S.xp=Math.max(0,(S.xp||0)-task.xp);save();renderStats();}
-  renderLaunchSet();
+  const checks=getChecks();const was=checks[task.id];
+  setCheck(task.id,!was);
+  if(!was){el.classList.add('done');awardXP(task.xp,task.name);}
+  else{el.classList.remove('done');S.xp=Math.max(0,(S.xp||0)-task.xp);save();renderStats();}
+  renderLaunchSet();
 }
 function renderBonusPoolTasks(items){
-  const pool=document.getElementById('bonusTasks');const checks=getChecks();pool.innerHTML='';
-  if(!items.length){pool.innerHTML='<div style="font-size:13px;font-style:italic;color:var(--ink3);padding:8px 0">All done — rest is productive too.</div>';return;}
-  items.forEach(t=>pool.appendChild(makeTaskCard(t,checks[t.id],true)));
+  const pool=document.getElementById('bonusTasks');const checks=getChecks();pool.innerHTML='';
+  if(!items.length){pool.innerHTML='<div style="font-size:13px;font-style:italic;color:var(--ink3);padding:8px 0">All done — rest is productive too.</div>';return;}
+  items.forEach(t=>pool.appendChild(makeTaskCard(t,checks[t.id],true)));
 }
 function toggleChallenge(){
-  const pool=document.getElementById('bonusPool');
-  const btn=document.getElementById('challengeBtn');
-  const label=document.getElementById('challengeLabel');
-  const isOpen=pool.style.display==='block';
-  pool.style.display=isOpen?'none':'block';
-  btn.classList.toggle('unlocked',!isOpen);
-  label.textContent=isOpen?'Challenge me — unlock more':'Hide bonus tasks';
+  const pool=document.getElementById('bonusPool');
+  const btn=document.getElementById('challengeBtn');
+  const label=document.getElementById('challengeLabel');
+  const isOpen=pool.style.display==='block';
+  pool.style.display=isOpen?'none':'block';
+  btn.classList.toggle('unlocked',!isOpen);
+  label.textContent=isOpen?'Challenge me — unlock more':'Hide bonus tasks';
 }
 function updateRing(done,total){
-  const pct=total>0?Math.round(done/total*100):0;
-  document.getElementById('ringFill').style.strokeDashoffset=119-(pct/100)*119;
-  document.getElementById('ringNum').textContent=pct+'%';
-  document.getElementById('progressTitle').textContent=done===total&&total>0?'✦ Day complete':`${done} of ${total} done`;
-  document.getElementById('progressSub').textContent=done===total&&total>0?'Tap Challenge to keep going':'Tap a task to check it off';
-  const todayXP=(S.log||[]).filter(l=>l.date===today()).reduce((a,l)=>a+l.xp,0);
-  document.getElementById('progressXP').textContent=`+${todayXP} XP`;
+  const pct=total>0?Math.round(done/total*100):0;
+  document.getElementById('ringFill').style.strokeDashoffset=119-(pct/100)*119;
+  document.getElementById('ringNum').textContent=pct+'%';
+  document.getElementById('progressTitle').textContent=done===total&&total>0?'✦ Day complete':`${done} of ${total} done`;
+  document.getElementById('progressSub').textContent=done===total&&total>0?'Tap Challenge to keep going':'Tap a task to check it off';
+  const todayXP=(S.log||[]).filter(l=>l.date===today()).reduce((a,l)=>a+l.xp,0);
+  document.getElementById('progressXP').textContent=`+${todayXP} XP`;
 }
 
 function renderRollovers(){
-  const items=getRollovers();
-  const sec=document.getElementById('rolloverSection');const list=document.getElementById('rolloverList');const count=document.getElementById('rolloverCount');
-  if(!items.length){sec.style.display='none';return;}
-  sec.style.display='block';count.textContent=`${items.length} item${items.length>1?'s':''}`;list.innerHTML='';
-  items.forEach(r=>{
-    const card=document.createElement('div');card.className='rollover-card';
-    const days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-    const dayName=days[new Date(r.origDate+'T12:00:00').getDay()];
-    card.innerHTML=`<div class="rollover-day">Missed ${dayName} · ${r.origDate}</div><div class="rollover-name">${r.name}</div><div class="rollover-actions"><button class="rollover-btn accept" onclick="acceptRollover('${r.id}','${r.origDate}')">Do it today ✓</button><button class="rollover-btn skip" onclick="skipRollover('${r.id}','${r.origDate}')">Skip this week</button></div>`;
-    list.appendChild(card);
-  });
+  const items=getRollovers();
+  const sec=document.getElementById('rolloverSection');const list=document.getElementById('rolloverList');const count=document.getElementById('rolloverCount');
+  if(!items.length){sec.style.display='none';return;}
+  sec.style.display='block';count.textContent=`${items.length} item${items.length>1?'s':''}`;list.innerHTML='';
+  items.forEach(r=>{
+    const card=document.createElement('div');card.className='rollover-card';
+    const days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+    const dayName=days[new Date(r.origDate+'T12:00:00').getDay()];
+    card.innerHTML=`<div class="rollover-day">Missed ${dayName} · ${r.origDate}</div><div class="rollover-name">${r.name}</div><div class="rollover-actions"><button class="rollover-btn accept" onclick="acceptRollover('${r.id}','${r.origDate}')">Do it today ✓</button><button class="rollover-btn skip" onclick="skipRollover('${r.id}','${r.origDate}')">Skip this week</button></div>`;
+    list.appendChild(card);
+  });
 }
 
 // FS
@@ -799,326 +791,326 @@ function logFS(){const hrs=parseFloat(document.getElementById('fsHrsIn').value)|
 function logFS2(){const hrs=parseFloat(document.getElementById('fsHrsIn2').value)||0;const note=document.getElementById('fsNoteIn2').value||'';if(!hrs)return;_logFS(hrs,note);document.getElementById('fsHrsIn2').value='';document.getElementById('fsNoteIn2').value='';}
 function _logFS(hrs,note){S.fsTotal=(S.fsTotal||339)+hrs;S.fsMonth=(S.fsMonth||0)+hrs;S.fsLog=S.fsLog||[];S.fsLog.unshift({date:today(),hrs,note});awardXP(Math.round(hrs*20),`🌿 FS ${hrs}h`);renderFSProgress();renderStats();toast(`${hrs}h logged 🌿`);}
 function renderFSProgress(){
-  const total=S.fsTotal||339;const pct=Math.min(100,Math.round(total/600*100));const rem=Math.max(0,600-total);
-  const td=document.getElementById('fsTodayTotal');if(td)td.textContent=total.toFixed(1);
-  const bigEl=document.getElementById('fsTotalBig');if(bigEl)bigEl.textContent=total.toFixed(1);
-  const pctEl=document.getElementById('fsPctBig');if(pctEl)pctEl.textContent=pct+'%';
-  const barEl=document.getElementById('fsPioneerBar');if(barEl)barEl.style.width=pct+'%';
-  const remEl=document.getElementById('fsRemBig');if(remEl)remEl.textContent=rem.toFixed(0);
-  const moEl=document.getElementById('fsMonthDisp');if(moEl)moEl.textContent=(S.fsMonth||0).toFixed(1)+' this month';
-  const logEl=document.getElementById('fsLogEntries');
-  if(logEl)logEl.innerHTML=(S.fsLog||[]).slice(0,8).map(e=>`<div style="padding:5px 0;border-bottom:1px solid var(--paper3);font-size:12px;font-family:'DM Mono',monospace;display:flex;justify-content:space-between;gap:8px"><span style="color:var(--ink3)">${e.date}</span><span>${e.note||'—'}</span><span style="color:var(--moss)">${e.hrs}h</span></div>`).join('');
+  const total=S.fsTotal||339;const pct=Math.min(100,Math.round(total/600*100));const rem=Math.max(0,600-total);
+  const td=document.getElementById('fsTodayTotal');if(td)td.textContent=total.toFixed(1);
+  const bigEl=document.getElementById('fsTotalBig');if(bigEl)bigEl.textContent=total.toFixed(1);
+  const pctEl=document.getElementById('fsPctBig');if(pctEl)pctEl.textContent=pct+'%';
+  const barEl=document.getElementById('fsPioneerBar');if(barEl)barEl.style.width=pct+'%';
+  const remEl=document.getElementById('fsRemBig');if(remEl)remEl.textContent=rem.toFixed(0);
+  const moEl=document.getElementById('fsMonthDisp');if(moEl)moEl.textContent=(S.fsMonth||0).toFixed(1)+' this month';
+  const logEl=document.getElementById('fsLogEntries');
+  if(logEl)logEl.innerHTML=(S.fsLog||[]).slice(0,8).map(e=>`<div style="padding:5px 0;border-bottom:1px solid var(--paper3);font-size:12px;font-family:'DM Mono',monospace;display:flex;justify-content:space-between;gap:8px"><span style="color:var(--ink3)">${e.date}</span><span>${e.note||'—'}</span><span style="color:var(--moss)">${e.hrs}h</span></div>`).join('');
 }
 
 // SCHEDULE ROWS
 function renderScheduleRows(){
-  const rows=[
-    {day:'Monday',act:'Zoom PM',hrs:'2h',col:'var(--sky)'},
-    {day:'Tuesday',act:'Letters',hrs:'1.5h',col:'var(--gold)'},
-    {day:'Wednesday',act:'Zoom PM',hrs:'2h',col:'var(--sky)'},
-    {day:'Thursday',act:'Territory research',hrs:'3h',col:'var(--moss)'},
-    {day:'Friday',act:'Field service (early AM)',hrs:'4h',col:'var(--moss)'},
-    {day:'Saturday',act:'Field service (early AM)',hrs:'4h',col:'var(--moss)'},
-  ];
-  const el=document.getElementById('scheduleRows');if(!el)return;
-  el.innerHTML=rows.map(r=>`<div style="display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--paper3)"><div style="display:flex;align-items:center;gap:10px"><div style="width:8px;height:8px;border-radius:50%;background:${r.col};flex-shrink:0"></div><div><div style="font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:1px;color:var(--ink3)">${r.day}</div><div style="font-size:13px;color:var(--ink2)">${r.act}</div></div></div><div style="font-family:'DM Mono',monospace;font-size:11px;color:${r.col};font-weight:500">${r.hrs}</div></div>`).join('');
+  const rows=[
+    {day:'Monday',act:'Zoom PM',hrs:'2h',col:'var(--sky)'},
+    {day:'Tuesday',act:'Letters',hrs:'1.5h',col:'var(--gold)'},
+    {day:'Wednesday',act:'Zoom PM',hrs:'2h',col:'var(--sky)'},
+    {day:'Thursday',act:'Territory research',hrs:'3h',col:'var(--moss)'},
+    {day:'Friday',act:'Field service (early AM)',hrs:'4h',col:'var(--moss)'},
+    {day:'Saturday',act:'Field service (early AM)',hrs:'4h',col:'var(--moss)'},
+  ];
+  const el=document.getElementById('scheduleRows');if(!el)return;
+  el.innerHTML=rows.map(r=>`<div style="display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--paper3)"><div style="display:flex;align-items:center;gap:10px"><div style="width:8px;height:8px;border-radius:50%;background:${r.col};flex-shrink:0"></div><div><div style="font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:1px;color:var(--ink3)">${r.day}</div><div style="font-size:13px;color:var(--ink2)">${r.act}</div></div></div><div style="font-family:'DM Mono',monospace;font-size:11px;color:${r.col};font-weight:500">${r.hrs}</div></div>`).join('');
 }
 
 // BIBLE TARGET
 function renderBibleTarget(){
-  const isSun=dow()===0;
-  const dateEl=document.getElementById('bibleTargetDate');
-  const rangeEl=document.getElementById('bibleTargetRange');
-  const subEl=document.getElementById('bibleTargetSub');
-  const logRow=document.getElementById('bibleLogRow');
-  if(dateEl)dateEl.textContent=new Date().toLocaleDateString('en-US',{weekday:'long',month:'short',day:'numeric'});
-  if(isSun){
-    if(rangeEl)rangeEl.textContent='Meeting day 🙏';
-    if(subEl)subEl.textContent='Personal reading pauses. Treasures reading for meeting prep.';
-    if(logRow)logRow.style.display='none';
-    return;
-  }
-  const t=getTodayTarget();
-  const startRef=globalToRef(t.start);const endRef=globalToRef(t.end);
-  if(!startRef){if(rangeEl)rangeEl.textContent='🎉 Bible complete!';if(logRow)logRow.style.display='none';return;}
-  const samebook=startRef.key===endRef?.key;
-  const range=samebook?`${startRef.book.name} ${startRef.ch}–${endRef.ch}`:`${startRef.book.name} ${startRef.ch} – ${endRef?endRef.book.name+' '+endRef.ch:'end'}`;
-  if(rangeEl)rangeEl.textContent=range;
-  const done=totalBible();const pct=Math.round(done/TOTAL_CH*100);
-  if(subEl)subEl.textContent=`${done}/${TOTAL_CH} chapters · ${pct}% complete · ${TOTAL_CH-done} remaining`;
-  if(logRow)logRow.style.display='flex';
-  const inp=document.getElementById('bibleLastChIn');
-  if(inp&&startRef){inp.placeholder=`ch in ${startRef.book.name}`;inp.max=startRef.book.ch;}
+  const isSun=dow()===0;
+  const dateEl=document.getElementById('bibleTargetDate');
+  const rangeEl=document.getElementById('bibleTargetRange');
+  const subEl=document.getElementById('bibleTargetSub');
+  const logRow=document.getElementById('bibleLogRow');
+  if(dateEl)dateEl.textContent=new Date().toLocaleDateString('en-US',{weekday:'long',month:'short',day:'numeric'});
+  if(isSun){
+    if(rangeEl)rangeEl.textContent='Meeting day 🙏';
+    if(subEl)subEl.textContent='Personal reading pauses. Treasures reading for meeting prep.';
+    if(logRow)logRow.style.display='none';
+    return;
+  }
+  const t=getTodayTarget();
+  const startRef=globalToRef(t.start);const endRef=globalToRef(t.end);
+  if(!startRef){if(rangeEl)rangeEl.textContent='🎉 Bible complete!';if(logRow)logRow.style.display='none';return;}
+  const samebook=startRef.key===endRef?.key;
+  const range=samebook?`${startRef.book.name} ${startRef.ch}–${endRef.ch}`:`${startRef.book.name} ${startRef.ch} – ${endRef?endRef.book.name+' '+endRef.ch:'end'}`;
+  if(rangeEl)rangeEl.textContent=range;
+  const done=totalBible();const pct=Math.round(done/TOTAL_CH*100);
+  if(subEl)subEl.textContent=`${done}/${TOTAL_CH} chapters · ${pct}% complete · ${TOTAL_CH-done} remaining`;
+  if(logRow)logRow.style.display='flex';
+  const inp=document.getElementById('bibleLastChIn');
+  if(inp&&startRef){inp.placeholder=`ch in ${startRef.book.name}`;inp.max=startRef.book.ch;}
 }
 
 // BIBLE LIST
 function renderBibleList(){
-  const el=document.getElementById('bibleList');if(!el)return;el.innerHTML='';
-  ALL_BOOKS.forEach(book=>{
-    if(!S.bibleRead[book.key])S.bibleRead[book.key]=[];
-    const read=S.bibleRead[book.key].length;const pct=Math.round(read/book.ch*100);
-    const row=document.createElement('div');row.className='book-row';
-    let chHTML='';
-    for(let c=1;c<=book.ch;c++){const isRead=S.bibleRead[book.key].includes(c);chHTML+=`<div class="ch-pip${isRead?' read':''}" onclick="toggleBibleCh('${book.key}',${c},this)">${isRead?'✓':c}</div>`;}
-    row.innerHTML=`<div class="book-head" onclick="this.closest('.book-row').querySelector('.book-ch-grid').classList.toggle('open')"><div class="book-name">${book.name}</div><div class="book-prog">${read}/${book.ch} · ${pct}%</div></div><div class="book-mini-bar"><div class="book-mini-fill" style="width:${pct}%"></div></div><div class="book-ch-grid">${chHTML}</div>`;
-    el.appendChild(row);
-  });
-  const tot=totalBible();document.getElementById('bibleCount').textContent=`${tot}/${TOTAL_CH}`;
+  const el=document.getElementById('bibleList');if(!el)return;el.innerHTML='';
+  ALL_BOOKS.forEach(book=>{
+    if(!S.bibleRead[book.key])S.bibleRead[book.key]=[];
+    const read=S.bibleRead[book.key].length;const pct=Math.round(read/book.ch*100);
+    const row=document.createElement('div');row.className='book-row';
+    let chHTML='';
+    for(let c=1;c<=book.ch;c++){const isRead=S.bibleRead[book.key].includes(c);chHTML+=`<div class="ch-pip${isRead?' read':''}" onclick="toggleBibleCh('${book.key}',${c},this)">${isRead?'✓':c}</div>`;}
+    row.innerHTML=`<div class="book-head" onclick="this.closest('.book-row').querySelector('.book-ch-grid').classList.toggle('open')"><div class="book-name">${book.name}</div><div class="book-prog">${read}/${book.ch} · ${pct}%</div></div><div class="book-mini-bar"><div class="book-mini-fill" style="width:${pct}%"></div></div><div class="book-ch-grid">${chHTML}</div>`;
+    el.appendChild(row);
+  });
+  const tot=totalBible();document.getElementById('bibleCount').textContent=`${tot}/${TOTAL_CH}`;
 }
 function toggleBibleCh(book,ch,el){
-  if(!S.bibleRead[book])S.bibleRead[book]=[];
-  const idx=S.bibleRead[book].indexOf(ch);
-  if(idx===-1){S.bibleRead[book].push(ch);el.classList.add('read');el.textContent='✓';awardXP(5,`📖 ${book} ${ch}`);}
-  else{S.bibleRead[book].splice(idx,1);el.classList.remove('read');el.textContent=ch;S.xp=Math.max(0,(S.xp||0)-5);save();renderStats();}
-  document.getElementById('bibleCount').textContent=`${totalBible()}/${TOTAL_CH}`;
-  const row=el.closest('.book-row');
-  if(row){const rc=S.bibleRead[book].length;const t=ALL_BOOKS.find(b=>b.key===book)?.ch||1;const pg=row.querySelector('.book-prog');if(pg)pg.textContent=`${rc}/${t} · ${Math.round(rc/t*100)}%`;const mf=row.querySelector('.book-mini-fill');if(mf)mf.style.width=Math.round(rc/t*100)+'%';}
+  if(!S.bibleRead[book])S.bibleRead[book]=[];
+  const idx=S.bibleRead[book].indexOf(ch);
+  if(idx===-1){S.bibleRead[book].push(ch);el.classList.add('read');el.textContent='✓';awardXP(5,`📖 ${book} ${ch}`);}
+  else{S.bibleRead[book].splice(idx,1);el.classList.remove('read');el.textContent=ch;S.xp=Math.max(0,(S.xp||0)-5);save();renderStats();}
+  document.getElementById('bibleCount').textContent=`${totalBible()}/${TOTAL_CH}`;
+  const row=el.closest('.book-row');
+  if(row){const rc=S.bibleRead[book].length;const t=ALL_BOOKS.find(b=>b.key===book)?.ch||1;const pg=row.querySelector('.book-prog');if(pg)pg.textContent=`${rc}/${t} · ${Math.round(rc/t*100)}%`;const mf=row.querySelector('.book-mini-fill');if(mf)mf.style.width=Math.round(rc/t*100)+'%';}
 }
 
 // JW BOOKS
 function renderJWList(){
-  const el=document.getElementById('jwList');if(!el)return;el.innerHTML='';
-  if(!S.jwPos)S.jwPos={};
-  JW_BOOKS.forEach(book=>{
-    const pos=S.jwPos[book.key]||0;
-    const pct=Math.round(pos/book.ch*100);
-    const remaining=book.ch-pos;
-    const row=document.createElement('div');row.className='jw-book-row';
-    row.innerHTML=`
-      <div class="jw-book-head" onclick="toggleJWBook('${book.key}')">
-        <div class="jw-book-info">
-          <div class="jw-book-name">${book.name}</div>
-          <div class="jw-book-meta">${book.period} · ${book.lang}</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
-          <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--${pos>0?'moss':'ink4'})">${pct}%</div>
-          <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--ink4)">▾</div>
-        </div>
-      </div>
-      <div class="book-mini-bar"><div class="book-mini-fill" style="width:${pct}%;background:linear-gradient(90deg,var(--moss-l),var(--moss))"></div></div>
-      <div class="jw-ch-grid" id="jwdet-${book.key}">
-        <div style="grid-column:1/-1;padding:4px 0 10px">
-          <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--ink3);margin-bottom:10px;letter-spacing:0.5px">
-            ${pos===0?'Not started':'Chapter '+pos+' of '+book.ch+' · '+remaining+' remaining'}
-          </div>
-          <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-            <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--ink3);white-space:nowrap">I'm on chapter</div>
-            <input class="num-input" type="number" id="jwi-${book.key}" value="${pos||''}" placeholder="0" min="0" max="${book.ch}" style="width:60px">
-            <button class="pill-btn" onclick="saveJWPos('${book.key}',${book.ch})">Save</button>
-            ${pos>=book.ch?'<span style="font-family:DM Mono,monospace;font-size:10px;color:var(--moss)">✓ Complete!</span>':''}
-          </div>
-          ${pos>0?`<div style="margin-top:10px">
-            <div style="height:6px;background:var(--paper3);border-radius:3px;overflow:hidden">
-              <div style="width:${pct}%;height:100%;border-radius:3px;background:linear-gradient(90deg,var(--moss-l),var(--moss));transition:width 0.5s ease"></div>
-            </div>
-            <div style="display:flex;justify-content:space-between;margin-top:5px;font-family:'DM Mono',monospace;font-size:9px;color:var(--ink3)">
-              <span>ch. ${pos}</span><span>${remaining} left of ${book.ch}</span>
-            </div>
-          </div>`:''}
-        </div>
-      </div>`;
-    el.appendChild(row);
-  });
-  const started=Object.keys(S.jwPos||{}).filter(k=>S.jwPos[k]>0).length;
-  document.getElementById('jwCount').textContent=`${started}/9 started`;
+  const el=document.getElementById('jwList');if(!el)return;el.innerHTML='';
+  if(!S.jwPos)S.jwPos={};
+  JW_BOOKS.forEach(book=>{
+    const pos=S.jwPos[book.key]||0;
+    const pct=Math.round(pos/book.ch*100);
+    const remaining=book.ch-pos;
+    const row=document.createElement('div');row.className='jw-book-row';
+    row.innerHTML=`
+      <div class="jw-book-head" onclick="toggleJWBook('${book.key}')">
+        <div class="jw-book-info">
+          <div class="jw-book-name">${book.name}</div>
+          <div class="jw-book-meta">${book.period} · ${book.lang}</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
+          <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--${pos>0?'moss':'ink4'})">${pct}%</div>
+          <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--ink4)">▾</div>
+        </div>
+      </div>
+      <div class="book-mini-bar"><div class="book-mini-fill" style="width:${pct}%;background:linear-gradient(90deg,var(--moss-l),var(--moss))"></div></div>
+      <div class="jw-ch-grid" id="jwdet-${book.key}">
+        <div style="grid-column:1/-1;padding:4px 0 10px">
+          <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--ink3);margin-bottom:10px;letter-spacing:0.5px">
+            ${pos===0?'Not started':'Chapter '+pos+' of '+book.ch+' · '+remaining+' remaining'}
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+            <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--ink3);white-space:nowrap">I'm on chapter</div>
+            <input class="num-input" type="number" id="jwi-${book.key}" value="${pos||''}" placeholder="0" min="0" max="${book.ch}" style="width:60px">
+            <button class="pill-btn" onclick="saveJWPos('${book.key}',${book.ch})">Save</button>
+            ${pos>=book.ch?'<span style="font-family:DM Mono,monospace;font-size:10px;color:var(--moss)">✓ Complete!</span>':''}
+          </div>
+          ${pos>0?`<div style="margin-top:10px">
+            <div style="height:6px;background:var(--paper3);border-radius:3px;overflow:hidden">
+              <div style="width:${pct}%;height:100%;border-radius:3px;background:linear-gradient(90deg,var(--moss-l),var(--moss));transition:width 0.5s ease"></div>
+            </div>
+            <div style="display:flex;justify-content:space-between;margin-top:5px;font-family:'DM Mono',monospace;font-size:9px;color:var(--ink3)">
+              <span>ch. ${pos}</span><span>${remaining} left of ${book.ch}</span>
+            </div>
+          </div>`:''}
+        </div>
+      </div>`;
+    el.appendChild(row);
+  });
+  const started=Object.keys(S.jwPos||{}).filter(k=>S.jwPos[k]>0).length;
+  document.getElementById('jwCount').textContent=`${started}/9 started`;
 }
 
 function toggleJWBook(key){
-  const grid=document.getElementById('jwdet-'+key);
-  if(grid)grid.classList.toggle('open');
+  const grid=document.getElementById('jwdet-'+key);
+  if(grid)grid.classList.toggle('open');
 }
 
 function saveJWPos(key,total){
-  if(!S.jwPos)S.jwPos={};
-  const inp=document.getElementById('jwi-'+key);
-  const val=Math.min(total,Math.max(0,parseInt(inp.value)||0));
-  const prev=S.jwPos[key]||0;
-  const diff=val-prev;
-  S.jwPos[key]=val;
-  if(diff>0)awardXP(diff*10,`📚 ${key} +${diff}ch`);
-  save();renderJWList();
-  // re-open the drawer
-  const grid=document.getElementById('jwdet-'+key);
-  if(grid)grid.classList.add('open');
-  toast(val>=total?'📚 Book complete! 🎉':`Saved · chapter ${val} of ${total}`);
+  if(!S.jwPos)S.jwPos={};
+  const inp=document.getElementById('jwi-'+key);
+  const val=Math.min(total,Math.max(0,parseInt(inp.value)||0));
+  const prev=S.jwPos[key]||0;
+  const diff=val-prev;
+  S.jwPos[key]=val;
+  if(diff>0)awardXP(diff*10,`📚 ${key} +${diff}ch`);
+  save();renderJWList();
+  // re-open the drawer
+  const grid=document.getElementById('jwdet-'+key);
+  if(grid)grid.classList.add('open');
+  toast(val>=total?'📚 Book complete! 🎉':`Saved · chapter ${val} of ${total}`);
 }
 
 // BADGES
 function renderBadges(){
-  const grid=document.getElementById('badgeGrid');if(!grid)return;grid.innerHTML='';
-  BADGES.forEach(b=>{const earned=S.badges&&S.badges[b.key];const tile=document.createElement('div');tile.className='badge-tile'+(earned?' earned':'');tile.innerHTML=`<span class="badge-tile-icon">${b.icon}</span><div class="badge-tile-name">${b.name}</div>`;grid.appendChild(tile);});
+  const grid=document.getElementById('badgeGrid');if(!grid)return;grid.innerHTML='';
+  BADGES.forEach(b=>{const earned=S.badges&&S.badges[b.key];const tile=document.createElement('div');tile.className='badge-tile'+(earned?' earned':'');tile.innerHTML=`<span class="badge-tile-icon">${b.icon}</span><div class="badge-tile-name">${b.name}</div>`;grid.appendChild(tile);});
 }
 
 // ACTIVITY LOG
 function renderActLog(){
-  const el=document.getElementById('actLog');if(!el)return;
-  const logs=(S.log||[]).slice(0,30);
-  if(!logs.length){el.innerHTML='<div style="padding:12px;font-family:DM Mono,monospace;font-size:11px;color:var(--ink3);font-style:italic">No activity yet — start today</div>';return;}
-  el.innerHTML=logs.map(e=>`<div style="padding:7px 12px;border-bottom:1px solid var(--paper3);display:flex;justify-content:space-between;font-size:12px"><span style="color:var(--ink3);font-family:'DM Mono',monospace;font-size:10px">${e.date}</span><span style="flex:1;padding:0 8px">${e.text}</span><span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--gold)">+${e.xp}</span></div>`).join('');
+  const el=document.getElementById('actLog');if(!el)return;
+  const logs=(S.log||[]).slice(0,30);
+  if(!logs.length){el.innerHTML='<div style="padding:12px;font-family:DM Mono,monospace;font-size:11px;color:var(--ink3);font-style:italic">No activity yet — start today</div>';return;}
+  el.innerHTML=logs.map(e=>`<div style="padding:7px 12px;border-bottom:1px solid var(--paper3);display:flex;justify-content:space-between;font-size:12px"><span style="color:var(--ink3);font-family:'DM Mono',monospace;font-size:10px">${e.date}</span><span style="flex:1;padding:0 8px">${e.text}</span><span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--gold)">+${e.xp}</span></div>`).join('');
 }
 
 // COURSES
 const COURSES={
-  spiritual:{
-    id:'spiritual',color:'#8a6420',stripe:'var(--gold)',
-    domain:'📖 Spiritual',title:'Training Your Perceptive Powers',
-    span:'May 2026 – May 2027',badgeLabel:'SKE Track',
-    desc:'Ansèyman, Renmen moun, Gid pou rechèch. Meeting prep discipline. Bible in 52 weeks. Field service every week. Foundation for SKE application in 2028.',
-    tagline:'Walk Courageously ch.1. Ansèyman L1. Bible Day 1. Both meetings every week. This is the year consistency becomes identity.',
-    pills:['Ansèyman L1–53','Renmen moun','Gid pou rechèch','Walk Courageously','Bible 4ch/day','Meeting prep'],
-    cycles:[{
-      tab:'Cycle 1 · May 11',
-      goal:'Establish the skeleton. Consistent meeting prep for both meetings. Bible reading locked in. Field service every week without exception.',
-      meta:[{k:'Dates',v:'May 11 – Jun 28'},{k:'Bible',v:'Genesis 1 – ~ch.100'},{k:'FS goal',v:'16.5h/week'},{k:'Meeting',v:'Both every week · prep done beforehand'}],
-      res:['Walk Courageously With God (JW Library)','Ansèyman (JW Library Kreyòl)','Life & Ministry Meeting Workbook — May/Jun 2026','Watchtower (Sunday meeting)'],
-      obj:['Walk Courageously: read ch.1–5 · underline what speaks to you','Ansèyman L1: Fè yon bon entwodiksyon — what makes a good introduction?','Ansèyman L2: Pale tankou konvèsasyon — natural conversation','Ansèyman L3: Sèvi ak kesyon — questions that open hearts','Prepare Treasures (Part 1) every Sunday before meeting','Prepare Apply Yourself (Part 2) every Monday','Prepare Living as Christians (Part 3) every Tuesday','Review all 3 midweek parts every Wednesday before Friday','Preview Watchtower (listen) every Monday — crochet-compatible','Watchtower study session 1 every Thursday','Watchtower study session 2 every Friday before meeting','Review Watchtower every Saturday before Sunday meeting','Log field service every week — hit 16.5h average','Bible: Genesis through ~chapter 100 by Jun 28'],
-      weeks:[
-        {wk:'Wk 1 · May 11',focus:'Foundation week',what:'Bible Day 1. Meeting prep structure begins. FS schedule starts.',out:'Did you make both meetings? Was prep done beforehand?'},
-        {wk:'Wk 2 · May 18',focus:'Ansèyman L1–2',what:'Read slowly. Natural ministry conversation.',out:'1 paragraph: how did your ministry feel this week?'},
-        {wk:'Wk 3 · May 25',focus:'Ansèyman L3 + Walk Courageously ch.1–2',what:'Questions in ministry. Start Walk Courageously.',out:'Use 1 genuine question in field service this week.'},
-        {wk:'Wk 4 · Jun 1',focus:'Ansèyman L4–5',what:'Introducing scriptures. Meeting prep becoming habit?',out:'FS hours check: on track for 16.5h/week?'},
-        {wk:'Wk 5 · Jun 8',focus:'Walk Courageously ch.3–5',what:'Read & mark. What is Jehovah asking of you?',out:'1 thing from Walk Courageously to apply in ministry.'},
-        {wk:'Wk 6 · Jun 15',focus:'Ansèyman L6–7',what:'Applying scriptures. Illustrations that touch hearts.',out:'2 illustrations you could use this month.'},
-        {wk:'Wk 7 · Jun 22',focus:'Ansèyman L8 + review',what:'Review Cycle 1. What changed since May 11?',out:'Honest reflection: what is consistent now? What still slips?'},
-      ],
-      note:'The goal of Cycle 1 is not perfection. It is the skeleton. Two meetings prepared, field service logged, Bible read daily — that is the whole win.'
-    },{
-      tab:'Cycle 2 · Jun 29',
-      goal:'Deepen meeting prep quality. Ansèyman L9–20. Renmen moun intro. Begin Gid pou rechèch. Complete 600 hours by Aug 31.',
-      meta:[{k:'Dates',v:'Jun 29 – Aug 31'},{k:'Bible',v:'~ch.100 – ~ch.200'},{k:'FS',v:'600 hours by Aug 31'},{k:'SKE',v:'Begin requirements research'}],
-      res:['Ansèyman L9–20','Renmen moun brochure','Gid pou rechèch 2019','Meeting Workbook ongoing'],
-      obj:['Ansèyman L9–10: visual aids + voice variation','Ansèyman L11–15: return visits + convincing presentations','Ansèyman L16–20: Bible studies + making disciples','Read Renmen moun introduction fully','Gid: read 1 article under "Jewova Dye" — write 3 cross-reference notes','Research SKE requirements — what do you need to qualify?','Hit 600 field service hours by August 31','Bible: chapter ~100 through ~200','Continue full meeting prep discipline every week'],
-      weeks:[
-        {wk:'Wk 8 · Jun 29',focus:'Ansèyman L9–10',what:'Voice variation. Visual aids. How do you teach most naturally?',out:'Record yourself sharing 1 point from this week\'s meeting.'},
-        {wk:'Wk 9 · Jul 6',focus:'Ansèyman L11–13',what:'Return visits. Convincing presentations.',out:'Did you make a return visit this week?'},
-        {wk:'Wk 10 · Jul 13',focus:'Ansèyman L14–16 + Renmen moun',what:'Making the message personal. Start Renmen moun.',out:'1 person from your territory you\'d like to revisit.'},
-        {wk:'Wk 11 · Jul 20',focus:'Ansèyman L17–18 + Gid',what:'Bible studies. Begin Gid article.',out:'Gid: 3 scriptures + how to use 1 in ministry.'},
-        {wk:'Wk 12 · Jul 27',focus:'Ansèyman L19–20 + SKE research',what:'Making disciples. Research SKE requirements.',out:'What do you need to qualify for SKE?'},
-        {wk:'Wk 13 · Aug 3',focus:'FS sprint + Bible',what:'August push to 600. Strong weeks now.',out:'Hours check: where do you stand?'},
-        {wk:'Wk 14 · Aug 10',focus:'Final push + cycle review',what:'600 hours. Cycle 2 review.',out:'Did you hit 600? Write 1 honest paragraph about this service year.'},
-      ],
-      note:'600 hours by August 31 is the milestone. After that, the new service year begins with 16.5h/week already built in — that is your monthly buffer.'
-    }]
-  },
-  languages:{
-    id:'languages',color:'#2c4a5c',stripe:'var(--sky)',
-    domain:'🌐 Languages',title:'Spanish B1 + ASL A1 + Arabic Foundation',
-    span:'May 2026 – May 2028',badgeLabel:'Priority 1',
-    desc:'Language Transfer audio. Easy Spanish Step-by-Step. Dreaming Spanish daily. Bill Vicars ASL. Dr. Imran Alawiye Arabic (active now). French maintenance.',
-    tagline:'Language Transfer L1. Easy Spanish Ch.1. Dreaming Spanish background. ASL Bill Vicars L1. Arabic Dr. Imran Ep.1 — reading the script begins today.',
-    pills:['LT Lesson 1','Easy Spanish Ch.1','Dreaming Spanish','ASL Bill Vicars','Arabic Dr. Imran','French podcast'],
-    cycles:[{
-      tab:'Cycle 1 · May 11',
-      goal:'Language Transfer L1–60. Easy Spanish Ch.1–7. ASL L1–5. Arabic reading foundation Ep.1–5. Sunday voice recording every week.',
-      meta:[{k:'Dates',v:'May 11 – Jun 28'},{k:'Spanish',v:'Daily · LT on walks+crochet'},{k:'ASL',v:'Tue+Thu · Bill Vicars'},{k:'Arabic',v:'Dr. Imran Alawiye · active'},{k:'French',v:'Podcast 2×/week'}],
-      res:['Language Transfer (free audio)','Easy Spanish Step-by-Step (book)','Dreaming Spanish YouTube','Bill Vicars YouTube playlist — "Learn ASL"','Dr. Imran Alawiye YouTube — "In just 8 lessons"','French podcast of choice'],
-      obj:['Language Transfer L1 — audio only, no notes, no pausing, trust the method','Easy Spanish Ch.1 — ser/estar, the most important Spanish distinction','Speak 1 paragraph aloud after every Step-by-Step session','Write 1 paragraph in Spanish daily from your own thoughts','Record Sunday voice note — 1–2 min, any topic, no script, every week','Dreaming Spanish as daily background — beginner playlist','ASL Bill Vicars: ABC fingerspelling + Lesson 01','Arabic Dr. Imran Ep.1–3: learn to read the script foundation','French podcast 2×/week — note 1 new expression per episode'],
-      weeks:[
-        {wk:'Wk 1 · May 11',focus:'LT L1–8 + Easy Spanish Ch.1 + ASL ABC',what:'LT on every walk or crochet session. Ch.1 ser vs estar.',out:'Day 1 Spanish journal entry. Sunday: first voice recording.'},
-        {wk:'Wk 2 · May 18',focus:'LT L9–16 + Ch.2 + ASL L01 + Arabic Ep.1',what:'Ser vs estar builds. First Arabic letters.',out:'5 sentences ser. 5 sentences estar. Arabic: what can you recognize?'},
-        {wk:'Wk 3 · May 25',focus:'LT L17–24 + Ch.3 + ASL L01 review + Arabic Ep.2',what:'Present tense builds. ASL practice daily.',out:'Sunday recording: introduce yourself. 2 min. No notes.'},
-        {wk:'Wk 4 · Jun 1',focus:'LT L25–32 + Ch.4 + ASL L02 + Arabic Ep.3',what:'Consolidate. ASL L02. Arabic Ep.3.',out:'Write 1 paragraph from thought. No English draft.'},
-        {wk:'Wk 5 · Jun 8',focus:'LT L33–44 + Ch.5–6 + ASL review + Arabic Ep.4',what:'LT momentum. Irregular verbs.',out:'5 sentences irregular verbs. What can you sign?'},
-        {wk:'Wk 6 · Jun 15',focus:'LT L45–52 + Ch.7 + ASL L03 + Arabic Ep.5',what:'Dreaming Spanish active 15 min. ASL L03.',out:'Sunday recording: daily routine. Past + present.'},
-        {wk:'Wk 7 · Jun 22',focus:'LT L53–60 + review + ASL L04',what:'Review Ch.1–7. Language journal.',out:'What surprised you about Spanish so far?'},
-      ],
-      note:'Language Transfer is audio-only by design — no notes during lessons. The method builds intuition through active listening. Trust it. Arabic is now active — Dr. Imran teaches you to read the full script in 8 episodes.'
-    },{
-      tab:'Cycle 2 · Jun 29',
-      goal:'Complete Language Transfer (90 lessons). Easy Spanish Part 1 done. ASL L5–10. Arabic Ep.6–8 complete — full reading foundation.',
-      meta:[{k:'Dates',v:'Jun 29 – Aug 31'},{k:'Milestone',v:'LT complete · Part 1 done · Arabic script ✓'},{k:'ASL',v:'L5–10 · full sentences'}],
-      res:['Language Transfer (finish 90 lessons)','Easy Spanish Part 1 (finish)','Dreaming Spanish A1–A2 active 15 min','Bill Vicars L5–10','Dr. Imran Ep.6–8'],
-      obj:['Complete Language Transfer — 90 lessons. Real milestone.','Complete Easy Spanish Part 1 — all chapters + exercises','Shift Dreaming Spanish to active 15 min/day','Write 1 Spanish paragraph from thought daily','ASL Bill Vicars L5–10: full sentences, not just signs','Complete Dr. Imran Arabic Ep.6–8 — full reading foundation done','French podcast 2×/week throughout'],
-      weeks:[
-        {wk:'Wk 8 · Jun 29',focus:'LT L61–70 + Part 1 continues + ASL L05 + Arabic Ep.6',what:'Push toward LT finish.',out:'What can you say in Spanish without thinking?'},
-        {wk:'Wk 9 · Jul 6',focus:'LT L71–80 + ASL L06 + Arabic Ep.7',what:'Dreaming Spanish 15 min active daily.',out:'Sunday recording: a full story. 2 min.'},
-        {wk:'Wk 10 · Jul 13',focus:'LT L81–90 COMPLETE + ASL L07 + Arabic Ep.8',what:'Finish Language Transfer. Finish Arabic reading foundation.',out:'LT complete — write 1 paragraph: what changed?'},
-        {wk:'Wk 11 · Jul 20',focus:'Easy Spanish Part 1 final + ASL L08',what:'Complete Part 1.',out:'Part 1 done. Celebrate. What was hardest?'},
-        {wk:'Wk 12 · Jul 27',focus:'Consolidation + ASL L09–10',what:'Review everything. Plan Q2 languages.',out:'Language summary: what surprised you? What is next?'},
-      ],
-      note:'Completing Language Transfer and the Arabic reading foundation in the same cycle is a real milestone — 90 lessons of Spanish intuition plus ability to read Arabic script. From September, Spanish moves to Part 2 and ASL expands.'
-    }]
-  }
+  spiritual:{
+    id:'spiritual',color:'#8a6420',stripe:'var(--gold)',
+    domain:'📖 Spiritual',title:'Training Your Perceptive Powers',
+    span:'May 2026 – May 2027',badgeLabel:'SKE Track',
+    desc:'Ansèyman, Renmen moun, Gid pou rechèch. Meeting prep discipline. Bible in 52 weeks. Field service every week. Foundation for SKE application in 2028.',
+    tagline:'Walk Courageously ch.1. Ansèyman L1. Bible Day 1. Both meetings every week. This is the year consistency becomes identity.',
+    pills:['Ansèyman L1–53','Renmen moun','Gid pou rechèch','Walk Courageously','Bible 4ch/day','Meeting prep'],
+    cycles:[{
+      tab:'Cycle 1 · May 11',
+      goal:'Establish the skeleton. Consistent meeting prep for both meetings. Bible reading locked in. Field service every week without exception.',
+      meta:[{k:'Dates',v:'May 11 – Jun 28'},{k:'Bible',v:'Genesis 1 – ~ch.100'},{k:'FS goal',v:'16.5h/week'},{k:'Meeting',v:'Both every week · prep done beforehand'}],
+      res:['Walk Courageously With God (JW Library)','Ansèyman (JW Library Kreyòl)','Life & Ministry Meeting Workbook — May/Jun 2026','Watchtower (Sunday meeting)'],
+      obj:['Walk Courageously: read ch.1–5 · underline what speaks to you','Ansèyman L1: Fè yon bon entwodiksyon — what makes a good introduction?','Ansèyman L2: Pale tankou konvèsasyon — natural conversation','Ansèyman L3: Sèvi ak kesyon — questions that open hearts','Prepare Treasures (Part 1) every Sunday before meeting','Prepare Apply Yourself (Part 2) every Monday','Prepare Living as Christians (Part 3) every Tuesday','Review all 3 midweek parts every Wednesday before Friday','Preview Watchtower (listen) every Monday — crochet-compatible','Watchtower study session 1 every Thursday','Watchtower study session 2 every Friday before meeting','Review Watchtower every Saturday before Sunday meeting','Log field service every week — hit 16.5h average','Bible: Genesis through ~chapter 100 by Jun 28'],
+      weeks:[
+        {wk:'Wk 1 · May 11',focus:'Foundation week',what:'Bible Day 1. Meeting prep structure begins. FS schedule starts.',out:'Did you make both meetings? Was prep done beforehand?'},
+        {wk:'Wk 2 · May 18',focus:'Ansèyman L1–2',what:'Read slowly. Natural ministry conversation.',out:'1 paragraph: how did your ministry feel this week?'},
+        {wk:'Wk 3 · May 25',focus:'Ansèyman L3 + Walk Courageously ch.1–2',what:'Questions in ministry. Start Walk Courageously.',out:'Use 1 genuine question in field service this week.'},
+        {wk:'Wk 4 · Jun 1',focus:'Ansèyman L4–5',what:'Introducing scriptures. Meeting prep becoming habit?',out:'FS hours check: on track for 16.5h/week?'},
+        {wk:'Wk 5 · Jun 8',focus:'Walk Courageously ch.3–5',what:'Read & mark. What is Jehovah asking of you?',out:'1 thing from Walk Courageously to apply in ministry.'},
+        {wk:'Wk 6 · Jun 15',focus:'Ansèyman L6–7',what:'Applying scriptures. Illustrations that touch hearts.',out:'2 illustrations you could use this month.'},
+        {wk:'Wk 7 · Jun 22',focus:'Ansèyman L8 + review',what:'Review Cycle 1. What changed since May 11?',out:'Honest reflection: what is consistent now? What still slips?'},
+      ],
+      note:'The goal of Cycle 1 is not perfection. It is the skeleton. Two meetings prepared, field service logged, Bible read daily — that is the whole win.'
+    },{
+      tab:'Cycle 2 · Jun 29',
+      goal:'Deepen meeting prep quality. Ansèyman L9–20. Renmen moun intro. Begin Gid pou rechèch. Complete 600 hours by Aug 31.',
+      meta:[{k:'Dates',v:'Jun 29 – Aug 31'},{k:'Bible',v:'~ch.100 – ~ch.200'},{k:'FS',v:'600 hours by Aug 31'},{k:'SKE',v:'Begin requirements research'}],
+      res:['Ansèyman L9–20','Renmen moun brochure','Gid pou rechèch 2019','Meeting Workbook ongoing'],
+      obj:['Ansèyman L9–10: visual aids + voice variation','Ansèyman L11–15: return visits + convincing presentations','Ansèyman L16–20: Bible studies + making disciples','Read Renmen moun introduction fully','Gid: read 1 article under "Jewova Dye" — write 3 cross-reference notes','Research SKE requirements — what do you need to qualify?','Hit 600 field service hours by August 31','Bible: chapter ~100 through ~200','Continue full meeting prep discipline every week'],
+      weeks:[
+        {wk:'Wk 8 · Jun 29',focus:'Ansèyman L9–10',what:'Voice variation. Visual aids. How do you teach most naturally?',out:'Record yourself sharing 1 point from this week\'s meeting.'},
+        {wk:'Wk 9 · Jul 6',focus:'Ansèyman L11–13',what:'Return visits. Convincing presentations.',out:'Did you make a return visit this week?'},
+        {wk:'Wk 10 · Jul 13',focus:'Ansèyman L14–16 + Renmen moun',what:'Making the message personal. Start Renmen moun.',out:'1 person from your territory you\'d like to revisit.'},
+        {wk:'Wk 11 · Jul 20',focus:'Ansèyman L17–18 + Gid',what:'Bible studies. Begin Gid article.',out:'Gid: 3 scriptures + how to use 1 in ministry.'},
+        {wk:'Wk 12 · Jul 27',focus:'Ansèyman L19–20 + SKE research',what:'Making disciples. Research SKE requirements.',out:'What do you need to qualify for SKE?'},
+        {wk:'Wk 13 · Aug 3',focus:'FS sprint + Bible',what:'August push to 600. Strong weeks now.',out:'Hours check: where do you stand?'},
+        {wk:'Wk 14 · Aug 10',focus:'Final push + cycle review',what:'600 hours. Cycle 2 review.',out:'Did you hit 600? Write 1 honest paragraph about this service year.'},
+      ],
+      note:'600 hours by August 31 is the milestone. After that, the new service year begins with 16.5h/week already built in — that is your monthly buffer.'
+    }]
+  },
+  languages:{
+    id:'languages',color:'#2c4a5c',stripe:'var(--sky)',
+    domain:'🌐 Languages',title:'Spanish B1 + ASL A1 + Arabic Foundation',
+    span:'May 2026 – May 2028',badgeLabel:'Priority 1',
+    desc:'Language Transfer audio. Easy Spanish Step-by-Step. Dreaming Spanish daily. Bill Vicars ASL. Dr. Imran Alawiye Arabic (active now). French maintenance.',
+    tagline:'Language Transfer L1. Easy Spanish Ch.1. Dreaming Spanish background. ASL Bill Vicars L1. Arabic Dr. Imran Ep.1 — reading the script begins today.',
+    pills:['LT Lesson 1','Easy Spanish Ch.1','Dreaming Spanish','ASL Bill Vicars','Arabic Dr. Imran','French podcast'],
+    cycles:[{
+      tab:'Cycle 1 · May 11',
+      goal:'Language Transfer L1–60. Easy Spanish Ch.1–7. ASL L1–5. Arabic reading foundation Ep.1–5. Sunday voice recording every week.',
+      meta:[{k:'Dates',v:'May 11 – Jun 28'},{k:'Spanish',v:'Daily · LT on walks+crochet'},{k:'ASL',v:'Tue+Thu · Bill Vicars'},{k:'Arabic',v:'Dr. Imran Alawiye · active'},{k:'French',v:'Podcast 2×/week'}],
+      res:['Language Transfer (free audio)','Easy Spanish Step-by-Step (book)','Dreaming Spanish YouTube','Bill Vicars YouTube playlist — "Learn ASL"','Dr. Imran Alawiye YouTube — "In just 8 lessons"','French podcast of choice'],
+      obj:['Language Transfer L1 — audio only, no notes, no pausing, trust the method','Easy Spanish Ch.1 — ser/estar, the most important Spanish distinction','Speak 1 paragraph aloud after every Step-by-Step session','Write 1 paragraph in Spanish daily from your own thoughts','Record Sunday voice note — 1–2 min, any topic, no script, every week','Dreaming Spanish as daily background — beginner playlist','ASL Bill Vicars: ABC fingerspelling + Lesson 01','Arabic Dr. Imran Ep.1–3: learn to read the script foundation','French podcast 2×/week — note 1 new expression per episode'],
+      weeks:[
+        {wk:'Wk 1 · May 11',focus:'LT L1–8 + Easy Spanish Ch.1 + ASL ABC',what:'LT on every walk or crochet session. Ch.1 ser vs estar.',out:'Day 1 Spanish journal entry. Sunday: first voice recording.'},
+        {wk:'Wk 2 · May 18',focus:'LT L9–16 + Ch.2 + ASL L01 + Arabic Ep.1',what:'Ser vs estar builds. First Arabic letters.',out:'5 sentences ser. 5 sentences estar. Arabic: what can you recognize?'},
+        {wk:'Wk 3 · May 25',focus:'LT L17–24 + Ch.3 + ASL L01 review + Arabic Ep.2',what:'Present tense builds. ASL practice daily.',out:'Sunday recording: introduce yourself. 2 min. No notes.'},
+        {wk:'Wk 4 · Jun 1',focus:'LT L25–32 + Ch.4 + ASL L02 + Arabic Ep.3',what:'Consolidate. ASL L02. Arabic Ep.3.',out:'Write 1 paragraph from thought. No English draft.'},
+        {wk:'Wk 5 · Jun 8',focus:'LT L33–44 + Ch.5–6 + ASL review + Arabic Ep.4',what:'LT momentum. Irregular verbs.',out:'5 sentences irregular verbs. What can you sign?'},
+        {wk:'Wk 6 · Jun 15',focus:'LT L45–52 + Ch.7 + ASL L03 + Arabic Ep.5',what:'Dreaming Spanish active 15 min. ASL L03.',out:'Sunday recording: daily routine. Past + present.'},
+        {wk:'Wk 7 · Jun 22',focus:'LT L53–60 + review + ASL L04',what:'Review Ch.1–7. Language journal.',out:'What surprised you about Spanish so far?'},
+      ],
+      note:'Language Transfer is audio-only by design — no notes during lessons. The method builds intuition through active listening. Trust it. Arabic is now active — Dr. Imran teaches you to read the full script in 8 episodes.'
+    },{
+      tab:'Cycle 2 · Jun 29',
+      goal:'Complete Language Transfer (90 lessons). Easy Spanish Part 1 done. ASL L5–10. Arabic Ep.6–8 complete — full reading foundation.',
+      meta:[{k:'Dates',v:'Jun 29 – Aug 31'},{k:'Milestone',v:'LT complete · Part 1 done · Arabic script ✓'},{k:'ASL',v:'L5–10 · full sentences'}],
+      res:['Language Transfer (finish 90 lessons)','Easy Spanish Part 1 (finish)','Dreaming Spanish A1–A2 active 15 min','Bill Vicars L5–10','Dr. Imran Ep.6–8'],
+      obj:['Complete Language Transfer — 90 lessons. Real milestone.','Complete Easy Spanish Part 1 — all chapters + exercises','Shift Dreaming Spanish to active 15 min/day','Write 1 Spanish paragraph from thought daily','ASL Bill Vicars L5–10: full sentences, not just signs','Complete Dr. Imran Arabic Ep.6–8 — full reading foundation done','French podcast 2×/week throughout'],
+      weeks:[
+        {wk:'Wk 8 · Jun 29',focus:'LT L61–70 + Part 1 continues + ASL L05 + Arabic Ep.6',what:'Push toward LT finish.',out:'What can you say in Spanish without thinking?'},
+        {wk:'Wk 9 · Jul 6',focus:'LT L71–80 + ASL L06 + Arabic Ep.7',what:'Dreaming Spanish 15 min active daily.',out:'Sunday recording: a full story. 2 min.'},
+        {wk:'Wk 10 · Jul 13',focus:'LT L81–90 COMPLETE + ASL L07 + Arabic Ep.8',what:'Finish Language Transfer. Finish Arabic reading foundation.',out:'LT complete — write 1 paragraph: what changed?'},
+        {wk:'Wk 11 · Jul 20',focus:'Easy Spanish Part 1 final + ASL L08',what:'Complete Part 1.',out:'Part 1 done. Celebrate. What was hardest?'},
+        {wk:'Wk 12 · Jul 27',focus:'Consolidation + ASL L09–10',what:'Review everything. Plan Q2 languages.',out:'Language summary: what surprised you? What is next?'},
+      ],
+      note:'Completing Language Transfer and the Arabic reading foundation in the same cycle is a real milestone — 90 lessons of Spanish intuition plus ability to read Arabic script. From September, Spanish moves to Part 2 and ASL expands.'
+    }]
+  }
 };
 
 function renderCourseGrid(){
-  const el=document.getElementById('courseGrid');if(!el)return;el.innerHTML='';
-  Object.values(COURSES).forEach(c=>{
-    const card=document.createElement('div');card.className='course-card';
-    card.innerHTML=`<div class="course-stripe" style="background:${c.stripe}"></div><div class="course-body"><div class="course-domain" style="color:${c.color}">${c.domain}</div><div class="course-title">${c.title}</div><div class="course-desc">${c.desc}</div><div class="course-foot"><div class="course-span">${c.span}</div><div class="course-badge" style="background:${c.color}22;color:${c.color}">${c.badgeLabel}</div></div></div>`;
-    card.onclick=()=>openCourse(c);el.appendChild(card);
-  });
+  const el=document.getElementById('courseGrid');if(!el)return;el.innerHTML='';
+  Object.values(COURSES).forEach(c=>{
+    const card=document.createElement('div');card.className='course-card';
+    card.innerHTML=`<div class="course-stripe" style="background:${c.stripe}"></div><div class="course-body"><div class="course-domain" style="color:${c.color}">${c.domain}</div><div class="course-title">${c.title}</div><div class="course-desc">${c.desc}</div><div class="course-foot"><div class="course-span">${c.span}</div><div class="course-badge" style="background:${c.color}22;color:${c.color}">${c.badgeLabel}</div></div></div>`;
+    card.onclick=()=>openCourse(c);el.appendChild(card);
+  });
 }
 
 let _activeCourse=null;
 function openCourse(c){
-  _activeCourse=c;
-  document.getElementById('plan-home').style.display='none';
-  const det=document.getElementById('plan-detail');det.classList.add('active');
-  document.getElementById('cdProgFill').style.background=c.color;
-  document.getElementById('cdContent').innerHTML=buildCourseHTML(c);
-  updateCourseProgress(c.id);restoreCourseState(c.id);
-  window.scrollTo(0,0);switchCdTab(0);
+  _activeCourse=c;
+  document.getElementById('plan-home').style.display='none';
+  const det=document.getElementById('plan-detail');det.classList.add('active');
+  document.getElementById('cdProgFill').style.background=c.color;
+  document.getElementById('cdContent').innerHTML=buildCourseHTML(c);
+  updateCourseProgress(c.id);restoreCourseState(c.id);
+  window.scrollTo(0,0);switchCdTab(0);
 }
 function closeCourse(){document.getElementById('plan-home').style.display='block';document.getElementById('plan-detail').classList.remove('active');_activeCourse=null;window.scrollTo(0,0);}
 
 function buildCourseHTML(c){
-  const cid=c.id;
-  const tabs=c.cycles.map((cy,i)=>`<button class="cd-tab${i===0?' active':''}" onclick="switchCdTab(${i})">${cy.tab}</button>`).join('');
-  const panels=c.cycles.map((cy,i)=>`
-    <div class="cd-panel${i===0?' active':''}" id="cdp-${i}">
-      <div class="goal-chip"><div class="goal-chip-label">Cycle Goal</div><div class="goal-chip-text">${cy.goal}</div></div>
-      <div class="meta-card"><div class="meta-card-title">At a glance</div>${cy.meta.map(m=>`<div class="meta-row"><span class="meta-key">${m.k}</span><span>${m.v}</span></div>`).join('')}</div>
-      <div class="meta-card"><div class="meta-card-title">Resources</div>${cy.res.map(r=>`<div class="meta-row" style="font-size:12px">${r}</div>`).join('')}</div>
-      <div style="margin-bottom:16px">
-        <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--paper3)">Objectives</div>
-        <ul class="obj-list">${cy.obj.map((o,j)=>`<li class="obj-item"><div class="obj-cb" data-obj="${cid}-${i}-${j}" onclick="toggleObj('${cid}',${i},${j})" style="border-color:${c.color}44"></div><span class="obj-text">${o}</span></li>`).join('')}</ul>
-      </div>
-      <div>
-        <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--paper3)">Weekly plan</div>
-        ${cy.weeks.map((w,j)=>`<div class="wk-row" id="wkr-${cid}-${i}-${j}"><div class="wk-check" data-wk="${cid}-${i}-${j}" onclick="toggleWk('${cid}',${i},${j})" style="border-color:${c.color}44"></div><div><div class="wk-label">${w.wk}</div><div class="wk-focus">${w.focus}</div><div class="wk-what">${w.what}</div><div style="font-size:11px;font-style:italic;color:var(--ink3);margin-top:2px">→ ${w.out}</div></div></div>`).join('')}
-        ${cy.note?`<div class="notebox">${cy.note}</div>`:''}
-      </div>
-    </div>`).join('');
-  return`<div class="cd-hero" style="background:${c.color};color:#fff"><div class="cd-hero-eye">${c.domain} · ${c.span}</div><div class="cd-hero-title">${c.title}</div><div class="cd-hero-tag">${c.tagline}</div><div class="cd-pills">${c.pills.map(p=>`<span class="cd-pill">${p}</span>`).join('')}</div></div><div class="cd-tabs">${tabs}</div>${panels}`;
+  const cid=c.id;
+  const tabs=c.cycles.map((cy,i)=>`<button class="cd-tab${i===0?' active':''}" onclick="switchCdTab(${i})">${cy.tab}</button>`).join('');
+  const panels=c.cycles.map((cy,i)=>`
+    <div class="cd-panel${i===0?' active':''}" id="cdp-${i}">
+      <div class="goal-chip"><div class="goal-chip-label">Cycle Goal</div><div class="goal-chip-text">${cy.goal}</div></div>
+      <div class="meta-card"><div class="meta-card-title">At a glance</div>${cy.meta.map(m=>`<div class="meta-row"><span class="meta-key">${m.k}</span><span>${m.v}</span></div>`).join('')}</div>
+      <div class="meta-card"><div class="meta-card-title">Resources</div>${cy.res.map(r=>`<div class="meta-row" style="font-size:12px">${r}</div>`).join('')}</div>
+      <div style="margin-bottom:16px">
+        <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--paper3)">Objectives</div>
+        <ul class="obj-list">${cy.obj.map((o,j)=>`<li class="obj-item"><div class="obj-cb" data-obj="${cid}-${i}-${j}" onclick="toggleObj('${cid}',${i},${j})" style="border-color:${c.color}44"></div><span class="obj-text">${o}</span></li>`).join('')}</ul>
+      </div>
+      <div>
+        <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--paper3)">Weekly plan</div>
+        ${cy.weeks.map((w,j)=>`<div class="wk-row" id="wkr-${cid}-${i}-${j}"><div class="wk-check" data-wk="${cid}-${i}-${j}" onclick="toggleWk('${cid}',${i},${j})" style="border-color:${c.color}44"></div><div><div class="wk-label">${w.wk}</div><div class="wk-focus">${w.focus}</div><div class="wk-what">${w.what}</div><div style="font-size:11px;font-style:italic;color:var(--ink3);margin-top:2px">→ ${w.out}</div></div></div>`).join('')}
+        ${cy.note?`<div class="notebox">${cy.note}</div>`:''}
+      </div>
+    </div>`).join('');
+  return`<div class="cd-hero" style="background:${c.color};color:#fff"><div class="cd-hero-eye">${c.domain} · ${c.span}</div><div class="cd-hero-title">${c.title}</div><div class="cd-hero-tag">${c.tagline}</div><div class="cd-pills">${c.pills.map(p=>`<span class="cd-pill">${p}</span>`).join('')}</div></div><div class="cd-tabs">${tabs}</div>${panels}`;
 }
 
 function switchCdTab(i){
-  document.querySelectorAll('.cd-tab').forEach((t,j)=>t.classList.toggle('active',i===j));
-  document.querySelectorAll('.cd-panel').forEach((p,j)=>p.classList.toggle('active',i===j));
+  document.querySelectorAll('.cd-tab').forEach((t,j)=>t.classList.toggle('active',i===j));
+  document.querySelectorAll('.cd-panel').forEach((p,j)=>p.classList.toggle('active',i===j));
 }
 function toggleObj(cid,ci,oi){
-  if(!S.courseChecks)S.courseChecks={};const key=`obj_${cid}_${ci}_${oi}`;S.courseChecks[key]=!S.courseChecks[key];
-  const cb=document.querySelector(`[data-obj="${cid}-${ci}-${oi}"]`);
-  if(cb){cb.classList.toggle('chk',S.courseChecks[key]);cb.style.background=S.courseChecks[key]?(_activeCourse?.color||'var(--gold)'):'';const txt=cb.nextElementSibling;if(txt)txt.classList.toggle('done',S.courseChecks[key]);}
-  save();updateCourseProgress(cid);
+  if(!S.courseChecks)S.courseChecks={};const key=`obj_${cid}_${ci}_${oi}`;S.courseChecks[key]=!S.courseChecks[key];
+  const cb=document.querySelector(`[data-obj="${cid}-${ci}-${oi}"]`);
+  if(cb){cb.classList.toggle('chk',S.courseChecks[key]);cb.style.background=S.courseChecks[key]?(_activeCourse?.color||'var(--gold)'):'';const txt=cb.nextElementSibling;if(txt)txt.classList.toggle('done',S.courseChecks[key]);}
+  save();updateCourseProgress(cid);
 }
 function toggleWk(cid,ci,wi){
-  if(!S.courseChecks)S.courseChecks={};const key=`wk_${cid}_${ci}_${wi}`;S.courseChecks[key]=!S.courseChecks[key];
-  const cb=document.querySelector(`[data-wk="${cid}-${ci}-${wi}"]`);
-  if(cb){cb.classList.toggle('chk',S.courseChecks[key]);cb.style.background=S.courseChecks[key]?(_activeCourse?.color||'var(--gold)'):'';const row=document.getElementById(`wkr-${cid}-${ci}-${wi}`);if(row)row.style.opacity=S.courseChecks[key]?'0.5':'1';}
-  save();updateCourseProgress(cid);
+  if(!S.courseChecks)S.courseChecks={};const key=`wk_${cid}_${ci}_${wi}`;S.courseChecks[key]=!S.courseChecks[key];
+  const cb=document.querySelector(`[data-wk="${cid}-${ci}-${wi}"]`);
+  if(cb){cb.classList.toggle('chk',S.courseChecks[key]);cb.style.background=S.courseChecks[key]?(_activeCourse?.color||'var(--gold)'):'';const row=document.getElementById(`wkr-${cid}-${ci}-${wi}`);if(row)row.style.opacity=S.courseChecks[key]?'0.5':'1';}
+  save();updateCourseProgress(cid);
 }
 function updateCourseProgress(cid){
-  const c=Object.values(COURSES).find(x=>x.id===cid);if(!c)return;
-  let total=0,done=0;
-  c.cycles.forEach((cy,ci)=>{cy.obj.forEach((_,oi)=>{total++;if(S.courseChecks&&S.courseChecks[`obj_${cid}_${ci}_${oi}`])done++;});cy.weeks.forEach((_,wi)=>{total++;if(S.courseChecks&&S.courseChecks[`wk_${cid}_${ci}_${wi}`])done++;});});
-  const pct=total?Math.round(done/total*100):0;
-  const fill=document.getElementById('cdProgFill');if(fill)fill.style.width=pct+'%';
-  const pctEl=document.getElementById('cdProgPct');if(pctEl)pctEl.textContent=pct+'%';
+  const c=Object.values(COURSES).find(x=>x.id===cid);if(!c)return;
+  let total=0,done=0;
+  c.cycles.forEach((cy,ci)=>{cy.obj.forEach((_,oi)=>{total++;if(S.courseChecks&&S.courseChecks[`obj_${cid}_${ci}_${oi}`])done++;});cy.weeks.forEach((_,wi)=>{total++;if(S.courseChecks&&S.courseChecks[`wk_${cid}_${ci}_${wi}`])done++;});});
+  const pct=total?Math.round(done/total*100):0;
+  const fill=document.getElementById('cdProgFill');if(fill)fill.style.width=pct+'%';
+  const pctEl=document.getElementById('cdProgPct');if(pctEl)pctEl.textContent=pct+'%';
 }
 function restoreCourseState(cid){
-  const c=Object.values(COURSES).find(x=>x.id===cid);if(!c||!S.courseChecks)return;
-  c.cycles.forEach((cy,ci)=>{
-    cy.obj.forEach((_,oi)=>{const key=`obj_${cid}_${ci}_${oi}`;if(S.courseChecks[key]){const cb=document.querySelector(`[data-obj="${cid}-${ci}-${oi}"]`);if(cb){cb.classList.add('chk');cb.style.background=c.color;const txt=cb.nextElementSibling;if(txt)txt.classList.add('done');}}});
-    cy.weeks.forEach((_,wi)=>{const key=`wk_${cid}_${ci}_${wi}`;if(S.courseChecks[key]){const cb=document.querySelector(`[data-wk="${cid}-${ci}-${wi}"]`);if(cb){cb.classList.add('chk');cb.style.background=c.color;const row=document.getElementById(`wkr-${cid}-${ci}-${wi}`);if(row)row.style.opacity='0.5';}}});
-  });
+  const c=Object.values(COURSES).find(x=>x.id===cid);if(!c||!S.courseChecks)return;
+  c.cycles.forEach((cy,ci)=>{
+    cy.obj.forEach((_,oi)=>{const key=`obj_${cid}_${ci}_${oi}`;if(S.courseChecks[key]){const cb=document.querySelector(`[data-obj="${cid}-${ci}-${oi}"]`);if(cb){cb.classList.add('chk');cb.style.background=c.color;const txt=cb.nextElementSibling;if(txt)txt.classList.add('done');}}});
+    cy.weeks.forEach((_,wi)=>{const key=`wk_${cid}_${ci}_${wi}`;if(S.courseChecks[key]){const cb=document.querySelector(`[data-wk="${cid}-${ci}-${wi}"]`);if(cb){cb.classList.add('chk');cb.style.background=c.color;const row=document.getElementById(`wkr-${cid}-${ci}-${wi}`);if(row)row.style.opacity='0.5';}}});
+  });
 }
 
 function renderStats(){
-  document.getElementById('statXP').textContent=S.xp||0;
-  document.getElementById('statStreak').textContent=(S.streak||0)+'🔥';
-  document.getElementById('statFS').textContent=(S.fsTotal||339).toFixed(0);
+  document.getElementById('statXP').textContent=S.xp||0;
+  document.getElementById('statStreak').textContent=(S.streak||0)+'🔥';
+  document.getElementById('statFS').textContent=(S.fsTotal||339).toFixed(0);
 }
 function toggleDark(){const isDark=document.body.classList.toggle('dark');localStorage.setItem('clore_dark',isDark?'1':'0');const btn=document.getElementById('darkBtn');if(btn)btn.textContent=isDark?'☀️':'🌙';}
 function initDark(){if(localStorage.getItem('clore_dark')==='1'){document.body.classList.add('dark');const btn=document.getElementById('darkBtn');if(btn)btn.textContent='☀️';}}
@@ -1126,70 +1118,69 @@ function showScreen(id,btn){document.querySelectorAll('.screen').forEach(s=>s.cl
 function exportData(){const blob=new Blob([JSON.stringify(S,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`clore-${today()}.json`;document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);}
 function importData(){const input=document.createElement('input');input.type='file';input.accept='.json';input.onchange=e=>{const file=e.target.files[0];if(!file)return;const reader=new FileReader();reader.onload=ev=>{try{S=Object.assign({},DEF,JSON.parse(ev.target.result));save();init();toast('✅ Backup restored');}catch{toast('❌ Could not read file');}};reader.readAsText(file);};input.click();}
 function renderDate(){
-  const d=new Date();
-  document.getElementById('headerDate').textContent=d.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});
-  renderTimeline();
+  const d=new Date();
+  document.getElementById('headerDate').textContent=d.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});
+  renderTimeline();
 }
 
 function getQuarterInfo(){
-  const quarters=[
-    {q:'Q1',label:'Foundation',start:'2026-05-11',end:'2026-08-31'},
-    {q:'Q2',label:'Building',start:'2026-09-01',end:'2026-12-31'},
-    {q:'Q3',label:'Deepening',start:'2027-01-01',end:'2027-04-30'},
-    {q:'Q4',label:'Expanding',start:'2027-05-01',end:'2027-08-31'},
-    {q:'Q5',label:'Consolidating',start:'2027-09-01',end:'2027-12-31'},
-    {q:'Q6',label:'Final Push',start:'2028-01-01',end:'2028-05-10'},
-  ];
-  const now=new Date(today());
-  for(const q of quarters){
-    const s=new Date(q.start),e=new Date(q.end);
-    if(now>=s&&now<=e){
-      const weekNum=Math.floor((now-s)/604800000)+1;
-      return{...q,week:weekNum};
-    }
-  }
-  return{q:'—',label:'',week:1};
+  const quarters=[
+    {q:'Q1',label:'Foundation',start:'2026-05-11',end:'2026-08-31'},
+    {q:'Q2',label:'Building',start:'2026-09-01',end:'2026-12-31'},
+    {q:'Q3',label:'Deepening',start:'2027-01-01',end:'2027-04-30'},
+    {q:'Q4',label:'Expanding',start:'2027-05-01',end:'2027-08-31'},
+    {q:'Q5',label:'Consolidating',start:'2027-09-01',end:'2027-12-31'},
+    {q:'Q6',label:'Final Push',start:'2028-01-01',end:'2028-05-10'},
+  ];
+  const now=new Date(today());
+  for(const q of quarters){
+    const s=new Date(q.start),e=new Date(q.end);
+    if(now>=s&&now<=e){
+      const weekNum=Math.floor((now-s)/604800000)+1;
+      return{...q,week:weekNum};
+    }
+  }
+  return{q:'—',label:'',week:1};
 }
 
 function renderTimeline(){
-  const info=getQuarterInfo();
-  const d=new Date();
-  const dateStr=d.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
-  const dateEl=document.getElementById('timelineDate');
-  const qEl=document.getElementById('timelineQ');
-  const wkEl=document.getElementById('timelineWk');
-  if(dateEl)dateEl.textContent=dateStr;
-  if(qEl)qEl.textContent=`${info.q} · ${info.label}`;
-  if(wkEl)wkEl.textContent=`Week ${info.week}`;
+  const info=getQuarterInfo();
+  const d=new Date();
+  const dateStr=d.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
+  const dateEl=document.getElementById('timelineDate');
+  const qEl=document.getElementById('timelineQ');
+  const wkEl=document.getElementById('timelineWk');
+  if(dateEl)dateEl.textContent=dateStr;
+  if(qEl)qEl.textContent=`${info.q} · ${info.label}`;
+  if(wkEl)wkEl.textContent=`Week ${info.week}`;
 }
 
 function switchReadTab(id,btn){
-  document.querySelectorAll('.read-tab').forEach(t=>t.classList.remove('active'));
-  document.querySelectorAll('.read-panel').forEach(p=>p.classList.remove('active'));
-  if(btn)btn.classList.add('active');
-  const panel=document.getElementById('rpanel-'+id);
-  if(panel)panel.classList.add('active');
+  document.querySelectorAll('.read-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.read-panel').forEach(p=>p.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+  const panel=document.getElementById('rpanel-'+id);
+  if(panel)panel.classList.add('active');
 }
 
 function init(){
-  load();
-  // Always clear energy on app open — user must choose each session
-  S.energy=null;
-  initDark();checkNewDay();renderDate();renderStats();
-  renderFSProgress();renderScheduleRows();renderBibleTarget();renderBibleList();
-  renderJWList();renderBadges();renderActLog();renderCourseGrid();
-  // Hide all task areas until energy is chosen
-  document.getElementById('progressStrip').style.display='none';
-  document.getElementById('launchSection').style.display='none';
-  document.getElementById('challengeWrap').style.display='none';
-  document.getElementById('fsSectionToday').style.display='none';
-  document.getElementById('scrollHint').style.display='none';
-  document.getElementById('rolloverSection').style.display='none';
-  document.getElementById('winBanner').classList.remove('show');
-  document.querySelectorAll('.energy-btn').forEach(b=>b.classList.remove('selected'));
+  load();
+  // Always clear energy on app open — user must choose each session
+  S.energy=null;
+  initDark();checkNewDay();renderDate();renderStats();
+  renderFSProgress();renderScheduleRows();renderBibleTarget();renderBibleList();
+  renderJWList();renderBadges();renderActLog();renderCourseGrid();
+  // Hide all task areas until energy is chosen
+  document.getElementById('progressStrip').style.display='none';
+  document.getElementById('launchSection').style.display='none';
+  document.getElementById('challengeWrap').style.display='none';
+  document.getElementById('fsSectionToday').style.display='none';
+  document.getElementById('scrollHint').style.display='none';
+  document.getElementById('rolloverSection').style.display='none';
+  document.getElementById('winBanner').classList.remove('show');
+  document.querySelectorAll('.energy-btn').forEach(b=>b.classList.remove('selected'));
 }
 window.onload=init;
 </script>
-
 </body>
 </html>
