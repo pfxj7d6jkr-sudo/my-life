@@ -221,6 +221,21 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 .toast{position:fixed;bottom:calc(var(--nav-h) + 16px);left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--paper);font-family:'Fraunces',serif;font-size:14px;font-style:italic;padding:10px 20px;border-radius:30px;opacity:0;transition:all 0.3s ease;z-index:500;white-space:nowrap;pointer-events:none;max-width:90vw;}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 .scroll-hint{text-align:center;padding:8px;font-family:'DM Mono',monospace;font-size:10px;color:var(--ink4);letter-spacing:1px;}
+/* LEVEL UP CELEBRATION */
+.levelup-overlay{position:fixed;inset:0;z-index:900;background:var(--paper);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 28px;text-align:center;animation:riseIn 0.4s ease;overflow:hidden;}
+.levelup-overlay.hidden{display:none;}
+.levelup-glow{position:absolute;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,var(--gold-l) 0%,transparent 70%);opacity:0.6;pointer-events:none;}
+.levelup-num{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+.levelup-emoji{font-size:64px;margin-bottom:16px;line-height:1;}
+.levelup-name{font-family:'Fraunces',serif;font-size:36px;font-weight:300;font-style:italic;color:var(--gold2);margin-bottom:8px;line-height:1.1;}
+.levelup-xp{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--ink3);margin-bottom:24px;}
+.levelup-desc{font-size:16px;font-style:italic;color:var(--ink2);line-height:1.7;margin-bottom:20px;max-width:340px;}
+.levelup-scripture{font-family:'DM Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:1px;margin-bottom:8px;}
+.levelup-verse{font-size:13px;font-style:italic;color:var(--ink3);line-height:1.6;margin-bottom:32px;max-width:300px;}
+.levelup-continue{padding:14px 36px;border-radius:30px;border:1.5px solid var(--gold);background:var(--gold-l);color:var(--gold2);font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all 0.2s;}
+.levelup-continue:active{background:var(--gold);color:#fff;}
+/* LEVEL CHIP in stats */
+.level-chip{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:0.5px;color:var(--gold2);background:var(--gold-l);border-radius:10px;padding:1px 6px;margin-top:2px;display:inline-block;}
 .timeline-banner{background:var(--paper2);border-bottom:1px solid var(--paper3);padding:8px 20px;display:flex;align-items:center;justify-content:space-between;gap:8px;}
 .timeline-date{font-family:'Fraunces',serif;font-size:13px;font-style:italic;color:var(--ink2);}
 .timeline-right{display:flex;align-items:center;gap:6px;}
@@ -373,6 +388,8 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
   </div>
   <!-- BOOKS PANEL -->
   <div class="read-panel" id="rpanel-books">
+    <div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-label">Magazines · <span id="magMonth" style="color:var(--gold)"></span></div><div class="sec-div-line"></div></div>
+    <div id="magTracker" style="margin:0 20px 10px"></div>
     <div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-label">JW books · <span id="jwCount" style="color:var(--gold)">0/9 started</span></div><div class="sec-div-line"></div></div>
     <div id="jwList"></div>
   </div>
@@ -405,10 +422,21 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
   <button class="nav-btn" onclick="showScreen('reading',this)"><span class="nav-icon">📖</span><span class="nav-label">Reading</span></button>
   <button class="nav-btn" onclick="showScreen('plan',this)"><span class="nav-icon">🗺</span><span class="nav-label">My Plan</span></button>
 </nav>
+<div class="levelup-overlay hidden" id="levelupOverlay">
+  <div class="levelup-glow"></div>
+  <div class="levelup-num" id="luNum">LEVEL 2</div>
+  <div class="levelup-emoji" id="luEmoji">🌿</div>
+  <div class="levelup-name" id="luName">Taking Root</div>
+  <div class="levelup-xp" id="luXP">400 XP reached</div>
+  <div class="levelup-desc" id="luDesc"></div>
+  <div class="levelup-scripture" id="luScriptureRef"></div>
+  <div class="levelup-verse" id="luVerse"></div>
+  <button class="levelup-continue" onclick="dismissLevelUp()">Continue →</button>
+</div>
 <div class="toast" id="toast"></div>
 
 <script>
-const DEF={xp:0,streak:0,lastDate:'',fsTotal:339,fsMonth:0,fsLog:[],bibleRead:{},jwBooks:{},jwPos:{},badges:{},courseChecks:{},energy:null,log:[],dailyChecks:{},biblePos:1,weekRollovers:{}};
+const DEF={xp:0,streak:0,lastDate:'',fsTotal:339,fsMonth:0,fsLog:[],bibleRead:{},jwBooks:{},jwPos:{},magazines:{},badges:{},courseChecks:{},energy:null,log:[],dailyChecks:{},biblePos:1,weekRollovers:{},levelsSeenUp:1};
 let S=Object.assign({},DEF);
 const KEY='clore_2026_v1';
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
@@ -506,6 +534,45 @@ const JW_BOOKS=[
   {key:'organize',name:'Nou òganize pou nou fè volonte Jewova',period:'2026–27',lang:'Kreyòl 🇭🇹',ch:16},
 ];
 
+// MAGAZINES
+function monthKey(){const d=new Date();return`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`;}
+function monthLabel(){return new Date().toLocaleDateString('en-US',{month:'long',year:'numeric'});}
+function renderMagazines(){
+  const el=document.getElementById('magTracker');const ml=document.getElementById('magMonth');
+  if(!el)return;
+  if(!S.magazines)S.magazines={};
+  const mk=monthKey();
+  if(!S.magazines[mk])S.magazines[mk]={wt:false,awake:false};
+  const m=S.magazines[mk];
+  if(ml)ml.textContent=monthLabel();
+  const mags=[{key:'wt',label:'Watchtower',icon:'🏛️'},{key:'awake',label:'Awake!',icon:'🌅'}];
+  el.innerHTML=mags.map(mg=>`
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 16px;background:var(--paper2);border:1.5px solid ${m[mg.key]?'var(--moss)':'var(--paper3)'};border-radius:var(--radius);margin-bottom:8px;cursor:pointer;transition:all 0.2s" onclick="toggleMag('${mg.key}')">
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="width:28px;height:28px;border-radius:50%;background:${m[mg.key]?'var(--moss)':'var(--paper)'};border:1.5px solid ${m[mg.key]?'var(--moss)':'var(--paper3)'};display:flex;align-items:center;justify-content:center;font-size:13px;color:${m[mg.key]?'#fff':'inherit'};transition:all 0.2s">${m[mg.key]?'✓':mg.icon}</div>
+        <div>
+          <div style="font-family:'Fraunces',serif;font-size:15px;font-weight:500;${m[mg.key]?'text-decoration:line-through;color:var(--ink3)':'color:var(--ink)'}">${mg.label}</div>
+          <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--ink3)">${monthLabel()} issue</div>
+        </div>
+      </div>
+      <div style="font-family:'DM Mono',monospace;font-size:9px;color:${m[mg.key]?'var(--moss)':'var(--ink4)'}">${m[mg.key]?'read ✓':'not yet'}</div>
+    </div>`).join('');
+  const past=Object.keys(S.magazines||{}).filter(k=>k!==mk).sort().reverse().slice(0,3);
+  if(past.length){
+    const hist=document.createElement('div');
+    hist.innerHTML=`<div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--ink4);padding:8px 0 6px">Past months</div>`+
+    past.map(k=>{const pm=S.magazines[k];const label=new Date(k+'-15').toLocaleDateString('en-US',{month:'long',year:'numeric'});const both=pm.wt&&pm.awake,neither=!pm.wt&&!pm.awake;return`<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--paper3);font-size:12px"><span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--ink3)">${label}</span><span style="font-family:'DM Mono',monospace;font-size:10px;color:${both?'var(--moss)':neither?'var(--ink4)':'var(--gold)'}">${both?'✓ both':neither?'—':'✓ one'}</span></div>`;}).join('');
+    el.appendChild(hist);
+  }
+}
+function toggleMag(key){
+  if(!S.magazines)S.magazines={};
+  const mk=monthKey();if(!S.magazines[mk])S.magazines[mk]={wt:false,awake:false};
+  S.magazines[mk][key]=!S.magazines[mk][key];
+  if(S.magazines[mk][key])awardXP(20,`📖 ${key==='wt'?'Watchtower':'Awake!'} read`);
+  save();renderMagazines();
+}
+
 // BADGES
 const BADGES=[
   {key:'first',icon:'🌱',name:'First Step',check:s=>s.xp>=10},
@@ -525,7 +592,7 @@ const BADGES=[
 
 // TASKS
 const NN=[
-  {id:'nn_bible',cat:'spirit',name:'Bible — today\'s portion',detail:()=>dow()===0?'Meeting day — Treasures only (personal reading Mon–Sat)':`${refLabel(getTodayTarget().start)} – ${refLabel(getTodayTarget().end)}`,tag:'nn',xp:25,mins:20},
+  {id:'nn_bible',cat:'spirit',name:'Bible — today\'s portion',detail:()=>dow()===0?'Meeting day — Treasures only (personal reading Mon–Sat)':`${refLabel(getTodayTarget().start)} – ${refLabel(getTodayTarget().end)}`,tag:'nn',xp:25,mins:20,inlineLog:true},
   {id:'nn_dailytext',cat:'spirit',name:'Daily Text',detail:'JW Library → read & reflect',tag:'nn',xp:15,mins:5},
   {id:'nn_fs',cat:'spirit',name:'Field service — any form',detail:()=>{const d=dow();if(d===1||d===3)return'Zoom PM 5:30–7:30';if(d===2)return'Letters — 1.5 hrs';if(d===4)return'Territory research — 3 hrs';if(d===5)return'Field service early AM · 4 hrs · meeting tonight';if(d===6)return'Field service early AM · 4 hrs';return'Rest day — optional letters/informal witnessing';},tag:'nn',xp:30,mins:15},
 ];
@@ -655,7 +722,8 @@ function computeRollovers(){
   const wk=weekKey();
   if(!S.weekRollovers[wk])S.weekRollovers[wk]=[];
   const yesterday=new Date();yesterday.setDate(yesterday.getDate()-1);
-  const yStr=yesterday.toISOString().slice(0,10);
+  // Use local date string for yesterday
+  const yStr=`${yesterday.getFullYear()}-${String(yesterday.getMonth()+1).padStart(2,'0')}-${String(yesterday.getDate()).padStart(2,'0')}`;
   const yCks=(S.dailyChecks&&S.dailyChecks[yStr])||{};
   const yDow=yesterday.getDay();
   SPIRIT_POOL.filter(t=>t.days&&t.days.includes(yDow)).forEach(t=>{
@@ -680,11 +748,94 @@ function skipRollover(id,origDate){
   save();renderRollovers();
 }
 
+// LEVELS
+const LEVELS=[
+  {
+    n:1,name:'Seedling',emoji:'🌱',xp:0,
+    desc:'Day one. The goal exists, the structure is in place, and you have decided to begin. That is already something.',
+    scriptureRef:'',verse:''
+  },{
+    n:2,name:'Taking Root',emoji:'🌿',xp:400,
+    desc:'Your daily habits are starting to leave a mark. The Daily Text, the Bible reading, the field service log — they are showing up. Your advancement is beginning to be seen.',
+    scriptureRef:'1 Timothy 4:15',
+    verse:'"Ponder over these things; be absorbed in them, so that your advancement may be plainly seen by all people."'
+  },{
+    n:3,name:'Absorbed',emoji:'🌳',xp:1200,
+    desc:'Both meetings are being prepared for. Monday personal study is yours. The languages are showing up on schedule. You are no longer setting up the habit — you are living it.',
+    scriptureRef:'1 Timothy 4:15',
+    verse:'"Be absorbed in them, so that your advancement may be plainly seen by all people."'
+  },{
+    n:4,name:'Skillful',emoji:'🍃',xp:2800,
+    desc:'Walk Courageously is complete. Ansèyman has shaped how you speak in the ministry. Language Transfer Spanish is done — 90 lessons. A skillful worker does not happen by accident.',
+    scriptureRef:'Proverbs 22:29',
+    verse:'"Have you seen a man skillful at his work? He will stand before kings."'
+  },{
+    n:5,name:'Intensely Occupied',emoji:'🌾',xp:5500,
+    desc:'600 field service hours. The Bible is halfway through. Ansèyman complete. ASL 2 finished. You are not doing the minimum — you are intensely occupied in what matters most.',
+    scriptureRef:'Acts 18:5',
+    verse:'"Paul was intensely occupied with the word, witnessing to the Jews that Jesus was the Christ."'
+  },{
+    n:6,name:'Stretching Forward',emoji:'🕊️',xp:9500,
+    desc:'Your 10th baptism anniversary. A new service year well underway. Language Transfer Arabic complete. You are not looking back at what was — you are stretching toward what is ahead.',
+    scriptureRef:'Philippians 3:13',
+    verse:'"Forgetting the things behind and stretching forward to the things ahead."'
+  },{
+    n:7,name:'Plainly Seen',emoji:'👑',xp:15000,
+    desc:'The Bible is complete. SKE application is ready. ASL 4 finished. Arabic is readable. Two years of consistent, faithful effort. Your advancement is plainly seen — by you, and by Jehovah.',
+    scriptureRef:'1 Timothy 4:15',
+    verse:'"So that your advancement may be plainly seen by all people."'
+  },{
+    n:8,name:'Find Joy',emoji:'🌠',xp:22000,
+    desc:'Two full years. Every language touched. Every spiritual goal reached or actively in motion. This is not the end — it is the foundation for everything that follows. Find joy in what your eyes now see.',
+    scriptureRef:'Ecclesiastes 6:9',
+    verse:'"Better to enjoy what the eyes see than to wander after one\'s desires."'
+  },
+];
+
+function getCurrentLevel(){
+  const xp=S.xp||0;
+  let cur=LEVELS[0];
+  for(const l of LEVELS){if(xp>=l.xp)cur=l;}
+  return cur;
+}
+function getNextLevel(){
+  const cur=getCurrentLevel();
+  return LEVELS.find(l=>l.n===cur.n+1)||null;
+}
+
+function checkLevelUp(){
+  const cur=getCurrentLevel();
+  const seen=S.levelsSeenUp||0;
+  if(cur.n>seen&&cur.n>1){
+    S.levelsSeenUp=cur.n;
+    save();
+    showLevelUp(cur);
+  }
+}
+
+function showLevelUp(level){
+  document.getElementById('luNum').textContent=`LEVEL ${level.n}`;
+  document.getElementById('luEmoji').textContent=level.emoji;
+  document.getElementById('luName').textContent=level.name;
+  document.getElementById('luXP').textContent=`${level.xp.toLocaleString()} XP reached`;
+  document.getElementById('luDesc').textContent=level.desc;
+  document.getElementById('luScriptureRef').textContent=level.scriptureRef;
+  document.getElementById('luVerse').textContent=level.verse;
+  // hide ref/verse if empty (level 1)
+  document.getElementById('luScriptureRef').style.display=level.scriptureRef?'block':'none';
+  document.getElementById('luVerse').style.display=level.verse?'block':'none';
+  document.getElementById('levelupOverlay').classList.remove('hidden');
+}
+
+function dismissLevelUp(){
+  document.getElementById('levelupOverlay').classList.add('hidden');
+}
+
 // XP
 function awardXP(xp,label){
   S.xp=(S.xp||0)+xp;S.log=S.log||[];S.log.unshift({date:today(),text:label,xp});
   if(S.log.length>80)S.log.pop();
-  checkBadges();save();toast(`+${xp} XP`);renderStats();
+  checkBadges();checkLevelUp();save();toast(`+${xp} XP`);renderStats();
 }
 function checkBadges(){BADGES.forEach(b=>{if(!S.badges[b.key]&&b.check(S)){S.badges[b.key]=true;S.xp=(S.xp||0)+50;toast(`🏅 ${b.name} unlocked!`);}});}
 
@@ -737,9 +888,43 @@ function makeTaskCard(task,isDone,isBonus){
   const detail=typeof task.detail==='function'?task.detail():task.detail;
   const tagLabel=task.tag==='nn'?'anchor':isBonus?'bonus':'';
   const tagClass=task.tag==='nn'?'tag-nn':isBonus?'tag-bonus':'';
-  el.innerHTML=`<div class="task-check"><span class="task-check-mark">✓</span></div><div class="task-body"><div class="task-name">${task.name}</div><div class="task-detail">${detail}</div>${tagLabel?`<span class="task-tag ${tagClass}">${tagLabel}${task.mins?` · ${task.mins}min`:''}</span>`:''}</div>`;
+  const inlineLog=task.inlineLog&&dow()!==0?`
+    <div style="display:flex;gap:6px;align-items:center;margin-top:8px;flex-wrap:wrap" onclick="event.stopPropagation()">
+      <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--gold2);white-space:nowrap">Ended at ch.</div>
+      <input class="num-input" type="number" id="inlineBibleIn" placeholder="ch#" min="1" style="width:56px;padding:5px 8px;font-size:12px;background:var(--paper)" onclick="event.stopPropagation()">
+      <button class="pill-btn" style="font-size:9px;padding:4px 10px" onclick="event.stopPropagation();logBibleInline()">Save</button>
+      <span id="inlineBibleConfirm" style="font-family:'DM Mono',monospace;font-size:9px;color:var(--moss)"></span>
+    </div>`:'';
+  el.innerHTML=`<div class="task-check"><span class="task-check-mark">✓</span></div><div class="task-body"><div class="task-name">${task.name}</div><div class="task-detail">${detail}</div>${tagLabel?`<span class="task-tag ${tagClass}">${tagLabel}${task.mins?` · ${task.mins}min`:''}</span>`:''}${inlineLog}</div>`;
   el.onclick=()=>toggleTask(task,el,isBonus);
   return el;
+}
+
+function logBibleInline(){
+  const inp=document.getElementById('inlineBibleIn');
+  const confirm=document.getElementById('inlineBibleConfirm');
+  const val=parseInt(inp.value);
+  if(!val||isNaN(val))return;
+  const t=getTodayTarget();
+  const startRef=globalToRef(t.start);
+  if(!startRef)return;
+  const bStart=bookStartGlobal(startRef.key);
+  const newGlobal=bStart+val;
+  if(newGlobal>S.biblePos){
+    const chRead=newGlobal-S.biblePos;
+    for(let g=S.biblePos;g<newGlobal&&g<=TOTAL_CH;g++){
+      const ref=globalToRef(g);
+      if(ref){if(!S.bibleRead[ref.key])S.bibleRead[ref.key]=[];if(!S.bibleRead[ref.key].includes(ref.ch))S.bibleRead[ref.key].push(ref.ch);}
+    }
+    S.biblePos=newGlobal;
+    awardXP(chRead*5,`📖 ${chRead} ch`);
+    inp.value='';
+    if(confirm)confirm.textContent=`✓ ${chRead} chapters saved`;
+    renderBibleTarget();
+    save();
+  } else if(confirm){
+    confirm.textContent='already recorded';
+  }
 }
 function toggleTask(task,el){
   const checks=getChecks();const was=checks[task.id];
@@ -1108,9 +1293,24 @@ function restoreCourseState(cid){
 }
 
 function renderStats(){
-  document.getElementById('statXP').textContent=S.xp||0;
+  const xp=S.xp||0;
+  const cur=getCurrentLevel();
+  const next=getNextLevel();
+  document.getElementById('statXP').textContent=xp;
   document.getElementById('statStreak').textContent=(S.streak||0)+'🔥';
   document.getElementById('statFS').textContent=(S.fsTotal||339).toFixed(0);
+  // Update XP stat cell to show level
+  const xpCell=document.getElementById('statXP').closest('.stat-cell');
+  if(xpCell){
+    let chip=xpCell.querySelector('.level-chip');
+    if(!chip){chip=document.createElement('div');chip.className='level-chip';xpCell.appendChild(chip);}
+    chip.textContent=`${cur.emoji} L${cur.n} ${cur.name}`;
+    // show progress to next level
+    if(next){
+      const pct=Math.round(((xp-cur.xp)/(next.xp-cur.xp))*100);
+      chip.title=`${pct}% to Level ${next.n}`;
+    }
+  }
 }
 function toggleDark(){const isDark=document.body.classList.toggle('dark');localStorage.setItem('clore_dark',isDark?'1':'0');const btn=document.getElementById('darkBtn');if(btn)btn.textContent=isDark?'☀️':'🌙';}
 function initDark(){if(localStorage.getItem('clore_dark')==='1'){document.body.classList.add('dark');const btn=document.getElementById('darkBtn');if(btn)btn.textContent='☀️';}}
@@ -1169,7 +1369,9 @@ function init(){
   S.energy=null;
   initDark();checkNewDay();renderDate();renderStats();
   renderFSProgress();renderScheduleRows();renderBibleTarget();renderBibleList();
-  renderJWList();renderBadges();renderActLog();renderCourseGrid();
+  renderJWList();renderMagazines();renderBadges();renderActLog();renderCourseGrid();
+  // Check if a level was reached last session and not yet celebrated
+  checkLevelUp();
   // Hide all task areas until energy is chosen
   document.getElementById('progressStrip').style.display='none';
   document.getElementById('launchSection').style.display='none';
