@@ -413,9 +413,9 @@ let S=Object.assign({},DEF);
 const KEY='clore_2026_v1';
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
 function load(){try{const d=localStorage.getItem(KEY);if(d)S=Object.assign({},DEF,JSON.parse(d));}catch(e){}}
-function today(){return new Date().toISOString().slice(0,10);}
+function today(){const d=new Date();return`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;}
 function dow(){return new Date().getDay();}
-function weekKey(){const d=new Date();const sun=new Date(d);sun.setDate(d.getDate()-d.getDay());return sun.toISOString().slice(0,10);}
+function weekKey(){const d=new Date();const sun=new Date(d);sun.setDate(d.getDate()-d.getDay());return`${sun.getFullYear()}-${String(sun.getMonth()+1).padStart(2,'0')}-${String(sun.getDate()).padStart(2,'0')}`;}
 function checkNewDay(){
   if(S.lastDate!==today()){
     if(S.lastDate){const p=new Date(S.lastDate),n=new Date(today());S.streak=(n-p)/86400000<=1?(S.streak||0)+1:0;}
