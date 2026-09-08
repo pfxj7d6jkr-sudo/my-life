@@ -725,7 +725,9 @@ function switchUmbrella(u){
   const body = document.getElementById('dailyBody');
   body.classList.toggle('tint-spir', u==='spir');
   body.classList.toggle('tint-whole', u==='whole');
-  document.querySelector('.app').style.background = u==='spir' ? 'var(--sage-bg)' : 'var(--lav-bg)';
+  const bg = u==='spir' ? 'var(--sage-bg)' : 'var(--lav-bg)';
+  document.querySelector('.app').style.background = bg;
+  document.body.style.background = bg;
   renderDaily();
 }
 function itemRow(i, checked, wholeClass){
@@ -1065,9 +1067,12 @@ function switchTop(name){
   document.querySelector(`[onclick="switchTop('${name}')"]`).classList.add('active');
   document.getElementById(`top-${name}`).classList.add('active');
   if (name==='daily'){
-    document.querySelector('.app').style.background = activeUmbrella==='whole' ? 'var(--lav-bg)' : 'var(--sage-bg)';
+    const bg = activeUmbrella==='whole' ? 'var(--lav-bg)' : 'var(--sage-bg)';
+    document.querySelector('.app').style.background = bg;
+    document.body.style.background = bg;
   } else {
     document.querySelector('.app').style.background = '';
+    document.body.style.background = '';
   }
   if (name==='roadmap') renderRoadmap();
   if (name==='week') renderThisWeek();
@@ -1091,6 +1096,7 @@ function confirmResetToday(){
   document.documentElement.style.setProperty('--line', paleMix(monthAccent, 0.15));
   document.getElementById('dailyBody').classList.add('tint-spir');
   document.querySelector('.app').style.background = 'var(--sage-bg)';
+  document.body.style.background = 'var(--sage-bg)';
   renderDaily();
   renderThisWeek();
   renderProgress();
