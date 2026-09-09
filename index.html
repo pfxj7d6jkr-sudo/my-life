@@ -9,8 +9,8 @@
 <style>
 :root{
   --cream:#faf6ee; --cream2:#f2ece0; --card:#ffffff; --ink:#2e2a26; --ink2:#5c554c; --ink3:#8a8177; --line:#e2d9c8;
-  --sage:#C89DC5; --sage-dim:#dbbfd9; --sage-ink:#6e566c; --sage-bg:#e6d3e5; --sage-card:#dec4dc;
-  --lav:#C29DC5; --lav-dim:#d7bfd9; --lav-ink:#6b556c; --lav-bg:#e4d3e5; --lav-card:#dac4dc;
+  --sage:#8FA888; --sage-dim:#C3D4BC; --sage-ink:#4B6144; --sage-bg:#DCE7D6; --sage-card:#CFE0C6;
+  --lav:#7FA69E; --lav-dim:#BBD3CE; --lav-ink:#3F5C57; --lav-bg:#DCEAE7; --lav-card:#C9DFDA;
   --blue:#7c93a8; --blue-dim:#e5eaef; --blue-ink:#3e5165;
   --gold:#b8935a; --gold-dim:#f2e6d2; --gold-ink:#6b4f26;
 }
@@ -29,7 +29,10 @@ body{font-family:'Karla',sans-serif;background:var(--cream);color:var(--ink);fon
   .month-grid{grid-template-columns:repeat(4,1fr);gap:12px;}
 }
 
-.toptabs{display:flex;border-bottom:1px solid var(--line);background:var(--cream);position:sticky;top:0;z-index:60;}
+.toptabs-outer{background:var(--cream);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:60;}
+.toptabs{display:flex;max-width:480px;margin:0 auto;}
+@media (min-width:640px){ .toptabs{max-width:600px;} }
+@media (min-width:1024px){ .toptabs{max-width:720px;} }
 .toptab{flex:1;text-align:center;padding:12px 0;font-size:12.5px;color:var(--ink3);cursor:pointer;border-bottom:2px solid transparent;}
 .toptab.active{color:var(--ink);border-bottom-color:var(--ink);font-weight:600;}
 .toppanel{display:none;}
@@ -142,6 +145,24 @@ body{font-family:'Karla',sans-serif;background:var(--cream);color:var(--ink);fon
 .log-row{display:flex;justify-content:space-between;padding:3px 0;}
 .reset-link{display:block;text-align:center;margin-top:10px;font-size:12px;color:var(--ink3);text-decoration:underline;cursor:pointer;}
 
+html,body{height:100%;background:var(--cream);}
+.mission-screen{min-height:100vh;min-height:100dvh;width:100%;background:var(--cream);display:flex;flex-direction:column;justify-content:center;align-items:center;padding:32px 24px;}
+.mission-inner{width:100%;max-width:480px;}
+@media (min-width:640px){ .mission-inner{max-width:600px;} }
+@media (min-width:1024px){ .mission-inner{max-width:720px;} }
+.mission-quote{font-family:'Fraunces',serif;font-size:22px;font-style:italic;line-height:1.4;text-align:center;color:var(--ink);margin-bottom:40px;}
+.mission-block{margin-bottom:20px;}
+.mission-block.spir{background:var(--sage-bg);border-radius:14px;padding:18px;}
+.mission-block.whole{background:var(--lav-bg);border-radius:14px;padding:18px;}
+.mission-label{font-size:12px;letter-spacing:.3px;font-weight:600;margin-bottom:8px;}
+.mission-block.spir .mission-label{color:var(--sage-ink);}
+.mission-block.whole .mission-label{color:var(--lav-ink);}
+.mission-input{width:100%;min-height:64px;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-family:'Karla',sans-serif;font-size:13.5px;color:var(--ink);background:var(--card);resize:vertical;margin-bottom:10px;}
+.mission-btn{display:block;width:100%;text-align:center;padding:11px 0;border-radius:9px;font-size:14px;font-weight:600;cursor:pointer;border:1px solid transparent;}
+.mission-block.spir .mission-btn{background:var(--sage);color:#fff;}
+.mission-block.whole .mission-btn{background:var(--lav);color:#fff;}
+.mission-help{font-size:11.5px;color:var(--ink3);text-align:center;margin-top:6px;cursor:pointer;text-decoration:underline;}
+
 .nav-tracker{display:flex;align-items:center;gap:10px;margin-bottom:4px;}
 .nav-btn{background:var(--cream2);border:1px solid var(--line);border-radius:6px;padding:6px 12px;font-size:14px;cursor:pointer;color:var(--ink2);}
 .nav-current{flex:1;text-align:center;font-family:'Fraunces',serif;font-size:15px;}
@@ -164,25 +185,45 @@ body{font-family:'Karla',sans-serif;background:var(--cream);color:var(--ink);fon
 
 .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--cream);padding:9px 18px;border-radius:20px;font-size:13px;opacity:0;pointer-events:none;transition:all .3s;z-index:200;white-space:nowrap;}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+.mission-hero{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:14px;padding:22px 20px;margin-bottom:28px;}
+.mission-hero-label{font-size:11px;letter-spacing:.4px;color:var(--gold-ink);font-weight:600;margin-bottom:10px;text-transform:uppercase;}
+.mission-hero-text{font-family:'Fraunces',serif;font-size:19px;line-height:1.5;color:var(--ink);}
+.mission-daily-quote{font-family:'Fraunces',serif;font-size:15px;font-style:italic;line-height:1.4;text-align:center;color:var(--ink2);margin-bottom:28px;}
 </style>
 </head>
 <body>
 
 <div class="toast" id="toast"></div>
 
-<div class="app">
+<div id="missionScreen" class="mission-screen">
+  <div class="mission-inner">
+  <div class="mission-hero">
+    <div class="mission-hero-label">My Mission</div>
+    <div class="mission-hero-text" id="missionHeroText">—</div>
+  </div>
+  <div class="mission-daily-quote" id="missionQuote">—</div>
+  <div class="mission-btn" style="background:var(--ink);color:#fff;" onclick="enterApp('spir')">Begin my day →</div>
+  </div>
+</div>
 
+<div id="mainApp" style="display:none;">
+<div class="toptabs-outer">
   <div class="toptabs">
     <div class="toptab active" onclick="switchTop('daily')">Today</div>
     <div class="toptab" onclick="switchTop('week')">This Week</div>
     <div class="toptab" onclick="switchTop('roadmap')">Roadmap</div>
     <div class="toptab" onclick="switchTop('progress')">Progress</div>
   </div>
+</div>
+
+<div class="app">
 
   <!-- ══ TODAY ══ -->
   <div class="toppanel active" id="top-daily">
     <div class="daily-body" id="dailyBody">
       <div class="pagehead" style="padding-bottom:10px;border-bottom:1px solid var(--line);">
+        <div class="rm-crumb" onclick="backToMission()">‹ Mission</div>
         <div class="pagesub">Today</div>
         <div class="pagetitle" id="dateLabel">—</div>
         <div id="dayFlag"></div>
@@ -195,6 +236,7 @@ body{font-family:'Karla',sans-serif;background:var(--cream);color:var(--ink);fon
       <div class="daily-list">
         <div class="umbrella-caption" id="umbrellaCaption">be a productive and disciplined pioneer</div>
         <div id="dailyItems"></div>
+        <div id="dailyOther"></div>
       </div>
     </div>
   </div>
@@ -320,14 +362,6 @@ body{font-family:'Karla',sans-serif;background:var(--cream);color:var(--ink);fon
       </div>
 
       <div class="pcard">
-        <div class="pcard-title" id="monthFillinTitle">This month</div>
-        <div class="fillin-row"><label>Quality</label><input id="fi-quality" placeholder="e.g. compassion vs. indifference" onblur="saveFillins()"></div>
-        <div class="fillin-row"><label>Hairstyle</label><input id="fi-hairstyle" placeholder="this month's style" onblur="saveFillins()"></div>
-        <div class="fillin-row"><label>Movie</label><input id="fi-movie" placeholder="JW monthly movie" onblur="saveFillins()"></div>
-        <div class="fillin-row"><label>Audiobook</label><input id="fi-audiobook" placeholder="secular audiobook" onblur="saveFillins()"></div>
-      </div>
-
-      <div class="pcard">
         <div class="pcard-title">Cardiac rehab — this week</div>
         <div class="prow">
           <div class="prow-top"><span class="prow-label">Mon / Tue / Thu sessions</span><span class="prow-val" id="rehabVal">0 / 3</span></div>
@@ -336,16 +370,23 @@ body{font-family:'Karla',sans-serif;background:var(--cream);color:var(--ink);fon
       </div>
 
       <div class="pcard">
-        <div class="pcard-title">CLI work sessions — this week</div>
+        <div class="pcard-title">CLI interpreting — this week</div>
         <div class="prow">
-          <div class="prow-top"><span class="prow-label">Mon / Tue / Thu sessions</span><span class="prow-val" id="cliVal">0 / 3</span></div>
+          <div class="prow-top"><span class="prow-label">Toward 20 hr/week goal</span><span class="prow-val" id="cliVal">0 / 20</span></div>
           <div class="pbar"><div class="pbar-fill" id="cliBar" style="background:var(--gold);width:0%"></div></div>
         </div>
+        <div class="inline-form">
+          <input type="number" id="cliInput" placeholder="log interpreted hours" min="0" step="0.1">
+          <button onclick="logCLI()">Log</button>
+        </div>
+        <div style="font-size:11.5px;color:var(--ink3);margin-top:6px;">Resets each Monday. Login days: Mon / Tue / Thu.</div>
       </div>
 
       <div class="reset-link" onclick="confirmResetToday()">Reset today's checklist</div>
     </div>
   </div>
+
+</div>
 
 </div>
 
@@ -364,7 +405,6 @@ const SPIR_DAILY = [
 
 const DAY_SPIR = {
   1: [
-    { id:'mon-study', tag:'Feeding Myself', order:30, name:'Personal study', detail:'the long one · 1 hr' },
     { id:'mon-treasures', tag:'Feeding Myself', order:35, name:'Treasures from God\u2019s Word', detail:'meeting prep · 30 min' },
     { id:'mon-fs', tag:'Field Service', order:80, name:'Field service — Zoom', detail:'5:30–7:30pm · 2 hrs' },
   ],
@@ -376,7 +416,9 @@ const DAY_SPIR = {
     { id:'wed-cart', tag:'Field Service', order:45, name:'Cart witnessing or letter writing', detail:'daytime' },
     { id:'wed-fs-zoom', tag:'Field Service', order:80, name:'Field service — Zoom', detail:'5:30–7:30pm · 2 hrs' },
   ],
-  4: [],
+  4: [
+    { id:'thu-study', tag:'Feeding Myself', order:30, name:'Personal study', detail:'the long one · 1 hr' },
+  ],
   5: [
     { id:'fri-fs', tag:'Field Service', order:20, name:'Field service — Zoom', detail:'8am–1pm · 5 hrs' },
     { id:'fri-wt', tag:'Feeding Myself', order:35, name:'Watchtower study article', detail:'30 min' },
@@ -398,9 +440,13 @@ function morningRoutine(dow){
     { id:'wr-hygiene', tag:'Body & Mind', name:'Morning hygiene', detail:'before 9am · 15–20 min' },
     { id:'wr-exercise', tag:'Body & Mind', name:'Exercise', detail:'type of your choice' },
   ];
-  if (dow === 2) items.push({ id:'wr-hair', tag:'Body & Mind', name:'Hair wash', detail:'weekly' });
   items.push({ id:'wr-breakfast', tag:'Body & Mind', name:'Breakfast', detail:'' });
   return items;
+}
+const HAIR_WASH_ANCHOR = new Date(2026,8,5); // Saturday Sept 5, 2026 — confirmed wash date
+function isHairWashDay(d){
+  const diffDays = Math.floor((new Date(d.getFullYear(),d.getMonth(),d.getDate()) - HAIR_WASH_ANCHOR) / 86400000);
+  return diffDays % 14 === 0;
 }
 function eveningRoutine(){
   return [
@@ -410,6 +456,7 @@ function eveningRoutine(){
     { id:'er-bed', tag:'Body & Mind', name:'In bed by 10:30pm', detail:'' },
   ];
 }
+const DAY_ABBR = {0:'Sun',1:'Mon',2:'Tue',3:'Wed',4:'Thu',5:'Fri',6:'Sat'};
 function anytimeToday(dow){
   const langNow = languageForDate(new Date());
   const items = [
@@ -422,13 +469,11 @@ function anytimeToday(dow){
     2: { id:'tue-rehab', tag:'Body & Mind', name:'Cardiac rehab', detail:'1–2pm' },
     4: { id:'thu-rehab', tag:'Body & Mind', name:'Cardiac rehab', detail:'1–2pm' },
   };
-  const CLI = {
-    1: { id:'mon-cli', tag:'Work', name:'CLI interpreting session', detail:'60 min, after morning routine' },
-    2: { id:'tue-cli', tag:'Work', name:'CLI interpreting session', detail:'30 min, after morning routine' },
-    4: { id:'thu-cli', tag:'Work', name:'CLI interpreting session', detail:'60 min, after morning routine' },
-  };
   if (REHAB[dow]) items.push(REHAB[dow]);
-  if (CLI[dow]) items.push(CLI[dow]);
+  if (dow===6 && isHairWashDay(new Date())) items.push({ id:'sat-hairwash', tag:'Body & Mind', name:'Hair wash', detail:'Saturday afternoon · biweekly' });
+  const wk = weekKey(new Date());
+  const wc = S.weekListChecked[wk] || {};
+  if (wc['wl-cli-days-'+DAY_ABBR[dow]]) items.push({ id:'work-cli', tag:'Work', name:'CLI login session', detail:'toward 20 hr/week interpreting goal' });
   return items;
 }
 const UMBRELLA_CAPTION = { spir: "be a productive and disciplined pioneer", whole: "Year 1 focus: weight & hygiene" };
@@ -473,16 +518,76 @@ function bibleFlatIndex(bookIdx, chapterInBook){
   for (let i=0;i<bookIdx;i++) idx += BIBLE_CHAPTERS[BIBLE_ORDER[i]] || 1;
   return idx + (chapterInBook-1);
 }
-// This week's reading plan: Monday = 2 meeting chapters, other 6 days = 2/day => 14 chapters/week
-function bibleWeekRangeText(){
+function bibleRangeText(chapterCount){
   const startIdx = bibleFlatIndex(S.bibleIndex, S.bibleChapterInBook);
-  const endIdx = Math.min(BIBLE_FLAT.length-1, startIdx + 13);
+  const endIdx = Math.min(BIBLE_FLAT.length-1, startIdx + chapterCount - 1);
   const start = BIBLE_FLAT[startIdx];
   const end = BIBLE_FLAT[endIdx];
   const startTxt = `${start.book} ${start.chapter}`;
   const endTxt = start.book === end.book ? `${end.chapter}` : `${end.book} ${end.chapter}`;
-  return `${startTxt} → ${endTxt} (14 chapters: 2 for Monday's meeting reading + 12 across the rest of the week)`;
+  return startIdx === endIdx ? startTxt : `${startTxt}–${endTxt}`;
 }
+// This week's reading plan: Monday = 2 meeting chapters, other 6 days = 2/day => 14 chapters/week
+function bibleWeekRangeText(){
+  return `${bibleRangeText(14)} (14 chapters: 2 for Monday's meeting reading + 12 across the rest of the week)`;
+}
+function bibleDailyDetail(dow){
+  if (dow===1) return "This week's meeting reading (from the Watchtower Study workbook) · ~20 min";
+  return `${bibleRangeText(2)} · ~20 min`;
+}
+
+// ══════════════════════════════════════════════
+// QUARTERLY / MONTHLY GOAL PROJECTIONS
+// ══════════════════════════════════════════════
+function currentMonthIdxFromDate(d){ return MONTHS.findIndex(mo => mo.y===d.getFullYear() && mo.m===(d.getMonth()+1)); }
+function monthsFromNow(monthIdx){
+  const nowIdx = currentMonthIdxFromDate(new Date());
+  if (nowIdx===-1) return monthIdx; // fallback if outside tracked range
+  return monthIdx - nowIdx;
+}
+const CHAPTERS_PER_MONTH = 14 * 4.33; // 14/week average
+function bibleRangeForOffset(monthsAhead, monthSpan){
+  const startOffset = Math.round(monthsAhead * CHAPTERS_PER_MONTH);
+  const span = Math.round(monthSpan * CHAPTERS_PER_MONTH);
+  const curIdx = bibleFlatIndex(S.bibleIndex, S.bibleChapterInBook);
+  const startIdx = Math.max(0, Math.min(BIBLE_FLAT.length-1, curIdx + startOffset));
+  const endIdx = Math.max(0, Math.min(BIBLE_FLAT.length-1, startIdx + span - 1));
+  const start = BIBLE_FLAT[startIdx], end = BIBLE_FLAT[endIdx];
+  const startTxt = `${start.book} ${start.chapter}`;
+  const endTxt = start.book===end.book ? `${end.chapter}` : `${end.book} ${end.chapter}`;
+  return `${startTxt} → ${endTxt}`;
+}
+function bibleRangeForMonth(monthIdx){ return bibleRangeForOffset(monthsFromNow(monthIdx), 1); }
+function bibleRangeForQuarter(qIdx){ return bibleRangeForOffset(monthsFromNow(qIdx*3), 3); }
+
+function pioneerSectionsForMonth(monthIdx){
+  const startSec = monthIdx*2+1, endSec = Math.min(18, monthIdx*2+2);
+  if (startSec>18) return 'Course complete';
+  return `Section ${startSec}${endSec>startSec?'–'+endSec:''} of 18`;
+}
+function pioneerSectionsForQuarter(qIdx){
+  const startSec = qIdx*6+1, endSec = Math.min(18, qIdx*6+6);
+  if (startSec>18) return 'Course complete';
+  return `Sections ${startSec}–${endSec} of 18`;
+}
+
+function jwCycleStatusText(){
+  return `Currently: ${READ_UNITS[S.readIndex]} (unit ${S.readIndex+1} of ${READ_UNITS.length}) — no fixed pace set yet`;
+}
+
+function languageQuarterSummary(qIdx){
+  const monthStart = MONTHS[qIdx*3];
+  if (!monthStart) return '—';
+  const qStart = startOfWeek(new Date(monthStart.y, monthStart.m-1, 1));
+  const counts = {};
+  for (let i=0;i<13;i++){
+    const wd = new Date(qStart.getTime() + i*7*86400000);
+    const ln = languageForDate(wd);
+    counts[ln.lang.name] = (counts[ln.lang.name]||0)+1;
+  }
+  return Object.entries(counts).map(([name,ct])=>`${name} (${ct} wk${ct>1?'s':''})`).join(' · ');
+}
+function workQuarterGoal(){ return '~260 hrs (20 hr/week × ~13 weeks)'; }
 
 // ══════════════════════════════════════════════
 // 6-BOOK JW READING CYCLE
@@ -533,11 +638,25 @@ function aslDetailText(){
 // ══════════════════════════════════════════════
 // ROADMAP DATA
 // ══════════════════════════════════════════════
-const GOALS = [
-  { name:"School for Kingdom Evangelizers", why:"To expand my service.", when:"Application window Sept 2028 – Dec 2029.", how:"Strong spiritual routine, clean conscience, stable health, self-sufficient." },
+const LONG_TERM_GOALS = [
   { name:"Bethel Remote Service", why:"Stay busy in Jehovah's service.", when:"Application in September 2027.", how:"Stable spiritual and physical health." },
-  { name:"Pioneer School", why:"Advanced pioneer training.", when:"July 2027.", how:"Work the Lekòl Pyonye course book (18 sections) at ~2 sections/month starting Sept 2026, review before school." },
+  { name:"School for Kingdom Evangelizers (SKE)", why:"To expand my service.", when:"Application window Sept 2028 – Aug 2029.", how:"Strong spiritual routine, clean conscience, stable health, self-sufficient." },
+  { name:"Financial independence", why:"Contribute to the household and sustain pioneering long-term.", when:"Ongoing.", how:"Certifications, steady work, budgeting." },
+  { name:"Have a great spiritual routine", why:"Become the pioneer Jehovah wants me to be.", when:"Ongoing.", how:"Consistent Bible reading, personal study, field service." },
 ];
+
+const YEARS_META = [
+  { num:1, range:"2026–2027 service year", bigGoal:"Apply to Bethel Remote Service" },
+  { num:2, range:"2027–2028 service year", bigGoal:"Apply to SKE" },
+  { num:3, range:"2028–2029 service year", bigGoal:"Serve where the need is greater" },
+];
+function defaultYearGoals(){
+  return {
+    1: { pioneering:"600 pioneer hours this service year — aim for ~500 by end of April to avoid burning out during the May–Aug heat.", feedingMyself:"Read the Bible daily, consistently. Do personal study, consistently.", financeWork:"Get my interpreting/translation certification(s).", languages:"", weightLoss:"", skills:"" },
+    2: { pioneering:"", feedingMyself:"", financeWork:"", languages:"", weightLoss:"", skills:"" },
+    3: { pioneering:"", feedingMyself:"", financeWork:"", languages:"", weightLoss:"", skills:"" },
+  };
+}
 
 const MONTHS = [
   { y:2026, m:9,  name:"September", extra:"Apply for SMPW (Metropolitan cart witnessing); special campaign + talk (9/27); Pioneer School book begins" },
@@ -559,22 +678,35 @@ const MONTHS = [
 // ══════════════════════════════════════════════
 function defaultState(){
   return {
-    checked:{}, weekListChecked:{}, weekOther:{}, weekMotivation:{}, weekNotes:{},
+    checked:{}, weekListChecked:{}, weekOther:{}, weekMotivation:{}, weekNotes:{}, dayOther:{}, monthlyTasks:{},
     fsMonthHours:0, fsMonthKey:null,
+    cliWeekHours:0, cliWeekKey:null,
     bibleIndex:0, bibleChapterInBook:1, readIndex:0, pioneerIndex:0, aslVideoIndex:0, intersignIndex:0,
     langChapter:{spanish:0, french:0, korean:0, arabic:0, english:0},
     weightLog:[],
     events:[
       { id:'ev1', date:'2026-09-27', title:'Special talk' },
       { id:'ev2', date:'2027-03-22', title:'Memorial' },
+      { id:'ev3', date:'2027-07-01', title:'Pioneer School' },
     ],
-    monthlyFillins:{},
+    monthQuote:{}, monthQuality:{}, monthOther:{},
+    missionSpir:'', missionWhole:'',
+    missionMain: "I want to become the happiest version of myself, someone Jehovah is proud of, by staying close to him through his Word and through prayer, caring for my own sleep, mental health, and nutrition, and being helpful to others through listening and compassion — while staying resilient and keeping my joy through life's difficulties.",
+    yearGoals: defaultYearGoals(),
   };
 }
 let S = defaultState();
 let activeUmbrella = 'spir';
 let bibleFullOpen = false;
-let rmState = { view:'year', monthIdx:null, weekStart:null };
+let rmState = { view:'root', yearNum:null, quarterIdx:null, monthIdx:null, weekStart:null };
+let goalCollapse = {};
+function toggleGoalCollapse(key){
+  goalCollapse[key] = !goalCollapse[key];
+  const body = document.getElementById('body-'+key);
+  const chev = document.getElementById('chev-'+key);
+  if (body) body.style.display = goalCollapse[key] ? 'none' : '';
+  if (chev) chev.textContent = goalCollapse[key] ? '▸' : '▾';
+}
 
 async function loadState(){
   try {
@@ -593,9 +725,24 @@ function weekKey(d=new Date()){ return dateKey(startOfWeek(d)); }
 function todayChecks(){ const k=dateKey(); if(!S.checked[k]) S.checked[k]={}; return S.checked[k]; }
 function weekListChecks(){ const k=weekKey(); if(!S.weekListChecked[k]) S.weekListChecked[k]={}; return S.weekListChecked[k]; }
 function weekNotes(){ const k=weekKey(); if(!S.weekNotes[k]) S.weekNotes[k]={}; return S.weekNotes[k]; }
+function monthlyTaskChecks(){ const mk=monthKey(); if(!S.monthlyTasks[mk]) S.monthlyTasks[mk]={}; return S.monthlyTasks[mk]; }
+function toggleMonthlyTask(key, el){ const c=monthlyTaskChecks(); c[key]=!c[key]; el.classList.toggle('done', c[key]); saveState(); }
 function saveWeekNote(key, val){ weekNotes()[key] = val; saveState(); }
 
-function toggleItem(id, el){ const c=todayChecks(); c[id]=!c[id]; el.classList.toggle('done', c[id]); saveState(); renderProgress(); }
+function advanceBiblePosition(delta){
+  let idx = bibleFlatIndex(S.bibleIndex, S.bibleChapterInBook) + delta;
+  idx = Math.max(0, Math.min(BIBLE_FLAT.length-1, idx));
+  const pos = BIBLE_FLAT[idx];
+  S.bibleIndex = BIBLE_ORDER.indexOf(pos.book);
+  S.bibleChapterInBook = pos.chapter;
+}
+function toggleItem(id, el){
+  const c=todayChecks(); c[id]=!c[id]; el.classList.toggle('done', c[id]);
+  if (id === 'bible-daily' && new Date().getDay() !== 1){
+    advanceBiblePosition(c[id] ? 2 : -2);
+  }
+  saveState(); renderProgress();
+}
 function toggleWeekListItem(id, el){ const c=weekListChecks(); c[id]=!c[id]; el.classList.toggle('done', c[id]); saveState(); }
 
 // ══════════════════════════════════════════════
@@ -638,6 +785,7 @@ function buildWeekList(wkStart){
   items.push({ id:'wl-bible', name:'Bible reading', detail: bibleWeekRangeText() });
   items.push({ id:'wl-cook', name:'Home-cooked / planned eating', detail:'once this week' });
   items.push({ id:'wl-house', name:'House upkeep task', detail:'sometime this week', noteKey:'house' });
+  items.push({ id:'wl-cli-days', name:'CLI login days this week', detail:'toggle the days you plan to log in — matching days automatically show on Today', sub:['Mon','Tue','Wed','Thu','Fri','Sat','Sun'] });
   return items;
 }
 
@@ -674,6 +822,16 @@ function renderThisWeek(){
     </div>`;
   }).join('');
 
+  const mc = monthlyTaskChecks();
+  html += `<div class="section-label">This month</div>
+    <div class="item ${mc['hairstyle']?'done':''}" id="monthlyHairstyle">
+      <div class="box"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l6 6L20 6" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="itext">
+        <div class="iname">Protective style — redo braids</div>
+        <div class="idetail">Flexible: 1–3 days depending on energy, during a wash week</div>
+      </div>
+    </div>`;
+
   const otherList = S.weekOther[wk] || [];
   html += `<div class="section-label">Other</div>
     <div class="other-list">
@@ -685,6 +843,7 @@ function renderThisWeek(){
     </div>`;
 
   document.getElementById('weekListItems').innerHTML = html;
+  document.getElementById('monthlyHairstyle').onclick = (ev) => toggleMonthlyTask('hairstyle', ev.currentTarget);
 
   document.querySelectorAll('#weekListItems .item[data-id]').forEach(el=>{
     el.onclick = (ev) => { if(ev.target.closest('.subchip') || ev.target.closest('.note-input')) return; toggleWeekListItem(el.dataset.id, el); };
@@ -696,6 +855,7 @@ function renderThisWeek(){
       c2[sid] = !c2[sid];
       el.classList.toggle('done', c2[sid]);
       saveState();
+      if (sid.startsWith('wl-cli-days-')) renderDaily();
     };
   });
   document.querySelectorAll('#weekListItems .note-input').forEach(el=>{
@@ -728,6 +888,7 @@ function switchUmbrella(u){
   const bg = u==='spir' ? 'var(--sage-bg)' : 'var(--lav-bg)';
   document.querySelector('.app').style.background = bg;
   document.body.style.background = bg;
+  document.querySelector('.toptabs-outer').style.background = bg;
   renderDaily();
 }
 function itemRow(i, checked, wholeClass){
@@ -753,7 +914,12 @@ function renderDaily(){
   if (activeUmbrella === 'spir'){
     const daySpir = [...(DAY_SPIR[dow]||[])];
     if (isFirstMonday) daySpir.push({ id:'mon-broadcast', tag:'Meetings', order:32, name:'JW broadcast', detail:'Monthly broadcast — first Monday' });
-    const list = [...SPIR_DAILY, ...daySpir].sort((a,b)=>a.order-b.order);
+    const spirDailyToday = SPIR_DAILY.map(i => {
+      if (i.id !== 'bible-daily') return i;
+      const detail = bibleDailyDetail(dow);
+      return dow===1 ? {...i, detail, noteKey:'mon-meeting-reading'} : {...i, detail};
+    });
+    const list = [...spirDailyToday, ...daySpir].sort((a,b)=>a.order-b.order);
     html = list.map(i => itemRow(i, c[i.id], false)).join('');
   } else {
     html += `<div class="section-label">Morning routine</div>`;
@@ -781,15 +947,38 @@ function renderDaily(){
     el.onclick = (ev) => ev.stopPropagation();
     el.onblur = () => saveWeekNote(el.dataset.notekey, el.value);
   });
+
+  const dk = dateKey(now);
+  const dayList = S.dayOther[dk] || [];
+  document.getElementById('dailyOther').innerHTML = `
+    <div class="section-label">Other</div>
+    <div class="other-list">
+      ${dayList.map((t,i)=>`<div class="other-row"><span>${t}</span><span class="rm" onclick="removeDayOther(${i})">×</span></div>`).join('')}
+      <div class="other-add">
+        <input id="dayOtherInput" placeholder="add something...">
+        <button onclick="addDayOther()">Add</button>
+      </div>
+    </div>`;
 }
+function addDayOther(){
+  const val = document.getElementById('dayOtherInput').value.trim();
+  if (!val) return;
+  const dk = dateKey();
+  if (!S.dayOther[dk]) S.dayOther[dk] = [];
+  S.dayOther[dk].push(val);
+  saveState(); renderDaily();
+}
+function removeDayOther(i){ const dk = dateKey(); S.dayOther[dk].splice(i,1); saveState(); renderDaily(); }
 
 // ══════════════════════════════════════════════
 // ROADMAP TAB
 // ══════════════════════════════════════════════
 function currentMonthIdx(){ const now=new Date(); return MONTHS.findIndex(mo => mo.y===now.getFullYear() && mo.m===(now.getMonth()+1)); }
 // Repeating 3-color month cycle: Sept=green, Oct=blue, Nov=pink, Dec=green again, etc.
-const MONTH_CYCLE = ['#98B793', '#ABD1F0', '#F8BCB5'];
-function monthCycleColor(monthIdx){ return MONTH_CYCLE[((monthIdx % 3) + 3) % 3]; }
+const QUARTER_COLORS = ['#A1BCBD', '#C6D9BE', '#FFCEA7', '#FFB8B7'];
+function quarterIndexForMonth(monthIdx){ return Math.floor(monthIdx/3); }
+function quarterColor(qIdx){ return QUARTER_COLORS[((qIdx%4)+4)%4]; }
+function monthCycleColor(monthIdx){ return quarterColor(quarterIndexForMonth(monthIdx)); }
 function paleMix(hex, amount){
   const r=parseInt(hex.slice(1,3),16), g=parseInt(hex.slice(3,5),16), b=parseInt(hex.slice(5,7),16);
   const mix=(c)=>Math.round(c + (255-c)*amount);
@@ -820,22 +1009,119 @@ function renderRoadmap(){
   const el = document.getElementById('rmContent');
   const curIdx = currentMonthIdx();
 
-  if (rmState.view === 'year'){
+  if (rmState.view === 'root'){
     el.innerHTML = `
-      <div class="pagetitle" style="margin-bottom:12px;">Year 1</div>
-      ${GOALS.map(g=>`<div class="goal-card">
+      <div class="pagetitle" style="margin-bottom:12px;">Goals</div>
+      ${LONG_TERM_GOALS.map(g=>`<div class="goal-card">
         <div class="goal-name">${g.name}</div>
         <div class="goal-row"><b>Why:</b> ${g.why}</div>
         <div class="goal-row"><b>When:</b> ${g.when}</div>
         <div class="goal-row"><b>How:</b> ${g.how}</div>
       </div>`).join('')}
-      <div class="month-grid" id="monthGrid"></div>
-      ${renderEventManager()}`;
-    document.getElementById('monthGrid').innerHTML = MONTHS.map((mo,i)=>`
-      <div class="month-card ${i===curIdx?'current':''}" style="background:${paleMix(monthCycleColor(i),0.82)};border-color:${monthCycleColor(i)};${i===curIdx?`box-shadow:0 0 0 2px ${monthCycleColor(i)};`:''}" onclick="openMonth(${i})">
+      <div class="pagetitle" style="margin:20px 0 4px;font-size:18px;">Years</div>
+      <div class="month-grid" id="yearGrid" style="grid-template-columns:repeat(3,1fr);"></div>`;
+    document.getElementById('yearGrid').innerHTML = YEARS_META.map(y=>{
+      const isCurrent = y.num===1; // Year 1 is the active service year for now
+      return `<div class="month-card ${isCurrent?'current':''}" onclick="openYear(${y.num})">
+        <div class="month-name">Year ${y.num}</div>
+        <div class="month-year">${y.range.split('–')[0]}</div>
+      </div>`;
+    }).join('');
+    return;
+  }
+
+  if (rmState.view === 'yearDetail'){
+    const yNum = rmState.yearNum;
+    const meta = YEARS_META.find(y=>y.num===yNum);
+    const yg = S.yearGoals[yNum] || {};
+    const evs = eventsInYear(yNum);
+    el.innerHTML = `
+      <div class="rm-crumb" onclick="backToRoot()">‹ Goals & Years</div>
+      <div class="pagetitle">Year ${yNum}</div>
+      <div class="pagesub" style="margin-bottom:12px;">${meta.range}</div>
+      <div class="goal-card" style="border-left:3px solid var(--gold);">
+        <div class="goal-name">Main goal: ${meta.bigGoal}</div>
+      </div>
+      <div class="pcard">
+        <div class="pcard-title collapse-head" onclick="toggleGoalCollapse('spir-${yNum}')" style="color:var(--sage-ink);cursor:pointer;display:flex;justify-content:space-between;align-items:center;">
+          <span>Spiritual</span><span id="chev-spir-${yNum}">${goalCollapse['spir-'+yNum] ? '▸' : '▾'}</span>
+        </div>
+        <div id="body-spir-${yNum}" style="${goalCollapse['spir-'+yNum] ? 'display:none;' : ''}">
+        <div class="note-label" style="margin-top:0;">PIONEERING</div>
+        <textarea class="note-input" id="yg-${yNum}-pioneering" placeholder="e.g. hourly goal, Bible students...">${yg.pioneering||''}</textarea>
+        <div class="note-label">FEEDING MYSELF</div>
+        <textarea class="note-input" id="yg-${yNum}-feedingMyself" placeholder="e.g. Bible reading, personal study...">${yg.feedingMyself||''}</textarea>
+        </div>
+      </div>
+      <div class="pcard">
+        <div class="pcard-title collapse-head" onclick="toggleGoalCollapse('whole-${yNum}')" style="color:var(--lav-ink);cursor:pointer;display:flex;justify-content:space-between;align-items:center;">
+          <span>Personal / Whole-Life</span><span id="chev-whole-${yNum}">${goalCollapse['whole-'+yNum] ? '▸' : '▾'}</span>
+        </div>
+        <div id="body-whole-${yNum}" style="${goalCollapse['whole-'+yNum] ? 'display:none;' : ''}">
+        <div class="note-label" style="margin-top:0;">FINANCE / WORK</div>
+        <textarea class="note-input" id="yg-${yNum}-financeWork" placeholder="e.g. certifications, budget...">${yg.financeWork||''}</textarea>
+        <div class="note-label">LANGUAGES</div>
+        <textarea class="note-input" id="yg-${yNum}-languages" placeholder="add your language goal for this year...">${yg.languages||''}</textarea>
+        <div class="note-label">WEIGHT LOSS</div>
+        <textarea class="note-input" id="yg-${yNum}-weightLoss" placeholder="add your weight goal for this year...">${yg.weightLoss||''}</textarea>
+        <div class="note-label">SKILLS</div>
+        <textarea class="note-input" id="yg-${yNum}-skills" placeholder="e.g. piano, guitar, crochet...">${yg.skills||''}</textarea>
+        </div>
+      </div>
+      <div class="events-card">
+        <div class="events-card-title">Events this year</div>
+        ${evs.length ? evs.map(e=>`<div class="event-row"><span>${e.title} — ${new Date(e.date+'T00:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</span><span class="rm" onclick="removeEvent('${e.id}')">×</span></div>`).join('') : '<div style="font-size:12.5px;color:var(--ink3);">No events logged for this year yet.</div>'}
+        <div class="event-add">
+          <input type="date" id="newEventDate">
+          <input type="text" id="newEventTitle" placeholder="event title">
+          <button onclick="addEvent()">Add</button>
+        </div>
+      </div>
+      <div class="pagetitle" style="margin:20px 0 4px;font-size:18px;">Quarters</div>
+      <div class="month-grid" id="quarterGrid" style="grid-template-columns:repeat(2,1fr);"></div>`;
+    ['pioneering','feedingMyself','financeWork','languages','weightLoss','skills'].forEach(key=>{
+      const elx = document.getElementById(`yg-${yNum}-${key}`);
+      elx.onblur = () => { S.yearGoals[yNum][key] = elx.value; saveState(); };
+    });
+    const curIdxLocal = yNum===1 ? currentMonthIdx() : -1;
+    const curQ = quarterIndexForMonth(curIdxLocal>=0?curIdxLocal:0);
+    document.getElementById('quarterGrid').innerHTML = [0,1,2,3].map(q=>{
+      const col = quarterColor(q);
+      const label = yNum===1 ? (()=>{ const months = MONTHS.slice(q*3,q*3+3); return `${months[0].name.slice(0,3)}–${months[2].name.slice(0,3)} ${months[0].y}`; })() : 'Not planned yet';
+      return `<div class="month-card ${(yNum===1 && q===curQ)?'current':''}" style="background:${paleMix(col,0.82)};border-color:${col};${(yNum===1 && q===curQ)?`box-shadow:0 0 0 2px ${col};`:''}" onclick="openQuarter(${yNum}, ${q})">
+        <div class="month-name">Q${q+1}</div>
+        <div class="month-year">${label}</div>
+      </div>`;
+    }).join('');
+    return;
+  }
+
+  if (rmState.view === 'quarter'){
+    const qIdx = rmState.quarterIdx;
+    const months = MONTHS.slice(qIdx*3, qIdx*3+3);
+    const col = quarterColor(qIdx);
+    const curQ = quarterIndexForMonth(curIdx>=0?curIdx:0);
+    el.innerHTML = `
+      <div class="rm-crumb" onclick="backToYear()">‹ Year 1</div>
+      <div class="pagetitle">Quarter ${qIdx+1}</div>
+      <div class="pagesub" style="margin-bottom:12px;">${months[0].name} – ${months[2].name} ${months[0].y}${qIdx===curQ?' · Current quarter':''}</div>
+      <div class="pcard" style="border-left:4px solid ${col};">
+        <div class="pcard-title">Quarter goals</div>
+        <div class="goal-row"><b>Bible reading:</b> ${bibleRangeForQuarter(qIdx)}</div>
+        <div class="goal-row"><b>Pioneer hours:</b> ~150–210 hrs (50–70/month × 3)</div>
+        <div class="goal-row"><b>JW 6-book cycle:</b> ${jwCycleStatusText()}</div>
+        <div class="goal-row"><b>Pioneer School book:</b> ${pioneerSectionsForQuarter(qIdx)}</div>
+        <div class="goal-row"><b>Language:</b> ${languageQuarterSummary(qIdx)}</div>
+        <div class="goal-row"><b>Work (CLI):</b> ${workQuarterGoal()}</div>
+      </div>
+      <div class="month-grid" id="quarterMonthGrid" style="grid-template-columns:repeat(3,1fr);"></div>`;
+    document.getElementById('quarterMonthGrid').innerHTML = months.map((mo,i)=>{
+      const globalIdx = qIdx*3+i;
+      return `<div class="month-card ${globalIdx===curIdx?'current':''}" style="background:${paleMix(col,0.82)};border-color:${col};${globalIdx===curIdx?`box-shadow:0 0 0 2px ${col};`:''}" onclick="openMonth(${globalIdx})">
         <div class="month-name">${mo.name}</div>
         <div class="month-year">${mo.y}</div>
-      </div>`).join('');
+      </div>`;
+    }).join('');
     return;
   }
 
@@ -844,8 +1130,9 @@ function renderRoadmap(){
     const weeks = getMondaysInMonth(mo.y, mo.m);
     const now = new Date();
     const evs = eventsInMonth(mo.y, mo.m);
+    const mk = `${mo.y}-${String(mo.m).padStart(2,'0')}`;
     el.innerHTML = `
-      <div class="rm-crumb" onclick="backToYear()">‹ Year</div>
+      <div class="rm-crumb" onclick="openQuarter(1, ${quarterIndexForMonth(rmState.monthIdx)})">‹ Quarter ${quarterIndexForMonth(rmState.monthIdx)+1}</div>
       <div class="pagetitle">${mo.name} ${mo.y}</div>
       <div class="pagesub" style="margin-bottom:12px;">${rmState.monthIdx===curIdx ? 'Current month' : ''}</div>
       <div class="milestone-card ${mo.extra?'':'empty'}">
@@ -853,6 +1140,20 @@ function renderRoadmap(){
         <div class="northstar-text">${mo.extra || 'Weight loss & hygiene — recurring monthly set continues.'}</div>
       </div>
       ${evs.length ? `<div class="events-card"><div class="events-card-title">Events this month</div>${evs.map(e=>`<div class="event-row"><span>📌 ${e.title} — ${fmtDate(new Date(e.date+'T00:00:00'))}</span></div>`).join('')}</div>` : ''}
+      <div class="pcard">
+        <div class="pcard-title">This month</div>
+        <div class="note-label" style="margin-top:0;">QUOTE FOR THE MONTH</div>
+        <textarea class="note-input" id="monthQuoteInput" placeholder="A quote or thought to anchor this month...">${S.monthQuote[mk]||''}</textarea>
+        <div class="fillin-row" style="margin-top:12px;"><label>Quality</label><input id="monthQualityInput" placeholder="e.g. compassion vs. indifference" value="${S.monthQuality[mk]||''}"></div>
+        <div class="fillin-row"><label>Other</label><input id="monthOtherInput" placeholder="anything else this month" value="${S.monthOther[mk]||''}"></div>
+      </div>
+      <div class="pcard">
+        <div class="pcard-title">This month's goals</div>
+        <div class="goal-row"><b>Bible reading:</b> ${bibleRangeForMonth(rmState.monthIdx)}</div>
+        <div class="goal-row"><b>Pioneer hours:</b> 50 hr requirement / 70 hr buffer goal</div>
+        <div class="goal-row"><b>JW 6-book cycle:</b> ${jwCycleStatusText()}</div>
+        <div class="goal-row"><b>Pioneer School book:</b> ${pioneerSectionsForMonth(rmState.monthIdx)}</div>
+      </div>
       <div class="week-list" id="weekList"></div>`;
     document.getElementById('weekList').innerHTML = weeks.map((w)=>{
       const end = new Date(w.getTime()+6*86400000);
@@ -861,6 +1162,9 @@ function renderRoadmap(){
         <span>Week of ${fmtDate(w)}</span><span style="color:var(--ink3)">›</span>
       </div>`;
     }).join('');
+    document.getElementById('monthQuoteInput').onblur = (e)=>{ S.monthQuote[mk]=e.target.value; saveState(); };
+    document.getElementById('monthQualityInput').onblur = (e)=>{ S.monthQuality[mk]=e.target.value; saveState(); };
+    document.getElementById('monthOtherInput').onblur = (e)=>{ S.monthOther[mk]=e.target.value; saveState(); };
     return;
   }
 
@@ -885,9 +1189,11 @@ function renderRoadmap(){
       const isToday = dateKey(d) === dateKey(now);
       const daySpecific = (DAY_SPIR[dow]||[]).map(x=>x.name);
       const wholeSpecific = [];
-      if (dow===2) wholeSpecific.push('Hair wash');
+      if (dow===6 && isHairWashDay(d)) wholeSpecific.push('Hair wash');
       if ([1,2,4].includes(dow)) wholeSpecific.push('Cardiac rehab');
-      if ([1,2,4].includes(dow)) wholeSpecific.push('CLI interpreting session');
+      const wkOfView = weekKey(start);
+      const wcOfView = S.weekListChecked[wkOfView] || {};
+      if (wcOfView['wl-cli-days-'+DAY_ABBR[dow]]) wholeSpecific.push('CLI login session');
       const names = [...daySpecific, ...wholeSpecific].join(' · ') || 'Standard daily routine only';
       const dayEvs = eventsOnDate(dateKey(d));
       return `<div class="wk-day ${isToday?'today':''}">
@@ -900,14 +1206,33 @@ function renderRoadmap(){
     return;
   }
 }
-function openMonth(idx){ rmState = { view:'month', monthIdx:idx, weekStart:null }; renderRoadmap(); }
-function openWeek(monthIdx, ts){ rmState = { view:'week', monthIdx, weekStart:ts }; renderRoadmap(); }
-function backToYear(){ rmState = { view:'year', monthIdx:null, weekStart:null }; renderRoadmap(); }
+function openYear(yearNum){ rmState = { view:'yearDetail', yearNum, quarterIdx:null, monthIdx:null, weekStart:null }; renderRoadmap(); }
+function backToRoot(){ rmState = { view:'root', yearNum:null, quarterIdx:null, monthIdx:null, weekStart:null }; renderRoadmap(); }
+function openQuarter(yearNum, qIdx){
+  if (yearNum!==1){ alert("This year hasn't been planned out yet. Come back once Year "+yearNum+" begins — the quarters and months will fill in the same way Year 1's did."); return; }
+  rmState = { view:'quarter', yearNum, quarterIdx:qIdx, monthIdx:null, weekStart:null }; renderRoadmap();
+}
+function openMonth(idx){ rmState = { view:'month', yearNum:1, quarterIdx:quarterIndexForMonth(idx), monthIdx:idx, weekStart:null }; renderRoadmap(); }
+function openWeek(monthIdx, ts){ rmState = { view:'week', yearNum:1, quarterIdx:quarterIndexForMonth(monthIdx), monthIdx, weekStart:ts }; renderRoadmap(); }
+function backToYear(){ rmState = { view:'yearDetail', yearNum:1, quarterIdx:null, monthIdx:null, weekStart:null }; renderRoadmap(); }
+function eventsInYear(yearNum){
+  const startY = 2025 + yearNum, endY = 2026 + yearNum; // Year1: Sept2026–Aug2027, etc.
+  const start = new Date(startY,8,1), end = new Date(endY,7,31,23,59,59);
+  return S.events.filter(e=>{ const d=new Date(e.date+'T00:00:00'); return d>=start && d<=end; }).sort((a,b)=>a.date.localeCompare(b.date));
+}
 
 // ══════════════════════════════════════════════
 // PROGRESS TAB
 // ══════════════════════════════════════════════
 function ensureMonthReset(){ const mk=monthKey(); if (S.fsMonthKey!==mk){ S.fsMonthKey=mk; S.fsMonthHours=0; } }
+function ensureCliWeekReset(){ const wk=weekKey(); if (S.cliWeekKey!==wk){ S.cliWeekKey=wk; S.cliWeekHours=0; } }
+function logCLI(){
+  const v = parseFloat(document.getElementById('cliInput').value)||0;
+  if (v<=0) return;
+  ensureCliWeekReset(); S.cliWeekHours += v;
+  document.getElementById('cliInput').value='';
+  saveState(); showToast(`Logged ${v} interpreted hrs`); renderProgress();
+}
 function logFS(){
   const v = parseFloat(document.getElementById('fsInput').value)||0;
   if (v<=0) return;
@@ -950,17 +1275,6 @@ function logWeight(){
   document.getElementById('weightInput').value='';
   saveState(); showToast('Weight logged'); renderProgress();
 }
-function saveFillins(){
-  const mk = monthKey();
-  S.monthlyFillins[mk] = {
-    quality: document.getElementById('fi-quality').value,
-    hairstyle: document.getElementById('fi-hairstyle').value,
-    movie: document.getElementById('fi-movie').value,
-    audiobook: document.getElementById('fi-audiobook').value,
-  };
-  saveState();
-}
-
 const INTERSIGN_COUNTS = [77,71,51,78,94,69,80,79,55,51,62,67,76,67,51,55,55];
 
 function renderProgress(){
@@ -1025,30 +1339,21 @@ function renderProgress(){
     document.getElementById('weightLog').innerHTML = '';
   }
 
-  const mk = monthKey();
-  const fi = S.monthlyFillins[mk] || {};
-  document.getElementById('fi-quality').value = fi.quality || '';
-  document.getElementById('fi-hairstyle').value = fi.hairstyle || '';
-  document.getElementById('fi-movie').value = fi.movie || '';
-  document.getElementById('fi-audiobook').value = fi.audiobook || '';
-  const curMo = MONTHS[currentMonthIdx()];
-  document.getElementById('monthFillinTitle').textContent = curMo ? `This month — ${curMo.name} ${curMo.y}` : 'This month';
-
   const wk = weekKey();
-  let rehabCount=0, cliCount=0;
+  let rehabCount=0;
   const rehabIds=['mon-rehab','tue-rehab','thu-rehab'];
-  const cliIds=['mon-cli','tue-cli','thu-cli'];
   Object.keys(S.checked).forEach(dk=>{
     const d = new Date(dk+'T00:00:00');
     if (weekKey(d)!==wk) return;
     const c = S.checked[dk];
     rehabIds.forEach(id=>{ if(c[id]) rehabCount++; });
-    cliIds.forEach(id=>{ if(c[id]) cliCount++; });
   });
   document.getElementById('rehabVal').textContent = `${Math.min(rehabCount,3)} / 3`;
   document.getElementById('rehabBar').style.width = Math.min(100,(rehabCount/3)*100)+'%';
-  document.getElementById('cliVal').textContent = `${Math.min(cliCount,3)} / 3`;
-  document.getElementById('cliBar').style.width = Math.min(100,(cliCount/3)*100)+'%';
+
+  ensureCliWeekReset();
+  document.getElementById('cliVal').textContent = `${S.cliWeekHours} / 20`;
+  document.getElementById('cliBar').style.width = Math.min(100,(S.cliWeekHours/20)*100)+'%';
 }
 
 // ══════════════════════════════════════════════
@@ -1070,9 +1375,11 @@ function switchTop(name){
     const bg = activeUmbrella==='whole' ? 'var(--lav-bg)' : 'var(--sage-bg)';
     document.querySelector('.app').style.background = bg;
     document.body.style.background = bg;
+    document.querySelector('.toptabs-outer').style.background = bg;
   } else {
     document.querySelector('.app').style.background = '';
     document.body.style.background = '';
+    document.querySelector('.toptabs-outer').style.background = '';
   }
   if (name==='roadmap') renderRoadmap();
   if (name==='week') renderThisWeek();
@@ -1085,6 +1392,35 @@ function confirmResetToday(){
 }
 
 // ══════════════════════════════════════════════
+// MISSION / LANDING SCREEN
+// ══════════════════════════════════════════════
+const MISSION_QUOTES = [
+  "Small, steady steps done in faith outlast bursts of effort done in doubt.",
+  "A day organized around what matters is never a wasted day.",
+  "Discipline is just love for your future self, practiced today.",
+  "Progress hides inside repetition — show up again tomorrow.",
+  "The work you do quietly today is what makes tomorrow possible.",
+  "Rest is part of the plan, not a break from it.",
+  "You don't need to feel ready. You just need to begin.",
+  "Every small habit is a vote for the person you're becoming.",
+];
+function dayOfYear(d){ const start=new Date(d.getFullYear(),0,0); return Math.floor((d-start)/86400000); }
+function todaysMissionQuote(){ return MISSION_QUOTES[dayOfYear(new Date()) % MISSION_QUOTES.length]; }
+function enterApp(umbrella){
+  document.getElementById('missionScreen').style.display = 'none';
+  document.getElementById('mainApp').style.display = 'block';
+  switchUmbrella(umbrella);
+  switchTop('daily');
+}
+function backToMission(){
+  document.getElementById('mainApp').style.display = 'none';
+  document.getElementById('missionScreen').style.display = 'flex';
+  document.querySelector('.app').style.background = '';
+  document.body.style.background = '';
+  document.querySelector('.toptabs-outer').style.background = '';
+}
+
+// ══════════════════════════════════════════════
 // INIT
 // ══════════════════════════════════════════════
 (async function init(){
@@ -1094,9 +1430,9 @@ function confirmResetToday(){
   document.documentElement.style.setProperty('--card', paleMix(monthAccent, 0.65));
   document.documentElement.style.setProperty('--cream2', paleMix(monthAccent, 0.45));
   document.documentElement.style.setProperty('--line', paleMix(monthAccent, 0.15));
+  document.getElementById('missionHeroText').textContent = S.missionMain;
+  document.getElementById('missionQuote').textContent = `"${todaysMissionQuote()}"`;
   document.getElementById('dailyBody').classList.add('tint-spir');
-  document.querySelector('.app').style.background = 'var(--sage-bg)';
-  document.body.style.background = 'var(--sage-bg)';
   renderDaily();
   renderThisWeek();
   renderProgress();
