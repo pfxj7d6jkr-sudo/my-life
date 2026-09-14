@@ -11,8 +11,9 @@
   --cream:#faf6ee; --cream2:#f2ece0; --card:#ffffff; --ink:#2e2a26; --ink2:#5c554c; --ink3:#8a8177; --line:#e2d9c8;
   --sage:#8FA888; --sage-dim:#C3D4BC; --sage-ink:#4B6144; --sage-bg:#DCE7D6; --sage-card:#CFE0C6;
   --lav:#7FA69E; --lav-dim:#BBD3CE; --lav-ink:#3F5C57; --lav-bg:#DCEAE7; --lav-card:#C9DFDA;
-  --blue:#7c93a8; --blue-dim:#e5eaef; --blue-ink:#3e5165;
-  --gold:#b8935a; --gold-dim:#f2e6d2; --gold-ink:#6b4f26;
+  --blue:#7c93a8; --blue-dim:#e5eaef; --blue-ink:#3e5165; --blue-bg:#e5eaef; --blue-card:#d7dfe6;
+  --rose:#C79A8E; --rose-dim:#E3C9C0; --rose-ink:#6B453A; --rose-bg:#F0DFDA; --rose-card:#E6CFC7;
+  --gold:#b8935a; --gold-dim:#f2e6d2; --gold-ink:#6b4f26; --gold-bg:#f2e6d2; --gold-card:#ecd9b8;
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
 body{font-family:'Karla',sans-serif;background:var(--cream);color:var(--ink);font-size:16px;line-height:1.45;}
@@ -56,39 +57,37 @@ body{font-family:'Karla',sans-serif;background:var(--cream);color:var(--ink);fon
 
 .item{display:flex;align-items:flex-start;gap:11px;padding:11px 12px;background:var(--card);border:1px solid var(--line);border-radius:10px;margin-bottom:8px;cursor:pointer;}
 .item:active{background:var(--cream2);}
-.box{width:21px;height:21px;border-radius:6px;border:1.5px solid var(--ink3);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all .15s;}
+.box{position:relative;width:21px;height:21px;border-radius:6px;border:1.5px solid var(--ink3);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all .15s;}
 .item.done .box{background:var(--sage);border-color:var(--sage-ink);}
-.item.done.whole .box{background:var(--lav);border-color:var(--lav-ink);}
-.item.done.wk .box{background:var(--blue);border-color:var(--blue-ink);}
+.item.na .box{background:var(--ink3);border-color:var(--ink3);}
+.item.na .box svg{opacity:0;}
+.item.na .box::after{content:'–';position:absolute;color:#fff;font-size:15px;line-height:1;font-weight:700;}
 .box svg{width:13px;height:13px;opacity:0;transition:opacity .15s;}
 .item.done .box svg{opacity:1;}
 .itext{flex:1;}
 .itag{display:inline-block;font-size:10.5px;letter-spacing:.2px;color:var(--ink3);background:var(--cream2);border-radius:4px;padding:1px 6px;margin-bottom:4px;}
 .iname{font-size:14.5px;line-height:1.3;}
 .item.done .iname{color:var(--ink3);text-decoration:line-through;}
+.item.na .iname{color:var(--ink3);font-style:italic;}
+.na-hint{font-size:10px;color:var(--ink3);margin-top:2px;}
 .idetail{font-size:12.5px;color:var(--ink3);margin-top:1px;line-height:1.3;}
 .subrow{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
 .subchip{font-size:11.5px;border:1px solid var(--line);border-radius:6px;padding:4px 8px;cursor:pointer;color:var(--ink2);background:var(--cream2);}
 .subchip.done{background:var(--sage-dim);border-color:var(--sage);color:var(--sage-ink);}
 
 .other-list{margin-top:8px;}
-.other-row{display:flex;align-items:center;gap:8px;background:var(--cream2);border-radius:6px;padding:6px 10px;margin-bottom:6px;font-size:13px;}
+.other-row{display:flex;align-items:center;gap:11px;background:var(--cream2);border:1px solid var(--line);border-radius:10px;padding:11px 12px;margin-bottom:8px;font-size:14.5px;}
 .other-row .rm{margin-left:auto;color:var(--ink3);cursor:pointer;font-size:16px;}
 .other-add{display:flex;gap:8px;margin-top:6px;}
 .other-add input{flex:1;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:7px 10px;font-size:13px;}
 .other-add button{background:var(--sage-dim);border:1px solid var(--sage);color:var(--sage-ink);border-radius:6px;padding:7px 14px;font-size:13px;cursor:pointer;}
 
-.umbrella-switch{display:flex;gap:6px;padding:12px 16px 0;}
-.usw-btn{flex:1;text-align:center;padding:9px 0;border-radius:8px;font-size:13.5px;border:1px solid var(--line);color:var(--ink2);cursor:pointer;background:var(--card);}
-.usw-btn.active.spir{background:var(--sage-dim);border-color:var(--sage);color:var(--sage-ink);font-weight:600;}
-.usw-btn.active.whole{background:var(--lav-dim);border-color:var(--lav);color:var(--lav-ink);font-weight:600;}
-.daily-body{transition:background .3s ease;min-height:calc(100vh - 130px);}
-.daily-body.tint-spir{background:var(--sage-bg);}
-.daily-body.tint-whole{background:var(--lav-bg);}
-.daily-body.tint-spir .item{background:var(--sage-card);}
-.daily-body.tint-whole .item{background:var(--lav-card);}
-.daily-body.tint-spir .itag{background:var(--sage-dim);color:var(--sage-ink);}
-.daily-body.tint-whole .itag{background:var(--lav-dim);color:var(--lav-ink);}
+.cat-section{margin-bottom:14px;border-radius:12px;overflow:hidden;border:1px solid var(--line);}
+.cat-head{display:flex;justify-content:space-between;align-items:center;padding:11px 14px;cursor:pointer;font-weight:600;font-size:13.5px;}
+.cat-body{padding:10px;}
+.mission-echo{font-family:'Fraunces',serif;font-size:12.5px;font-style:italic;color:var(--ink2);line-height:1.4;margin-bottom:14px;padding:0 2px;}
+
+.daily-body{min-height:calc(100vh - 130px);}
 .daily-list{padding:14px 16px 20px;}
 .umbrella-caption{font-size:12.5px;color:var(--ink3);font-style:italic;margin-bottom:10px;}
 .push-flag{display:inline-block;font-size:12px;color:var(--gold-ink);background:var(--gold-dim);border-radius:5px;padding:2px 8px;margin-right:4px;}
@@ -204,7 +203,7 @@ html,body{height:100%;background:var(--cream);}
     <div class="mission-hero-text" id="missionHeroText">—</div>
   </div>
   <div class="mission-daily-quote" id="missionQuote">—</div>
-  <div class="mission-btn" style="background:var(--ink);color:#fff;" onclick="enterApp('spir')">Begin my day →</div>
+  <div class="mission-btn" style="background:var(--ink);color:#fff;" onclick="enterApp()">Begin my day →</div>
   </div>
 </div>
 
@@ -230,12 +229,8 @@ html,body{height:100%;background:var(--cream);}
         <div id="dayFlag"></div>
         <div id="todayEvent"></div>
       </div>
-      <div class="umbrella-switch">
-        <div class="usw-btn active spir" id="btn-spir" onclick="switchUmbrella('spir')">Spiritual</div>
-        <div class="usw-btn whole" id="btn-whole" onclick="switchUmbrella('whole')">Whole-Life Self</div>
-      </div>
       <div class="daily-list">
-        <div class="umbrella-caption" id="umbrellaCaption">be a productive and disciplined pioneer</div>
+        <div class="mission-echo" id="missionEcho">—</div>
         <div id="dailyItems"></div>
         <div id="dailyOther"></div>
       </div>
@@ -252,6 +247,10 @@ html,body{height:100%;background:var(--cream);}
     <div class="motivation-box">
       <div class="motivation-label">MY MOTIVATION THIS WEEK</div>
       <textarea id="motivationInput" placeholder="What's driving you this week?" onblur="saveMotivation()"></textarea>
+    </div>
+    <div class="motivation-box">
+      <div class="motivation-label">LOOKING BACK ON LAST WEEK</div>
+      <textarea id="reflectionInput" placeholder="How did last week actually go? What worked, what didn't, what do you want to try differently this week?" onblur="saveReflection()"></textarea>
     </div>
     <div class="pad" style="padding-top:6px" id="weekListItems"></div>
   </div>
@@ -279,7 +278,7 @@ html,body{height:100%;background:var(--cream);}
           <input type="number" id="fsInput" placeholder="log hours" min="0" step="0.5">
           <button onclick="logFS()">Log</button>
         </div>
-        <div style="font-size:11.5px;color:var(--ink3);margin-top:6px;">Resets on the 1st of each month. Buffer target: 60–100 hrs by May.</div>
+        <div style="font-size:11.5px;color:var(--ink3);margin-top:6px;">Resets on the 1st of each month. At ~16 hrs/week, aim for ~500 hrs cumulative by end of April, then taper May–Aug to close the year at 600.</div>
       </div>
 
       <div class="pcard">
@@ -380,7 +379,34 @@ html,body{height:100%;background:var(--cream);}
           <input type="number" id="cliInput" placeholder="log interpreted hours" min="0" step="0.1">
           <button onclick="logCLI()">Log</button>
         </div>
+        <div class="inline-form">
+          <input type="number" id="cliIncomeInput" placeholder="log $ earned" min="0" step="0.01">
+          <button onclick="logCLIIncome()">Log</button>
+        </div>
+        <div style="font-size:12.5px;color:var(--ink2);margin-top:6px;">Earned this week: <b id="cliIncomeVal">$0</b></div>
         <div style="font-size:11.5px;color:var(--ink3);margin-top:6px;">Resets each Monday. Login days: Mon / Tue / Thu.</div>
+      </div>
+
+      <div class="pcard">
+        <div class="pcard-title">History</div>
+        <div class="note-label" style="margin-top:0;">WEEKLY COMPLETION</div>
+        <div class="nav-tracker">
+          <div class="nav-btn" onclick="historyWeekStep(-1)">‹</div>
+          <div class="nav-current" id="historyWeekLabel" style="font-size:13.5px;">—</div>
+          <div class="nav-btn" onclick="historyWeekStep(1)">›</div>
+        </div>
+        <div class="prow-top"><span class="prow-label" id="historyWeekSub">—</span><span class="prow-val" id="historyWeekPct">—</span></div>
+        <div class="pbar"><div class="pbar-fill" id="historyWeekBar" style="background:var(--sage);width:0%"></div></div>
+
+        <div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--line);">
+          <div class="note-label" style="margin-top:0;">MOST NEGLECTED THIS MONTH</div>
+          <div class="nav-tracker">
+            <div class="nav-btn" onclick="historyMonthStep(-1)">‹</div>
+            <div class="nav-current" id="historyMonthLabel" style="font-size:13.5px;">—</div>
+            <div class="nav-btn" onclick="historyMonthStep(1)">›</div>
+          </div>
+          <div id="historyNeglectedList" style="font-size:12.5px;color:var(--ink2);line-height:1.8;margin-top:8px;"></div>
+        </div>
       </div>
 
       <div class="reset-link" onclick="confirmResetToday()">Reset today's checklist</div>
@@ -400,6 +426,34 @@ function sundayMeetingTime(d = new Date()){
   return "10:00–11:45am";
 }
 
+// Zoom session theme rotation: Letters / Research / Letters / Phone, on a 4-week cycle,
+// synced so the Wednesday daytime letter-writing week always matches a "Letters" Zoom week.
+const ZOOM_ANCHOR = new Date(2026,8,7); // Monday Sept 7, 2026 = week 0 = Letters week
+function zoomWeekIndex(d){
+  const diffDays = Math.floor((startOfWeek(d) - startOfWeek(ZOOM_ANCHOR)) / 86400000);
+  return Math.floor(diffDays/7);
+}
+function zoomThemeForDate(d){
+  const idx = ((zoomWeekIndex(d) % 4) + 4) % 4;
+  if (idx===0 || idx===2) return 'Letters';
+  if (idx===1) return 'Research';
+  return 'Phone';
+}
+function isLetterWeek(d){ return zoomThemeForDate(d) === 'Letters'; }
+function daySpirForDate(dow, d){
+  const base = (DAY_SPIR[dow]||[]).map(i=>({...i}));
+  const theme = zoomThemeForDate(d);
+  base.forEach(i=>{
+    if (i.id==='mon-fs-pm' || i.id==='wed-fs-pm' || i.id==='fri-fs'){
+      i.detail = `${i.detail} · this week: ${theme}`;
+    }
+    if (i.id==='wed-fs-am'){
+      i.name = isLetterWeek(d) ? 'Letter writing' : 'Cart witnessing';
+    }
+  });
+  return base;
+}
+
 const SPIR_DAILY = [
   { id:'bible-daily', tag:'Feeding Myself', order:10, name:'Daily Bible Reading & Text', detail:'~20 min' },
 ];
@@ -407,26 +461,27 @@ const SPIR_DAILY = [
 const DAY_SPIR = {
   1: [
     { id:'mon-treasures', tag:'Feeding Myself', order:35, name:'Treasures from God\u2019s Word', detail:'meeting prep · 30 min' },
-    { id:'mon-fs', tag:'Field Service', order:80, name:'Field service — Zoom', detail:'5:30–7:30pm · 2 hrs' },
+    { id:'mon-fs-am', tag:'Field Service', order:60, name:'Field service — in person', detail:'10am–1pm · 3 hrs' },
+    { id:'mon-fs-pm', tag:'Field Service', order:80, name:'Field service — Zoom', detail:'5:30–7:30pm · 2 hrs' },
   ],
   2: [
     { id:'tue-lac', tag:'Feeding Myself', order:80, name:'Living as Christians', detail:'incl. Congregation Bible Study · standalone evening block · ~1 hr, most complex' },
   ],
   3: [
     { id:'wed-apply', tag:'Feeding Myself', order:30, name:'Apply Yourself to the Ministry', detail:'meeting prep · 30 min' },
-    { id:'wed-cart', tag:'Field Service', order:45, name:'Cart witnessing or letter writing', detail:'daytime' },
-    { id:'wed-fs-zoom', tag:'Field Service', order:80, name:'Field service — Zoom', detail:'5:30–7:30pm · 2 hrs' },
+    { id:'wed-fs-am', tag:'Field Service', order:45, name:'Cart witnessing', detail:'9am–12pm · 3 hrs' },
+    { id:'wed-fs-pm', tag:'Field Service', order:80, name:'Field service — Zoom', detail:'5:30–7:30pm · 2 hrs' },
   ],
   4: [
     { id:'thu-study', tag:'Feeding Myself', order:30, name:'Personal study', detail:'the long one · 1 hr' },
   ],
   5: [
-    { id:'fri-fs', tag:'Field Service', order:20, name:'Field service — Zoom', detail:'8am–1pm · 5 hrs' },
+    { id:'fri-fs', tag:'Field Service', order:20, name:'Field service — Zoom', detail:'10am–12pm · 2 hrs' },
     { id:'fri-wt', tag:'Feeding Myself', order:35, name:'Watchtower study article', detail:'30 min' },
     { id:'fri-meeting', tag:'Meetings', order:90, name:'Meeting', detail:'7:30–9:15pm' },
   ],
   6: [
-    { id:'sat-fs', tag:'Field Service', order:20, name:'Field service — in person', detail:'8am–2pm · 6 hrs' },
+    { id:'sat-fs', tag:'Field Service', order:20, name:'Field service — in person', detail:'9am–1pm · 4 hrs' },
     { id:'sat-review', tag:'Feeding Myself', order:50, name:'Family Watchtower review', detail:'1–2 hrs · prep for Sunday' },
   ],
   0: [
@@ -437,47 +492,58 @@ const DAY_SPIR = {
 
 function morningRoutine(dow){
   const items = [
-    { id:'wr-weigh', tag:'Body & Mind', name:'Weigh in', detail:'before eating or drinking' },
-    { id:'wr-hygiene', tag:'Body & Mind', name:'Morning hygiene', detail:'before 9am · 15–20 min' },
-    { id:'wr-exercise', tag:'Body & Mind', name:'Exercise', detail:'type of your choice' },
+    { id:'wr-weigh', tag:'Starting My Day', name:'Weigh in', detail:'before eating or drinking' },
+    { id:'wr-hygiene', tag:'Starting My Day', name:'Morning hygiene', detail:'before 9am · 15–20 min' },
+    { id:'wr-exercise', tag:'Starting My Day', name:'Exercise', detail:'type of your choice', dayNoteKey:'exercise' },
   ];
-  items.push({ id:'wr-breakfast', tag:'Body & Mind', name:'Breakfast', detail:'' });
+  items.push({ id:'wr-breakfast', tag:'Starting My Day', name:'Breakfast', detail:'' });
   return items;
 }
-const HAIR_WASH_ANCHOR = new Date(2026,8,5); // Saturday Sept 5, 2026 — confirmed wash date
+const HAIR_WASH_ANCHOR = new Date(2026,8,26); // Saturday Sept 26, 2026 — braids finished Fri Sep 11, wash 2 weeks later
 function isHairWashDay(d){
   const diffDays = Math.floor((new Date(d.getFullYear(),d.getMonth(),d.getDate()) - HAIR_WASH_ANCHOR) / 86400000);
   return diffDays % 14 === 0;
 }
 function eveningRoutine(){
   return [
-    { id:'er-hygiene', tag:'Body & Mind', name:'Evening hygiene', detail:'15–20 min' },
-    { id:'er-reading', tag:'Body & Mind', name:'Reading', detail:'Bible & book, wind-down' },
-    { id:'er-journal', tag:'Body & Mind', name:'Journaling', detail:'' },
-    { id:'er-bed', tag:'Body & Mind', name:'In bed by 10:30pm', detail:'' },
+    { id:'er-hygiene', tag:'Closing My Day', name:'Evening hygiene', detail:'15–20 min' },
+    { id:'er-reading', tag:'Closing My Day', name:'Reading', detail:'Bible & book, wind-down' },
+    { id:'er-journal', tag:'Closing My Day', name:'Journaling', detail:'' },
+    { id:'er-bed', tag:'Closing My Day', name:'In bed by 10:30pm', detail:'' },
   ];
 }
 const DAY_ABBR = {0:'Sun',1:'Mon',2:'Tue',3:'Wed',4:'Thu',5:'Fri',6:'Sat'};
-function anytimeToday(dow){
-  const langNow = languageForDate(new Date());
+function anytimeToday(dow, d=new Date()){
+  const langNow = languageForDate(d);
   const items = [
-    { id:'flex-lang', tag:'Growth & Skill', name:'Language study', detail: languageDetailText(langNow) },
     { id:'flex-asl', tag:'Growth & Skill', name:'ASL practice', detail: aslDetailText() },
     { id:'flex-interp', tag:'Growth & Skill', name:'Interpreting/translation cert study', detail:'NBCMI, CCHI, or ATA', noteKey:'interp' },
   ];
+  if ([2,4,5].includes(dow)){
+    items.unshift({ id:'flex-lang', tag:'Growth & Skill', name:'Language study', detail: languageDetailText(langNow) });
+  }
   const REHAB = {
-    1: { id:'mon-rehab', tag:'Body & Mind', name:'Cardiac rehab', detail:'30 min, 1:1' },
-    2: { id:'tue-rehab', tag:'Body & Mind', name:'Cardiac rehab', detail:'1–2pm' },
-    4: { id:'thu-rehab', tag:'Body & Mind', name:'Cardiac rehab', detail:'1–2pm' },
+    1: { id:'mon-rehab', tag:'Growth & Skill', name:'Cardiac rehab', detail:'30 min, 1:1' },
+    2: { id:'tue-rehab', tag:'Growth & Skill', name:'Cardiac rehab', detail:'1–2pm' },
+    4: { id:'thu-rehab', tag:'Growth & Skill', name:'Cardiac rehab', detail:'1–2pm' },
   };
   if (REHAB[dow]) items.push(REHAB[dow]);
-  if (dow===6 && isHairWashDay(new Date())) items.push({ id:'sat-hairwash', tag:'Body & Mind', name:'Hair wash', detail:'Saturday afternoon · biweekly' });
-  const wk = weekKey(new Date());
+  if (dow===6 && isHairWashDay(d)) items.push({ id:'sat-hairwash', tag:'Closing My Day', name:'Hair wash', detail:'Saturday afternoon · biweekly' });
+  const wk = weekKey(d);
   const wc = S.weekListChecked[wk] || {};
   if (wc['wl-cli-days-'+DAY_ABBR[dow]]) items.push({ id:'work-cli', tag:'Work', name:'CLI login session', detail:'toward 20 hr/week interpreting goal' });
   return items;
 }
-const UMBRELLA_CAPTION = { spir: "be a productive and disciplined pioneer", whole: "Year 1 focus: weight & hygiene" };
+const CATEGORY_META = {
+  'Starting My Day': { order:1, bg:'var(--lav-card)',  head:'var(--lav-dim)',  ink:'var(--lav-ink)' },
+  'Feeding Myself':  { order:2, bg:'var(--sage-card)', head:'var(--sage-dim)', ink:'var(--sage-ink)' },
+  'Field Service':   { order:3, bg:'var(--gold-card)', head:'var(--gold-dim)', ink:'var(--gold-ink)' },
+  'Growth & Skill':  { order:4, bg:'var(--rose-card)', head:'var(--rose-dim)', ink:'var(--rose-ink)' },
+  'Meetings':        { order:5, bg:'var(--blue-card)', head:'var(--blue-dim)', ink:'var(--blue-ink)' },
+  'Closing My Day':  { order:6, bg:'var(--lav-card)',  head:'var(--lav-dim)',  ink:'var(--lav-ink)' },
+  'Work':            { order:7, bg:'var(--rose-card)', head:'var(--rose-dim)', ink:'var(--rose-ink)' },
+};
+let dailyCollapse = {};
 
 // ══════════════════════════════════════════════
 // BIBLE ORDER (scripture, 66 books) + chapter counts
@@ -639,6 +705,13 @@ function aslDetailText(){
 // ══════════════════════════════════════════════
 // ROADMAP DATA
 // ══════════════════════════════════════════════
+const QUARTER_THEMES = [
+  { name:"Foundation", spiritual:"New field service schedule running smoothly; Bible reading + personal study locked in as a daily habit.", bodyMind:"Wake/sleep schedule established (~7:30am–10:30/11pm); doctor visit done; therapist referral obtained and first session booked.", financeWork:"Research certification prerequisites (NBCMI/CCHI or ATA) — mapping the path, not studying yet." },
+  { name:"Consistency", spiritual:"Maintain field service pace; therapy ongoing.", bodyMind:"First real weight-loss checkpoint; hygiene routine fully automatic; 6-month eval in Feb.", financeWork:"Begin actual certification study." },
+  { name:"Push", spiritual:"Memorial campaign; cross 500 field service hours by end of April.", bodyMind:"Continue weight loss; Branch visit in April.", financeWork:"Intensive certification study; register for the exam." },
+  { name:"Taper + Apply", spiritual:"Reduced field service pace (rest quarter); Regional Convention + campaign; close out at 600 hours.", bodyMind:"Maintain results; keep therapy going if still useful.", financeWork:"Sit the certification exam (Jun–Aug window). Submit Bethel application in September, right after this quarter closes." },
+];
+
 const LONG_TERM_GOALS = [
   { name:"Bethel Remote Service", why:"Stay busy in Jehovah's service.", when:"Application in September 2027.", how:"Stable spiritual and physical health." },
   { name:"School for Kingdom Evangelizers (SKE)", why:"To expand my service.", when:"Application window Sept 2028 – Aug 2029.", how:"Strong spiritual routine, clean conscience, stable health, self-sufficient." },
@@ -660,17 +733,17 @@ function defaultYearGoals(){
 }
 
 const MONTHS = [
-  { y:2026, m:9,  name:"September", extra:"Apply for SMPW (Metropolitan cart witnessing); special campaign + talk (9/27); Pioneer School book begins" },
+  { y:2026, m:9,  name:"September", extra:"Apply for SMPW (Metropolitan cart witnessing); Pioneer School book begins" },
   { y:2026, m:10, name:"October",   extra:"Road test (Oct 1)" },
-  { y:2026, m:11, name:"November",  extra:"Q1 assessment" },
+  { y:2026, m:11, name:"November",  extra:"Circuit Assembly with the Circuit Overseer (Nov 7); Q1 assessment" },
   { y:2026, m:12, name:"December",  extra:null },
-  { y:2027, m:1,  name:"January",   extra:"30th birthday (wk 4)" },
+  { y:2027, m:1,  name:"January",   extra:"Circuit Overseer's Visit (Jan 19–24); 30th birthday (wk 4)" },
   { y:2027, m:2,  name:"February",  extra:"Print Memorial invitations; Q2 eval; 6-month eval" },
-  { y:2027, m:3,  name:"March",     extra:"Memorial (3/22) + Memorial campaign" },
-  { y:2027, m:4,  name:"April",     extra:"Branch visit; Q3 assessment" },
-  { y:2027, m:5,  name:"May",       extra:"Assembly w/ branch rep; Pioneer meeting w/ circuit overseer — FS buffer checkpoint (60–100hr target)" },
+  { y:2027, m:3,  name:"March",     extra:"Special Talk (3/14); Memorial (3/22) + Memorial campaign" },
+  { y:2027, m:4,  name:"April",     extra:"Visit of the Representative of the Worldwide Work (Apr 17–18); Q3 assessment" },
+  { y:2027, m:5,  name:"May",       extra:"Circuit Assembly with the Branch Representative (May 2) — FS buffer checkpoint" },
   { y:2027, m:6,  name:"June",      extra:"Regional Convention invitations" },
-  { y:2027, m:7,  name:"July",      extra:"Pioneer School (different week); Regional Convention (different week) + its campaign" },
+  { y:2027, m:7,  name:"July",      extra:"Pioneer School; Regional Convention 2027 (Jul 16–18) + its campaign" },
   { y:2027, m:8,  name:"August",    extra:"Q4 + year-end evals; interpreting cert exam window (Jun–Aug, else next year)" },
 ];
 
@@ -679,16 +752,21 @@ const MONTHS = [
 // ══════════════════════════════════════════════
 function defaultState(){
   return {
-    checked:{}, weekListChecked:{}, weekOther:{}, weekMotivation:{}, weekNotes:{}, dayOther:{}, monthlyTasks:{},
+    checked:{}, weekListChecked:{}, weekOther:{}, weekMotivation:{}, weekReflection:{}, weekNotes:{}, dayNotes:{}, dayOther:{}, monthlyTasks:{},
     fsMonthHours:0, fsMonthKey:null,
-    cliWeekHours:0, cliWeekKey:null,
+    cliWeekHours:0, cliWeekIncome:0, cliWeekKey:null,
     bibleIndex:0, bibleChapterInBook:1, readIndex:0, pioneerIndex:0, aslVideoIndex:0, intersignIndex:0,
     langChapter:{spanish:0, french:0, korean:0, arabic:0, english:0},
     weightLog:[],
     events:[
-      { id:'ev1', date:'2026-09-27', title:'Special talk' },
-      { id:'ev2', date:'2027-03-22', title:'Memorial' },
-      { id:'ev3', date:'2027-07-01', title:'Pioneer School' },
+      { id:'ev1', date:'2026-11-07', title:'Circuit Assembly with the Circuit Overseer' },
+      { id:'ev2', date:'2027-01-19', title:"Circuit Overseer's Visit (Jan 19–24)" },
+      { id:'ev3', date:'2027-03-14', title:'Special Talk' },
+      { id:'ev4', date:'2027-03-22', title:'Memorial' },
+      { id:'ev5', date:'2027-04-17', title:'Visit of the Representative of the Worldwide Work (Apr 17–18)' },
+      { id:'ev6', date:'2027-05-02', title:'Circuit Assembly with the Branch Representative' },
+      { id:'ev7', date:'2027-07-01', title:'Pioneer School' },
+      { id:'ev8', date:'2027-07-16', title:'Regional Convention 2027 (Jul 16–18)' },
     ],
     monthQuote:{}, monthQuality:{}, monthOther:{},
     missionSpir:'', missionWhole:'',
@@ -697,7 +775,6 @@ function defaultState(){
   };
 }
 let S = defaultState();
-let activeUmbrella = 'spir';
 let bibleFullOpen = false;
 let rmState = { view:'root', yearNum:null, quarterIdx:null, monthIdx:null, weekStart:null };
 let goalCollapse = {};
@@ -726,6 +803,8 @@ function weekKey(d=new Date()){ return dateKey(startOfWeek(d)); }
 function todayChecks(){ const k=dateKey(); if(!S.checked[k]) S.checked[k]={}; return S.checked[k]; }
 function weekListChecks(){ const k=weekKey(); if(!S.weekListChecked[k]) S.weekListChecked[k]={}; return S.weekListChecked[k]; }
 function weekNotes(){ const k=weekKey(); if(!S.weekNotes[k]) S.weekNotes[k]={}; return S.weekNotes[k]; }
+function dayNotes(){ const k=dateKey(); if(!S.dayNotes) S.dayNotes={}; if(!S.dayNotes[k]) S.dayNotes[k]={}; return S.dayNotes[k]; }
+function saveDayNote(key, val){ dayNotes()[key] = val; saveState(); }
 function monthlyTaskChecks(){ const mk=monthKey(); if(!S.monthlyTasks[mk]) S.monthlyTasks[mk]={}; return S.monthlyTasks[mk]; }
 function toggleMonthlyTask(key, el){ const c=monthlyTaskChecks(); c[key]=!c[key]; el.classList.toggle('done', c[key]); saveState(); }
 function saveWeekNote(key, val){ weekNotes()[key] = val; saveState(); }
@@ -738,9 +817,18 @@ function advanceBiblePosition(delta){
   S.bibleChapterInBook = pos.chapter;
 }
 function toggleItem(id, el){
-  const c=todayChecks(); c[id]=!c[id]; el.classList.toggle('done', c[id]);
+  const c=todayChecks();
+  const prev = c[id];
+  let next;
+  if (prev === true) next = 'na';
+  else if (prev === 'na') next = false;
+  else next = true;
+  c[id] = next;
+  el.classList.toggle('done', next===true);
+  el.classList.toggle('na', next==='na');
   if (id === 'bible-daily' && new Date().getDay() !== 1){
-    advanceBiblePosition(c[id] ? 2 : -2);
+    if (prev===true && next!==true) advanceBiblePosition(-2);
+    if (prev!==true && next===true) advanceBiblePosition(2);
   }
   saveState(); renderProgress();
 }
@@ -772,21 +860,21 @@ function firstMondayOfMonthInWeek(wkStart){ return wkStart.getDate() <= 7; }
 
 function buildWeekList(wkStart){
   const items = [];
-  if (firstMondayOfMonthInWeek(wkStart)) items.push({ id:'wl-broadcast', name:'JW broadcast', detail:'first Monday of the month' });
-  items.push({ id:'wl-apply', name:'Apply Yourself', detail:'+ prep student Bible studies + prep visits' });
-  items.push({ id:'wl-treasures', name:'Treasures', detail:'' });
-  items.push({ id:'wl-lac', name:'Living as Christians', detail:'' });
-  items.push({ id:'wl-study', name:'Personal study', detail:'' });
-  items.push({ id:'wl-wt-listen', name:'Watchtower reading/listening', detail:'can be done while crocheting, cleaning, cooking, etc.' });
-  items.push({ id:'wl-wt-prep', name:'Watchtower prep', detail:'sit down, answer the questions, take notes' });
-  items.push({ id:'wl-fs', name:'Field service hours', detail:'', sub:['Letters','Research','Visits','Bible study with students'] });
-  const langNow = languageForDate(wkStart);
-  items.push({ id:'wl-lang', name:'Language practice', detail: `${languageDetailText(langNow)} + ASL (${aslDetailText()})` });
-  items.push({ id:'wl-pioneer', name:'Pioneer School book', detail: `Section ${S.pioneerIndex+1} of 18` });
   items.push({ id:'wl-bible', name:'Bible reading', detail: bibleWeekRangeText() });
-  items.push({ id:'wl-cook', name:'Home-cooked / planned eating', detail:'once this week' });
+  items.push({ id:'wl-study', name:'Personal study', detail:'', noteKey:'personal-study-topic' });
+  items.push({ id:'wl-wt-listen', name:'Watchtower reading/listening', detail:'can be done while crocheting, cleaning, cooking, etc.' });
+  items.push({ id:'wl-fs', name:'Field service hours', detail:'', sub:['Letters','Research','Visits','Bible study with students'] });
+  items.push({ id:'wl-pioneer', name:'Pioneer School book study', detail: `Currently on Section ${S.pioneerIndex+1} of 18 — pace is ~2 sections/month (about 1 every 2 weeks), so no need to finish a whole section this week` });
+  items.push({ id:'wl-treasures', name:'Treasures from God\u2019s Word', detail:'' });
+  items.push({ id:'wl-apply', name:'Apply Yourself', detail:'+ prep student Bible studies + prep visits' });
+  items.push({ id:'wl-lac', name:'Living as Christians', detail:'' });
+  items.push({ id:'wl-wt-prep', name:'Watchtower prep', detail:'sit down, answer the questions, take notes' });
+  const langNow = languageForDate(wkStart);
+  items.push({ id:'wl-lang', name:'Language practice', detail: languageDetailText(langNow) });
+  items.push({ id:'wl-cook', name:'Do your weekly meal planning', detail:'' });
   items.push({ id:'wl-house', name:'House upkeep task', detail:'sometime this week', noteKey:'house' });
-  items.push({ id:'wl-cli-days', name:'CLI login days this week', detail:'toggle the days you plan to log in — matching days automatically show on Today', sub:['Mon','Tue','Wed','Thu','Fri','Sat','Sun'] });
+  items.push({ id:'wl-cli-days', name:'CLI login days this week', detail:'toggle the days you plan to log in — matching days automatically show on Today · goal: 20 hrs/week', sub:['Mon','Tue','Wed','Thu','Fri','Sat','Sun'] });
+  if (firstMondayOfMonthInWeek(wkStart)) items.push({ id:'wl-broadcast', name:'JW broadcast', detail:'first Monday of the month' });
   return items;
 }
 
@@ -797,9 +885,11 @@ function renderThisWeek(){
 
   const evs = eventsInWeek(wkStart);
   document.getElementById('weekEvents').innerHTML = evs.map(e=>`<div class="event-chip">📌 ${e.title} — ${new Date(e.date+'T00:00:00').toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'})}</div>`).join('');
+  document.getElementById('weekEvents').innerHTML += `<div class="event-chip" style="background:var(--sage-dim);border-color:var(--sage);color:var(--sage-ink);">🎧 This week's Zoom focus: <b>${zoomThemeForDate(wkStart)}</b> (Mon 5:30–7:30pm · Wed 5:30–7:30pm · Fri 10am–12pm)</div>`;
 
   const wk = weekKey();
   document.getElementById('motivationInput').value = S.weekMotivation[wk] || '';
+  document.getElementById('reflectionInput').value = S.weekReflection[wk] || '';
 
   const c = weekListChecks();
   const items = buildWeekList(wkStart);
@@ -809,9 +899,11 @@ function renderThisWeek(){
       const on = !!c[sid];
       return `<div class="subchip ${on?'done':''}" data-subid="${sid}">${s}</div>`;
     }).join('')}</div>` : '';
+    const notePlaceholder = i.noteKey === 'personal-study-topic' ? 'e.g. which topic, which publication...' :
+      i.noteKey === 'house' ? 'e.g. which room, which task...' : 'e.g. which room, which task...';
     const noteHtml = i.noteKey ? `
       <div class="note-label">WHAT TO WORK ON THIS WEEK</div>
-      <textarea class="note-input" data-notekey="${i.noteKey}" placeholder="e.g. which room, which task...">${(weekNotes()[i.noteKey]||'')}</textarea>` : '';
+      <textarea class="note-input" data-notekey="${i.noteKey}" placeholder="${notePlaceholder}">${(weekNotes()[i.noteKey]||'')}</textarea>` : '';
     return `<div class="item wk ${c[i.id]?'done':''}" data-id="${i.id}">
       <div class="box"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l6 6L20 6" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       <div class="itext">
@@ -865,6 +957,7 @@ function renderThisWeek(){
   });
 }
 function saveMotivation(){ S.weekMotivation[weekKey()] = document.getElementById('motivationInput').value; saveState(); }
+function saveReflection(){ S.weekReflection[weekKey()] = document.getElementById('reflectionInput').value; saveState(); }
 function addOther(){
   const val = document.getElementById('otherInput').value.trim();
   if (!val) return;
@@ -878,58 +971,78 @@ function removeOther(i){ const wk = weekKey(); S.weekOther[wk].splice(i,1); save
 // ══════════════════════════════════════════════
 // TODAY TAB
 // ══════════════════════════════════════════════
-function switchUmbrella(u){
-  activeUmbrella = u;
-  document.getElementById('btn-spir').classList.toggle('active', u==='spir');
-  document.getElementById('btn-whole').classList.toggle('active', u==='whole');
-  document.getElementById('umbrellaCaption').textContent = UMBRELLA_CAPTION[u];
-  const body = document.getElementById('dailyBody');
-  body.classList.toggle('tint-spir', u==='spir');
-  body.classList.toggle('tint-whole', u==='whole');
-  const bg = u==='spir' ? 'var(--sage-bg)' : 'var(--lav-bg)';
-  document.querySelector('.app').style.background = bg;
-  document.body.style.background = bg;
-  document.querySelector('.toptabs-outer').style.background = bg;
-  renderDaily();
+function toggleDailyCategory(cat){
+  const key = cat.replace(/\s+/g,'');
+  const currentlyCollapsed = dailyCollapse[cat] === false ? false : true;
+  dailyCollapse[cat] = !currentlyCollapsed;
+  const nowCollapsed = dailyCollapse[cat];
+  const body = document.getElementById('catbody-'+key);
+  const chev = document.getElementById('catchev-'+key);
+  if (body) body.style.display = nowCollapsed ? 'none' : '';
+  if (chev) chev.textContent = nowCollapsed ? '▸' : '▾';
 }
-function itemRow(i, checked, wholeClass){
+function itemRow(i, state){
   const noteHtml = i.noteKey ? `
       <div class="note-label">WHAT TO WORK ON THIS WEEK</div>
-      <textarea class="note-input" data-notekey="${i.noteKey}" placeholder="e.g. which cert, which chapter, which room...">${(weekNotes()[i.noteKey]||'')}</textarea>` : '';
-  return `<div class="item ${checked?'done':''} ${wholeClass?'whole':''}" data-id="${i.id}">
+      <textarea class="note-input" data-notekey="${i.noteKey}" placeholder="e.g. which cert, which chapter, which room...">${(weekNotes()[i.noteKey]||'')}</textarea>` :
+    i.dayNoteKey ? `
+      <div class="note-label">WHAT WILL YOU DO TODAY</div>
+      <textarea class="note-input" data-daynotekey="${i.dayNoteKey}" placeholder="e.g. walk, stretch, weights...">${(dayNotes()[i.dayNoteKey]||'')}</textarea>` : '';
+  const cls = state===true ? 'done' : state==='na' ? 'na' : '';
+  return `<div class="item ${cls}" data-id="${i.id}" style="background:${CATEGORY_META[i.tag]?CATEGORY_META[i.tag].bg:'var(--card)'};">
     <div class="box"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l6 6L20 6" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <div class="itext">
-      <div class="itag">${i.tag}</div>
       <div class="iname">${i.name}</div>
       ${i.detail ? `<div class="idetail">${i.detail}</div>` : ''}
+      ${state==='na' ? `<div class="na-hint">Marked not applicable today</div>` : ''}
       ${noteHtml}
     </div>
   </div>`;
 }
+function allItemsForDate(d){
+  const dow = d.getDay();
+  const isFirstMonday = dow===1 && d.getDate()<=7;
+  const daySpir = daySpirForDate(dow, d);
+  if (isFirstMonday) daySpir.push({ id:'mon-broadcast', tag:'Meetings', order:32, name:'JW broadcast', detail:'Monthly broadcast — first Monday' });
+  const spirDailyToday = SPIR_DAILY.map(i => {
+    if (i.id !== 'bible-daily') return i;
+    const detail = bibleDailyDetail(dow);
+    return dow===1 ? {...i, detail, noteKey:'mon-meeting-reading'} : {...i, detail};
+  });
+  return [
+    ...spirDailyToday, ...daySpir,
+    ...morningRoutine(dow), ...anytimeToday(dow, d), ...eveningRoutine(),
+  ];
+}
 function renderDaily(){
   const now = new Date();
   const dow = now.getDay();
-  const isFirstMonday = dow===1 && now.getDate()<=7;
   const c = todayChecks();
-  let html = '';
-  if (activeUmbrella === 'spir'){
-    const daySpir = [...(DAY_SPIR[dow]||[])];
-    if (isFirstMonday) daySpir.push({ id:'mon-broadcast', tag:'Meetings', order:32, name:'JW broadcast', detail:'Monthly broadcast — first Monday' });
-    const spirDailyToday = SPIR_DAILY.map(i => {
-      if (i.id !== 'bible-daily') return i;
-      const detail = bibleDailyDetail(dow);
-      return dow===1 ? {...i, detail, noteKey:'mon-meeting-reading'} : {...i, detail};
-    });
-    const list = [...spirDailyToday, ...daySpir].sort((a,b)=>a.order-b.order);
-    html = list.map(i => itemRow(i, c[i.id], false)).join('');
-  } else {
-    html += `<div class="section-label">Morning routine</div>`;
-    html += morningRoutine(dow).map(i => itemRow(i, c[i.id], true)).join('');
-    html += `<div class="section-label">Anytime today</div>`;
-    html += anytimeToday(dow).map(i => itemRow(i, c[i.id], true)).join('');
-    html += `<div class="section-label">Evening routine</div>`;
-    html += eveningRoutine().map(i => itemRow(i, c[i.id], true)).join('');
+
+  document.getElementById('missionEcho').textContent = S.missionMain || '';
+
+  const allItems = allItemsForDate(now);
+
+  const buckets = {};
+  allItems.forEach(i => { (buckets[i.tag] = buckets[i.tag] || []).push(i); });
+  let cats = Object.keys(buckets).sort((a,b)=>(CATEGORY_META[a]?.order||99)-(CATEGORY_META[b]?.order||99));
+  if (buckets['Work'] && buckets['Work'].length){
+    cats = ['Work', ...cats.filter(c=>c!=='Work')];
   }
+
+  let html = cats.map((cat, idx) => {
+    const meta = CATEGORY_META[cat] || { head:'var(--cream2)', ink:'var(--ink)' };
+    const key = cat.replace(/\s+/g,'');
+    const isFocus = cat==='Work' && idx===0;
+    const collapsed = dailyCollapse[cat] === false ? false : true;
+    const rows = buckets[cat].map(i => itemRow(i, c[i.id])).join('');
+    return `<div class="cat-section" ${isFocus?'style="border:2px solid '+meta.ink+';"':''}>
+      <div class="cat-head" style="background:${meta.head};color:${meta.ink};" onclick="toggleDailyCategory('${cat}')">
+        <span>${isFocus ? "🎯 Today's Focus — "+cat : cat}</span><span id="catchev-${key}">${collapsed?'▸':'▾'}</span>
+      </div>
+      <div class="cat-body" id="catbody-${key}" style="${collapsed?'display:none;':''}">${rows}</div>
+    </div>`;
+  }).join('');
   document.getElementById('dailyItems').innerHTML = html;
 
   document.getElementById('dateLabel').textContent = now.toLocaleDateString('en-US',{weekday:'long', month:'short', day:'numeric'});
@@ -946,7 +1059,10 @@ function renderDaily(){
   });
   document.querySelectorAll('.daily-list .note-input').forEach(el => {
     el.onclick = (ev) => ev.stopPropagation();
-    el.onblur = () => saveWeekNote(el.dataset.notekey, el.value);
+    el.onblur = () => {
+      if (el.dataset.notekey) saveWeekNote(el.dataset.notekey, el.value);
+      if (el.dataset.daynotekey) saveDayNote(el.dataset.daynotekey, el.value);
+    };
   });
 
   const dk = dateKey(now);
@@ -1102,14 +1218,27 @@ function renderRoadmap(){
     const months = MONTHS.slice(qIdx*3, qIdx*3+3);
     const col = quarterColor(qIdx);
     const curQ = quarterIndexForMonth(curIdx>=0?curIdx:0);
+    const theme = QUARTER_THEMES[qIdx];
     el.innerHTML = `
       <div class="rm-crumb" onclick="backToYear()">‹ Year 1</div>
-      <div class="pagetitle">Quarter ${qIdx+1}</div>
+      <div class="pagetitle">Quarter ${qIdx+1} — ${theme.name}</div>
       <div class="pagesub" style="margin-bottom:12px;">${months[0].name} – ${months[2].name} ${months[0].y}${qIdx===curQ?' · Current quarter':''}</div>
       <div class="pcard" style="border-left:4px solid ${col};">
-        <div class="pcard-title">Quarter goals</div>
+        <div class="pcard-title" style="color:var(--sage-ink);">Spiritual</div>
+        <div class="goal-row">${theme.spiritual}</div>
+      </div>
+      <div class="pcard" style="border-left:4px solid ${col};">
+        <div class="pcard-title" style="color:var(--lav-ink);">Body & Mind</div>
+        <div class="goal-row">${theme.bodyMind}</div>
+      </div>
+      <div class="pcard" style="border-left:4px solid ${col};">
+        <div class="pcard-title">Finance / Work</div>
+        <div class="goal-row">${theme.financeWork}</div>
+      </div>
+      <div class="pcard" style="border-left:4px solid ${col};">
+        <div class="pcard-title">Tracked goals</div>
         <div class="goal-row"><b>Bible reading:</b> ${bibleRangeForQuarter(qIdx)}</div>
-        <div class="goal-row"><b>Pioneer hours:</b> ~150–210 hrs (50–70/month × 3)</div>
+        <div class="goal-row"><b>Pioneer hours:</b> ~${qIdx===3 ? '40–56 hrs (deliberate taper)' : '205–210 hrs (16 hr/week pace)'}</div>
         <div class="goal-row"><b>JW 6-book cycle:</b> ${jwCycleStatusText()}</div>
         <div class="goal-row"><b>Pioneer School book:</b> ${pioneerSectionsForQuarter(qIdx)}</div>
         <div class="goal-row"><b>Language:</b> ${languageQuarterSummary(qIdx)}</div>
@@ -1181,14 +1310,14 @@ function renderRoadmap(){
       <div class="pagetitle">Week of ${fmtDate(start)}</div>
       <div class="pagesub" style="margin-bottom:12px;">${mo.extra || 'Standing focus: weight loss & hygiene'}</div>
       <div class="wk-summary">
-        <div><b>Field service target:</b> ~15 hrs this week (toward 50–70/month)</div>
+        <div><b>Field service target:</b> ~16 hrs this week (toward 500 hrs by end of April)</div>
         <div><b>Language this week:</b> ${languageDetailText(langNow)}</div>
       </div>
       <div id="dayCards"></div>`;
     const cards = dayOrder.map((dow, i) => {
       const d = new Date(start.getTime() + i*86400000);
       const isToday = dateKey(d) === dateKey(now);
-      const daySpecific = (DAY_SPIR[dow]||[]).map(x=>x.name);
+      const daySpecific = daySpirForDate(dow, d).map(x=>x.name);
       const wholeSpecific = [];
       if (dow===6 && isHairWashDay(d)) wholeSpecific.push('Hair wash');
       if ([1,2,4].includes(dow)) wholeSpecific.push('Cardiac rehab');
@@ -1226,13 +1355,20 @@ function eventsInYear(yearNum){
 // PROGRESS TAB
 // ══════════════════════════════════════════════
 function ensureMonthReset(){ const mk=monthKey(); if (S.fsMonthKey!==mk){ S.fsMonthKey=mk; S.fsMonthHours=0; } }
-function ensureCliWeekReset(){ const wk=weekKey(); if (S.cliWeekKey!==wk){ S.cliWeekKey=wk; S.cliWeekHours=0; } }
+function ensureCliWeekReset(){ const wk=weekKey(); if (S.cliWeekKey!==wk){ S.cliWeekKey=wk; S.cliWeekHours=0; S.cliWeekIncome=0; } }
 function logCLI(){
   const v = parseFloat(document.getElementById('cliInput').value)||0;
   if (v<=0) return;
   ensureCliWeekReset(); S.cliWeekHours += v;
   document.getElementById('cliInput').value='';
   saveState(); showToast(`Logged ${v} interpreted hrs`); renderProgress();
+}
+function logCLIIncome(){
+  const v = parseFloat(document.getElementById('cliIncomeInput').value)||0;
+  if (v<=0) return;
+  ensureCliWeekReset(); S.cliWeekIncome += v;
+  document.getElementById('cliIncomeInput').value='';
+  saveState(); showToast(`Logged $${v.toFixed(2)} earned`); renderProgress();
 }
 function logFS(){
   const v = parseFloat(document.getElementById('fsInput').value)||0;
@@ -1277,6 +1413,67 @@ function logWeight(){
   saveState(); showToast('Weight logged'); renderProgress();
 }
 const INTERSIGN_COUNTS = [77,71,51,78,94,69,80,79,55,51,62,67,76,67,51,55,55];
+
+// ══════════════════════════════════════════════
+// HISTORY (weekly completion % + monthly neglected items)
+// ══════════════════════════════════════════════
+let historyWeekOffset = 1; // 1 = last week (weeks back from current week start)
+let historyMonthOffset = 1; // 1 = last month
+function weekStatsForStart(wkStart){
+  let done=0, notDone=0;
+  for (let i=0;i<7;i++){
+    const d = new Date(wkStart.getTime() + i*86400000);
+    const dk = dateKey(d);
+    const items = allItemsForDate(d);
+    const c = S.checked[dk] || {};
+    items.forEach(it => {
+      const v = c[it.id];
+      if (v===true) done++;
+      else if (v==='na') { /* neutral, excluded */ }
+      else notDone++;
+    });
+  }
+  const total = done+notDone;
+  return { done, total, pct: total? Math.round((done/total)*100) : null };
+}
+function monthNeglectedList(y, m){
+  const tally = {};
+  const first = new Date(y, m-1, 1);
+  const last = new Date(y, m, 0);
+  for (let d=new Date(first); d<=last; d.setDate(d.getDate()+1)){
+    const dk = dateKey(d);
+    const items = allItemsForDate(d);
+    const c = S.checked[dk] || {};
+    items.forEach(it => {
+      const v = c[it.id];
+      if (v===true) return;
+      if (v==='na') return;
+      if (!tally[it.id]) tally[it.id] = { name: it.name, count:0 };
+      tally[it.id].count++;
+    });
+  }
+  return Object.values(tally).sort((a,b)=>b.count-a.count).slice(0,6);
+}
+function historyWeekStep(delta){ historyWeekOffset = Math.max(1, historyWeekOffset+delta); renderHistory(); }
+function historyMonthStep(delta){ historyMonthOffset = Math.max(1, historyMonthOffset+delta); renderHistory(); }
+function renderHistory(){
+  const now = new Date();
+  const curWkStart = startOfWeek(now);
+  const targetWkStart = new Date(curWkStart.getTime() - historyWeekOffset*7*86400000);
+  const targetWkEnd = new Date(targetWkStart.getTime() + 6*86400000);
+  document.getElementById('historyWeekLabel').textContent = `${targetWkStart.toLocaleDateString('en-US',{month:'short',day:'numeric'})} – ${targetWkEnd.toLocaleDateString('en-US',{month:'short',day:'numeric'})}`;
+  const stats = weekStatsForStart(targetWkStart);
+  document.getElementById('historyWeekSub').textContent = stats.total ? `${stats.done} of ${stats.total} tracked items` : 'No data for this week';
+  document.getElementById('historyWeekPct').textContent = stats.pct===null ? '—' : `${stats.pct}%`;
+  document.getElementById('historyWeekBar').style.width = (stats.pct||0)+'%';
+
+  let monthDate = new Date(now.getFullYear(), now.getMonth()-historyMonthOffset, 1);
+  document.getElementById('historyMonthLabel').textContent = monthDate.toLocaleDateString('en-US',{month:'long',year:'numeric'});
+  const neglected = monthNeglectedList(monthDate.getFullYear(), monthDate.getMonth()+1);
+  document.getElementById('historyNeglectedList').innerHTML = neglected.length
+    ? neglected.map(n=>`<div>${n.name} — missed ${n.count}×</div>`).join('')
+    : `<div style="font-style:italic;color:var(--ink3);">No data yet for this month.</div>`;
+}
 
 function renderProgress(){
   ensureMonthReset();
@@ -1355,6 +1552,8 @@ function renderProgress(){
   ensureCliWeekReset();
   document.getElementById('cliVal').textContent = `${S.cliWeekHours} / 20`;
   document.getElementById('cliBar').style.width = Math.min(100,(S.cliWeekHours/20)*100)+'%';
+  document.getElementById('cliIncomeVal').textContent = `$${(S.cliWeekIncome||0).toFixed(2)}`;
+  renderHistory();
 }
 
 // ══════════════════════════════════════════════
@@ -1372,16 +1571,6 @@ function switchTop(name){
   document.querySelectorAll('.toppanel').forEach(p=>p.classList.remove('active'));
   document.querySelector(`[onclick="switchTop('${name}')"]`).classList.add('active');
   document.getElementById(`top-${name}`).classList.add('active');
-  if (name==='daily'){
-    const bg = activeUmbrella==='whole' ? 'var(--lav-bg)' : 'var(--sage-bg)';
-    document.querySelector('.app').style.background = bg;
-    document.body.style.background = bg;
-    document.querySelector('.toptabs-outer').style.background = bg;
-  } else {
-    document.querySelector('.app').style.background = '';
-    document.body.style.background = '';
-    document.querySelector('.toptabs-outer').style.background = '';
-  }
   if (name==='roadmap') renderRoadmap();
   if (name==='week') renderThisWeek();
 }
@@ -1407,11 +1596,11 @@ const MISSION_QUOTES = [
 ];
 function dayOfYear(d){ const start=new Date(d.getFullYear(),0,0); return Math.floor((d-start)/86400000); }
 function todaysMissionQuote(){ return MISSION_QUOTES[dayOfYear(new Date()) % MISSION_QUOTES.length]; }
-function enterApp(umbrella){
+function enterApp(){
   document.getElementById('missionScreen').style.display = 'none';
   document.getElementById('mainApp').style.display = 'block';
-  switchUmbrella(umbrella);
   switchTop('daily');
+  renderDaily();
 }
 function backToMission(){
   document.getElementById('mainApp').style.display = 'none';
@@ -1433,7 +1622,6 @@ function backToMission(){
   document.documentElement.style.setProperty('--line', paleMix(monthAccent, 0.15));
   document.getElementById('missionHeroText').textContent = S.missionMain;
   document.getElementById('missionQuote').textContent = `"${todaysMissionQuote()}"`;
-  document.getElementById('dailyBody').classList.add('tint-spir');
   renderDaily();
   renderThisWeek();
   renderProgress();
