@@ -185,9 +185,12 @@ html,body{height:100%;background:var(--cream);}
 .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--cream);padding:9px 18px;border-radius:20px;font-size:13px;opacity:0;pointer-events:none;transition:all .3s;z-index:200;white-space:nowrap;}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 
-.mission-hero{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:14px;padding:22px 20px;margin-bottom:28px;}
-.mission-hero-label{font-size:11px;letter-spacing:.4px;color:var(--gold-ink);font-weight:600;margin-bottom:10px;text-transform:uppercase;}
-.mission-hero-text{font-family:'Fraunces',serif;font-size:19px;line-height:1.5;color:var(--ink);}
+.mission-hero{text-align:center;margin-bottom:22px;}
+.mission-icon{font-size:44px;line-height:1;margin-bottom:14px;}
+.mission-fragment{font-family:'Fraunces',serif;font-size:24px;font-style:italic;line-height:1.35;color:var(--ink);margin-bottom:14px;}
+.mission-readmore{font-size:12px;color:var(--ink3);text-decoration:underline;cursor:pointer;display:inline-block;margin-bottom:10px;}
+.mission-full{display:none;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;font-size:13.5px;line-height:1.5;color:var(--ink2);text-align:left;margin-bottom:16px;}
+.mission-full.show{display:block;}
 .mission-daily-quote{font-family:'Fraunces',serif;font-size:15px;font-style:italic;line-height:1.4;text-align:center;color:var(--ink2);margin-bottom:28px;}
 </style>
 </head>
@@ -199,8 +202,10 @@ html,body{height:100%;background:var(--cream);}
   <div class="mission-inner">
   <div style="text-align:center;font-family:'Fraunces',serif;font-size:14px;letter-spacing:1px;color:var(--ink3);margin-bottom:18px;">MA COURSE</div>
   <div class="mission-hero">
-    <div class="mission-hero-label">My Mission</div>
-    <div class="mission-hero-text" id="missionHeroText">—</div>
+    <div class="mission-icon">🌿</div>
+    <div class="mission-fragment" id="missionFragment">—</div>
+    <div class="mission-readmore" onclick="toggleFullMission()" id="missionReadMoreLink">Read full mission →</div>
+    <div class="mission-full" id="missionFullText">—</div>
   </div>
   <div class="mission-daily-quote" id="missionQuote">—</div>
   <div class="mission-btn" style="background:var(--ink);color:#fff;" onclick="enterApp()">Begin my day →</div>
@@ -409,6 +414,16 @@ html,body{height:100%;background:var(--cream);}
         </div>
       </div>
 
+      <div class="pcard">
+        <div class="pcard-title">Backup</div>
+        <div style="font-size:12.5px;color:var(--ink2);margin-bottom:10px;">Your data lives only in this browser. Export it regularly and keep the file somewhere safe (email, cloud drive) so you can restore it if you switch devices or clear your browser.</div>
+        <div class="inline-form">
+          <button onclick="exportBackup()" style="flex:1;">Export backup</button>
+          <button onclick="document.getElementById('importFileInput').click()" style="flex:1;">Import backup</button>
+        </div>
+        <input type="file" id="importFileInput" accept="application/json" style="display:none;" onchange="importBackup(event)">
+      </div>
+
       <div class="reset-link" onclick="confirmResetToday()">Reset today's checklist</div>
     </div>
   </div>
@@ -455,7 +470,8 @@ function daySpirForDate(dow, d){
 }
 
 const SPIR_DAILY = [
-  { id:'bible-daily', tag:'Feeding Myself', order:10, name:'Daily Bible Reading & Text', detail:'~20 min' },
+  { id:'daily-text', tag:'Feeding Myself', order:9, name:'Daily Text', detail:'a few minutes' },
+  { id:'bible-daily', tag:'Feeding Myself', order:10, name:'Bible reading', detail:'~20 min' },
 ];
 
 const DAY_SPIR = {
@@ -494,6 +510,7 @@ function morningRoutine(dow){
   const items = [
     { id:'wr-weigh', tag:'Starting My Day', name:'Weigh in', detail:'before eating or drinking' },
     { id:'wr-hygiene', tag:'Starting My Day', name:'Morning hygiene', detail:'before 9am · 15–20 min' },
+    { id:'wr-medication', tag:'Starting My Day', name:'Medication', detail:'' },
     { id:'wr-exercise', tag:'Starting My Day', name:'Exercise', detail:'type of your choice', dayNoteKey:'exercise' },
   ];
   items.push({ id:'wr-breakfast', tag:'Starting My Day', name:'Breakfast', detail:'' });
@@ -788,12 +805,12 @@ function toggleGoalCollapse(key){
 
 async function loadState(){
   try {
-    const r = await window.storage.get('life-tracker-state', false);
-    if (r && r.value) S = Object.assign(defaultState(), JSON.parse(r.value));
-  } catch(e) { /* first run */ }
+    const raw = localStorage.getItem('life-tracker-state');
+    if (raw) S = Object.assign(defaultState(), JSON.parse(raw));
+  } catch(e) { /* first run, or storage unavailable */ }
 }
 async function saveState(){
-  try { await window.storage.set('life-tracker-state', JSON.stringify(S), false); }
+  try { localStorage.setItem('life-tracker-state', JSON.stringify(S)); }
   catch(e){ console.error('save failed', e); }
 }
 
@@ -1009,9 +1026,13 @@ function allItemsForDate(d){
     const detail = bibleDailyDetail(dow);
     return dow===1 ? {...i, detail, noteKey:'mon-meeting-reading'} : {...i, detail};
   });
+  const monthlyMed = [];
+  if (d.getDate()===16){
+    monthlyMed.push({ id:'ajovy-injection', tag:'Starting My Day', name:'Ajovy injection', detail:'Monthly injection — due today (16th)' });
+  }
   return [
     ...spirDailyToday, ...daySpir,
-    ...morningRoutine(dow), ...anytimeToday(dow, d), ...eveningRoutine(),
+    ...morningRoutine(dow), ...anytimeToday(dow, d), ...eveningRoutine(), ...monthlyMed,
   ];
 }
 function renderDaily(){
@@ -1574,6 +1595,37 @@ function switchTop(name){
   if (name==='roadmap') renderRoadmap();
   if (name==='week') renderThisWeek();
 }
+function exportBackup(){
+  const blob = new Blob([JSON.stringify(S, null, 2)], { type:'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `ma-course-backup-${dateKey()}.json`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  showToast('Backup downloaded');
+}
+function importBackup(event){
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    try {
+      const imported = JSON.parse(e.target.result);
+      if (!confirm('This will replace all current data with the backup file. Continue?')) return;
+      S = Object.assign(defaultState(), imported);
+      saveState();
+      showToast('Backup restored');
+      renderDaily(); renderThisWeek(); renderProgress();
+    } catch(err){
+      alert('Could not read this file — make sure it\'s a backup exported from this app.');
+    }
+  };
+  reader.readAsText(file);
+  event.target.value = '';
+}
 function confirmResetToday(){
   if (confirm("Reset today's checklist? Weekly items and progress trackers all stay.")){
     S.checked[dateKey()] = {};
@@ -1584,6 +1636,19 @@ function confirmResetToday(){
 // ══════════════════════════════════════════════
 // MISSION / LANDING SCREEN
 // ══════════════════════════════════════════════
+const MISSION_FRAGMENTS = [
+  "Staying close to Jehovah through His Word and prayer.",
+  "Caring for my sleep, my mind, and my body.",
+  "Being helpful to others through listening and compassion.",
+  "Staying resilient — keeping my joy through life's difficulties.",
+];
+function todaysMissionFragment(){ return MISSION_FRAGMENTS[dayOfYear(new Date()) % MISSION_FRAGMENTS.length]; }
+function toggleFullMission(){
+  const el = document.getElementById('missionFullText');
+  const link = document.getElementById('missionReadMoreLink');
+  const showing = el.classList.toggle('show');
+  link.textContent = showing ? 'Hide full mission ↑' : 'Read full mission →';
+}
 const MISSION_QUOTES = [
   "Small, steady steps done in faith outlast bursts of effort done in doubt.",
   "A day organized around what matters is never a wasted day.",
@@ -1620,7 +1685,8 @@ function backToMission(){
   document.documentElement.style.setProperty('--card', paleMix(monthAccent, 0.65));
   document.documentElement.style.setProperty('--cream2', paleMix(monthAccent, 0.45));
   document.documentElement.style.setProperty('--line', paleMix(monthAccent, 0.15));
-  document.getElementById('missionHeroText').textContent = S.missionMain;
+  document.getElementById('missionFragment').textContent = todaysMissionFragment();
+  document.getElementById('missionFullText').textContent = S.missionMain;
   document.getElementById('missionQuote').textContent = `"${todaysMissionQuote()}"`;
   renderDaily();
   renderThisWeek();
