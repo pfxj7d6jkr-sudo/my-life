@@ -14,10 +14,13 @@
   --blue:#7c93a8; --blue-dim:#e5eaef; --blue-ink:#3e5165; --blue-bg:#e5eaef; --blue-card:#d7dfe6;
   --rose:#C79A8E; --rose-dim:#E3C9C0; --rose-ink:#6B453A; --rose-bg:#F0DFDA; --rose-card:#E6CFC7;
   --gold:#b8935a; --gold-dim:#f2e6d2; --gold-ink:#6b4f26; --gold-bg:#f2e6d2; --gold-card:#ecd9b8;
-  /* Domain colors — final palette */
-  --dom-sante:#4C9A63; --dom-perso:#4FA8A0; --dom-competence:#A97FBF;
-  --dom-horaire:#2E2A26; --dom-notes:#B8B8C0; --dom-finance:#B5651D;
-  --dom-bible:#1F3A5F; --dom-etude:#4A6FA5; --dom-predication:#7EB6E0; --dom-goals:#2451A3;
+  /* Domain colors — final 5-domain palette */
+  --dom-physical:#DA5E8D; --dom-mental:#936FBC; --dom-skills:#FF8730;
+  --dom-financial:#82BB4F; --dom-spiritual:#55B6F7;
+  /* legacy aliases kept so existing lookups still resolve to the 5 colors above */
+  --dom-sante:#DA5E8D; --dom-perso:#936FBC; --dom-competence:#FF8730;
+  --dom-finance:#82BB4F; --dom-bible:#55B6F7; --dom-etude:#55B6F7; --dom-predication:#55B6F7; --dom-goals:#55B6F7;
+  --skills-dim:#FFEDE0; --skills-card:#FFE1CB; --skills-ink:#8C4A1A;
   --lvl-badge-bg:#F5EFE2; --lvl-badge-ink:#8a6d3b; --lvl-badge-border:#e0c99a;
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
@@ -287,7 +290,19 @@ html,body{height:100%;background:var(--cream);}
     <div class="pad">
 
       <div class="pcard">
-        <div class="pcard-title">Field service — this month</div>
+        <div class="pcard-title">Field service — weekly pace</div>
+        <div class="lvl-card-top">
+          <span class="lvl-card-name"><span class="domain-dot" style="background:var(--dom-spiritual);"></span>Field service hours</span>
+          <span class="lvl-badge" id="fsHoursBadge">L1 of L4</span>
+        </div>
+        <div class="lvl-card-stage" id="fsHoursStageText">12.5–13 hrs/week</div>
+        <div class="prow-top"><span class="prow-label">This week</span><span class="prow-val" id="fsWeekVal">0 / 12.5 hrs</span></div>
+        <div class="pbar"><div class="pbar-fill" id="fsWeekBar" style="background:var(--dom-spiritual);width:0%"></div></div>
+        <div class="lvl-streak-row" id="fsHoursStreakRow">Weeks held: 0 / 4 toward Level 2</div>
+      </div>
+
+      <div class="pcard">
+        <div class="pcard-title">Field service — monthly requirement</div>
         <div class="prow">
           <div class="prow-top"><span class="prow-label">Toward 50 hr requirement</span><span class="prow-val" id="fsReqVal">0 / 50</span></div>
           <div class="pbar"><div class="pbar-fill" id="fsReqBar" style="background:var(--sage);width:0%"></div></div>
@@ -493,14 +508,14 @@ function daySpirForDate(dow, d){
 }
 
 const SPIR_DAILY = [
-  { id:'daily-text', tag:'Feeding Myself', order:9, name:'Daily Text', detail:'a few minutes', domain:'etude' },
+  { id:'daily-text', tag:'Feeding Myself', order:9, name:'Daily Text', detail:'', domain:'etude', level:'daily-text' },
   { id:'bible-daily', tag:'Feeding Myself', order:10, name:'Bible reading', detail:'~20 min', domain:'bible', level:'bible-daily' },
 ];
 
 const DAY_SPIR = {
   1: [
     { id:'mon-treasures', tag:'Feeding Myself', order:35, name:'Treasures from God\u2019s Word', detail:'meeting prep · 30 min', domain:'etude' },
-    { id:'mon-fs-am', tag:'Field Service', order:60, name:'Field service — in person', detail:'10am–1pm · 3 hrs', domain:'predication' },
+    { id:'mon-fs-am', tag:'Field Service', order:60, name:'Field service — home-based', detail:'10am–1pm · 3 hrs', domain:'predication' },
     { id:'mon-fs-pm', tag:'Field Service', order:80, name:'Field service — Zoom', detail:'5:30–7:30pm · 2 hrs', domain:'predication' },
   ],
   2: [
@@ -512,10 +527,10 @@ const DAY_SPIR = {
     { id:'wed-fs-pm', tag:'Field Service', order:80, name:'Field service — Zoom', detail:'5:30–7:30pm · 2 hrs', domain:'predication' },
   ],
   4: [
-    { id:'thu-study', tag:'Feeding Myself', order:30, name:'Personal study', detail:'the long one · 1 hr', domain:'etude' },
+    { id:'thu-study', tag:'Feeding Myself', order:30, name:'Personal study — solo field service session', detail:'the solo 1-hour home-based session · 1 hr', domain:'predication' },
   ],
   5: [
-    { id:'fri-fs', tag:'Field Service', order:20, name:'Field service — Zoom', detail:'10am–12pm · 2 hrs', domain:'predication' },
+    { id:'fri-fs', tag:'Field Service', order:20, name:'Field service — home-based + Zoom', detail:'10am–12pm · 2 hrs', domain:'predication' },
     { id:'fri-wt', tag:'Feeding Myself', order:35, name:'Watchtower study article', detail:'30 min', domain:'etude' },
     { id:'fri-meeting', tag:'Meetings', order:90, name:'Meeting', detail:'7:30–9:15pm', domain:'etude' },
   ],
@@ -561,6 +576,46 @@ const ROUTINE_LEVELS = {
     name: 'Bath', tag:'Closing My Day', domain:'sante',
     stages: {
       0: "2×/week", 1: "3×/week", 2: "4×/week", 3: "5–6×/week", 4: "Every day",
+    },
+  },
+  brushFloss: {
+    name: 'Brushing + flossing', tag:'Closing My Day', domain:'sante',
+    stages: {
+      0: "Once/day, 5–6 days/week",
+      1: "Once/day, 7 days/week",
+      2: "Twice/day, 3–4 days/week",
+      3: "Twice/day, 5–6 days/week",
+      4: "Twice/day (morning + evening), every day",
+    },
+  },
+  medication: {
+    name: 'Medication', tag:'Starting My Day', domain:'sante',
+    stages: {
+      0: "Take AM/PM meds, no set time, straight from the bottle",
+      1: "AM/PM meds, no set time, straight from the bottle",
+      2: "Set time window (e.g. \"morning\", \"evening\"), still from the bottle",
+      3: "Narrower time window, from a weekly pill box prepped in advance",
+      4: "Specific set times AM/PM, from a medication box prepped in advance for the week",
+    },
+  },
+  breakfast: {
+    name: 'Breakfast', tag:'Starting My Day', domain:'sante',
+    stages: {
+      0: "Eat something in the morning, no fixed requirement",
+      1: "Eat something in the morning, no fixed requirement",
+      2: "+ at least 1 fruit, most of the time",
+      3: "+ 2 fruits, most of the time",
+      4: "2 fruits + full breakfast planned/prepped ahead (fridge-ready or set out the night before)",
+    },
+  },
+  sleepWake: {
+    name: 'Sleep / wake time', tag:'Closing My Day', domain:'sante',
+    stages: {
+      0: "Bed 2:30–3:30am, wake 10–10:30am",
+      1: "Bed 1:30am, wake 9:30am",
+      2: "Bed 12:30am, wake 9:00am",
+      3: "Bed 11:30pm, wake 8:15am",
+      4: "Bed 10:30pm, wake 7:30am",
     },
   },
   dinnerTime: {
@@ -631,6 +686,16 @@ const ROUTINE_LEVELS = {
       2: "2 chapters/day + brief meditation",
       3: "3 chapters/day + meditation + occasional writing",
       4: "4 chapters/day + meditation + daily writing",
+    },
+  },
+  'daily-text': {
+    name: 'Daily text depth', tag:'Feeding Myself', domain:'etude',
+    stages: {
+      0: "Sometimes, just a glance at the text on the phone",
+      1: "Read the day's text + explanation, regularly",
+      2: "+ Read all the verses cited in the explanation",
+      3: "+ Listen to the Watchtower audio explanation",
+      4: "+ Listen to the audio of the full Bible chapter the text comes from",
     },
   },
 };
@@ -716,13 +781,16 @@ function toggleRetroHabit(id, daysAgo){
 function morningRoutine(dow){
   const items = [
     { id:'wr-weigh', tag:'Starting My Day', name:'Weigh in', detail:'before eating or drinking' },
-    { id:'wr-hygiene', tag:'Starting My Day', name:'Morning hygiene', detail:'before 9am · 15–20 min' },
-    { id:'wr-medication', tag:'Starting My Day', name:'Medication', detail:'' },
+    { id:'wr-prayer', tag:'Starting My Day', name:'Prayer', detail:'' },
+    { id:'wr-medication', tag:'Starting My Day', name:'Medication', detail: habitStageText('medication'), level:'medication' },
+    { id:'wr-hygiene', tag:'Starting My Day', name:'Shower', detail:'before 9am' },
     { id:'skincare', tag:'Starting My Day', name:'Skincare', detail: habitStageText('skincare'), level:'skincare' },
     { id:'bedmaking', tag:'Starting My Day', name:'Make the bed', detail: habitStageText('bedmaking'), level:'bedmaking' },
+    { id:'wr-breakfast', tag:'Starting My Day', name:'Breakfast', detail: habitStageText('breakfast'), level:'breakfast' },
     { id:'wr-exercise', tag:'Starting My Day', name:'Exercise', detail:'type of your choice', dayNoteKey:'exercise' },
+    { id:'wr-preach-work', tag:'Starting My Day', name:'Preach with group / work login', detail:'' },
+    { id:'wr-lunch', tag:'Starting My Day', name:'Lunch', detail:'' },
   ];
-  items.push({ id:'wr-breakfast', tag:'Starting My Day', name:'Breakfast', detail:'' });
   return items;
 }
 const HAIR_WASH_ANCHOR = new Date(2026,8,26); // Saturday Sept 26, 2026 — braids finished Fri Sep 11, wash 2 weeks later
@@ -737,11 +805,12 @@ function eveningRoutine(){
     { id:'roomTidy', tag:'Closing My Day', name:'Tidy my room', detail: habitStageText('roomTidy'), level:'roomTidy' },
     { id:'guestBathroom', tag:'Closing My Day', name:'Tidy guest bathroom', detail: habitStageText('guestBathroom'), level:'guestBathroom' },
     { id:'bath', tag:'Closing My Day', name:'Bath', detail: habitStageText('bath'), level:'bath' },
+    { id:'brushFloss', tag:'Closing My Day', name:'Brush + floss', detail: habitStageText('brushFloss'), level:'brushFloss' },
     { id:'outfitPrep', tag:'Closing My Day', name:"Tomorrow's outfit", detail: habitStageText('outfitPrep'), level:'outfitPrep' },
     { id:'er-reading', tag:'Closing My Day', name:'Bible reading', detail:'chapters + meditation/writing, see Feeding Myself scale' },
     { id:'writingJournal', tag:'Closing My Day', name:'Writing / journal', detail: habitStageText('writingJournal'), level:'writingJournal' },
     { id:'planTomorrow', tag:'Closing My Day', name:'Plan tomorrow', detail: habitStageText('planTomorrow'), level:'planTomorrow' },
-    { id:'er-bed', tag:'Closing My Day', name:'In bed by 10:30pm', detail:'' },
+    { id:'er-bed', tag:'Closing My Day', name:'In bed by 10:30pm', detail: habitStageText('sleepWake'), level:'sleepWake' },
   ];
 }
 const DAY_ABBR = {0:'Sun',1:'Mon',2:'Tue',3:'Wed',4:'Thu',5:'Fri',6:'Sat'};
@@ -770,7 +839,7 @@ const CATEGORY_META = {
   'Starting My Day': { order:1, bg:'var(--lav-card)',  head:'var(--lav-dim)',  ink:'var(--lav-ink)' },
   'Feeding Myself':  { order:2, bg:'var(--sage-card)', head:'var(--sage-dim)', ink:'var(--sage-ink)' },
   'Field Service':   { order:3, bg:'var(--gold-card)', head:'var(--gold-dim)', ink:'var(--gold-ink)' },
-  'Growth & Skill':  { order:4, bg:'var(--dom-competence)', head:'var(--dom-competence)', ink:'#ffffff' },
+  'Growth & Skill':  { order:4, bg:'var(--skills-card)', head:'var(--skills-dim)', ink:'var(--skills-ink)' },
   'Meetings':        { order:5, bg:'var(--blue-card)', head:'var(--blue-dim)', ink:'var(--blue-ink)' },
   'Closing My Day':  { order:6, bg:'var(--lav-card)',  head:'var(--lav-dim)',  ink:'var(--lav-ink)' },
   'Work':            { order:7, bg:'var(--rose-card)', head:'var(--rose-dim)', ink:'var(--rose-ink)' },
@@ -988,12 +1057,43 @@ const MONTHS = [
 ];
 
 // ══════════════════════════════════════════════
+// FIELD SERVICE HOURS LEVEL RAMP (weekly magnitude ramp, L1→L4)
+// ══════════════════════════════════════════════
+const FS_HOURS_STAGES = {
+  1: { target: 12.5, label: '12.5–13 hrs/week' },
+  2: { target: 14, label: '14 hrs/week' },
+  3: { target: 15, label: '15 hrs/week' },
+  4: { target: 16, label: '16 hrs/week (sustained)' },
+};
+const FS_WEEKS_TO_ADVANCE = 4;
+function ensureFsWeekReset(){
+  const wk = weekKey();
+  if (S.fsWeekKey !== wk){
+    if (S.fsWeekKey){
+      const stage = FS_HOURS_STAGES[Math.min(S.fsHoursLevel||1,4)];
+      if ((S.fsWeekHours||0) >= stage.target){
+        S.fsHoursStreak = (S.fsHoursStreak||0)+1;
+        if (S.fsHoursStreak >= FS_WEEKS_TO_ADVANCE && S.fsHoursLevel < 4){
+          S.fsHoursLevel = (S.fsHoursLevel||1)+1;
+          S.fsHoursStreak = 0;
+        }
+      } else {
+        S.fsHoursStreak = 0;
+      }
+    }
+    S.fsWeekKey = wk;
+    S.fsWeekHours = 0;
+  }
+}
+
+// ══════════════════════════════════════════════
 // STATE
 // ══════════════════════════════════════════════
 function defaultState(){
   return {
     checked:{}, weekListChecked:{}, weekOther:{}, weekMotivation:{}, weekReflection:{}, weekNotes:{}, dayNotes:{}, dayOther:{}, monthlyTasks:{},
     fsMonthHours:26, fsMonthKey:monthKey(),
+    fsWeekHours:0, fsWeekKey:null, fsHoursLevel:1, fsHoursStreak:0,
     cliWeekHours:0, cliWeekIncome:0, cliWeekKey:null,
     bibleIndex:0, bibleChapterInBook:1, readIndex:0, pioneerIndex:0, aslVideoIndex:0, intersignIndex:0,
     langChapter:{spanish:0, french:0, korean:0, arabic:0, english:0},
@@ -1121,7 +1221,7 @@ function buildWeekList(wkStart){
   items.push({ id:'wl-wt-prep', name:'Watchtower prep', detail:'sit down, answer the questions, take notes', domain:'etude' });
   const langNow = languageForDate(wkStart);
   items.push({ id:'wl-lang', name:'Language practice', detail: languageDetailText(langNow), domain:'competence' });
-  items.push({ id:'wl-cook', name:'Do your weekly meal planning', detail:'', domain:'competence' });
+  items.push({ id:'wl-cook', name:'Do your weekly meal planning', detail:'', domain:'sante' });
   items.push({ id:'wl-house', name:'House upkeep task', detail:'sometime this week', noteKey:'house', domain:'perso' });
   items.push({ id:'wl-cli-days', name:'CLI login days this week', detail:'toggle the days you plan to log in — matching days automatically show on Today · goal: 20 hrs/week', sub:['Mon','Tue','Wed','Thu','Fri','Sat','Sun'], domain:'finance' });
   if (firstMondayOfMonthInWeek(wkStart)) items.push({ id:'wl-broadcast', name:'JW broadcast', detail:'first Monday of the month', domain:'etude' });
@@ -1702,6 +1802,7 @@ function logFS(){
   const v = parseFloat(document.getElementById('fsInput').value)||0;
   if (v<=0) return;
   ensureMonthReset(); S.fsMonthHours += v;
+  ensureFsWeekReset(); S.fsWeekHours = (S.fsWeekHours||0) + v;
   document.getElementById('fsInput').value='';
   saveState(); showToast(`Logged ${v} field service hrs`); renderProgress();
 }
@@ -1809,11 +1910,20 @@ function currentFsGoal(){
 }
 function renderProgress(){
   ensureMonthReset();
+  ensureFsWeekReset();
   const fsGoal = currentFsGoal();
   document.getElementById('fsReqVal').textContent = `${S.fsMonthHours} / ${fsGoal.req}`;
   document.getElementById('fsReqBar').style.width = Math.min(100,(S.fsMonthHours/fsGoal.req)*100)+'%';
   document.getElementById('fsBufVal').textContent = `${S.fsMonthHours} / ${fsGoal.buf}`;
   document.getElementById('fsBufBar').style.width = Math.min(100,(S.fsMonthHours/fsGoal.buf)*100)+'%';
+
+  const fsStage = FS_HOURS_STAGES[Math.min(S.fsHoursLevel||1,4)];
+  const fsMaxed = (S.fsHoursLevel||1) >= 4;
+  document.getElementById('fsHoursBadge').textContent = fsMaxed ? 'L4 · maintaining' : `L${S.fsHoursLevel||1} of L4`;
+  document.getElementById('fsHoursStageText').textContent = fsStage.label;
+  document.getElementById('fsWeekVal').textContent = `${S.fsWeekHours||0} / ${fsStage.target} hrs`;
+  document.getElementById('fsWeekBar').style.width = Math.min(100,((S.fsWeekHours||0)/fsStage.target)*100)+'%';
+  document.getElementById('fsHoursStreakRow').textContent = fsMaxed ? 'Steady habit — keep it going ✓' : `Weeks held: ${S.fsHoursStreak||0} / ${FS_WEEKS_TO_ADVANCE} toward Level ${(S.fsHoursLevel||1)+1}`;
 
   document.getElementById('bibleCurrent').textContent = BIBLE_ORDER[S.bibleIndex];
   document.getElementById('bibleProgLabel').textContent = `Book ${S.bibleIndex+1} of ${BIBLE_ORDER.length}`;
