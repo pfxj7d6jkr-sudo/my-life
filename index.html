@@ -1,3 +1,4 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
@@ -50,6 +51,8 @@ body{font-family:'Karla',system-ui,-apple-system,sans-serif;background:var(--cre
 .motivation-box textarea{width:100%;min-height:56px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-family:inherit;font-size:13.5px;color:var(--ink);resize:vertical;}
 
 .section-label{font-size:12px;color:var(--ink2);font-weight:600;margin:16px 0 8px;}
+.cat-label{font-family:'Fraunces',Georgia,serif;font-size:22px;font-weight:600;margin:28px 0 12px;padding-bottom:8px;border-bottom:2px solid currentColor;display:flex;align-items:center;justify-content:space-between;cursor:pointer;}
+.cat-label .chev{font-size:15px;opacity:.55;}
 
 .item{display:flex;align-items:flex-start;gap:11px;padding:11px 12px;background:var(--card);border:1px solid var(--line);border-radius:10px;margin-bottom:8px;cursor:pointer;}
 .item:active{background:var(--cream2);}
@@ -107,7 +110,8 @@ body{font-family:'Karla',system-ui,-apple-system,sans-serif;background:var(--cre
 .bonus-sub{font-size:12px;color:var(--ink3);margin:0 2px 10px;}
 
 .rm-crumb{font-size:13px;color:var(--sage-ink);margin-bottom:12px;cursor:pointer;display:inline-block;}
-.northstar-label{font-size:11.5px;color:var(--gold-ink);margin-bottom:3px;font-weight:600;}
+.rm-crumb.sticky{position:sticky;top:calc(44px + env(safe-area-inset-top,0px));z-index:55;background:var(--cream);padding:8px 10px;margin:0 -16px 10px;border-bottom:1px solid var(--line);font-weight:600;width:calc(100% + 32px);}
+.northstar-label{font-size:11.5px;color:var(--sage-ink);margin-bottom:3px;font-weight:600;}
 .northstar-text{font-size:14px;line-height:1.4;}
 .goal-card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:13px 15px;margin-bottom:10px;}
 .goal-name{font-family:'Fraunces',Georgia,serif;font-size:16px;margin-bottom:6px;}
@@ -118,7 +122,7 @@ body{font-family:'Karla',system-ui,-apple-system,sans-serif;background:var(--cre
 .month-card.current{border-color:var(--sage);background:var(--sage-dim);}
 .month-name{font-size:13px;font-weight:600;}
 .month-year{font-size:10.5px;color:var(--ink3);}
-.milestone-card{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:10px;padding:13px 15px;margin-bottom:14px;}
+.milestone-card{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--sage-ink);border-radius:10px;padding:13px 15px;margin-bottom:14px;}
 .milestone-card.empty{border-left-color:var(--sage);}
 .week-list .week-row{display:flex;justify-content:space-between;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:9px;padding:12px 14px;margin-bottom:8px;cursor:pointer;}
 .week-row.current{border-color:var(--sage);background:var(--sage-dim);}
@@ -139,7 +143,8 @@ body{font-family:'Karla',system-ui,-apple-system,sans-serif;background:var(--cre
 .event-add input[type=text]{flex:1;min-width:120px;background:var(--cream2);border:1px solid var(--line);border-radius:6px;padding:7px 10px;font-size:12.5px;}
 .event-add button{background:var(--sage-dim);border:1px solid var(--sage);color:var(--sage-ink);border-radius:6px;padding:7px 12px;font-size:12.5px;cursor:pointer;}
 
-.pcard{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:15px;margin-bottom:14px;}
+.pcard{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:15px;margin-bottom:14px;transition:box-shadow .3s, border-color .3s;}
+.pcard.flash,.ms-card.flash{border-color:var(--sage-ink);box-shadow:0 0 0 3px var(--sage-dim);}
 .pcard-title{font-family:'Fraunces',Georgia,serif;font-size:16px;margin-bottom:10px;}
 .prow{margin-bottom:12px;}
 .prow:last-child{margin-bottom:0;}
@@ -201,7 +206,7 @@ html,body{height:100%;background:var(--cream);}
 
 /* Milestones & projects */
 .ms-intro{font-size:12.5px;color:var(--ink2);margin:-2px 0 12px;line-height:1.45;}
-.ms-card{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--ink3);border-radius:10px;margin-bottom:10px;}
+.ms-card{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--ink3);border-radius:10px;margin-bottom:10px;transition:box-shadow .3s, border-color .3s;}
 .ms-head{padding:12px 14px;cursor:pointer;display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
 .ms-name{font-family:'Fraunces',Georgia,serif;font-size:15.5px;line-height:1.3;}
 .ms-kind{display:inline-block;font-size:10.5px;color:var(--ink2);background:var(--cream2);border-radius:4px;padding:1px 6px;margin-bottom:4px;}
@@ -240,9 +245,9 @@ html,body{height:100%;background:var(--cream);}
 <div id="mainApp" style="display:none;">
 <div class="toptabs-outer">
   <div class="toptabs">
-    <div class="toptab active" data-tab="daily" onclick="switchTop('daily')">Today</div>
+    <div class="toptab active" data-tab="roadmap" onclick="switchTop('roadmap')">Roadmap</div>
     <div class="toptab" data-tab="week" onclick="switchTop('week')">This Week</div>
-    <div class="toptab" data-tab="roadmap" onclick="switchTop('roadmap')">Roadmap</div>
+    <div class="toptab" data-tab="daily" onclick="switchTop('daily')">Today</div>
     <div class="toptab" data-tab="progress" onclick="switchTop('progress')">Progress</div>
   </div>
 </div>
@@ -250,10 +255,10 @@ html,body{height:100%;background:var(--cream);}
 <div class="app">
 
   <!-- TODAY -->
-  <div class="toppanel active" id="top-daily">
+  <div class="toppanel" id="top-daily">
     <div class="pagehead" style="padding-bottom:10px;border-bottom:1px solid var(--line);">
       <div class="rm-crumb" onclick="backToMission()">‹ Mission</div>
-      <div class="pagesub">Today</div>
+      <div class="pagesub" id="seasonLabel">Today</div>
       <div class="pagetitle" id="dateLabel">—</div>
       <div id="dayFlag"></div>
       <div id="fridayChip"></div>
@@ -291,13 +296,15 @@ html,body{height:100%;background:var(--cream);}
   </div>
 
   <!-- ROADMAP -->
-  <div class="toppanel" id="top-roadmap">
+  <div class="toppanel active" id="top-roadmap">
     <div class="pad" id="rmContent"></div>
   </div>
 
   <!-- PROGRESS -->
   <div class="toppanel" id="top-progress">
     <div class="pad">
+
+      <div class="rm-crumb sticky" id="progressBackCrumb" style="display:none;" onclick="backFromProgress()">‹ Back to Roadmap</div>
 
       <div class="pcard">
         <div class="pcard-title">Floor history</div>
@@ -328,9 +335,17 @@ html,body{height:100%;background:var(--cream);}
           <button onclick="logFS('fsInput')">Log</button>
         </div>
         <div class="small-note">Weekly count resets Monday; monthly count resets on the 1st.</div>
+        <div class="small-note" style="margin-top:10px;font-weight:600;">Catch up a past month</div>
+        <div class="inline-form">
+          <select id="fsPastMonthSelect" style="flex:1;"></select>
+        </div>
+        <div class="inline-form">
+          <input type="number" id="fsPastMonthInput" placeholder="hours to add" min="0" step="0.5">
+          <button onclick="logFSForMonth()">Log</button>
+        </div>
       </div>
 
-      <div class="pcard">
+      <div class="pcard" id="prog-bible">
         <div class="pcard-title">Scripture reading, shortest to longest</div>
         <div class="nav-tracker">
           <div class="nav-btn" onclick="bibleStep(-1)">‹</div>
@@ -350,7 +365,7 @@ html,body{height:100%;background:var(--cream);}
         <div id="bibleFull" style="display:none;max-height:220px;overflow-y:auto;margin-top:10px;border-top:1px solid var(--line);padding-top:8px;"></div>
       </div>
 
-      <div class="pcard">
+      <div class="pcard" id="prog-jwcycle">
         <div class="pcard-title">JW reading, 6-book cycle</div>
         <div class="nav-tracker">
           <div class="nav-btn" onclick="readStep(-1)">‹</div>
@@ -362,7 +377,7 @@ html,body{height:100%;background:var(--cream);}
         <div class="small-note">Origin of Life (5) · Was Life Created (6) · Come Be My Follower (18) · God's Kingdom Rule (22) · Draw Close to Jehovah (31) · Pure Worship (22 ch. / 33 boxes).</div>
       </div>
 
-      <div class="pcard">
+      <div class="pcard" id="prog-pioneer">
         <div class="pcard-title">Pioneer School book</div>
         <div class="nav-tracker">
           <div class="nav-btn" onclick="pioneerStep(-1)">‹</div>
@@ -373,7 +388,7 @@ html,body{height:100%;background:var(--cream);}
         <div class="pbar"><div class="pbar-fill" id="pioneerBar" style="background:var(--gold);width:0%"></div></div>
       </div>
 
-      <div class="pcard">
+      <div class="pcard" id="prog-languages">
         <div class="pcard-title">Languages, one per week</div>
         <div id="langBlocks"></div>
       </div>
@@ -396,7 +411,7 @@ html,body{height:100%;background:var(--cream);}
         <div class="prow-top"><span class="prow-label" id="intersignLabel">of 17 sections</span></div>
       </div>
 
-      <div class="pcard">
+      <div class="pcard" id="prog-weight">
         <div class="pcard-title">Weight, weekly</div>
         <div class="prow">
           <div class="prow-top"><span class="prow-label" id="weightLostLabel">0 of 50 lbs lost</span><span class="prow-val" id="weightVal">—</span></div>
@@ -414,7 +429,7 @@ html,body{height:100%;background:var(--cream);}
         </div>
       </div>
 
-      <div class="pcard">
+      <div class="pcard" id="prog-cli">
         <div class="pcard-title">CLI interpreting, this week</div>
         <div class="prow">
           <div class="prow-top"><span class="prow-label">Toward 20 hr/week goal</span><span class="prow-val" id="cliVal">0 / 20</span></div>
@@ -429,6 +444,11 @@ html,body{height:100%;background:var(--cream);}
           <button onclick="logCLIIncome()">Log</button>
         </div>
         <div style="font-size:12.5px;color:var(--ink2);margin-top:6px;">Earned this week: <b id="cliIncomeVal">$0</b></div>
+      </div>
+
+      <div class="pcard" id="prog-certs">
+        <div class="pcard-title">Certifications</div>
+        <div id="certsBlocks"></div>
       </div>
 
       <div class="pcard">
@@ -652,6 +672,11 @@ const READ_UNITS = (function(){
   ["1a","1b","2a","2b","3a","4a","5a","6a","7a","7b","8a","8b","9a","9b","9c","9d","9e","10a","10b","10c","11a","12a","13a","14a","15a","16a","16b","18a","19a","19b","20a","21a","22a"].forEach(b=>u.push(`Pure Worship — box ${b}`));
   return u;
 })();
+const CERTS = [
+  { key:'nbcmi', name:'NBCMI', detail:'Haitian Creole medical interpreting', stages:['Not started','Studying','Exam scheduled','Passed'] },
+  { key:'cchi', name:'CCHI', detail:'Haitian Creole medical interpreting (alternate)', stages:['Not started','Studying','Exam scheduled','Passed'] },
+  { key:'ata', name:'ATA', detail:'French↔English translation', stages:['Not started','Studying','Exam scheduled','Passed'] },
+];
 const LANGUAGES = [
   { key:'spanish', name:"Spanish", flag:"🇪🇸", level:"A1–A2", total:42 },
   { key:'french', name:"French", flag:"🇫🇷", level:"B1", total:17 },
@@ -668,11 +693,19 @@ function aslDetailText(){ return `Lifeprint: continue from video ${S.aslVideoInd
 const INTERSIGN_COUNTS = [77,71,51,78,94,69,80,79,55,51,62,67,76,67,51,55,55];
 
 // ══════════════ ROADMAP DATA ══════════════
-const QUARTER_THEMES = [
-  { name:"Foundation", spiritual:"New field service schedule running smoothly; Bible reading + personal study as a daily habit.", bodyMind:"Doctor visit done; therapist referral obtained and first session booked.", financeWork:"Research certification prerequisites (NBCMI/CCHI or ATA)." },
-  { name:"Consistency", spiritual:"Keep field service steady; therapy ongoing.", bodyMind:"Hygiene floor fully automatic; 6-month eval in Feb.", financeWork:"Begin certification study." },
-  { name:"Push", spiritual:"Memorial campaign.", bodyMind:"Branch visit in April.", financeWork:"Certification study; register for the exam when ready." },
-  { name:"Taper", spiritual:"Rest quarter; Regional Convention + campaign.", bodyMind:"Keep therapy going if still useful.", financeWork:"Sit the certification exam when ready." },
+const SEASONS = [
+  { name:"Season 1", sub:"The beginning", months:"Sept–Dec",
+    spiritual:"New field service schedule running smoothly; Bible reading + personal study as a daily habit.",
+    bodyMind:"Doctor visit done; therapist referral obtained and first session booked.",
+    financeWork:"Research certification prerequisites (NBCMI/CCHI or ATA)." },
+  { name:"Season 2", sub:"Memorial", months:"Jan–Apr",
+    spiritual:"Circuit Overseer's visit, Memorial campaign, April visit.",
+    bodyMind:"Hygiene floor fully automatic; 6-month eval in Feb; therapy ongoing.",
+    financeWork:"Begin certification study; register for the exam when ready." },
+  { name:"Season 3", sub:"Spiritual feasts", months:"May–Aug",
+    spiritual:"Rest season; Regional Convention + campaign; Pioneer School.",
+    bodyMind:"Keep therapy going if still useful.",
+    financeWork:"Sit the certification exam when ready." },
 ];
 const YEARS_META = [
   { num:1, range:"2026–2027 service year" },
@@ -703,17 +736,16 @@ const MONTHS = [
 
 function defaultMilestones(){
   return [
-    { id:'bethel', kind:'Milestone', name:'Apply to Bethel Remote Service', floor:'Keep up the good habits; any bad habit stays gone. Ready once that has held for 1 year.', auto:null, steps:[], weekNotes:{}, reached:false },
-    { id:'ske', kind:'Milestone', name:'Apply to SKE', floor:'Keep up the good habits; any bad habit stays gone. Ready once that has held for 2 years.', auto:null, steps:[], weekNotes:{}, reached:false },
-    { id:'bible', kind:'Milestone', name:'Read the whole Bible', floor:'1 chapter a day — reading or listening', auto:'bible', steps:[], weekNotes:{}, reached:false },
-    { id:'weight', kind:'Milestone', name:'Lose 50 lbs', floor:'Weekly weigh-in: stay the same or go down', auto:'weight', steps:[], weekNotes:{}, reached:false },
-    { id:'languages', kind:'Project', name:'Languages', floor:"One touch in that week's language — or 1 Busuu chapter", auto:'languages', steps:[], weekNotes:{}, reached:false },
-    { id:'room', kind:'Project', name:'Room makeover', floor:'Keep it clean — swept if needed', auto:null, steps:[
+    { id:'bethel-ske', kind:'Milestone', domain:'spiritual', name:'Apply to Bethel & SKE', floor:'Keep up the good habits; any bad habit stays gone. Bethel is ready after that has held 1 year; SKE after 2 years.', accomplishing:['Read the whole Bible','Daily text','Personal study','Meeting prep','Pioneer School book pace','Field service'], auto:null, steps:[], weekNotes:{}, reached:false },
+    { id:'bible', kind:'Milestone', domain:'spiritual', name:'Read the whole Bible', floor:'1 chapter a day — reading or listening', auto:'bible', steps:[], weekNotes:{}, reached:false },
+    { id:'pioneer-book', kind:'Project', domain:'spiritual', name:'Pioneer School book', floor:'', auto:'pioneer', steps:[], weekNotes:{}, reached:false },
+    { id:'jw-cycle', kind:'Project', domain:'spiritual', name:'JW reading — 6-book cycle', floor:'', auto:'jw', steps:[], weekNotes:{}, reached:false },
+    { id:'weight', kind:'Milestone', domain:'physical', name:'Lose 50 lbs', floor:'Weekly weigh-in: stay the same or go down', auto:'weight', steps:[], weekNotes:{}, reached:false },
+    { id:'languages', kind:'Project', domain:'skills', name:'Languages', floor:"One touch in that week's language — or 1 Busuu chapter", auto:'languages', steps:[], weekNotes:{}, reached:false },
+    { id:'room', kind:'Project', domain:'mental', name:'Room makeover', floor:'Keep it clean — swept if needed', auto:null, steps:[
       {t:'Organize the bookshelf',d:false},{t:'Organize the closet',d:false},{t:'Organize the desk & craft tools',d:false},{t:'Decoration',d:false}], weekNotes:{}, reached:false },
-    { id:'cert', kind:'Milestone', name:'Interpreting / translation certification', floor:'', auto:null, steps:[], weekNotes:{}, reached:false },
-    { id:'financial', kind:'Milestone', name:'Financial independence', floor:'', auto:null, steps:[], weekNotes:{}, reached:false },
-    { id:'pioneer-book', kind:'Project', name:'Pioneer School book', floor:'', auto:'pioneer', steps:[], weekNotes:{}, reached:false },
-    { id:'jw-cycle', kind:'Project', name:'JW reading — 6-book cycle', floor:'', auto:'jw', steps:[], weekNotes:{}, reached:false },
+    { id:'cert', kind:'Milestone', domain:'financial', name:'Interpreting / translation certification', floor:'', auto:null, steps:[], weekNotes:{}, reached:false },
+    { id:'financial', kind:'Milestone', domain:'financial', name:'Financial independence', floor:'', auto:null, steps:[], weekNotes:{}, reached:false },
   ];
 }
 
@@ -721,10 +753,11 @@ function defaultMilestones(){
 function defaultState(){
   return {
     checked:{}, weekListChecked:{}, weekOther:{}, weekMotivation:{}, weekReflection:{}, weekNotes:{}, dayNotes:{}, dayOther:{}, monthlyTasks:{},
-    fsMonthHours:0, fsMonthKey:monthKey(), fsWeekHours:0, fsWeekKey:null, fsWeekLog:{},
+    fsMonthHours:0, fsMonthKey:monthKey(), fsMonthLog:{}, fsWeekHours:0, fsWeekKey:null, fsWeekLog:{},
     cliWeekHours:0, cliWeekIncome:0, cliWeekKey:null,
     bibleIndex:0, bibleChapterInBook:1, readIndex:0, pioneerIndex:0, aslVideoIndex:0, intersignIndex:0,
     langChapter:{spanish:0, french:0, korean:0, arabic:0, english:0},
+    certStage:{nbcmi:0, cchi:0, ata:0},
     weightLog:[], weeklyWeight:{}, weightStart:205,
     bedtimes:{}, checkin:{},
     milestones: defaultMilestones(),
@@ -748,12 +781,29 @@ let S = defaultState();
 function normalizeState(){
   const d = defaultState();
   ['fsWeekLog','weeklyWeight','bedtimes','checkin','dayNotes','dayOther','monthlyTasks','weekNotes','weekOther','weekMotivation','quarterGoals','monthQuote','monthQuality','monthOther'].forEach(k=>{ if (!S[k] || typeof S[k]!=='object') S[k] = d[k]; });
+  if (!S.fsMonthLog || typeof S.fsMonthLog!=='object') S.fsMonthLog = {};
+  if (S.fsMonthHours>0 && S.fsMonthKey && S.fsMonthLog[S.fsMonthKey]===undefined) S.fsMonthLog[S.fsMonthKey] = S.fsMonthHours;
   if (!Array.isArray(S.milestones)) S.milestones = d.milestones;
-  S.milestones.forEach(m=>{ if(!m.steps) m.steps=[]; if(!m.weekNotes) m.weekNotes={}; });
+  const oldBethel = S.milestones.find(m=>m.id==='bethel'), oldSke = S.milestones.find(m=>m.id==='ske');
+  if (oldBethel || oldSke){
+    S.milestones = S.milestones.filter(m=>m.id!=='bethel' && m.id!=='ske');
+    if (!S.milestones.find(m=>m.id==='bethel-ske')){
+      const merged = d.milestones.find(m=>m.id==='bethel-ske');
+      merged.reached = !!(oldBethel && oldBethel.reached) || !!(oldSke && oldSke.reached);
+      S.milestones.push(merged);
+    }
+  }
+  S.milestones.forEach(m=>{
+    if(!m.steps) m.steps=[]; if(!m.weekNotes) m.weekNotes={};
+    if(!m.domain){ const dm = d.milestones.find(x=>x.id===m.id); m.domain = dm ? dm.domain : null; }
+    if(!m.accomplishing){ const dm = d.milestones.find(x=>x.id===m.id); if (dm && dm.accomplishing) m.accomplishing = dm.accomplishing; }
+  });
   if (!Array.isArray(S.weightLog)) S.weightLog = [];
   if (!S.weightStart) S.weightStart = 205;
   S.weightLog.slice().reverse().forEach(w=>{ const k=weekKey(new Date(w.date+'T00:00:00')); if (S.weeklyWeight[k]===undefined) S.weeklyWeight[k]=w.val; });
   if (!S.yearGoals) S.yearGoals = d.yearGoals;
+  if (!S.certStage || typeof S.certStage!=='object') S.certStage = d.certStage;
+  CERTS.forEach(c=>{ if (S.certStage[c.key]===undefined) S.certStage[c.key]=0; });
   // carry this week's already-logged field service hours into the new weekly log
   if (S.fsWeekKey && S.fsWeekLog[S.fsWeekKey]===undefined && S.fsWeekHours) S.fsWeekLog[S.fsWeekKey] = S.fsWeekHours;
 }
@@ -778,6 +828,9 @@ function toggleMonthlyTask(key, el){ const c=monthlyTaskChecks(); c[key]=!c[key]
 
 // Floor helpers
 function fsHoursForWeek(wk){ return S.fsWeekLog[wk] || 0; }
+function fsHoursForMonth(mk){ return S.fsMonthLog[mk] || 0; }
+function recentMonthKeys(n=6){ const out=[]; const d=new Date(); d.setDate(1); for(let i=0;i<n;i++){ out.push(monthKey(d)); d.setMonth(d.getMonth()-1); } return out; }
+function monthLabel(mk){ const [y,m]=mk.split('-').map(Number); return new Date(y,m-1,1).toLocaleDateString(undefined,{month:'long',year:'numeric'}); }
 function prevWeeklyWeight(wk){
   const keys = Object.keys(S.weeklyWeight).filter(k=>k<wk && S.weeklyWeight[k]!=null).sort();
   return keys.length ? S.weeklyWeight[keys[keys.length-1]] : null;
@@ -789,7 +842,7 @@ function weeklyFloorHeld(id, wk){
 }
 function dailyFloorCount(dk){ const c=S.checked[dk]||{}; return DAILY_FLOOR_IDS.filter(id=>c[id]===true).length; }
 function isQuarterEndWeek(d){
-  const m=d.getMonth()+1; if (![11,2,5,8].includes(m)) return false;
+  const m=d.getMonth()+1; if (![10,12,2,4,6,8].includes(m)) return false; // Bethel & SKE check-up every 2 months
   const last=new Date(d.getFullYear(), m, 0).getDate(); return d.getDate() > last-7;
 }
 function fmtTime(t){ if(!t) return '—'; const [h,m]=t.split(':').map(Number); const ap=h>=12?'pm':'am'; const hh=((h+11)%12)+1; return `${hh}:${String(m).padStart(2,'0')}${ap}`; }
@@ -844,6 +897,7 @@ function itemRow(i, state, bg){
 function renderDaily(){
   const now = new Date(), dow = now.getDay(), c = todayChecks();
   document.getElementById('missionEcho').textContent = S.missionMain || '';
+  { const mi=currentMonthIdx(); const se=SEASONS[quarterIndexForMonth(Math.max(0,mi))]; document.getElementById('seasonLabel').textContent = mi>=0 ? `${se.name}: ${se.sub}` : 'Today'; }
   document.getElementById('dateLabel').textContent = now.toLocaleDateString('en-US',{weekday:'long', month:'short', day:'numeric'});
   const flag = document.getElementById('dayFlag'); flag.innerHTML='';
   if ([2,3,4].includes(dow)) flag.innerHTML += `<span class="push-flag">push day</span> `;
@@ -948,11 +1002,22 @@ function buildWeekList(ws){
 function logFS(inputId){
   const v = parseFloat(document.getElementById(inputId).value)||0;
   if (v<=0) return;
-  ensureMonthReset(); S.fsMonthHours += v;
+  ensureMonthReset();
+  const mk = monthKey(); S.fsMonthLog[mk] = fsHoursForMonth(mk) + v; S.fsMonthHours = S.fsMonthLog[mk];
   const wk = weekKey(); S.fsWeekLog[wk] = fsHoursForWeek(wk) + v;
   document.getElementById(inputId).value='';
   saveState(); showToast(`Logged ${v} field service hrs`);
   renderProgress(); renderThisWeek();
+}
+function logFSForMonth(){
+  const mk = document.getElementById('fsPastMonthSelect').value;
+  const v = parseFloat(document.getElementById('fsPastMonthInput').value)||0;
+  if (v<=0) return;
+  S.fsMonthLog[mk] = fsHoursForMonth(mk) + v;
+  if (mk===monthKey()) S.fsMonthHours = S.fsMonthLog[mk];
+  document.getElementById('fsPastMonthInput').value='';
+  saveState(); showToast(`Logged ${v} hrs to ${monthLabel(mk)}`);
+  renderProgress();
 }
 function logWeeklyWeight(){
   const v = parseFloat(document.getElementById('wkWeightInput').value);
@@ -1041,7 +1106,7 @@ function renderCheckin(){
         <textarea class="note-input" data-ci="pace" placeholder="Honestly — too much, too little, just right?">${esc(ci.pace||'')}</textarea>
         <div class="note-label">What do I adjust next week?</div>
         <textarea class="note-input" data-ci="adjust" placeholder="One or two small changes are plenty — bedtime included">${esc(ci.adjust||'')}</textarea>
-        ${showPrep ? `<div class="note-label">End of quarter: how am I coming along with my Bethel and SKE prep?</div>
+        ${showPrep ? `<div class="note-label">Two-month check-up: how am I coming along with my Bethel and SKE prep?</div>
         <textarea class="note-input" data-ci="prep" placeholder="Good habits holding? Anything that needs to go?">${esc(ci.prep||'')}</textarea>` : ''}
       </div>` : ''}
     </div>`;
@@ -1093,11 +1158,25 @@ function removeOther(i){ S.weekOther[weekKey()].splice(i,1); saveState(); render
 
 // ══════════════ ROADMAP ══════════════
 function currentMonthIdx(){ const n=new Date(); return MONTHS.findIndex(mo=>mo.y===n.getFullYear() && mo.m===n.getMonth()+1); }
-const QUARTER_COLORS = ['#A1BCBD', '#4F7A52', '#FFCEA7', '#FFB8B7'];
-function quarterIndexForMonth(i){ return Math.floor(i/3); }
-function quarterColor(q){ return QUARTER_COLORS[((q%4)+4)%4]; }
+const SEASON_COLORS = ['#4F7A52', '#A1BCBD', '#FFB8B7']; // green, blue, pink
+function quarterIndexForMonth(i){ return Math.floor(i/4); } // season 0–2
+function quarterColor(q){ return SEASON_COLORS[((q%3)+3)%3]; }
 function monthCycleColor(i){ return quarterColor(quarterIndexForMonth(i)); }
 function paleMix(hex, a){ const r=parseInt(hex.slice(1,3),16), g=parseInt(hex.slice(3,5),16), b=parseInt(hex.slice(5,7),16); const m=c=>Math.round(c+(255-c)*a); return `rgb(${m(r)},${m(g)},${m(b)})`; }
+// Deeper shade of each season color, used for tints, borders and text so all three read equally well
+const SEASON_INK = ['#3E6341', '#4A6E70', '#A8575A'];
+function seasonInk(q){ return SEASON_INK[((q%3)+3)%3]; }
+function currentSeason(){ return quarterIndexForMonth(Math.max(0,currentMonthIdx())); }
+let themedSeason = null;
+function applySeasonTheme(q){
+  if (themedSeason===q) return; themedSeason = q;
+  const ink = seasonInk(q), r = document.documentElement.style;
+  r.setProperty('--cream', paleMix(ink,0.88)); r.setProperty('--card', paleMix(ink,0.82));
+  r.setProperty('--cream2', paleMix(ink,0.7)); r.setProperty('--line', paleMix(ink,0.5));
+  r.setProperty('--sage', paleMix(ink,0.35)); r.setProperty('--sage-dim', paleMix(ink,0.65));
+  r.setProperty('--sage-ink', ink); r.setProperty('--sage-card', paleMix(ink,0.72));
+  document.body.style.background = paleMix(ink,0.88);
+}
 function getMondaysInMonth(y, m){
   const weeks=[]; const last=new Date(y,m,0); let d=new Date(y,m-1,1); while (d.getDay()!==1) d.setDate(d.getDate()-1);
   while (d<=last){ if (d.getMonth()===m-1 || addDays(d,6).getMonth()===m-1) weeks.push(new Date(d)); d.setDate(d.getDate()+7); }
@@ -1105,10 +1184,11 @@ function getMondaysInMonth(y, m){
   return weeks;
 }
 function fmtDate(d){ return d.toLocaleDateString('en-US',{month:'short',day:'numeric'}); }
-function getQuarterGoals(q){ if (!S.quarterGoals[q]) S.quarterGoals[q] = { ...QUARTER_THEMES[q] }; return S.quarterGoals[q]; }
+function getQuarterGoals(q){ if (!S.seasonGoals) S.seasonGoals={}; if (!S.seasonGoals[q]) S.seasonGoals[q] = { spiritual:SEASONS[q].spiritual, bodyMind:SEASONS[q].bodyMind, financeWork:SEASONS[q].financeWork }; return S.seasonGoals[q]; }
 
 let rmState = { view:'root' };
 let msOpen = {};
+let catOpen = {};
 let goalCollapse = {};
 function toggleGoalCollapse(key){
   goalCollapse[key] = !goalCollapse[key];
@@ -1129,36 +1209,48 @@ function autoProgress(m){
 }
 function msById(id){ return S.milestones.find(m=>m.id===id); }
 function msToggle(id){ msOpen[id]=!msOpen[id]; renderRoadmap(); }
+function catToggle(key){ catOpen[key]=!catOpen[key]; renderRoadmap(); } // catOpen[key] true = expanded; default collapsed
 function msStepToggle(id,i){ const m=msById(id); m.steps[i].d=!m.steps[i].d; saveState(); renderRoadmap(); }
 function msStepRemove(id,i){ const m=msById(id); m.steps.splice(i,1); saveState(); renderRoadmap(); }
 function msStepAdd(id){ const el=document.getElementById('step-'+id); const v=el.value.trim(); if(!v) return; msById(id).steps.push({t:v,d:false}); saveState(); renderRoadmap(); }
 function msReached(id){ const m=msById(id); m.reached=!m.reached; saveState(); if (m.reached) showToast(`🎉 ${m.name} — reached!`); renderRoadmap(); }
 function msRemove(id){ const m=msById(id); if (!confirm(`Remove “${m.name}”?`)) return; S.milestones=S.milestones.filter(x=>x.id!==id); saveState(); renderRoadmap(); }
-function msAdd(){
-  const n=document.getElementById('msNewName').value.trim(); if(!n) return;
-  const k=document.getElementById('msNewKind').value;
+function msAddCat(key){
+  const nameEl = document.getElementById('msNewName-'+key), kindEl = document.getElementById('msNewKind-'+key);
+  const n = nameEl.value.trim(); if(!n) return;
+  const k = kindEl.value;
   const id='ms'+Date.now();
-  S.milestones.push({ id, kind:k, name:n, floor:'', auto:null, steps:[], weekNotes:{}, reached:false });
+  S.milestones.push({ id, kind:k, domain:key, name:n, floor:'', auto:null, steps:[], weekNotes:{}, reached:false });
   msOpen[id]=true; saveState(); renderRoadmap();
+}
+const PROGRESS_LINK = {bible:'prog-bible','jw-cycle':'prog-jwcycle','pioneer-book':'prog-pioneer',languages:'prog-languages',weight:'prog-weight','cert':'prog-certs','financial':'prog-cli'};
+function goToProgress(msId){
+  const target = PROGRESS_LINK[msId]; if (!target) return;
+  window._cameFromRoadmap = true;
+  window._cameFromMsId = msId;
+  switchTop('progress');
+  const c=document.getElementById('progressBackCrumb'); if(c) c.style.display='inline-block';
+  setTimeout(()=>{ const el=document.getElementById(target); if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); el.classList.add('flash'); setTimeout(()=>el.classList.remove('flash'), 1200); } }, 60);
 }
 function msCard(m){
   const ap = autoProgress(m);
   const open = !!msOpen[m.id];
   const wk = weekKey();
-  const col = m.kind==='Milestone' ? 'var(--dom-spiritual)' : 'var(--dom-skills)';
-  const colFor = { weight:'var(--dom-physical)', languages:'var(--dom-skills)', room:'var(--dom-mental)', cert:'var(--dom-financial)', financial:'var(--dom-financial)' };
-  const border = colFor[m.auto] || colFor[m.id] || col;
-  return `<div class="ms-card ${m.reached?'reached':''}" style="border-left-color:${border};">
+  const border = resolveDomainColor(m.domain) || (m.kind==='Milestone' ? 'var(--dom-spiritual)' : 'var(--dom-skills)');
+  const linked = !!PROGRESS_LINK[m.id];
+  return `<div class="ms-card ${m.reached?'reached':''}" id="ms-${m.id}" style="border-left-color:${border};">
     <div class="ms-head" onclick="msToggle('${m.id}')">
       <div style="flex:1;min-width:0;">
         <span class="ms-kind">${m.kind}${m.reached?' · reached':''}</span>
-        <div class="ms-name">${esc(m.name)}</div>
+        <div class="ms-name"${linked?` style=\"text-decoration:underline;text-decoration-style:dotted;cursor:pointer;\" onclick=\"event.stopPropagation();goToProgress('${m.id}')\"`:''}>${esc(m.name)}</div>
         ${ap ? `<div class="ms-prog">${esc(ap.text)}</div>` : ''}
         ${ap ? `<div class="pbar" style="margin-top:6px;"><div class="pbar-fill" style="background:${border};width:${Math.round(ap.pct*100)}%"></div></div>` : ''}
       </div>
       <span style="color:var(--ink3);">${open?'▾':'▸'}</span>
     </div>
     ${open ? `<div class="ms-body">
+      ${m.accomplishing && m.accomplishing.length ? `<div class="note-label">What I'm doing to get there</div>
+        <ul style="margin:0 0 6px;padding-left:18px;font-size:13px;color:var(--ink2);">${m.accomplishing.map(a=>`<li>${esc(a)}</li>`).join('')}</ul>` : ''}
       <div class="note-label">Floor — the minimum that keeps this moving</div>
       <textarea class="note-input" data-msfloor="${m.id}" placeholder="Optional — what keeps you from going backwards on this?">${esc(m.floor||'')}</textarea>
       ${m.auto ? '' : `<div class="note-label">Steps</div>
@@ -1177,19 +1269,32 @@ function msCard(m){
 function renderRoadmap(){
   const el = document.getElementById('rmContent');
   const curIdx = currentMonthIdx();
+  applySeasonTheme(rmState.view==='quarter' ? rmState.quarterIdx
+    : (rmState.view==='month' || rmState.view==='week') ? quarterIndexForMonth(rmState.monthIdx)
+    : currentSeason());
 
   if (rmState.view==='root'){
     const active = S.milestones.filter(m=>!m.reached), reached = S.milestones.filter(m=>m.reached);
+    const CATS = [
+      { key:'spiritual', label:'Spiritual health' },
+      { key:'physical',  label:'Physical health' },
+      { key:'skills',    label:'Skills' },
+      { key:'mental',    label:'Personal Development' },
+      { key:'financial', label:'Finance' },
+    ];
+    const grouped = CATS.map(c=>{
+      const items = active.filter(m=>m.domain===c.key);
+      items.sort((a,b)=>(a.id==='bethel-ske'?-1:0)-(b.id==='bethel-ske'?-1:0));
+      return { ...c, items };
+    });
+    const other = active.filter(m=>!CATS.some(c=>c.key===m.domain));
     el.innerHTML = `
       <div class="pagetitle">Milestones & projects</div>
       <div class="ms-intro">No deadlines. Each week: how far did I get, and am I okay with this pace?</div>
-      ${active.map(msCard).join('')}
+      ${grouped.map(c=>`<div class="cat-label" style="color:${resolveDomainColor(c.key)};" onclick="catToggle('${c.key}')"><span>${c.label}</span><span class="chev">${catOpen[c.key]?'▾':'▸'}</span></div>${!catOpen[c.key]?'':`${c.items.map(msCard).join('')}
+        <div class="other-add"><input id="msNewName-${c.key}" placeholder="add to ${c.label}…"><select id="msNewKind-${c.key}"><option>Milestone</option><option>Project</option></select><button onclick="msAddCat('${c.key}')">Add</button></div>`}`).join('')}
+      ${other.length ? `<div class="section-label">Other</div>${other.map(msCard).join('')}` : ''}
       ${reached.length ? `<div class="section-label">Reached 🎉</div>${reached.map(msCard).join('')}` : ''}
-      <div class="other-add" style="margin-top:10px;">
-        <input id="msNewName" placeholder="new milestone or project…">
-        <select id="msNewKind"><option>Milestone</option><option>Project</option></select>
-        <button onclick="msAdd()">Add</button>
-      </div>
       <div class="pagetitle" style="margin:24px 0 4px;font-size:18px;">Years</div>
       <div class="month-grid" style="grid-template-columns:repeat(3,1fr);">
         ${YEARS_META.map(y=>`<div class="month-card ${y.num===1?'current':''}" onclick="openYear(${y.num})"><div class="month-name">Year ${y.num}</div><div class="month-year">${y.range.split('–')[0]}</div></div>`).join('')}
@@ -1218,34 +1323,33 @@ function renderRoadmap(){
         ${evs.length ? evs.map(e=>`<div class="event-row"><span>${esc(e.title)} — ${new Date(e.date+'T00:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</span><span class="rm" onclick="removeEvent('${e.id}')">×</span></div>`).join('') : '<div style="font-size:12.5px;color:var(--ink3);">No events yet.</div>'}
         <div class="event-add"><input type="date" id="newEventDate"><input type="text" id="newEventTitle" placeholder="event title"><button onclick="addEvent()">Add</button></div>
       </div>
-      <div class="pagetitle" style="margin:20px 0 4px;font-size:18px;">Quarters</div>
-      <div class="month-grid" id="quarterGrid" style="grid-template-columns:repeat(2,1fr);"></div>`;
+      <div class="pagetitle" style="margin:20px 0 4px;font-size:18px;">Seasons</div>
+      <div class="month-grid" id="quarterGrid" style="grid-template-columns:repeat(3,1fr);"></div>`;
     ['pioneering','feedingMyself','financeWork','languages','weightLoss','skills'].forEach(k=>{ const x=document.getElementById(`yg-${n}-${k}`); if (x) x.onblur=()=>{ S.yearGoals[n][k]=x.value; saveState(); }; });
     const curQ = quarterIndexForMonth(Math.max(0,curIdx));
-    document.getElementById('quarterGrid').innerHTML = [0,1,2,3].map(q=>{
-      const col = quarterColor(q), cur = n===1 && q===curQ;
-      const label = n===1 ? (()=>{ const ms=MONTHS.slice(q*3,q*3+3); return `${ms[0].name.slice(0,3)}–${ms[2].name.slice(0,3)} ${ms[0].y}`; })() : 'Not planned yet';
-      return `<div class="month-card" style="background:${paleMix(col,0.82)};border-color:${col};${cur?`box-shadow:0 0 0 2px ${col};`:''}" onclick="openQuarter(${n},${q})"><div class="month-name">Q${q+1}</div><div class="month-year">${label}</div></div>`;
+    document.getElementById('quarterGrid').innerHTML = [0,1,2].map(q=>{
+      const col = seasonInk(q), cur = n===1 && q===curQ;
+      return `<div class="month-card" style="background:${paleMix(col,0.8)};border-color:${col};${cur?`box-shadow:0 0 0 2px ${col};`:''}" onclick="openQuarter(${n},${q})"><div class="month-name">${SEASONS[q].name}</div><div class="month-year">${SEASONS[q].sub}</div><div class="month-year">${SEASONS[q].months}</div></div>`;
     }).join('');
     return;
   }
 
   if (rmState.view==='quarter'){
-    const q = rmState.quarterIdx, months = MONTHS.slice(q*3,q*3+3), col = quarterColor(q), qg = getQuarterGoals(q);
+    const q = rmState.quarterIdx, months = MONTHS.slice(q*4,q*4+4), col = seasonInk(q), qg = getQuarterGoals(q);
     const card = (key,title,color,field,ph) => `<div class="pcard" style="border-left:4px solid ${col};">
       <div class="pcard-title" onclick="toggleGoalCollapse('${key}')" style="color:${color};cursor:pointer;display:flex;justify-content:space-between;"><span>${title}</span><span id="chev-${key}">${goalCollapse[key]?'▸':'▾'}</span></div>
       <div id="body-${key}" style="${goalCollapse[key]?'display:none;':''}"><textarea class="note-input" id="qg-${q}-${field}" placeholder="${ph}">${esc(qg[field]||'')}</textarea></div></div>`;
     el.innerHTML = `
       <div class="rm-crumb" onclick="backToYear()">‹ Year 1</div>
-      <div class="pagetitle">Quarter ${q+1}</div>
-      <div class="pagesub" style="margin-bottom:12px;">${months[0].name} – ${months[2].name} ${months[0].y} · focus, not quotas</div>
-      ${card('q-spir-'+q,'Spiritual','var(--dom-spiritual)','spiritual','Spiritual focus this quarter…')}
-      ${card('q-body-'+q,'Body & mind','var(--dom-physical)','bodyMind','Body & mind focus this quarter…')}
-      ${card('q-fin-'+q,'Finance / work','var(--dom-financial)','financeWork','Finance/work focus this quarter…')}
-      <div class="month-grid" id="quarterMonthGrid" style="grid-template-columns:repeat(3,1fr);"></div>`;
+      <div class="pagetitle">${SEASONS[q].name}: ${SEASONS[q].sub}</div>
+      <div class="pagesub" style="margin-bottom:12px;">${months[0].name} ${months[0].y} – ${months[3].name} ${months[3].y} · focus, not quotas</div>
+      ${card('q-spir-'+q,'Spiritual','var(--dom-spiritual)','spiritual','Spiritual focus this season…')}
+      ${card('q-body-'+q,'Body & mind','var(--dom-physical)','bodyMind','Body & mind focus this season…')}
+      ${card('q-fin-'+q,'Finance / work','var(--dom-financial)','financeWork','Finance/work focus this season…')}
+      <div class="month-grid" id="quarterMonthGrid" style="grid-template-columns:repeat(2,1fr);"></div>`;
     ['spiritual','bodyMind','financeWork'].forEach(k=>{ const x=document.getElementById(`qg-${q}-${k}`); x.onblur=()=>{ getQuarterGoals(q)[k]=x.value; saveState(); }; });
     document.getElementById('quarterMonthGrid').innerHTML = months.map((mo,i)=>{
-      const gi = q*3+i, cur = gi===curIdx;
+      const gi = q*4+i, cur = gi===curIdx;
       return `<div class="month-card" style="background:${paleMix(col,0.82)};border-color:${col};${cur?`box-shadow:0 0 0 2px ${col};`:''}" onclick="openMonth(${gi})"><div class="month-name">${mo.name}</div><div class="month-year">${mo.y}</div></div>`;
     }).join('');
     return;
@@ -1256,7 +1360,7 @@ function renderRoadmap(){
     const evs = eventsInMonth(mo.y, mo.m), mk = `${mo.y}-${String(mo.m).padStart(2,'0')}`;
     const q = quarterIndexForMonth(rmState.monthIdx);
     el.innerHTML = `
-      <div class="rm-crumb" onclick="openQuarter(1,${q})">‹ Quarter ${q+1}</div>
+      <div class="rm-crumb" onclick="openQuarter(1,${q})">‹ ${SEASONS[q].name}</div>
       <div class="pagetitle">${mo.name} ${mo.y}</div>
       <div class="pagesub" style="margin-bottom:12px;">${rmState.monthIdx===curIdx?'Current month':''}</div>
       ${mo.extra ? `<div class="milestone-card"><div class="northstar-label">This month</div><div class="northstar-text">${esc(mo.extra)}</div></div>` : ''}
@@ -1301,7 +1405,7 @@ function renderRoadmap(){
 }
 function openYear(n){ rmState={view:'yearDetail', yearNum:n}; renderRoadmap(); }
 function backToRoot(){ rmState={view:'root'}; renderRoadmap(); }
-function openQuarter(n,q){ if (n!==1){ alert("This year hasn't been planned yet. Its quarters will fill in once Year "+n+" begins."); return; } rmState={view:'quarter', yearNum:1, quarterIdx:q}; renderRoadmap(); }
+function openQuarter(n,q){ if (n!==1){ alert("This year hasn't been planned yet. Its seasons will fill in once Year "+n+" begins."); return; } rmState={view:'quarter', yearNum:1, quarterIdx:q}; renderRoadmap(); }
 function openMonth(i){ rmState={view:'month', yearNum:1, monthIdx:i}; renderRoadmap(); }
 function openWeek(i,ts){ rmState={view:'week', yearNum:1, monthIdx:i, weekStart:ts}; renderRoadmap(); }
 function backToYear(){ rmState={view:'yearDetail', yearNum:1}; renderRoadmap(); }
@@ -1320,6 +1424,7 @@ function pioneerStep(d){ S.pioneerIndex=Math.min(17,Math.max(0,S.pioneerIndex+d)
 function aslVideoStep(d){ S.aslVideoIndex=Math.min(608,Math.max(0,S.aslVideoIndex+d)); saveState(); renderProgress(); renderDaily(); }
 function intersignStep(d){ S.intersignIndex=Math.min(16,Math.max(0,S.intersignIndex+d)); saveState(); renderProgress(); renderDaily(); }
 function langStep(key,d){ const L=LANGUAGES.find(l=>l.key===key); let v=Math.max(0,(S.langChapter[key]||0)+d); if (L.total) v=Math.min(L.total,v); S.langChapter[key]=v; saveState(); renderProgress(); renderDaily(); }
+function certStep(key,d){ const C=CERTS.find(c=>c.key===key); let v=Math.max(0,Math.min(C.stages.length-1,(S.certStage[key]||0)+d)); S.certStage[key]=v; saveState(); renderProgress(); }
 
 let historyWeekOffset = 0;
 function historyWeekStep(d){ historyWeekOffset=Math.max(0, historyWeekOffset+d); renderHistory(); }
@@ -1343,10 +1448,13 @@ function renderProgress(){
   const wk = weekKey(), fsW = fsHoursForWeek(wk);
   document.getElementById('fsWeekVal').textContent = `${fsW} / ${FS_FLOOR}`;
   document.getElementById('fsWeekBar').style.width = Math.min(100, fsW/FS_FLOOR*100)+'%';
-  document.getElementById('fsReqVal').textContent = `${S.fsMonthHours} / 50`;
-  document.getElementById('fsReqBar').style.width = Math.min(100, S.fsMonthHours/50*100)+'%';
-  document.getElementById('fsBufVal').textContent = `${S.fsMonthHours} / 70`;
-  document.getElementById('fsBufBar').style.width = Math.min(100, S.fsMonthHours/70*100)+'%';
+  const fsM = fsHoursForMonth(monthKey());
+  document.getElementById('fsReqVal').textContent = `${fsM} / 50`;
+  document.getElementById('fsReqBar').style.width = Math.min(100, fsM/50*100)+'%';
+  document.getElementById('fsBufVal').textContent = `${fsM} / 70`;
+  document.getElementById('fsBufBar').style.width = Math.min(100, fsM/70*100)+'%';
+  const pmSel = document.getElementById('fsPastMonthSelect');
+  if (pmSel){ const prev=pmSel.value; pmSel.innerHTML = recentMonthKeys().map(mk=>`<option value="${mk}">${monthLabel(mk)} (${fsHoursForMonth(mk)} hrs logged)</option>`).join(''); if(prev) pmSel.value=prev; }
 
   document.getElementById('bibleCurrent').textContent = BIBLE_ORDER[S.bibleIndex];
   document.getElementById('bibleProgLabel').textContent = `Book ${S.bibleIndex+1} of ${BIBLE_ORDER.length}`;
@@ -1373,6 +1481,14 @@ function renderProgress(){
       <div class="lang-name">${act?'This week — ':''}${L.flag} ${L.name}</div><div class="lang-level">${L.level}</div>
       <div class="lang-nav"><div class="nav-btn" onclick="langStep('${L.key}',-1)">‹</div><div class="nav-current">${done} of ${L.total} chapters done</div><div class="nav-btn" onclick="langStep('${L.key}',1)">›</div></div>
       <div class="pbar"><div class="pbar-fill" style="background:var(--dom-skills);width:${pct}%"></div></div></div>`;
+  }).join('');
+
+  document.getElementById('certsBlocks').innerHTML = CERTS.map(C=>{
+    const si = S.certStage[C.key]||0, stage = C.stages[si], passed = si===C.stages.length-1;
+    return `<div class="lang-block" style="${passed?'background:var(--sage-dim);border-radius:8px;padding:8px;':''}">
+      <div class="lang-name">${C.name}${passed?' — passed':''}</div><div class="lang-level">${C.detail}</div>
+      <div class="lang-nav"><div class="nav-btn" onclick="certStep('${C.key}',-1)">‹</div><div class="nav-current">${stage}</div><div class="nav-btn" onclick="certStep('${C.key}',1)">›</div></div>
+      <div class="pbar"><div class="pbar-fill" style="background:var(--dom-financial);width:${Math.round(si/(C.stages.length-1)*100)}%"></div></div></div>`;
   }).join('');
 
   document.getElementById('aslVideoCurrent').textContent = `Video ${S.aslVideoIndex+1}`;
@@ -1405,20 +1521,47 @@ function switchTop(name){
   document.querySelectorAll('.toptab').forEach(t=>t.classList.toggle('active', t.dataset.tab===name));
   document.querySelectorAll('.toppanel').forEach(p=>p.classList.remove('active'));
   document.getElementById('top-'+name).classList.add('active');
+  if (name!=='roadmap') applySeasonTheme(currentSeason());
   if (name==='roadmap') renderRoadmap();
   if (name==='week') renderThisWeek();
   if (name==='progress') renderProgress();
   if (name==='daily') renderDaily();
+  if (name!=='progress' || !window._cameFromRoadmap){ const c=document.getElementById('progressBackCrumb'); if(c) c.style.display='none'; }
+  window._cameFromRoadmap = false;
   window.scrollTo(0,0);
 }
-function exportBackup(){
+function backFromProgress(){
+  const msId = window._cameFromMsId;
+  window._cameFromRoadmap=false; window._cameFromMsId=null;
+  rmState = {view:'root'};
+  switchTop('roadmap');
+  if (msId){
+    const m = msById(msId);
+    if (m && m.domain) catOpen[m.domain] = true;
+    msOpen[msId] = true;
+    renderRoadmap();
+    setTimeout(()=>{ const el=document.getElementById('ms-'+msId); if(el){ el.scrollIntoView({behavior:'smooth', block:'center'}); el.classList.add('flash'); setTimeout(()=>el.classList.remove('flash'), 1200); } }, 60);
+  }
+}
+async function exportBackup(){
+  const filename = `ma-course-backup-${dateKey()}.json`;
+  const json = JSON.stringify(S,null,2);
+  // Inside claude.ai: use the viewer's save prompt
+  let dl = null;
+  try { if (window.claude && typeof window.claude.use==='function') dl = await window.claude.use('downloads'); } catch(e){ dl = null; }
+  if (dl){
+    try { await dl.save({ filename, data: json }); showToast('Backup saved'); }
+    catch(e){ if (e && e.code==='declined') showToast('Backup not saved'); else if (e && e.code==='rate_limited') showToast('Finish the open save prompt first'); else showToast("Couldn't save the backup here"); }
+    return;
+  }
+  // Anywhere else (GitHub Pages, a browser tab): normal download
   try {
-    const blob = new Blob([JSON.stringify(S,null,2)], {type:'application/json'});
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a'); a.href=url; a.download=`ma-course-backup-${dateKey()}.json`;
-    document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
+    const url = URL.createObjectURL(new Blob([json], {type:'application/json'}));
+    const a = document.createElement('a'); a.href=url; a.download=filename;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(()=>URL.revokeObjectURL(url), 1000);
     showToast('Backup downloaded');
-  } catch(e){ alert('Download is blocked here. Open Ma Course in its own browser tab to export.'); }
+  } catch(e){ alert("Download is blocked here. Open Ma Course in its own browser tab to export."); }
 }
 function importBackup(ev){
   const f = ev.target.files[0]; if (!f) return;
@@ -1454,15 +1597,12 @@ const MISSION_QUOTES = [
 ];
 function dayOfYear(d){ return Math.floor((d - new Date(d.getFullYear(),0,0))/86400000); }
 function toggleFullMission(){ const el=document.getElementById('missionFullText'); const s=el.classList.toggle('show'); document.getElementById('missionReadMoreLink').textContent = s?'Hide full mission':'Read full mission'; }
-function enterApp(){ document.getElementById('missionScreen').style.display='none'; document.getElementById('mainApp').style.display='block'; switchTop('daily'); }
+function enterApp(){ document.getElementById('missionScreen').style.display='none'; document.getElementById('mainApp').style.display='block'; switchTop('roadmap'); }
 function backToMission(){ document.getElementById('mainApp').style.display='none'; document.getElementById('missionScreen').style.display='flex'; }
 
 (async function init(){
   await loadState();
-  const accent = monthCycleColor(Math.max(0,currentMonthIdx()));
-  const r = document.documentElement.style;
-  r.setProperty('--cream', paleMix(accent,0.75)); r.setProperty('--card', paleMix(accent,0.65));
-  r.setProperty('--cream2', paleMix(accent,0.45)); r.setProperty('--line', paleMix(accent,0.15));
+  applySeasonTheme(currentSeason());
   const n = new Date();
   document.getElementById('missionFragment').textContent = MISSION_FRAGMENTS[dayOfYear(n)%MISSION_FRAGMENTS.length];
   document.getElementById('missionFullText').textContent = S.missionMain;
@@ -1473,3 +1613,5 @@ function backToMission(){ document.getElementById('mainApp').style.display='none
 </script>
 </body>
 </html>
+
+</body></html>
