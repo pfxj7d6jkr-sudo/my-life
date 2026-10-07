@@ -6,7 +6,7 @@
 <meta name="color-scheme" content="light">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Ma Course">
-<style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{height:100%}body{margin:0}[hidden]{display:none!important}</style>
+<style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{min-height:100%}body{margin:0}[hidden]{display:none!important}</style>
 <title>Ma Course</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Karla:wght@400;500;600&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
@@ -256,7 +256,17 @@ body.calm .doodle, body.calm .garland, body.calm .meadow, body.calm .scatter{dis
 .badge.gold{background:var(--gold-dim);color:var(--gold-ink);}
 
 .bchips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0;}
-.bchip{font-size:12px;border:1px solid var(--line);border-radius:8px;padding:4px 8px;background:var(--card);color:var(--ink2);font-variant-numeric:tabular-nums;}
+.bchip{font:inherit;font-size:12.5px;border:1px solid var(--line);border-radius:9px;padding:7px 10px;background:var(--card);color:var(--ink2);font-variant-numeric:tabular-nums;cursor:pointer;}
+.bchip.extra{border-style:dashed;}
+span.bchip{cursor:default;color:var(--ink3);background:var(--cream);}
+.chap-grid{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
+.chap{min-width:40px;height:38px;padding:0 6px;border-radius:10px;border:1px solid var(--line);background:var(--cream);font:inherit;font-size:13px;color:var(--ink2);cursor:pointer;font-variant-numeric:tabular-nums;}
+.chap.read{background:var(--blue-dim);border-color:#9fc3df;color:var(--blue-ink);}
+.chap.read::after{content:' ✓';font-size:10px;}
+.chap.next{border:1.5px solid var(--ink);}
+.book-row{display:flex;justify-content:space-between;gap:8px;width:100%;text-align:left;font:inherit;font-size:12.5px;padding:5px 6px;border:none;background:none;color:var(--ink);cursor:pointer;border-radius:4px;}
+.book-row.done{color:var(--ink3);text-decoration:line-through;}
+.book-row.viewing{background:var(--sage-dim);color:var(--sage-ink);font-weight:600;}
 .bchip.read{background:var(--blue-dim);border-color:#9fc3df;color:var(--blue-ink);}
 .bchip.today{border:1.5px solid var(--ink);}
 .bchip.missed{color:var(--ink3);background:var(--cream);}
@@ -512,20 +522,15 @@ body.calm *{animation:none!important;}
       <div class="pcard" id="prog-bible">
         <div class="pcard-title">Scripture reading, shortest to longest</div>
         <div class="nav-tracker">
-          <button class="nav-btn" type="button" onclick="bibleStep(-1)" aria-label="Previous book">‹</button>
+          <button class="nav-btn" type="button" onclick="bibleBookStep(-1)" aria-label="Previous book">‹</button>
           <div class="nav-current" id="bibleCurrent">—</div>
-          <button class="nav-btn" type="button" onclick="bibleStep(1)" aria-label="Next book">›</button>
+          <button class="nav-btn" type="button" onclick="bibleBookStep(1)" aria-label="Next book">›</button>
         </div>
-        <div class="prow-top"><span class="prow-label" id="bibleProgLabel">Book 1 of 66</span><span class="prow-val" id="bibleProgVal">0%</span></div>
+        <div class="prow-top"><span class="prow-label" id="bibleProgLabel">Book 1 of 66</span><span class="prow-val" id="bibleProgVal">0</span></div>
         <div class="pbar"><div class="pbar-fill" id="bibleBar" style="background:var(--sage);width:0%"></div></div>
-        <div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--line);">
-          <div class="prow-top"><span class="prow-label">Next chapter to read in this book</span><span class="prow-val" id="bibleChapVal">1</span></div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <button class="nav-btn" type="button" onclick="bibleChapStep(-1)">‹ prev chapter</button>
-            <button class="nav-btn" type="button" onclick="bibleChapStep(1)">next chapter ›</button>
-          </div>
-          <div class="small-note">Use these only to correct your place. Daily reading is logged from the floor on Today.</div>
-        </div>
+        <div class="chap-grid" id="bibleGrid"></div>
+        <div class="small-note">Tap a chapter to mark it read, or tap again to undo. Today, This Week, and Roadmap all follow. The arrows only browse books.</div>
+        <button class="link-btn" type="button" id="bibleHere" onclick="bibleHere()" style="display:none;">Back to where I am</button>
         <button class="link-btn bible-toggle" type="button" onclick="toggleBibleFull()" style="margin-top:6px;">See the full reading order</button>
         <div id="bibleFull" style="display:none;max-height:220px;overflow-y:auto;margin-top:10px;border-top:1px solid var(--line);padding-top:8px;"></div>
       </div>
@@ -814,9 +819,26 @@ const BIBLE_CHAPTERS = {
 };
 const BIBLE_FLAT = (function(){ const f=[]; BIBLE_ORDER.forEach(b=>{ const n=BIBLE_CHAPTERS[b]||1; for(let c=1;c<=n;c++) f.push({book:b,chapter:c}); }); return f; })();
 function bibleFlatIndex(bookIdx, ch){ let idx=0; for (let i=0;i<bookIdx;i++) idx += BIBLE_CHAPTERS[BIBLE_ORDER[i]]||1; return idx + (ch-1); }
-function curBibleIdx(){ return bibleFlatIndex(S.bibleIndex, S.bibleChapterInBook); }
-function setBibleIdx(i){ const p = BIBLE_FLAT[clamp(i,0,BIBLE_FLAT.length-1)]; S.bibleIndex = BIBLE_ORDER.indexOf(p.book); S.bibleChapterInBook = p.chapter; }
-function advanceBiblePosition(delta){ setBibleIdx(curBibleIdx()+delta); }
+// One source of truth: S.bibleRead maps a chapter's place in the reading order to the day it was read.
+// Today, This Week, Roadmap and Progress all read from it, so they can never disagree.
+function isRead(i){ return S.bibleRead[i] != null; }
+function nextUnread(){ const n=BIBLE_FLAT.length; let i=0; while (i<n && S.bibleRead[i]!=null) i++; return i; }
+function curBibleIdx(){ return nextUnread(); }
+function readTotal(){ return Object.keys(S.bibleRead).length; }
+function chaptersOn(dk){ return Object.keys(S.bibleRead).filter(i=>S.bibleRead[i]===dk).map(Number).sort((a,b)=>a-b); }
+function chaptersBetween(a,b){ const ka=dateKey(a), kb=dateKey(b); return Object.keys(S.bibleRead).filter(i=>S.bibleRead[i]>=ka && S.bibleRead[i]<=kb).map(Number).sort((x,y)=>x-y); }
+// Where the reading stood on the morning of a given day
+function baseAsOf(d){ const k=dateKey(d), n=BIBLE_FLAT.length; let i=0; while (i<n && S.bibleRead[i]!=null && S.bibleRead[i]<k) i++; return i; }
+function syncBiblePos(){ const p=BIBLE_FLAT[Math.min(nextUnread(), BIBLE_FLAT.length-1)]; S.bibleIndex=BIBLE_ORDER.indexOf(p.book); S.bibleChapterInBook=p.chapter; }
+function markRead(i, dk){ if (i<0 || i>=BIBLE_FLAT.length) return; S.bibleRead[i]=dk; (S.checked[dk]=S.checked[dk]||{})['fl-bible']=true; syncBiblePos(); }
+function unmarkRead(i){ const dk=S.bibleRead[i]; if (dk==null) return; delete S.bibleRead[i]; if (!chaptersOn(dk).length && S.checked[dk]) S.checked[dk]['fl-bible']=false; syncBiblePos(); }
+function chaptersText(list){
+  if (!list.length) return '';
+  const runs=[]; let a=list[0], b=list[0];
+  for (let k=1;k<list.length;k++){ if (list[k]===b+1) b=list[k]; else { runs.push([a,b]); a=b=list[k]; } }
+  runs.push([a,b]);
+  return runs.map(([x,y])=>rangeText(x,y)).join(', ');
+}
 function chText(i){ if (i>=BIBLE_FLAT.length) return 'Bible finished'; const c=BIBLE_FLAT[clamp(i,0,BIBLE_FLAT.length-1)]; return `${c.book} ${c.chapter}`; }
 function rangeText(a,b){
   if (b<a) return '';
@@ -825,23 +847,17 @@ function rangeText(a,b){
   if (a===b) return `${x.book} ${x.chapter}`;
   return x.book===y.book ? `${x.book} ${x.chapter}–${y.chapter}` : `${x.book} ${x.chapter} – ${y.book} ${y.chapter}`;
 }
-function bibleLogsFrom(d){ const k=dateKey(d); let s=0; Object.keys(S.bibleLog).forEach(dk=>{ if (dk>=k) s += S.bibleLog[dk]||0; }); return s; }
-function bibleLogsBetween(a,b){ const ka=dateKey(a), kb=dateKey(b); let s=0; Object.keys(S.bibleLog).forEach(dk=>{ if (dk>=ka && dk<=kb) s += S.bibleLog[dk]||0; }); return s; }
-// Where the reading stood at the start of a given week (for past/current weeks), or where it will be (future weeks, at 1 chapter a day).
+// The week's plan is fixed on Monday: 7 chapters starting from wherever the reading stood that morning.
+// It does not move when chapters are read, so the week always shows what was planned next to what was read.
 function weekBibleStart(ws){
-  const t = today0();
-  if (ws <= t) return curBibleIdx() - bibleLogsFrom(ws);
-  const todayLogged = S.bibleLog[dateKey(t)] != null;
-  return curBibleIdx() + dayDiff(t, ws) - (todayLogged ? 1 : 0);
+  const tw = startOfWeek(today0());
+  if (ws <= tw) return baseAsOf(ws);
+  const endThis = Math.max(baseAsOf(tw)+7, nextUnread());
+  return endThis + 7*(Math.round(dayDiff(tw, ws)/7)-1);
 }
 function weekBiblePlan(ws){
   const start = weekBibleStart(ws);
-  let cum = start;
-  return [0,1,2,3,4,5,6].map(i=>{
-    const d = addDays(ws,i), n = S.bibleLog[dateKey(d)];
-    const read = n || 0, from = cum; cum += read;
-    return { d, planned:start+i, n, from, to:from+read-1 };
-  });
+  return [0,1,2,3,4,5,6].map(i=>{ const d=addDays(ws,i); return { d, planned:start+i, on:chaptersOn(dateKey(d)) }; });
 }
 
 // ══════════════ PIONEER BOOK (Liv pyonye) ══════════════
@@ -921,21 +937,23 @@ function unitDetail(dk, id){
 
 // ══════════════ FLOOR ══════════════
 function dailyFloorItems(d){
-  const dk = dateKey(d), n = S.bibleLog[dk];
+  const dk = dateKey(d), on = chaptersOn(dk), held = (S.checked[dk]||{})['fl-bible']===true;
   let detail;
-  if (n==null) detail = `Next: ${chText(curBibleIdx())} — reading or listening both count${d.getDay()===1?" · this week's meeting reading also counts":''}`;
-  else if (n===0) detail = "Meeting reading counted today";
-  else { const p = weekBiblePlan(startOfWeek(d))[(d.getDay()+6)%7]; detail = `Read: ${rangeText(p.from,p.to)}`; }
+  if (on.length) detail = `Read: ${chaptersText(on)}`;
+  else if (held) detail = 'Meeting reading counted';
+  else detail = `Next: ${chText(nextUnread())} — reading or listening both count${d.getDay()===1?" · this week's meeting reading also counts":''}`;
   return [
     { id:'fl-meds-am', name:'Morning: eat something → meds', detail:'Never on an empty stomach', domain:'physical' },
-    { id:'fl-spirit', name:'Prayer · daily text · 1 Bible chapter', detail, domain:'spiritual', bible:true },
+    { id:'fl-spirit', name:'Prayer · daily text', detail:"Even a quick read of today's text counts", domain:'spiritual' },
+    { id:'fl-bible', name:'Bible reading — 1 chapter', detail, domain:'spiritual', bible:true },
     { id:'fl-move', name:'5 minutes of movement', detail:'Any kind counts', dayNoteKey:'movement', domain:'physical' },
     { id:'fl-clean', name:'Clean myself', detail:'Shower, bath, or a quick wash — plus brushing teeth', domain:'physical' },
     { id:'fl-meds-pm', name:'Evening: eat something → meds', detail:'Never on an empty stomach', domain:'physical' },
   ];
 }
-const DAILY_FLOOR_IDS = ['fl-meds-am','fl-spirit','fl-move','fl-clean','fl-meds-pm'];
-const DAILY_FLOOR_NAMES = { 'fl-meds-am':'Food → meds (AM)', 'fl-spirit':'Spiritual cluster', 'fl-move':'5 min movement', 'fl-clean':'Clean myself', 'fl-meds-pm':'Food → meds (PM)' };
+const DAILY_FLOOR_IDS = ['fl-meds-am','fl-spirit','fl-bible','fl-move','fl-clean','fl-meds-pm'];
+const FLOOR_N = DAILY_FLOOR_IDS.length;
+const DAILY_FLOOR_NAMES = { 'fl-meds-am':'Food → meds (AM)', 'fl-spirit':'Prayer & daily text', 'fl-bible':'Bible reading', 'fl-move':'5 min movement', 'fl-clean':'Clean myself', 'fl-meds-pm':'Food → meds (PM)' };
 const FS_FLOOR = 12.5;
 function weeklyFloorItems(wkStart){
   const L = languageForDate(wkStart).lang;
@@ -1110,7 +1128,7 @@ function defaultState(){
     checked:{}, weekListChecked:{}, weekOther:{}, weekMotivation:{}, weekReflection:{}, weekNotes:{}, dayNotes:{}, dayOther:{}, monthlyTasks:{},
     fsMonthHours:0, fsMonthKey:monthKey(), fsMonthLog:{}, fsWeekHours:0, fsWeekKey:null, fsWeekLog:{}, fsDayLog:{},
     cliWeekHours:0, cliWeekIncome:0, cliWeekKey:null,
-    bibleIndex:0, bibleChapterInBook:1, bibleLog:{}, readIndex:0, pioneerIndex:0,
+    bibleIndex:0, bibleChapterInBook:1, bibleLog:{}, bibleRead:{}, readIndex:0, pioneerIndex:0,
     vicarsIndex:0, bloomIndex:0, intersign:{s:0,b:0}, unitLog:{},
     langPos:{}, econ:{},
     certStage:{nbcmi:0, cchi:0, ata:0},
@@ -1131,13 +1149,13 @@ function defaultState(){
     missionMain: "I want to become the happiest version of myself, someone Jehovah is proud of, by staying close to him through his Word and through prayer, caring for my own sleep, mental health, and nutrition, and being helpful to others through listening and compassion — while staying resilient and keeping my joy through life's difficulties.",
     yearGoals: defaultYearGoals(),
     quarterGoals: {},
-    calm:false, lastBackup:null, migV2:true,
+    calm:false, lastBackup:null, migV2:true, migV3:true,
   };
 }
 let S = defaultState();
 function normalizeState(){
   const d = defaultState();
-  ['checked','weekListChecked','fsWeekLog','fsDayLog','weeklyWeight','dailyWeight','bedtimes','checkin','dayNotes','dayOther','monthlyTasks','weekNotes','weekOther','weekMotivation','quarterGoals','monthQuote','monthQuality','monthOther','bibleLog','unitLog','langPos','econ','energy','wins','weekStart','fsMonthLog']
+  ['checked','weekListChecked','fsWeekLog','fsDayLog','weeklyWeight','dailyWeight','bedtimes','checkin','dayNotes','dayOther','monthlyTasks','weekNotes','weekOther','weekMotivation','quarterGoals','monthQuote','monthQuality','monthOther','bibleLog','bibleRead','unitLog','langPos','econ','energy','wins','weekStart','fsMonthLog']
     .forEach(k=>{ if (!S[k] || typeof S[k]!=='object' || Array.isArray(S[k])) S[k] = d[k]; });
   if (S.fsMonthHours>0 && S.fsMonthKey && S.fsMonthLog[S.fsMonthKey]===undefined) S.fsMonthLog[S.fsMonthKey] = S.fsMonthHours;
   if (!Array.isArray(S.milestones)) S.milestones = d.milestones;
@@ -1180,11 +1198,26 @@ function normalizeState(){
     });
     S.migV2 = true;
   }
+  // One-time move to chapter-by-chapter Bible tracking, with prayer/daily text and Bible reading as separate floor items
+  if (!S.migV3){
+    const cur = clamp(bibleFlatIndex(S.bibleIndex||0, S.bibleChapterInBook||1), 0, BIBLE_FLAT.length);
+    const days = Object.keys(S.bibleLog).filter(k=>S.bibleLog[k]>0).sort();
+    let i = 0;
+    days.forEach(dk=>{ for (let n=0; n<S.bibleLog[dk] && i<cur; n++) S.bibleRead[i++] = dk; });
+    // Chapters moved with the old Progress arrows have no date: count them as read the day before, kept inside this week
+    const t = today0(), y = addDays(t,-1), guess = dateKey(startOfWeek(y).getTime()===startOfWeek(t).getTime() ? y : t);
+    const undated = i < cur;
+    while (i < cur) S.bibleRead[i++] = guess;
+    Object.keys(S.checked).forEach(dk=>{ const c=S.checked[dk]; if (c && c['fl-spirit']===true && c['fl-bible']===undefined) c['fl-bible']=true; });
+    if (undated) (S.checked[guess]=S.checked[guess]||{})['fl-bible'] = true;
+    S.migV3 = true;
+  }
+  syncBiblePos();
   S.pioneerIndex = clamp(S.pioneerIndex||0, 0, PIONEER.length);
   if (typeof S.calm!=='boolean') S.calm = false;
 }
 function loadState(){
-  try { const raw = localStorage.getItem('life-tracker-state'); if (raw){ const parsed = JSON.parse(raw); S = Object.assign(defaultState(), {migV2:false}, parsed); } } catch(e){}
+  try { const raw = localStorage.getItem('life-tracker-state'); if (raw){ const parsed = JSON.parse(raw); S = Object.assign(defaultState(), {migV2:false, migV3:false}, parsed); } } catch(e){}
   normalizeState();
 }
 function saveState(){ try { localStorage.setItem('life-tracker-state', JSON.stringify(S)); } catch(e){ console.error('save failed', e); } }
@@ -1244,9 +1277,10 @@ function toggleFloor(id){
   const d = viewDate(), dk = dateKey(d), c = checksFor(d);
   const was = c[id]===true;
   c[id] = !was;
-  if (id==='fl-spirit'){
-    if (!was){ S.bibleLog[dk] = 1; advanceBiblePosition(1); }
-    else { advanceBiblePosition(-(S.bibleLog[dk]||0)); delete S.bibleLog[dk]; }
+  if (id==='fl-bible'){
+    if (!was){ const n=nextUnread(); if (n<BIBLE_FLAT.length) S.bibleRead[n]=dk; }
+    else chaptersOn(dk).forEach(i=>{ delete S.bibleRead[i]; });
+    syncBiblePos();
   }
   if (!was) popId = id;
   saveState();
@@ -1255,11 +1289,22 @@ function toggleFloor(id){
 }
 function bibleStepDay(delta){
   const dk = dateKey(viewDate());
-  const n = S.bibleLog[dk] || 0, next = Math.max(0, n+delta);
-  if (next===n) return;
-  S.bibleLog[dk] = next; advanceBiblePosition(next-n);
-  saveState(); renderDaily(); renderProgress();
+  if (delta>0){ const n=nextUnread(); if (n>=BIBLE_FLAT.length) return; S.bibleRead[n]=dk; }
+  else { const on=chaptersOn(dk); if (!on.length) return; delete S.bibleRead[on[on.length-1]]; }
+  syncBiblePos(); saveState(); renderDaily(); renderProgress();
 }
+function refreshBible(){
+  renderDaily(); renderThisWeek(); renderProgress();
+  const rp = document.getElementById('top-roadmap');
+  if (rp && rp.classList.contains('active')) renderRoadmap();
+}
+// Tapping a chapter chip in a week view. In a past week it is dated to its planned day; otherwise to today.
+function tapChapter(idx, wsk, i){
+  if (isRead(idx)) unmarkRead(idx);
+  else { const ws=fromKey(wsk), tw=startOfWeek(today0()); markRead(idx, (ws<tw && i>=0) ? dateKey(addDays(ws,i)) : dateKey()); }
+  saveState(); refreshBible();
+}
+function tapBookChapter(idx){ if (isRead(idx)) unmarkRead(idx); else markRead(idx, dateKey()); saveState(); refreshBible(); }
 function toggleItem(id){
   const d = viewDate(), dk = dateKey(d), c = checksFor(d);
   const prev = c[id];
@@ -1292,7 +1337,7 @@ function itemRow(i, state, bg, dk){
   const cls = state===true ? 'done' : state==='na' ? 'na' : '';
   const stepper = i.bible && state===true ? `<div class="stepper" data-stop="1">
       <button type="button" data-bstep="-1" aria-label="One chapter fewer">−</button>
-      <span>${S.bibleLog[dk]||0} chapter${(S.bibleLog[dk]||0)===1?'':'s'} today</span>
+      <span>${chaptersOn(dk).length} chapter${chaptersOn(dk).length===1?'':'s'}</span>
       <button type="button" data-bstep="1" aria-label="One more chapter">+</button></div>` : '';
   return `<div class="item ${cls} ${popId===i.id?'pop':''}" data-id="${i.id}" role="button" tabindex="0" ${bg?`style="background:${bg};"`:''}>
     <div class="box">${CHECK_SVG}</div>
@@ -1508,7 +1553,7 @@ function gardenRow(ws){
   const t = today0();
   return `<div class="garden" aria-label="Floor garden for the week">${[0,1,2,3,4,5,6].map(i=>{
     const d=addDays(ws,i), fut=d>t, n=dailyFloorCount(dateKey(d));
-    return `<div class="pot ${dateKey(d)===dateKey(t)?'is-today':''}" title="${DAY_NAME[d.getDay()]}: ${n} of 5">${plantSVG(n,5,30,{future:fut})}<span>${DAY_ABBR[d.getDay()]}</span></div>`;
+    return `<div class="pot ${dateKey(d)===dateKey(t)?'is-today':''}" title="${DAY_NAME[d.getDay()]}: ${n} of ${FLOOR_N}">${plantSVG(n,FLOOR_N,30,{future:fut})}<span>${DAY_ABBR[d.getDay()]}</span></div>`;
   }).join('')}</div>`;
 }
 function renderWeeklyFloor(ws){
@@ -1560,18 +1605,29 @@ function renderWeeklyFloor(ws){
   });
 }
 function bibleChipsHtml(ws){
-  const plan = weekBiblePlan(ws), t = today0();
-  const chips = plan.map(p=>{
-    const past = p.d < t, isT = dateKey(p.d)===dateKey(t);
-    let cls = '', extra = '';
-    if (p.n!=null && p.n>0){ cls='read'; extra = ` ✓${p.n>1?` +${p.n-1}`:''}`; }
-    else if (p.n===0){ cls='read'; extra=' · meeting reading'; }
-    else if (past) cls='missed';
-    return `<span class="bchip ${cls} ${isT?'today':''}">${DAY_ABBR[p.d.getDay()]} · ${esc(chText(p.planned))}${extra}</span>`;
-  }).join('');
-  const read = plan.reduce((a,p)=>a+(p.n||0),0);
-  const first = plan[0].from;
-  const actual = (read>0 ? `Read ${read} chapter${read===1?'':'s'}: ${esc(rangeText(first, first+read-1))}` : 'Nothing logged yet this week') + `<div class="small-note" style="margin-top:2px;">Chips show the base plan for each day. ✓ means you read that day; +1 is an extra chapter.</div>`;
+  const start = weekBibleStart(ws), t = today0(), tw = startOfWeek(t), wsk = dateKey(ws), wek = dateKey(addDays(ws,6));
+  const past = ws < tw, future = ws > tw;
+  let chips = '', planRead = 0;
+  for (let i=0;i<7;i++){
+    const idx = start+i; if (idx >= BIBLE_FLAT.length) break;
+    const d = addDays(ws,i), isT = dateKey(d)===dateKey(t);
+    const later = isRead(idx) && S.bibleRead[idx] > wek;   // read, but after this week ended
+    const rd = isRead(idx) && !later;
+    if (rd) planRead++;
+    chips += later
+      ? `<span class="bchip">${DAY_ABBR[d.getDay()]} · ${esc(chText(idx))} · read later</span>`
+      : `<button type="button" class="bchip ${rd?'read':''} ${isT?'today':''}" aria-pressed="${rd}" onclick="tapChapter(${idx},'${wsk}',${i})">${DAY_ABBR[d.getDay()]} · ${esc(chText(idx))}${rd?' ✓':''}</button>`;
+  }
+  const extras = chaptersBetween(ws, addDays(ws,6)).filter(i=>i<start || i>=start+7);
+  chips += extras.map(i=>`<button type="button" class="bchip read extra" aria-pressed="true" onclick="tapChapter(${i},'${wsk}',-1)">＋ ${esc(chText(i))} ✓</button>`).join('');
+  const read = planRead + extras.length;
+  let actual;
+  if (future) actual = 'Planned. This list will settle on Monday, from wherever you are then.';
+  else {
+    const had = past ? 7 : Math.min(7, dayDiff(ws,t)+1);
+    actual = `<b>Had to read${past?'':' so far'}:</b> ${had}${past?'':` (through ${esc(chText(start+had-1))})`} · <b>Have read:</b> ${read}${read>had?` · <span style="color:var(--sage-ink);font-weight:600;">${read-had} ahead</span>`:''}`;
+  }
+  actual += `<div class="small-note" style="margin-top:2px;">Tap a chapter when you've read it. The list stays the same all week; extra chapters show with a ＋.</div>`;
   return { chips, read, actual };
 }
 function renderWeekBible(ws){
@@ -1579,7 +1635,7 @@ function renderWeekBible(ws){
   document.getElementById('weekBible').innerHTML = `
     <div class="wk-summary taped tape-dots">
       <div class="title-doodle-row"><div class="floor-title" style="font-size:24px;">This week's Bible reading</div>${doodle('book',30)}</div>
-      <div class="small-note" style="margin-top:2px;">Base plan: 1 chapter a day, shortest books first. Extra chapters move the plan forward.</div>
+      <div class="small-note" style="margin-top:2px;">Base plan: 1 chapter a day, shortest books first.</div>
       <div class="bchips">${b.chips}</div>
       <div style="font-size:12.5px;">${b.actual}</div>
     </div>`;
@@ -1724,7 +1780,7 @@ function toggleGoalCollapse(key){
   if (c) c.textContent = goalCollapse[key] ? '▸' : '▾';
 }
 function autoProgress(m){
-  if (m.auto==='bible'){ const i=curBibleIdx(); return { pct:i/BIBLE_FLAT.length, text:`Next: ${chText(i)} · ${i} of ${BIBLE_FLAT.length} chapters read` }; }
+  if (m.auto==='bible'){ const r=readTotal(); return { pct:r/BIBLE_FLAT.length, text:`Next: ${chText(nextUnread())} · ${r} of ${BIBLE_FLAT.length} chapters read` }; }
   if (m.auto==='weight'){ const w=latestWeight(); if (w==null) return { pct:0, text:'No weigh-in yet' }; const lost=Math.max(0, S.weightStart-w); return { pct:Math.min(1,lost/50), text:`${lost.toFixed(1)} of 50 lbs lost · latest weekly average ${w}` }; }
   if (m.auto==='languages'){ let d=0,t=0; LANGUAGES.forEach(L=>{ d+=langDone(L); t+=langTotal(L); }); return { pct:d/t, text:LANGUAGES.map(L=>`${L.flag} ${L.levels[langPos(L.key).level][0]}`).join('  ') }; }
   if (m.auto==='asl'){ return { pct:S.vicarsIndex/VICARS_TOTAL, text:`Bill Vicars: ${vicarsLabel(S.vicarsIndex)} · Bloom ${Math.min(S.bloomIndex,BLOOM_TOTAL)}/76 · Intersign section ${S.intersign.s+1}` }; }
@@ -1798,14 +1854,13 @@ function dayDigest(d, plan){
   const lines = { spiritual:[], physical:[], skills:[], mental:[], financial:[] };
   // Bible
   if (future) lines.spiritual.push(`<span class="plan">Read ${esc(chText(plan.planned))}</span>`);
-  else if (plan.n>0) lines.spiritual.push(`Read ${esc(rangeText(plan.from,plan.to))}${plan.n>1?` <span class="plus">+${plan.n-1}</span>`:''}`);
-  else if (plan.n===0) lines.spiritual.push('Meeting reading');
-  else lines.spiritual.push(`<span class="muted">Base ${esc(chText(plan.planned))} · not logged</span>`);
+  else if (plan.on.length) lines.spiritual.push(`Read ${esc(chaptersText(plan.on))}${plan.on.length>1?` <span class="plus">+${plan.on.length-1}</span>`:''}`);
+  else if (c['fl-bible']===true) lines.spiritual.push('Meeting reading');
+  else lines.spiritual.push(`<span class="muted">Base ${esc(chText(plan.planned))}${isRead(plan.planned)?' · read ✓':''}</span>`);
   const floor = dailyFloorItems(d), bonus = bonusItemsForDate(d);
   if (!future){
     const fs = S.fsDayLog[dk]; if (fs) lines.spiritual.push(`${fs} hrs field service`);
-    floor.forEach(i=>{ if (i.id!=='fl-spirit' && c[i.id]===true) lines[domainOf(i)].push(esc(DAILY_FLOOR_NAMES[i.id])); });
-    if (c['fl-spirit']===true) lines.spiritual.push('Prayer & daily text');
+    floor.forEach(i=>{ if (i.id!=='fl-bible' && c[i.id]===true) lines[domainOf(i)].push(esc(DAILY_FLOOR_NAMES[i.id])); });
     const mv = (S.dayNotes[dk]||{}).movement; if (mv) lines.physical.push(`<span class="muted">moved: ${esc(mv)}</span>`);
     const w = S.dailyWeight[dk]; if (w!=null) lines.physical.push(`${w} lbs`);
     bonus.forEach(i=>{
@@ -1830,7 +1885,7 @@ function dayDigest(d, plan){
   return `<div class="wk-day ${isT?'today':''} ${future?'future':''}">
     <div class="wk-day-head">
       <span class="wk-day-name">${DAY_NAME[d.getDay()]}</span>${doodle(DAY_DOODLE[d.getDay()],18)}<span class="wk-day-date">${fmtDate(d)}${isT?' · today':''}</span>
-      <span class="wk-day-meta">${energy?`<span class="badge">${energy==='ok'?'okay':energy} energy</span>`:''}${future?'':`${plantSVG(n,5,20)}<span>${n}/5</span>`}</span>
+      <span class="wk-day-meta">${energy?`<span class="badge">${energy==='ok'?'okay':energy} energy</span>`:''}${future?'':`${plantSVG(n,FLOOR_N,20)}<span>${n}/${FLOOR_N}</span>`}</span>
     </div>
     ${evs}${body}${otherHtml}${win}${add}
   </div>`;
@@ -1840,9 +1895,9 @@ function monthStats(mi){
   if (mo.start > t) return null;
   const end = mo.end < t ? mo.end : t;
   const elapsed = dayDiff(mo.start, end) + 1, total = dayDiff(mo.start, mo.end) + 1;
-  const read = bibleLogsBetween(mo.start, end);
-  const startIdx = curBibleIdx() - bibleLogsFrom(mo.start);
-  const endIdx = startIdx + read;
+  const read = chaptersBetween(mo.start, end).length;
+  const startIdx = baseAsOf(mo.start);
+  const endIdx = mo.end < t ? baseAsOf(addDays(mo.end,1)) : nextUnread();
   let full = 0; for (let i=0;i<elapsed;i++) if (dailyFloorCount(dateKey(addDays(mo.start,i)))===DAILY_FLOOR_IDS.length) full++;
   const wks = weeksOfMonth(mi).filter(w=>w<=t).map(w=>weekKey(w));
   const fs = round1(wks.reduce((a,k)=>a+fsHoursForWeek(k),0));
@@ -1868,7 +1923,7 @@ function monthCalendar(mi){
   let cells = '';
   for (let d=new Date(mo.start); d<=mo.end; d=addDays(d,1)){
     const fut = d > t, n = dailyFloorCount(dateKey(d)), isT = dateKey(d)===dateKey(t);
-    cells += `<div class="cal-d ${isT?'today':''}" title="${fmtDate(d)}: ${fut?'ahead':n+' of 5'}">${plantSVG(n,5,22,{future:fut})}<span>${d.getDate()}</span></div>`;
+    cells += `<div class="cal-d ${isT?'today':''}" title="${fmtDate(d)}: ${fut?'ahead':n+' of '+FLOOR_N}">${plantSVG(n,FLOOR_N,22,{future:fut})}<span>${d.getDate()}</span></div>`;
   }
   return `<div class="cal">${heads}${cells}</div>`;
 }
@@ -1969,13 +2024,13 @@ function renderRoadmap(){
     const isCur = mi===curIdx;
     let summary = '';
     if (st){
-      const bibleBase = st.current ? `base so far ${st.elapsed} · month base ${st.total}` : `base ${st.total}`;
+      const bibleBase = st.current ? `had to read so far ${st.elapsed} · whole month ${st.total}` : `had to read ${st.total}`;
       const diff = st.read - st.elapsed;
       summary = `<div class="wk-summary taped tape-dots">
         <div class="title-doodle-row"><div class="floor-title" style="font-size:24px;">${st.current?'Where I am this month':'Where I landed'}</div>${doodle('star',24)}</div>
         <div class="small-note" style="margin:2px 0 10px;">Where I started and how far I went. No targets.</div>
         <div class="sum-grid">
-          <span class="k">Bible</span><span><b>${st.read} read</b> · ${bibleBase}${st.read>0&&diff>0?` · <span class="plus" style="color:var(--sage-ink);font-weight:600;">+${diff} extra</span>`:''}<br><span class="muted" style="color:var(--ink3);">Started at ${esc(chText(st.startIdx))} · ${st.current?'next up':'ended before'} ${esc(chText(st.endIdx))}</span></span>
+          <span class="k">Bible</span><span><b>Have read ${st.read}</b> · ${bibleBase}${st.read>0&&diff>0?` · <span class="plus" style="color:var(--sage-ink);font-weight:600;">+${diff} extra</span>`:''}<br><span class="muted" style="color:var(--ink3);">Started at ${esc(chText(st.startIdx))} · ${st.current?'next up':'ended before'} ${esc(chText(st.endIdx))}</span></span>
           <span class="k">Floor</span><span>${st.full} full-floor day${st.full===1?'':'s'} of ${st.elapsed}</span>
           <span class="k">Service</span><span>${st.fs} hrs logged over these weeks</span>
           ${st.avgs.length ? `<span class="k">Weight</span><span>weekly average ${st.avgs[0]}${st.avgs.length>1?` → ${st.avgs[st.avgs.length-1]}`:''} lbs</span>` : ''}
@@ -1990,7 +2045,7 @@ function renderRoadmap(){
       if (!fut){
         const days = [0,1,2,3,4,5,6].map(i=>addDays(w,i)).filter(d=>d<=t);
         const full = days.filter(d=>dailyFloorCount(dateKey(d))===DAILY_FLOOR_IDS.length).length;
-        const read = bibleLogsBetween(w, addDays(w,6));
+        const read = chaptersBetween(w, addDays(w,6)).length;
         stats = `${full}/${days.length} full floors · ${read} ch. read · ${fsHoursForWeek(wk)} hrs service`;
       }
       const cp = checkpointForDate(w);
@@ -2021,7 +2076,7 @@ function renderRoadmap(){
       ${evs.length ? `<div class="events-card"><div class="events-card-title">Events this month</div>${evs.map(e=>`<div class="event-row"><span>📌 ${esc(e.title)} — ${fmtDate(fromKey(e.date))}</span></div>`).join('')}</div>` : ''}
       <div class="pcard">
         <div class="title-doodle-row"><div class="floor-title" style="font-size:24px;">My garden</div><span class="doodles">${doodle('butterfly',24)}${doodle('flower',28)}</span></div>
-        <div class="small-note" style="margin-top:2px;">Each plant is one day's floor. A flower means all five held.</div>
+        <div class="small-note" style="margin-top:2px;">Each plant is one day's floor. A flower means all six held.</div>
         ${monthCalendar(mi)}
       </div>
       ${summary}
@@ -2085,8 +2140,10 @@ function ensureMonthReset(){ const mk=monthKey(); if (S.fsMonthKey!==mk){ S.fsMo
 function ensureCliWeekReset(){ const wk=weekKey(); if (S.cliWeekKey!==wk){ S.cliWeekKey=wk; S.cliWeekHours=0; S.cliWeekIncome=0; } }
 function logCLI(){ const v=parseFloat(document.getElementById('cliInput').value)||0; if(v<=0){ showToast('Enter the hours first'); return; } ensureCliWeekReset(); S.cliWeekHours=round1(S.cliWeekHours+v); document.getElementById('cliInput').value=''; saveState(); showToast(`Logged ${v} interpreted hrs`); renderProgress(); }
 function logCLIIncome(){ const v=parseFloat(document.getElementById('cliIncomeInput').value)||0; if(v<=0){ showToast('Enter the amount first'); return; } ensureCliWeekReset(); S.cliWeekIncome+=v; document.getElementById('cliIncomeInput').value=''; saveState(); showToast(`Logged $${v.toFixed(2)} earned`); renderProgress(); }
-function bibleStep(d){ S.bibleIndex=clamp(S.bibleIndex+d,0,BIBLE_ORDER.length-1); S.bibleChapterInBook=1; saveState(); renderProgress(); renderDaily(); }
-function bibleChapStep(d){ advanceBiblePosition(d); saveState(); renderProgress(); renderDaily(); }
+let bibleViewBook = null;   // which book the Progress card is showing; null = the book I'm in
+function bibleBookStep(d){ bibleViewBook = clamp((bibleViewBook==null ? S.bibleIndex : bibleViewBook)+d, 0, BIBLE_ORDER.length-1); renderProgress(); }
+function bibleBookGo(i){ bibleViewBook = i; renderProgress(); }
+function bibleHere(){ bibleViewBook = null; renderProgress(); }
 let bibleFullOpen=false;
 function toggleBibleFull(){ bibleFullOpen=!bibleFullOpen; document.getElementById('bibleFull').style.display=bibleFullOpen?'block':'none'; document.querySelector('.bible-toggle').textContent=bibleFullOpen?'Hide the full reading order':'See the full reading order'; }
 function readStep(d){ S.readIndex=clamp(S.readIndex+d,0,READ_UNITS.length-1); saveState(); renderProgress(); }
@@ -2150,14 +2207,19 @@ function renderProgress(){
   const pmSel = document.getElementById('fsPastMonthSelect');
   if (pmSel){ const prev=pmSel.value; pmSel.innerHTML = recentMonthKeys().map(mk=>`<option value="${mk}">${monthLabel(mk)} (${fsHoursForMonth(mk)} hrs logged)</option>`).join(''); if(prev) pmSel.value=prev; }
 
-  const bi = curBibleIdx();
-  document.getElementById('bibleCurrent').textContent = `${BIBLE_ORDER[S.bibleIndex]}`;
-  document.getElementById('bibleProgLabel').textContent = `Book ${S.bibleIndex+1} of ${BIBLE_ORDER.length} · next: ${chText(bi)}`;
-  const bp = Math.round(bi/BIBLE_FLAT.length*100);
-  document.getElementById('bibleProgVal').textContent = bp+'% of chapters';
-  document.getElementById('bibleBar').style.width = bp+'%';
-  document.getElementById('bibleChapVal').textContent = `${S.bibleChapterInBook} / ${BIBLE_CHAPTERS[BIBLE_ORDER[S.bibleIndex]]||1}`;
-  document.getElementById('bibleFull').innerHTML = BIBLE_ORDER.map((b,i)=>`<div style="font-size:12.5px;padding:3px 4px;${i<S.bibleIndex?'color:var(--ink3);text-decoration:line-through;':''}${i===S.bibleIndex?'background:var(--sage-dim);color:var(--sage-ink);font-weight:600;border-radius:4px;':''}">${i+1}. ${b}</div>`).join('');
+  const bi = nextUnread(), rt = readTotal();
+  const vb = bibleViewBook==null ? S.bibleIndex : bibleViewBook, bname = BIBLE_ORDER[vb], bn = BIBLE_CHAPTERS[bname]||1, b0 = bibleFlatIndex(vb,1);
+  document.getElementById('bibleCurrent').textContent = bname;
+  document.getElementById('bibleProgLabel').textContent = `Book ${vb+1} of ${BIBLE_ORDER.length} · next to read: ${chText(bi)}`;
+  document.getElementById('bibleProgVal').textContent = `${rt} of ${BIBLE_FLAT.length} chapters`;
+  document.getElementById('bibleBar').style.width = Math.round(rt/BIBLE_FLAT.length*100)+'%';
+  document.getElementById('bibleGrid').innerHTML = [...Array(bn)].map((_,k)=>{ const rd=isRead(b0+k); return `<button type="button" class="chap ${rd?'read':''} ${b0+k===bi?'next':''}" aria-pressed="${rd}" aria-label="${esc(bname)} ${k+1}" onclick="tapBookChapter(${b0+k})">${k+1}</button>`; }).join('');
+  document.getElementById('bibleHere').style.display = vb===S.bibleIndex ? 'none' : '';
+  { let off = 0;
+    document.getElementById('bibleFull').innerHTML = BIBLE_ORDER.map((b,i)=>{
+      const n = BIBLE_CHAPTERS[b]||1; let r = 0; for (let k=0;k<n;k++) if (isRead(off+k)) r++; off += n;
+      return `<button type="button" class="book-row ${r===n?'done':''} ${i===vb?'viewing':''}" onclick="bibleBookGo(${i})"><span>${i+1}. ${esc(b)}</span><span>${r}/${n}</span></button>`;
+    }).join(''); }
 
   document.getElementById('readCurrent').textContent = READ_UNITS[S.readIndex];
   document.getElementById('readProgLabel').textContent = `Unit ${S.readIndex+1} of ${READ_UNITS.length}`;
@@ -2287,14 +2349,14 @@ function importBackup(ev){
     let imp;
     try { imp = JSON.parse(e.target.result); } catch(err){ showToast("Couldn't read this file. Choose a backup exported from Ma Course."); return; }
     askConfirm('This replaces all current data with the backup file. Continue?', 'Replace my data', ()=>{
-      S = Object.assign(defaultState(), {migV2:false}, imp); normalizeState(); saveState();
+      S = Object.assign(defaultState(), {migV2:false, migV3:false}, imp); normalizeState(); saveState();
       showToast('Backup restored'); applyCalm(); renderDaily(); renderThisWeek(); renderProgress(); renderRoadmap();
     });
   };
   r.readAsText(f); ev.target.value='';
 }
 function confirmResetToday(){ askConfirm("Reset today's checklist? Weekly items and trackers stay.", 'Reset', ()=>{
-  const dk=dateKey(); const n=S.bibleLog[dk]||0; if (n) advanceBiblePosition(-n); delete S.bibleLog[dk];
+  const dk=dateKey(); chaptersOn(dk).forEach(i=>{ delete S.bibleRead[i]; }); syncBiblePos();
   const ul=S.unitLog[dk]||{}; Object.keys(ul).forEach(id=>{ if (ADV[id]) ADV[id].set(ul[id]); }); delete S.unitLog[dk];
   S.checked[dk]={}; saveState(); renderDaily(); renderProgress(); showToast("Today's checklist reset");
 }); }
