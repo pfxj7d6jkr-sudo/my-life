@@ -149,6 +149,31 @@ body.calm .floor-wrap.taped::after{display:none;}
 .item.done .box{transform:rotate(-4deg);}
 .toast{font-family:var(--font-hand);font-size:19px;}
 
+/* A slightly different look every 3 days (look-0 is the base), so the page never fades into the background */
+body.look-1:not(.calm){background-size:24px 24px;}
+body.look-2:not(.calm){background-image:linear-gradient(rgba(46,42,38,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(46,42,38,.06) 1px,transparent 1px);background-size:22px 22px;}
+body.look-3:not(.calm){background-image:radial-gradient(circle,var(--dot) 1.1px,transparent 1.5px);background-size:15px 15px;}
+body.look-4:not(.calm){background-image:radial-gradient(circle,var(--dot) 1px,transparent 1.4px),radial-gradient(circle,var(--dot) 1px,transparent 1.4px);background-size:26px 26px;background-position:0 0,13px 13px;}
+body.look-1 .taped::before{left:auto;right:22px;transform:rotate(4deg);}
+body.look-1 .taped.tape-right::before{right:auto;left:22px;transform:rotate(-3deg);}
+body.look-1 .floor-title{transform:rotate(-1.5deg);}
+body.look-2 .taped::before,body.look-2 .taped.tape-right::before{left:50%;right:auto;width:104px;transform:translateX(-50%) rotate(-1.5deg);
+  background:radial-gradient(circle,color-mix(in srgb,var(--tape) 90%,black) 1.6px,transparent 2px) 0 0/8px 8px,color-mix(in srgb,var(--tape) 45%,white);}
+body.look-3 .taped::before{left:-8px;right:auto;top:6px;width:64px;transform:rotate(-40deg);
+  background:repeating-linear-gradient(90deg,var(--tape) 0 5px,color-mix(in srgb,var(--tape) 50%,white) 5px 10px);}
+body.look-3 .taped.tape-right::before{left:auto;right:-8px;transform:rotate(40deg);}
+body.look-3 .floor-wrap{border-radius:18px 10px 16px 12px;}
+body.look-4 .taped::before{background:linear-gradient(90deg,color-mix(in srgb,var(--tape) 60%,transparent) 50%,transparent 50%) 0 0/10px 10px,linear-gradient(color-mix(in srgb,var(--tape) 60%,transparent) 50%,transparent 50%) 0 0/10px 10px,color-mix(in srgb,var(--tape) 35%,white);}
+body.look-4 .floor-title{transform:rotate(1deg);}
+body.look-1 .floor-wrap.taped::after{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M20 5l4.4 9.6 10.4 1.2-7.7 7.1 2.1 10.3L20 28l-9.2 5.2 2.1-10.3-7.7-7.1 10.4-1.2z' fill='none' stroke='black' stroke-width='1.8' stroke-linejoin='round'/%3E%3C/svg%3E");
+  mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M20 5l4.4 9.6 10.4 1.2-7.7 7.1 2.1 10.3L20 28l-9.2 5.2 2.1-10.3-7.7-7.1 10.4-1.2z' fill='none' stroke='black' stroke-width='1.8' stroke-linejoin='round'/%3E%3C/svg%3E");}
+body.look-2 .floor-wrap.taped::after{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M20 33S7 25 7 15.5A6.5 6.5 0 0 1 20 11a6.5 6.5 0 0 1 13 4.5C33 25 20 33 20 33z' fill='none' stroke='black' stroke-width='1.8' stroke-linejoin='round'/%3E%3C/svg%3E");
+  mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M20 33S7 25 7 15.5A6.5 6.5 0 0 1 20 11a6.5 6.5 0 0 1 13 4.5C33 25 20 33 20 33z' fill='none' stroke='black' stroke-width='1.8' stroke-linejoin='round'/%3E%3C/svg%3E");}
+body.look-3 .floor-wrap.taped::after{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg fill='none' stroke='black' stroke-width='1.6'%3E%3Ccircle cx='20' cy='11' r='5'/%3E%3Ccircle cx='28.6' cy='17.2' r='5'/%3E%3Ccircle cx='25.3' cy='27.3' r='5'/%3E%3Ccircle cx='14.7' cy='27.3' r='5'/%3E%3Ccircle cx='11.4' cy='17.2' r='5'/%3E%3Ccircle cx='20' cy='20' r='3.5'/%3E%3C/g%3E%3C/svg%3E");
+  mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg fill='none' stroke='black' stroke-width='1.6'%3E%3Ccircle cx='20' cy='11' r='5'/%3E%3Ccircle cx='28.6' cy='17.2' r='5'/%3E%3Ccircle cx='25.3' cy='27.3' r='5'/%3E%3Ccircle cx='14.7' cy='27.3' r='5'/%3E%3Ccircle cx='11.4' cy='17.2' r='5'/%3E%3Ccircle cx='20' cy='20' r='3.5'/%3E%3C/g%3E%3C/svg%3E");}
+body.look-4 .floor-wrap.taped::after{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M25 6a14 14 0 1 0 9 22A11.5 11.5 0 0 1 25 6z' fill='none' stroke='black' stroke-width='1.8' stroke-linejoin='round'/%3E%3C/svg%3E");
+  mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M25 6a14 14 0 1 0 9 22A11.5 11.5 0 0 1 25 6z' fill='none' stroke='black' stroke-width='1.8' stroke-linejoin='round'/%3E%3C/svg%3E");}
+
 /* Doodles */
 .doodle{flex-shrink:0;vertical-align:middle;}
 .title-doodle-row{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
@@ -181,12 +206,16 @@ body.calm .doodle, body.calm .garland, body.calm .meadow, body.calm .scatter{dis
 /* Floor */
 .floor-wrap{background:var(--card);border:2px solid var(--ink);border-radius:14px;padding:16px 12px 8px;margin-bottom:16px;}
 .floor-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;padding:0 2px 6px;}
+.floor-head[data-floortoggle]{cursor:pointer;}
 .floor-title{font-family:var(--font-hand);font-size:28px;font-weight:700;line-height:1;}
 .floor-count{font-size:12px;color:var(--ink2);font-variant-numeric:tabular-nums;text-align:center;margin-top:2px;}
 .floor-plant{display:flex;flex-direction:column;align-items:center;flex-shrink:0;}
 .floor-sub{font-size:12px;color:var(--ink3);margin:4px 0 0;}
 .floor-wrap .item{background:var(--cream);}
 .floor-wrap.held{border-color:var(--sage-ink);}
+.floor-wrap.evening-floor{border-color:var(--blue-ink);}
+.floor-wrap.evening-floor.held{border-color:var(--sage-ink);}
+.evening-soon{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--ink2);border:1px dashed var(--ink3);border-radius:10px;padding:8px 12px;margin:-4px 0 16px;}
 .floor-status{font-size:12px;margin-top:5px;color:var(--ink2);}
 .floor-status.ok{color:var(--sage-ink);font-weight:600;}
 .win-row{display:flex;align-items:center;gap:8px;margin:4px 2px 6px;}
@@ -441,12 +470,12 @@ body.calm *{animation:none!important;}
       <div class="greeting" id="greeting"></div>
       <div class="mission-echo" id="missionEcho">—</div>
       <div id="energyRow"></div>
-      <div id="dailyFloor"></div>
+      <div class="bonus-title" id="idealTitle">My ideal day</div> <span data-doodle="sparkle" data-size="24"></span>
+      <div class="bonus-sub" id="bonusSub">Aim here when you can. On a hard day, the floor below is enough.</div>
+      <div id="dailyItems"></div>
+      <div id="dailyFloor" style="margin-top:26px;"></div>
       <div id="tomorrowPeek"></div>
       <div id="compassBox"></div>
-      <div class="bonus-title">Bonus</div> <span data-doodle="sparkle" data-size="24"></span>
-      <div class="bonus-sub" id="bonusSub">Counts when you do it. Never counts against you.</div>
-      <div id="dailyItems"></div>
       <div id="dailyOther"></div>
     </div>
   </div>
@@ -464,11 +493,17 @@ body.calm *{animation:none!important;}
     <div id="weekEvents"></div>
     <div class="pad" style="padding-bottom:0;padding-top:24px;" id="weeklyFloor"></div>
     <div class="pad" style="padding-top:0;padding-bottom:0;" id="weekBible"></div>
+    <div class="pad" style="padding-top:0;padding-bottom:0;" id="weekJw"></div>
+    <div class="pad" style="padding-top:6px;padding-bottom:0;">
+      <div class="bonus-title" id="weekTitle" style="margin-top:14px;">What this week holds</div> <span data-doodle="sparkle" data-size="24"></span>
+      <div class="bonus-sub">In order through the week. Pick what fits your energy.</div>
+      <div id="weekListItems"></div>
+    </div>
     <div id="checkinBox"></div>
     <div class="pad" style="padding-top:6px">
-      <div class="bonus-title" style="margin-top:14px;">Bonus this week</div> <span data-doodle="sparkle" data-size="24"></span>
-      <div class="bonus-sub">Pick what fits your energy.</div>
-      <div id="weekListItems"></div>
+      <div class="bonus-title" style="margin-top:18px;">Getting ready for next week</div> <span data-doodle="leaf" data-size="24"></span>
+      <div class="bonus-sub">Small things now make next week easier.</div>
+      <div id="nextWeekItems"></div>
     </div>
   </div>
 
@@ -545,19 +580,31 @@ body.calm *{animation:none!important;}
         <div class="small-note" id="pioneerTitle" style="text-align:center;margin-bottom:8px;"></div>
         <div class="prow-top"><span class="prow-label" id="pioneerLabel">Part 1 of 35</span><span class="prow-val" id="pioneerVal">0%</span></div>
         <div class="pbar"><div class="pbar-fill" id="pioneerBar" style="background:var(--gold);width:0%"></div></div>
-        <div class="small-note">One study session covers one part. Sessions run every day except Tuesday.</div>
+        <div class="small-note">One study session covers one part. Your Pioneer book day is Sunday.</div>
       </div>
 
       <div class="pcard" id="prog-jwcycle">
         <div class="pcard-title">JW reading, 6-book cycle</div>
         <div class="nav-tracker">
-          <button class="nav-btn" type="button" onclick="readStep(-1)" aria-label="Previous unit">‹</button>
+          <button class="nav-btn" type="button" onclick="jwBookStep(-1)" aria-label="Previous book">‹</button>
           <div class="nav-current" id="readCurrent">—</div>
-          <button class="nav-btn" type="button" onclick="readStep(1)" aria-label="Next unit">›</button>
+          <button class="nav-btn" type="button" onclick="jwBookStep(1)" aria-label="Next book">›</button>
         </div>
-        <div class="prow-top"><span class="prow-label" id="readProgLabel">Unit 1 of 115</span><span class="prow-val" id="readProgVal">0%</span></div>
+        <div class="prow-top"><span class="prow-label" id="readProgLabel">Book 1 of 6</span><span class="prow-val" id="readProgVal">0</span></div>
         <div class="pbar"><div class="pbar-fill" id="readBar" style="background:var(--lav-ink);width:0%"></div></div>
-        <div class="small-note">Origin of Life (5) · Was Life Created (6) · Come Be My Follower (18) · God's Kingdom Rule (22) · Draw Close to Jehovah (31) · Pure Worship (33 boxes).</div>
+        <div class="chap-grid" id="jwGrid"></div>
+        <div class="small-note">Just reading, 1 chapter a day. Tap a chapter to mark it read, or tap again to undo. Today and This Week follow. Order: Origin of Life (5) · Was Life Created (6) · Come Be My Follower (18) · God's Kingdom Rule (22) · Draw Close to Jehovah (31) · Pure Worship (33 boxes).</div>
+      </div>
+
+      <div class="pcard" id="prog-study">
+        <div class="pcard-title">Personal study, 6 JW books</div>
+        <div class="nav-tracker">
+          <button class="nav-btn" type="button" onclick="studyStep(-1)" aria-label="Back one">‹</button>
+          <div class="nav-current" id="studyCurrent" style="font-size:13.5px;">—</div>
+          <button class="nav-btn" type="button" onclick="studyStep(1)" aria-label="Forward one">›</button>
+        </div>
+        <div class="pbar" style="margin-top:6px;"><div class="pbar-fill" id="studyBar" style="background:var(--dom-spiritual);width:0%"></div></div>
+        <div class="small-note">Your Monday study. It moves forward one chapter when you check Personal study. Use the arrows to fix your place.</div>
       </div>
 
       <div class="pcard" id="prog-languages">
@@ -616,6 +663,7 @@ body.calm *{animation:none!important;}
           <div style="flex:1;min-width:0;font-size:13px;color:var(--ink2);">Calm mode turns off the dot grid, tape, and animations for low-energy or overstimulated days.</div>
           <button class="pill-btn" type="button" id="calmToggleProgress" onclick="toggleCalm()">Calm mode: off</button>
         </div>
+        <div class="small-note" style="margin-top:10px;">Every 3 days the page shifts its look a little (paper, tape, corner doodle) so it stays fresh to your eyes.</div>
       </div>
 
       <div class="pcard">
@@ -749,6 +797,14 @@ function fillDoodles(){
 }
 const DAY_DOODLE = {1:'leaf',2:'pencil',3:'flower',4:'star',5:'cup',6:'sun',0:'book'};
 
+// A small change of look every few days, so the page doesn't go invisible
+const LOOK_COUNT = 5, LOOK_DAYS = 3;
+function applyLook(){
+  const n = Math.max(0, dayDiff(new Date(2026,0,1), today0()));
+  const k = Math.floor(n/LOOK_DAYS) % LOOK_COUNT;
+  for (let i=0;i<LOOK_COUNT;i++) document.body.classList.toggle('look-'+i, i===k);
+}
+
 // ══════════════ SCHEDULE ══════════════
 function sundayMeetingTime(d = new Date()){ const m = d.getMonth()+1; return (m>=9 && m<=12) ? "4:00–5:45pm" : "10:00–11:45am"; }
 const ZOOM_ANCHOR = new Date(2026,8,7);
@@ -757,16 +813,19 @@ function zoomThemeForDate(d){ const idx = ((zoomWeekIndex(d) % 4) + 4) % 4; if (
 function isLetterWeek(d){ return zoomThemeForDate(d) === 'Letters'; }
 const DAY_SPIR = {
   1: [
-    { id:'mon-treasures', tag:'Feeding Myself', name:'Treasures from God’s Word', detail:'meeting prep · 30 min', domain:'spiritual' },
     { id:'mon-fs-pm', tag:'Field Service', name:'Field service — Zoom', detail:'5:30–7:30pm · 2 hrs', domain:'spiritual' },
   ],
-  2: [ { id:'tue-lac', tag:'Feeding Myself', name:'Living as Christians', detail:'incl. Congregation Bible Study · ~1 hr', domain:'spiritual' } ],
+  2: [ { id:'tue-treasures', tag:'Feeding Myself', name:'Treasures from God’s Word', detail:'meeting prep · 30 min', domain:'spiritual' },
+       { id:'tue-lac', tag:'Feeding Myself', name:'Living as Christians', detail:'incl. Congregation Bible Study · ~1 hr', domain:'spiritual' } ],
   3: [
     { id:'wed-apply', tag:'Feeding Myself', name:'Apply Yourself to the Ministry', detail:'meeting prep · 30 min', domain:'spiritual' },
     { id:'wed-fs-am', tag:'Field Service', name:'Cart witnessing', detail:'9am–12pm · 3 hrs', domain:'spiritual' },
     { id:'wed-fs-pm', tag:'Field Service', name:'Field service — Zoom', detail:'5:30–7:30pm · 2 hrs', domain:'spiritual' },
   ],
-  4: [ { id:'thu-study', tag:'Feeding Myself', name:'Personal study — solo field service session', detail:'1 hr', domain:'spiritual' } ],
+  4: [
+    { id:'thu-study', tag:'Field Service', name:'Solo field service session', detail:'1 hr at home', domain:'spiritual' },
+    { id:'thu-wt', tag:'Feeding Myself', name:'Watchtower prep — part 2', detail:'answer the questions, take notes', domain:'spiritual' },
+  ],
   5: [
     { id:'fri-fs', tag:'Field Service', name:'Field service — Zoom', detail:'10am–12pm · 2 hrs', domain:'spiritual' },
     { id:'fri-wt', tag:'Feeding Myself', name:'Watchtower study article', detail:'30 min', domain:'spiritual' },
@@ -776,7 +835,10 @@ const DAY_SPIR = {
     { id:'sat-fs', tag:'Field Service', name:'Field service — in person', detail:'9am–1pm · 4 hrs', domain:'spiritual' },
     { id:'sat-review', tag:'Feeding Myself', name:'Family Watchtower review', detail:'1–2 hrs · prep for Sunday', domain:'spiritual' },
   ],
-  0: [ { id:'sun-meeting', tag:'Meetings', name:'Watchtower meeting', detail:'', domain:'spiritual' } ],
+  0: [
+    { id:'sun-meeting', tag:'Meetings', name:'Watchtower meeting', detail:'', domain:'spiritual' },
+    { id:'sun-wt-listen', tag:'Feeding Myself', name:"Listen to next week's Watchtower — part 1", detail:'gets next week started', domain:'spiritual' },
+  ],
 };
 function daySpirForDate(dow, d){
   const base = (DAY_SPIR[dow]||[]).map(i=>({...i}));
@@ -918,6 +980,28 @@ const READ_UNITS = (function(){
   ["1a","1b","2a","2b","3a","4a","5a","6a","7a","7b","8a","8b","9a","9b","9c","9d","9e","10a","10b","10c","11a","12a","13a","14a","15a","16a","16b","18a","19a","19b","20a","21a","22a"].forEach(b=>u.push(`Pure Worship — box ${b}`));
   return u;
 })();
+// Two separate tracks through the same 6 books: JW reading (just reading, 1 a day, from Origin of Life)
+// and Personal study (Mondays, from God's Kingdom Rule).
+const JW_BOOKS = [["Origin of Life",5],["Was Life Created",6],["Come Be My Follower",18],["God's Kingdom Rule",22],["Draw Close to Jehovah",31],["Pure Worship",33]];
+const STUDY_START = 29;   // God's Kingdom Rule, chapter 1
+function jwBookStart(b){ let s=0; for (let i=0;i<b;i++) s+=JW_BOOKS[i][1]; return s; }
+function jwBookOf(i){ let s=0; for (let b=0;b<JW_BOOKS.length;b++){ if (i<s+JW_BOOKS[b][1]) return b; s+=JW_BOOKS[b][1]; } return JW_BOOKS.length-1; }
+function jwText(i){ return i>=READ_UNITS.length ? 'Cycle finished' : READ_UNITS[i]; }
+function jwShort(i){ return jwText(i).replace(' — chapter ',' ').replace(' — box ',' box '); }
+function jwIsRead(i){ return S.jwRead[i]!=null; }
+function jwNext(){ let i=0; while (i<READ_UNITS.length && S.jwRead[i]!=null) i++; return i; }
+function jwOn(dk){ return Object.keys(S.jwRead).filter(i=>S.jwRead[i]===dk).map(Number).sort((a,b)=>a-b); }
+function jwBetween(a,b){ const ka=dateKey(a), kb=dateKey(b); return Object.keys(S.jwRead).filter(i=>S.jwRead[i]>=ka && S.jwRead[i]<=kb).map(Number).sort((x,y)=>x-y); }
+function jwBaseAsOf(d){ const k=dateKey(d); let i=0; while (i<READ_UNITS.length && S.jwRead[i]!=null && S.jwRead[i]<k) i++; return i; }
+function weekJwStart(ws){
+  const tw = startOfWeek(today0());
+  if (ws <= tw) return jwBaseAsOf(ws);
+  const endThis = Math.max(jwBaseAsOf(tw)+7, jwNext());
+  return endThis + 7*(Math.round(dayDiff(tw, ws)/7)-1);
+}
+function jwListText(list){ return list.map(jwShort).join(', '); }
+function studyLabel(i){ return i>=READ_UNITS.length ? 'All 6 books studied' : READ_UNITS[i]; }
+
 const CERTS = [
   { key:'nbcmi', name:'NBCMI', detail:'Haitian Creole medical interpreting', stages:['Not started','Studying','Exam scheduled','Passed'] },
   { key:'cchi', name:'CCHI', detail:'Haitian Creole medical interpreting (alternate)', stages:['Not started','Studying','Exam scheduled','Passed'] },
@@ -928,6 +1012,7 @@ const CERTS = [
 const ADV = {
   'flex-bloom':      { get:()=>S.bloomIndex,   set:v=>{S.bloomIndex=v;},   max:()=>BLOOM_TOTAL,     label:bloomLabel },
   'pioneer-session': { get:()=>S.pioneerIndex, set:v=>{S.pioneerIndex=v;}, max:()=>PIONEER.length,  label:pioneerShort },
+  'mon-study':       { get:()=>S.studyIndex,   set:v=>{S.studyIndex=v;},   max:()=>READ_UNITS.length, label:studyLabel },
 };
 function unitDetail(dk, id){
   const a = ADV[id], u = (S.unitLog[dk]||{})[id];
@@ -936,6 +1021,11 @@ function unitDetail(dk, id){
 }
 
 // ══════════════ FLOOR ══════════════
+// The day floor stays open until it's held, then folds away. The evening floor opens at 8pm with the evening meds;
+// anything from the day that can wait (Bible, journal) moves down to it at 8pm as a second chance.
+const JOURNAL_START = '2026-10-22';
+const EVENING_HOUR = 20;
+const CATCHUP_IDS = ['fl-bible','fl-journal'];
 function dailyFloorItems(d){
   const dk = dateKey(d), on = chaptersOn(dk), held = (S.checked[dk]||{})['fl-bible']===true;
   let detail;
@@ -943,17 +1033,35 @@ function dailyFloorItems(d){
   else if (held) detail = 'Meeting reading counted';
   else detail = `Next: ${chText(nextUnread())} — reading or listening both count${d.getDay()===1?" · this week's meeting reading also counts":''}`;
   return [
-    { id:'fl-meds-am', name:'Morning: eat something → meds', detail:'Never on an empty stomach', domain:'physical' },
     { id:'fl-spirit', name:'Prayer · daily text', detail:"Even a quick read of today's text counts", domain:'spiritual' },
     { id:'fl-bible', name:'Bible reading — 1 chapter', detail, domain:'spiritual', bible:true },
+    { id:'fl-meds-am', name:'Morning: eat something → meds', detail:'Never on an empty stomach', domain:'physical' },
     { id:'fl-move', name:'5 minutes of movement', detail:'Any kind counts', dayNoteKey:'movement', domain:'physical' },
     { id:'fl-clean', name:'Clean myself', detail:'Shower, bath, or a quick wash — plus brushing teeth', domain:'physical' },
+    { id:'fl-journal', name:'Journal — even one sentence', detail:'Brain dump, reflection, free writing… any method counts. Showing up is the habit.', domain:'journal-dynamic',
+      dayNoteKey:'journal', noteWhenDone:true, noteLabel:'Method I tried (optional)', notePh:'e.g. brain dump, gratitude, one-line reflection…' },
     { id:'fl-meds-pm', name:'Evening: eat something → meds', detail:'Never on an empty stomach', domain:'physical' },
-  ];
+  ].filter(i=>i.id!=='fl-journal' || dk>=JOURNAL_START);
 }
-const DAILY_FLOOR_IDS = ['fl-meds-am','fl-spirit','fl-bible','fl-move','fl-clean','fl-meds-pm'];
-const FLOOR_N = DAILY_FLOOR_IDS.length;
-const DAILY_FLOOR_NAMES = { 'fl-meds-am':'Food → meds (AM)', 'fl-spirit':'Prayer & daily text', 'fl-bible':'Bible reading', 'fl-move':'5 min movement', 'fl-clean':'Clean myself', 'fl-meds-pm':'Food → meds (PM)' };
+const DAILY_FLOOR_IDS = ['fl-spirit','fl-bible','fl-meds-am','fl-move','fl-clean','fl-journal','fl-meds-pm'];
+const DAILY_FLOOR_NAMES = { 'fl-meds-am':'Food → meds (AM)', 'fl-spirit':'Prayer & daily text', 'fl-bible':'Bible reading', 'fl-move':'5 min movement', 'fl-clean':'Clean myself', 'fl-journal':'Journal', 'fl-meds-pm':'Food → meds (PM)' };
+function floorIdsFor(dk){ return DAILY_FLOOR_IDS.filter(id=>id!=='fl-journal' || dk>=JOURNAL_START); }
+function floorN(dk){ return floorIdsFor(dk).length; }
+function isFullFloor(dk){ return dailyFloorCount(dk)===floorN(dk); }
+function eveningOpenFor(d){ const t=today0(); return d < t || (dateKey(d)===dateKey(t) && new Date().getHours()>=EVENING_HOUR); }
+// Splits the day's floor into the day part and the evening part. Once 8pm passes, unfinished catch-up items
+// are pinned to the evening for that day, so checking them later doesn't move them back up.
+function floorParts(d){
+  const dk = dateKey(d), c = S.checked[dk]||{}, ids = floorIdsFor(dk);
+  const moved = S.floorMoved[dk] || {};
+  if (eveningOpenFor(d)){
+    let changed = false;
+    CATCHUP_IDS.forEach(id=>{ if (ids.includes(id) && c[id]!==true && !moved[id]){ moved[id]=true; changed=true; } });
+    if (changed){ S.floorMoved[dk] = moved; saveState(); }
+  }
+  const eve = ids.filter(id=>id==='fl-meds-pm' || moved[id]);
+  return { day: ids.filter(id=>!eve.includes(id)), eve };
+}
 const FS_FLOOR = 12.5;
 function weeklyFloorItems(wkStart){
   const L = languageForDate(wkStart).lang;
@@ -977,7 +1085,6 @@ const IDEALS = {
   roomTidy:"Quick tidy before bed, vacuum weekly, deep clean monthly",
   guestBathroom:"Quick tidy, vacuum weekly, deep clean monthly",
   outfitPrep:"Outfits ready for Wed, Fri, Sat, Sun + one for the Zoom meetings",
-  writingJournal:"Gratitude, morning pages, meditation on the text and on the Bible reading",
   planTomorrow:"Review tomorrow's tasks, set a goal, confirm the outfit",
 };
 const ideal = k => `Ideal: ${IDEALS[k]}`;
@@ -998,7 +1105,6 @@ function eveningRoutine(){
     { id:'roomTidy', tag:'Closing My Day', name:'Tidy my room', detail: ideal('roomTidy'), domain:'mental' },
     { id:'guestBathroom', tag:'Closing My Day', name:'Tidy guest bathroom', detail: ideal('guestBathroom'), domain:'mental' },
     { id:'outfitPrep', tag:'Closing My Day', name:"Tomorrow's outfit", detail: ideal('outfitPrep'), domain:'mental' },
-    { id:'writingJournal', tag:'Closing My Day', name:'Writing / journal', detail: ideal('writingJournal'), domain:'journal-dynamic' },
     { id:'planTomorrow', tag:'Closing My Day', name:'Plan tomorrow', detail: ideal('planTomorrow'), domain:'mental' },
   ];
 }
@@ -1012,7 +1118,10 @@ function anytimeToday(dow, d){
   items.push({ id:'flex-bloom', tag:'Growth & Skill', name:'ASL Bloom — daily lesson', detail: unitDetail(dk,'flex-bloom'), domain:'skills' });
   items.push({ id:'flex-intersign', tag:'Growth & Skill', name:'Intersign — any amount', detail: intersignText(), domain:'skills' });
   if (dow===2) items.push({ id:'flex-interp', tag:'Growth & Skill', name:'Certification study', detail:'NBCMI, CCHI, or ATA · Tuesday is cert day', noteKey:'interp', domain:'financial' });
-  else items.push({ id:'pioneer-session', tag:'Feeding Myself', name:'Pioneer book study session', detail: unitDetail(dk,'pioneer-session'), domain:'spiritual' });
+  if (dow===0) items.push({ id:'pioneer-session', tag:'Feeding Myself', name:'Pioneer book study', detail: unitDetail(dk,'pioneer-session'), domain:'spiritual' });
+  if (dow===1) items.push({ id:'mon-study', tag:'Feeding Myself', name:'Personal study', detail: unitDetail(dk,'mon-study'), domain:'spiritual' });
+  { const on = jwOn(dk);
+    items.push({ id:'jw-read', tag:'Feeding Myself', name:'JW reading — 1 chapter', detail: on.length ? `Read: ${jwListText(on)}` : `Next: ${jwText(jwNext())}`, domain:'spiritual', jw:true }); }
   const REHAB = {
     1: { id:'mon-rehab', tag:'Growth & Skill', name:'Cardiac rehab', detail:'30 min, 1:1', domain:'physical' },
     2: { id:'tue-rehab', tag:'Growth & Skill', name:'Cardiac rehab', detail:'1–2pm', domain:'physical' },
@@ -1042,7 +1151,11 @@ function bonusItemsForDate(d){
   if (d.getDate()===16) extra.push({ id:'ajovy-injection', tag:'Starting My Day', name:'Ajovy injection', detail:'Monthly injection — due today (16th)', domain:'physical' });
   return [...daySpir, ...extra, ...morningRoutine(), ...anytimeToday(dow, d), ...eveningRoutine()];
 }
-const GENTLE_PICKS = ['fri-meeting','sun-meeting','flex-bloom','walk','writingJournal','roomTidy'];
+// The section names change every day so they never fade into the background
+const IDEAL_NAMES = ['My ideal day','Reaching higher','Above the floor','Stretch & grow','If I have it in me','My best-day version'];
+const WEEK_NAMES = ['What this week holds','My week, step by step','This week’s path','On my plate this week','Moving through the week'];
+function rotatingName(list){ return list[Math.max(0, dayDiff(new Date(2026,0,1), today0())) % list.length]; }
+const GENTLE_PICKS = ['fri-meeting','sun-meeting','flex-bloom','walk','roomTidy','planTomorrow'];
 
 // ══════════════ SERVICE-YEAR CALENDAR (jw.org months) ══════════════
 // Each month runs from its first Monday to the day before the next month's first Monday,
@@ -1128,12 +1241,12 @@ function defaultState(){
     checked:{}, weekListChecked:{}, weekOther:{}, weekMotivation:{}, weekReflection:{}, weekNotes:{}, dayNotes:{}, dayOther:{}, monthlyTasks:{},
     fsMonthHours:0, fsMonthKey:monthKey(), fsMonthLog:{}, fsWeekHours:0, fsWeekKey:null, fsWeekLog:{}, fsDayLog:{},
     cliWeekHours:0, cliWeekIncome:0, cliWeekKey:null,
-    bibleIndex:0, bibleChapterInBook:1, bibleLog:{}, bibleRead:{}, readIndex:0, pioneerIndex:0,
+    bibleIndex:0, bibleChapterInBook:1, bibleLog:{}, bibleRead:{}, readIndex:0, pioneerIndex:0, jwRead:{}, studyIndex:STUDY_START, protectiveLog:[],
     vicarsIndex:0, bloomIndex:0, intersign:{s:0,b:0}, unitLog:{},
     langPos:{}, econ:{},
     certStage:{nbcmi:0, cchi:0, ata:0},
     weightLog:[], weeklyWeight:{}, dailyWeight:{}, weightStart:205,
-    bedtimes:{}, checkin:{}, energy:{}, wins:{}, weekStart:{},
+    bedtimes:{}, checkin:{}, energy:{}, wins:{}, weekStart:{}, floorMoved:{},
     milestones: defaultMilestones(),
     events:[
       { id:'ev1', date:'2026-11-07', title:'Circuit Assembly with the Circuit Overseer' },
@@ -1149,13 +1262,13 @@ function defaultState(){
     missionMain: "I want to become the happiest version of myself, someone Jehovah is proud of, by staying close to him through his Word and through prayer, caring for my own sleep, mental health, and nutrition, and being helpful to others through listening and compassion — while staying resilient and keeping my joy through life's difficulties.",
     yearGoals: defaultYearGoals(),
     quarterGoals: {},
-    calm:false, lastBackup:null, migV2:true, migV3:true,
+    calm:false, lastBackup:null, migV2:true, migV3:true, migV4:true,
   };
 }
 let S = defaultState();
 function normalizeState(){
   const d = defaultState();
-  ['checked','weekListChecked','fsWeekLog','fsDayLog','weeklyWeight','dailyWeight','bedtimes','checkin','dayNotes','dayOther','monthlyTasks','weekNotes','weekOther','weekMotivation','quarterGoals','monthQuote','monthQuality','monthOther','bibleLog','bibleRead','unitLog','langPos','econ','energy','wins','weekStart','fsMonthLog']
+  ['checked','weekListChecked','fsWeekLog','fsDayLog','weeklyWeight','dailyWeight','bedtimes','checkin','dayNotes','dayOther','monthlyTasks','weekNotes','weekOther','weekMotivation','quarterGoals','monthQuote','monthQuality','monthOther','bibleLog','bibleRead','unitLog','langPos','econ','energy','wins','weekStart','fsMonthLog','floorMoved','jwRead']
     .forEach(k=>{ if (!S[k] || typeof S[k]!=='object' || Array.isArray(S[k])) S[k] = d[k]; });
   if (S.fsMonthHours>0 && S.fsMonthKey && S.fsMonthLog[S.fsMonthKey]===undefined) S.fsMonthLog[S.fsMonthKey] = S.fsMonthHours;
   if (!Array.isArray(S.milestones)) S.milestones = d.milestones;
@@ -1212,12 +1325,21 @@ function normalizeState(){
     if (undated) (S.checked[guess]=S.checked[guess]||{})['fl-bible'] = true;
     S.migV3 = true;
   }
+  // One-time move: JW reading becomes chapter-by-chapter, the protective style goes every 4 weeks
+  if (!S.migV4){
+    for (let i=0; i<(S.readIndex||0) && i<READ_UNITS.length; i++) if (S.jwRead[i]==null) S.jwRead[i] = '2026-09-01';
+    const hs = Object.keys(S.monthlyTasks||{}).filter(mk=>S.monthlyTasks[mk] && S.monthlyTasks[mk].hairstyle).sort();
+    if (hs.length && !S.protectiveLog.length) S.protectiveLog.push(hs[hs.length-1]+'-01');
+    S.migV4 = true;
+  }
+  if (typeof S.studyIndex!=='number') S.studyIndex = STUDY_START;
+  if (!Array.isArray(S.protectiveLog)) S.protectiveLog = [];
   syncBiblePos();
   S.pioneerIndex = clamp(S.pioneerIndex||0, 0, PIONEER.length);
   if (typeof S.calm!=='boolean') S.calm = false;
 }
 function loadState(){
-  try { const raw = localStorage.getItem('life-tracker-state'); if (raw){ const parsed = JSON.parse(raw); S = Object.assign(defaultState(), {migV2:false, migV3:false}, parsed); } } catch(e){}
+  try { const raw = localStorage.getItem('life-tracker-state'); if (raw){ const parsed = JSON.parse(raw); S = Object.assign(defaultState(), {migV2:false, migV3:false, migV4:false}, parsed); } } catch(e){}
   normalizeState();
 }
 function saveState(){ try { localStorage.setItem('life-tracker-state', JSON.stringify(S)); } catch(e){ console.error('save failed', e); } }
@@ -1246,12 +1368,13 @@ function weeklyFloorHeld(id, wk){
   if (id==='wf-weight') return weekWeights(wk).length>0 || S.weeklyWeight[wk]!=null;
   return (S.weekListChecked[wk]||{})[id] === true;
 }
-function dailyFloorCount(dk){ const c=S.checked[dk]||{}; return DAILY_FLOOR_IDS.filter(id=>c[id]===true).length; }
+function dailyFloorCount(dk){ const c=S.checked[dk]||{}; return floorIdsFor(dk).filter(id=>c[id]===true).length; }
 
 // ══════════════ TODAY ══════════════
 let viewOffset = 0;               // 0 = today, -1 = yesterday
 let showAllBonus = false;
 let popId = null;
+let floorOpen = {};               // a manual open/close of a floor card, for this visit only ("<date>-day" / "<date>-eve")
 function viewDate(){ return addDays(today0(), viewOffset); }
 function setView(o){ viewOffset = o; showAllBonus = false; renderDaily(); window.scrollTo(0,0); }
 function setEnergy(level){ const dk=dateKey(viewDate()); S.energy[dk] = S.energy[dk]===level ? undefined : level; showAllBonus=false; saveState(); renderDaily(); }
@@ -1275,6 +1398,7 @@ function celebrate(){
 }
 function toggleFloor(id){
   const d = viewDate(), dk = dateKey(d), c = checksFor(d);
+  const parts = floorParts(d), part = parts.eve.includes(id) ? 'eve' : 'day', ids = part==='eve' ? parts.eve : parts.day;
   const was = c[id]===true;
   c[id] = !was;
   if (id==='fl-bible'){
@@ -1284,7 +1408,16 @@ function toggleFloor(id){
   }
   if (!was) popId = id;
   saveState();
-  if (!was && dailyFloorCount(dk)===DAILY_FLOOR_IDS.length){ showToast(viewOffset===0 ? 'Floor held today 🌿' : 'Floor held yesterday 🌿'); celebrate(); }
+  const key = dk+'-'+part;
+  delete floorOpen[key];
+  if (!was && ids.every(x=>c[x]===true)){
+    // Let the check mark land, then fold the card away
+    floorOpen[key] = true;
+    setTimeout(()=>{ delete floorOpen[key]; renderDaily(); }, 900);
+    const when = viewOffset===0 ? 'today' : 'yesterday';
+    showToast(isFullFloor(dk) ? `Whole floor held ${when} 🌿` : part==='day' ? 'Day floor held 🌿' : 'Evening floor held 🌙');
+    celebrate();
+  }
   renderDaily(); renderProgress();
 }
 function bibleStepDay(delta){
@@ -1315,7 +1448,17 @@ function toggleItem(id){
     if (next===true){ const u=a.get(); if (u < a.max()){ (S.unitLog[dk]=S.unitLog[dk]||{})[id]=u; a.set(u+1); } }
     else if (prev===true){ const ul=S.unitLog[dk]||{}; if (ul[id]!=null){ a.set(ul[id]); delete ul[id]; } }
   }
+  if (id==='jw-read'){
+    if (next===true){ const n=jwNext(); if (n<READ_UNITS.length) S.jwRead[n]=dk; }
+    else if (prev===true) jwOn(dk).forEach(i=>{ delete S.jwRead[i]; });
+  }
   if (next===true) popId = id;
+  saveState(); renderDaily(); renderProgress();
+}
+function jwStepDay(delta){
+  const dk = dateKey(viewDate());
+  if (delta>0){ const n=jwNext(); if (n>=READ_UNITS.length) return; S.jwRead[n]=dk; }
+  else { const on=jwOn(dk); if (on.length<=1) return; delete S.jwRead[on[on.length-1]]; }
   saveState(); renderDaily(); renderProgress();
 }
 function toggleDailyCategory(cat){
@@ -1326,19 +1469,23 @@ function toggleDailyCategory(cat){
   if (body) body.style.display = dailyCollapse[cat] ? 'none' : '';
   if (chev) chev.textContent = dailyCollapse[cat] ? '▸' : '▾';
 }
-function noteHtmlFor(i, dk){
+function noteHtmlFor(i, dk, state){
   if (i.noteKey) return `<div class="note-label">What to work on this week</div>
     <textarea class="note-input" data-notekey="${i.noteKey}" placeholder="e.g. which cert, which chapter…">${esc(weekNotesFor(weekKey(fromKey(dk)))[i.noteKey]||'')}</textarea>`;
-  if (i.dayNoteKey) return `<div class="note-label">What did you do?</div>
-    <textarea class="note-input" data-daynotekey="${i.dayNoteKey}" placeholder="e.g. stretch, dance, walk…">${esc((S.dayNotes[dk]||{})[i.dayNoteKey]||'')}</textarea>`;
+  if (i.dayNoteKey){
+    if (i.noteWhenDone && state!==true) return '';
+    return `<div class="note-label">${esc(i.noteLabel||'What did you do?')}</div>
+    <textarea class="note-input" data-daynotekey="${i.dayNoteKey}" placeholder="${esc(i.notePh||'e.g. stretch, dance, walk…')}">${esc((S.dayNotes[dk]||{})[i.dayNoteKey]||'')}</textarea>`;
+  }
   return '';
 }
 function itemRow(i, state, bg, dk){
   const cls = state===true ? 'done' : state==='na' ? 'na' : '';
-  const stepper = i.bible && state===true ? `<div class="stepper" data-stop="1">
-      <button type="button" data-bstep="-1" aria-label="One chapter fewer">−</button>
-      <span>${chaptersOn(dk).length} chapter${chaptersOn(dk).length===1?'':'s'}</span>
-      <button type="button" data-bstep="1" aria-label="One more chapter">+</button></div>` : '';
+  const nRead = i.bible ? chaptersOn(dk).length : i.jw ? jwOn(dk).length : 0, sAttr = i.bible ? 'data-bstep' : 'data-jstep';
+  const stepper = (i.bible || i.jw) && state===true ? `<div class="stepper" data-stop="1">
+      <button type="button" ${sAttr}="-1" aria-label="One chapter fewer">−</button>
+      <span>${nRead} chapter${nRead===1?'':'s'}</span>
+      <button type="button" ${sAttr}="1" aria-label="One more chapter">+</button></div>` : '';
   return `<div class="item ${cls} ${popId===i.id?'pop':''}" data-id="${i.id}" role="button" tabindex="0" ${bg?`style="background:${bg};"`:''}>
     <div class="box">${CHECK_SVG}</div>
     <div class="itext">
@@ -1346,7 +1493,7 @@ function itemRow(i, state, bg, dk){
       ${i.detail ? `<div class="idetail">${esc(i.detail)}</div>` : ''}
       ${state==='na' ? `<div class="na-hint">Not applicable today</div>` : ''}
       ${stepper}
-      ${noteHtmlFor(i, dk)}
+      ${noteHtmlFor(i, dk, state)}
     </div>
   </div>`;
 }
@@ -1371,14 +1518,67 @@ function applyEvening(){ const h=new Date().getHours(); document.body.classList.
 function tomorrowPeekHtml(){
   if (viewOffset!==0 || new Date().getHours() < 19) return '';
   const t = addDays(today0(),1), dow = t.getDay();
-  const skip = new Set(['flex-bloom','flex-intersign','flex-lang']);
+  const skip = new Set(['flex-bloom','flex-intersign','flex-lang','jw-read']);
   const items = bonusItemsForDate(t).filter(i=>!skip.has(i.id) && (!ROUTINE_IDS.has(i.id)));
   const rows = items.map(i=>`<li>${esc(i.name)}${i.detail && !ADV[i.id] ? ` <span style="opacity:.75">· ${esc(i.detail.split(' · this week')[0])}</span>` : ''}</li>`);
   eventsOnDate(dateKey(t)).forEach(e=>rows.unshift(`<li>📌 ${esc(e.title)}</li>`));
   if ([3,5,6,0].includes(dow)) rows.push(`<li>Outfit needed for ${DAY_NAME[dow]}</li>`);
   return `<div class="peek"><div class="title-doodle-row"><div class="peek-title">Tomorrow · ${DAY_NAME[dow]}</div><span class="doodles">${doodle('cloud',24)}${doodle('moon',22)}</span></div><ul>${rows.join('')}</ul></div>`;
 }
+// The floor as two cards: the day floor (open until held, then folded) and the evening floor (from 8pm)
+function renderFloor(d, dk, c){
+  const byId = {}; dailyFloorItems(d).forEach(i=>{ byId[i.id]=i; });
+  const { day, eve } = floorParts(d);
+  const eveOpen = eveningOpenFor(d);
+  const dayDone = day.filter(id=>c[id]===true).length, dayAll = dayDone===day.length;
+  const eveDone = eve.filter(id=>c[id]===true).length, eveAll = eveDone===eve.length;
+  const dKey = dk+'-day', eKey = dk+'-eve';
+  const dayShown = floorOpen[dKey]!=null ? floorOpen[dKey] : !dayAll;
+  const eveShown = floorOpen[eKey]!=null ? floorOpen[eKey] : !eveAll;
+  const moved = eve.filter(id=>id!=='fl-meds-pm').map(id=>id==='fl-bible' ? 'Bible' : 'journal');
+  let daySub = 'The minimum that keeps my progress, even on a hard day.';
+  if (dayAll) daySub = moved.length ? `Day floor held. ${moved.join(' & ')} moved to this evening.` : 'Day floor held. Tap to look back.';
+  const evening = (id)=>{
+    const i = { ...byId[id] };
+    if (id==='fl-bible'){ i.name = 'Bible catch-up — 1 chapter'; if (c[id]!==true) i.detail = `Didn't get to it earlier? Here's your second chance. ${i.detail}`; }
+    if (id==='fl-journal'){ i.name = 'Journal catch-up — one sentence is enough'; }
+    return i;
+  };
+  let html = `
+    <div class="floor-wrap taped ${dayAll?'held':''}">
+      <div class="floor-head" role="button" tabindex="0" data-floortoggle="day" aria-expanded="${dayShown}">
+        <div style="min-width:0;"><div class="floor-title">My floor</div><div class="floor-sub">${esc(daySub)}</div></div>
+        <div class="floor-plant">${plantSVG(dayDone, day.length, 40)}<div class="floor-count">${dayAll ? 'Held ✓' : `${dayDone} of ${day.length}`} ${dayShown?'▾':'▸'}</div></div>
+      </div>
+      ${dayShown ? day.map(id=>itemRow(byId[id], c[id]===true, null, dk)).join('') : ''}
+      <div class="win-row"><label for="winInput">${doodle('star',20)}One win:</label><input id="winInput" type="text" placeholder="big or small" value="${esc(S.wins[dk]||'')}"></div>
+    </div>`;
+  if (eveOpen){
+    html += `
+    <div class="floor-wrap evening-floor taped tape-right ${eveAll?'held':''}">
+      <div class="floor-head" role="button" tabindex="0" data-floortoggle="eve" aria-expanded="${eveShown}">
+        <div style="min-width:0;"><div class="floor-title">Evening floor</div><div class="floor-sub">${eveAll ? 'Evening floor held. Rest well.' : 'Closing my day, gently.'}</div></div>
+        <div class="floor-plant">${doodle('moon',30)}<div class="floor-count">${eveAll ? 'Held ✓' : `${eveDone} of ${eve.length}`} ${eveShown?'▾':'▸'}</div></div>
+      </div>
+      ${eveShown ? eve.map(id=>itemRow(evening(id), c[id]===true, null, dk)).join('') : ''}
+    </div>`;
+  } else {
+    const later = ['evening meds'];
+    CATCHUP_IDS.forEach(id=>{ if (day.includes(id) && c[id]!==true) later.push(id==='fl-bible' ? 'Bible if not read yet' : 'journal if not done yet'); });
+    html += `<div class="evening-soon">${doodle('moon',18)}<span>Evening floor opens at 8 pm · ${esc(later.join(' · '))}</span></div>`;
+  }
+  document.getElementById('dailyFloor').innerHTML = html;
+  bindItems('#dailyFloor .item', toggleFloor);
+  document.querySelectorAll('#dailyFloor [data-bstep]').forEach(b=>{ b.onclick=(ev)=>{ ev.stopPropagation(); bibleStepDay(Number(b.dataset.bstep)); }; });
+  document.querySelectorAll('#dailyFloor [data-floortoggle]').forEach(h=>{
+    const go = ()=>{ floorOpen[dk+'-'+h.dataset.floortoggle] = h.getAttribute('aria-expanded')!=='true'; renderDaily(); };
+    h.onclick = go;
+    h.onkeydown = (ev)=>{ if (ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); go(); } };
+  });
+  document.getElementById('winInput').onchange = (e)=>{ const v=e.target.value.trim(); if (v) S.wins[dk]=v; else delete S.wins[dk]; saveState(); if (v) showToast('Win noted ✨'); };
+}
 function renderDaily(){
+  applyLook();
   const d = viewDate(), dk = dateKey(d), dow = d.getDay(), c = checksFor(d), isToday = viewOffset===0;
   document.getElementById('greeting').innerHTML = greetingHtml(isToday);
   document.getElementById('missionEcho').textContent = S.missionMain || '';
@@ -1402,20 +1602,7 @@ function renderDaily(){
     ${[['low','Low'],['ok','Okay'],['good','Good']].map(([k,l])=>`<button type="button" class="${energy===k?'on':''}" onclick="setEnergy('${k}')">${l}</button>`).join('')}</div>`;
 
   // Floor
-  const floor = dailyFloorItems(d);
-  const held = dailyFloorCount(dk), all = held===floor.length;
-  document.getElementById('dailyFloor').innerHTML = `
-    <div class="floor-wrap taped ${all?'held':''}">
-      <div class="floor-head">
-        <div style="min-width:0;"><div class="floor-title">My floor</div><div class="floor-sub">The minimum that keeps my progress, even on a hard day.</div></div>
-        <div class="floor-plant">${plantSVG(held, floor.length, 40)}<div class="floor-count">${all ? 'Held ✓' : `${held} of ${floor.length}`}</div></div>
-      </div>
-      ${floor.map(i=>itemRow(i, c[i.id]===true, null, dk)).join('')}
-      <div class="win-row"><label for="winInput">${doodle('star',20)}One win:</label><input id="winInput" type="text" placeholder="big or small" value="${esc(S.wins[dk]||'')}"></div>
-    </div>`;
-  bindItems('#dailyFloor .item', toggleFloor);
-  document.querySelectorAll('#dailyFloor [data-bstep]').forEach(b=>{ b.onclick=(ev)=>{ ev.stopPropagation(); bibleStepDay(Number(b.dataset.bstep)); }; });
-  document.getElementById('winInput').onchange = (e)=>{ const v=e.target.value.trim(); if (v) S.wins[dk]=v; else delete S.wins[dk]; saveState(); if (v) showToast('Win noted ✨'); };
+  renderFloor(d, dk, c);
 
   document.getElementById('tomorrowPeek').innerHTML = tomorrowPeekHtml();
 
@@ -1435,16 +1622,17 @@ function renderDaily(){
   document.getElementById('bedtimeInput').onchange = (e)=>{ S.bedtimes[yk] = e.target.value; saveState(); showToast('Bedtime noted'); };
   document.getElementById('dayWeightInput').onchange = (e)=>{ const v=parseFloat(e.target.value); if (v>0) S.dailyWeight[dk]=round1(v); else delete S.dailyWeight[dk]; saveState(); showToast(v>0?'Weight noted':'Weight cleared'); renderProgress(); };
 
-  // Bonus
+  // My ideal day (name rotates)
+  document.getElementById('idealTitle').textContent = rotatingName(IDEAL_NAMES);
   const items = bonusItemsForDate(d);
   const sub = document.getElementById('bonusSub');
   if (energy==='low' && !showAllBonus){
     const picks = GENTLE_PICKS.map(id=>items.find(i=>i.id===id)).filter(Boolean).slice(0,3);
-    sub.textContent = 'Low-energy day. Here are three gentle picks; everything else can wait.';
+    sub.textContent = 'Low-energy day. Three gentle picks, and the floor below is what counts.';
     document.getElementById('dailyItems').innerHTML = picks.map(i=>itemRow(i, c[i.id], null, dk)).join('') +
-      `<button type="button" class="link-btn" onclick="showAllBonus=true;renderDaily();">Show all bonus items</button>`;
+      `<button type="button" class="link-btn" onclick="showAllBonus=true;renderDaily();">Show everything</button>`;
   } else {
-    sub.textContent = 'Counts when you do it. Never counts against you.';
+    sub.textContent = 'Aim here when you can. On a hard day, the floor below is enough.';
     const buckets = {};
     items.forEach(i=>{ (buckets[i.tag] = buckets[i.tag] || []).push(i); });
     let cats = Object.keys(buckets).sort((a,b)=>(CATEGORY_META[a]?.order||99)-(CATEGORY_META[b]?.order||99));
@@ -1463,6 +1651,7 @@ function renderDaily(){
     }).join('');
   }
   bindItems('#dailyItems .item', toggleItem);
+  document.querySelectorAll('#dailyItems [data-jstep]').forEach(b=>{ b.onclick=(ev)=>{ ev.stopPropagation(); jwStepDay(Number(b.dataset.jstep)); }; });
   document.querySelectorAll('.daily-list .note-input').forEach(el=>{
     el.onclick = (ev)=>ev.stopPropagation();
     el.onblur = ()=>{
@@ -1497,21 +1686,64 @@ function removeEvent(id){ S.events = S.events.filter(e=>e.id!==id); saveState();
 
 // ══════════════ THIS WEEK ══════════════
 let checkinOpen = null;
+// "on" items live on a day of the week and share their check with Today, so ticking either one counts once.
+function dayOfWeek(ws, dow){ return addDays(ws, (dow+6)%7); }
 function buildWeekList(ws){
+  const L = languageForDate(ws).lang;
+  const studyDk = dateKey(dayOfWeek(ws,1)), pioDk = dateKey(dayOfWeek(ws,0));
   const items = [
-    { id:'wl-vicars', name:'Bill Vicars — 2 lessons', detail:'Main ASL study. Rewatch them as often as you like this week.', vicars:true, domain:'skills' },
-    { id:'wl-study', name:'Personal study', detail:'', noteKey:'personal-study-topic', domain:'spiritual' },
-    { id:'wl-fs', name:'Field service activities', detail:'', sub:['Letters','Research','Visits','Bible study with students'], domain:'spiritual' },
-    { id:'wl-treasures', name:'Treasures from God’s Word', detail:'', domain:'spiritual' },
-    { id:'wl-apply', name:'Apply Yourself', detail:'+ prep student Bible studies + prep visits', domain:'spiritual' },
-    { id:'wl-lac', name:'Living as Christians', detail:'', domain:'spiritual' },
-    { id:'wl-wt-prep', name:'Watchtower prep', detail:'sit down, answer the questions, take notes', domain:'spiritual' },
-    { id:'wl-cook', name:'Weekly meal planning', detail:'', domain:'physical' },
-    { id:'wl-house', name:'House upkeep task', detail:'sometime this week', noteKey:'house', domain:'mental' },
-    { id:'wl-cli-days', name:'CLI login days this week', detail:'tap the days you plan to log in — they show up on Today · goal: 20 hrs/week', sub:['Mon','Tue','Wed','Thu','Fri','Sat','Sun'], domain:'financial' },
+    { on:[1,'mon-study'], name:'Personal study', detail: unitDetail(studyDk,'mon-study'), domain:'spiritual' },
   ];
-  if (ws.getDate() <= 7) items.push({ id:'wl-broadcast', name:'JW broadcast', detail:'first Monday of the month', domain:'spiritual' });
+  if (ws.getDate() <= 7) items.push({ id:'wl-broadcast', day:'Mon', name:'JW broadcast', detail:'first Monday of the month', domain:'spiritual' });
+  items.push(
+    { on:[2,'tue-treasures'], name:'Treasures from God’s Word', detail:'meeting prep · 30 min', domain:'spiritual' },
+    { on:[2,'tue-lac'], name:'Living as Christians', detail:'incl. Congregation Bible Study · ~1 hr', domain:'spiritual' },
+    { on:[3,'wed-apply'], name:'Apply Yourself to the Ministry', detail:'+ prep student Bible studies + prep visits', domain:'spiritual' },
+    { on:[4,'thu-wt'], name:'Watchtower prep — part 2', detail:'answer the questions, take notes', domain:'spiritual' },
+    { on:[6,'sat-review'], name:'Family Watchtower review', detail:'prep for Sunday', domain:'spiritual' },
+    { on:[0,'pioneer-session'], name:'Pioneer book study', detail: unitDetail(pioDk,'pioneer-session'), domain:'spiritual' },
+    { id:'wl-lang', name:`Language — ${L.flag} ${L.name}`, detail:`${langLabel(L)} · Busuu at your own pace`, langKey:L.key, domain:'skills' },
+    { id:'wl-vicars', name:'Bill Vicars — 2 lessons', detail:'Main ASL study. Rewatch them as often as you like this week.', vicars:true, domain:'skills' },
+    { id:'wl-fs', name:'Field service activities', detail:'', sub:['Letters','Research','Visits','Bible study with students'], domain:'spiritual' },
+    { id:'wl-cli-days', name:'CLI login days this week', detail:'tap the days you plan to log in — they show up on Today · goal: 20 hrs/week', sub:['Mon','Tue','Wed','Thu','Fri','Sat','Sun'], domain:'financial' },
+    { id:'wl-house', name:'House upkeep task', detail:'sometime this week', noteKey:'house', domain:'mental' },
+  );
   return items;
+}
+function buildNextWeekList(ws){
+  return [
+    { on:[0,'sun-wt-listen'], name:"Listen to next week's Watchtower — part 1", detail:'gets next week started', domain:'spiritual' },
+    { id:'wl-cook', name:"Plan next week's meals", detail:'pick the meals · weekend grocery run', domain:'physical' },
+  ];
+}
+function toggleOnDay(d, id){
+  const dk = dateKey(d), c = checksFor(d), prev = c[id], next = prev===true ? false : true;
+  c[id] = next;
+  const a = ADV[id];
+  if (a){
+    if (next===true){ const u=a.get(); if (u < a.max()){ (S.unitLog[dk]=S.unitLog[dk]||{})[id]=u; a.set(u+1); } }
+    else if (prev===true){ const ul=S.unitLog[dk]||{}; if (ul[id]!=null){ a.set(ul[id]); delete ul[id]; } }
+  }
+  saveState(); renderThisWeek(); renderDaily(); renderProgress();
+}
+// Protective style: every 4 weeks. Once checked, it hides until it is due again.
+const PROTECTIVE_DAYS = 28;
+function protectiveLast(){ const l=(S.protectiveLog||[]).slice().sort(); return l.length ? l[l.length-1] : null; }
+function protectiveHtml(ws){
+  const last = protectiveLast(), wsk = dateKey(ws), wek = dateKey(addDays(ws,6));
+  const doneThisWeek = !!(last && last>=wsk && last<=wek);
+  const due = !last || dayDiff(fromKey(last), addDays(ws,6)) >= PROTECTIVE_DAYS;
+  if (!doneThisWeek && !due) return `<div class="small-note" style="margin:4px 2px 10px;">💇🏾‍♀️ Protective style: next one around ${fmtDate(addDays(fromKey(last),PROTECTIVE_DAYS))}</div>`;
+  const detail = doneThisWeek ? `Done · it comes back around ${fmtDate(addDays(fromKey(last),PROTECTIVE_DAYS))}`
+    : `${last ? `Due · last done ${fmtDate(fromKey(last))}` : 'Every 4 weeks'} · 1–3 days depending on energy, during a wash week`;
+  return `<div class="item ${doneThisWeek?'done':''}" data-protective="1" role="button" tabindex="0"><div class="box">${CHECK_SVG}</div>
+    <div class="itext"><div class="iname">${dot('physical')}Protective style — redo braids</div><div class="idetail">${esc(detail)}</div></div></div>`;
+}
+function toggleProtective(ws){
+  const last = protectiveLast(), wsk = dateKey(ws), wek = dateKey(addDays(ws,6));
+  if (last && last>=wsk && last<=wek) S.protectiveLog = S.protectiveLog.filter(x=>x!==last);
+  else S.protectiveLog.push(dateKey());
+  saveState(); renderThisWeek();
 }
 function vicarsWeekBase(wk){ const s=S.weekStart[wk]; return s && typeof s.vicars==='number' ? s.vicars : S.vicarsIndex; }
 function toggleVicarsChip(wk, k){
@@ -1552,10 +1784,11 @@ function logTodayWeight(inputId){
 function gardenRow(ws){
   const t = today0();
   return `<div class="garden" aria-label="Floor garden for the week">${[0,1,2,3,4,5,6].map(i=>{
-    const d=addDays(ws,i), fut=d>t, n=dailyFloorCount(dateKey(d));
-    return `<div class="pot ${dateKey(d)===dateKey(t)?'is-today':''}" title="${DAY_NAME[d.getDay()]}: ${n} of ${FLOOR_N}">${plantSVG(n,FLOOR_N,30,{future:fut})}<span>${DAY_ABBR[d.getDay()]}</span></div>`;
+    const d=addDays(ws,i), dk=dateKey(d), fut=d>t, n=dailyFloorCount(dk), max=floorN(dk);
+    return `<div class="pot ${dk===dateKey(t)?'is-today':''}" title="${DAY_NAME[d.getDay()]}: ${n} of ${max}">${plantSVG(n,max,30,{future:fut})}<span>${DAY_ABBR[d.getDay()]}</span></div>`;
   }).join('')}</div>`;
 }
+let weekFloorOpen = false;   // opens only when tapped (for a hard week)
 function renderWeeklyFloor(ws){
   const wk = weekKey(ws);
   const items = weeklyFloorItems(ws);
@@ -1595,10 +1828,12 @@ function renderWeeklyFloor(ws){
   }).join('');
   document.getElementById('weeklyFloor').innerHTML = `
     <div class="floor-wrap taped tape-right ${all?'held':''}" style="margin-bottom:0;">
-      <div class="floor-head"><div style="min-width:0;"><div class="floor-title">My weekly floor</div><div class="floor-sub">Not going backwards compared to last week.</div></div><span class="floor-count" style="margin-top:6px;">${all?'Held ✓':`${heldN} of ${items.length}`}</span></div>
+      <div class="floor-head" role="button" tabindex="0" data-wftoggle="1" aria-expanded="${weekFloorOpen}"><div style="min-width:0;"><div class="floor-title">My weekly floor</div><div class="floor-sub">${weekFloorOpen ? 'Not going backwards compared to last week.' : 'Having a hard week? Tap to open the minimum.'}</div></div><span class="floor-count" style="margin-top:6px;">${all?'Held ✓':`${heldN} of ${items.length}`} ${weekFloorOpen?'▾':'▸'}</span></div>
       ${gardenRow(ws)}
-      ${rows}
+      ${weekFloorOpen ? rows : ''}
     </div>`;
+  const wft = document.querySelector('#weeklyFloor [data-wftoggle]');
+  if (wft){ const go=()=>{ weekFloorOpen=!weekFloorOpen; renderThisWeek(); }; wft.onclick=go; wft.onkeydown=(ev)=>{ if (ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); go(); } }; }
   document.querySelectorAll('#weeklyFloor .item[data-wf]').forEach(el=>{
     const go = ()=>{ const c=weekListChecks(wk); c[el.dataset.wf]=!c[el.dataset.wf]; saveState(); renderThisWeek(); renderProgress(); };
     el.onclick = go; el.onkeydown = (ev)=>{ if (ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); go(); } };
@@ -1625,7 +1860,7 @@ function bibleChipsHtml(ws){
   if (future) actual = 'Planned. This list will settle on Monday, from wherever you are then.';
   else {
     const had = past ? 7 : Math.min(7, dayDiff(ws,t)+1);
-    actual = `<b>Had to read${past?'':' so far'}:</b> ${had}${past?'':` (through ${esc(chText(start+had-1))})`} · <b>Have read:</b> ${read}${read>had?` · <span style="color:var(--sage-ink);font-weight:600;">${read-had} ahead</span>`:''}`;
+    actual = `<b>Wanted to read${past?'':' so far'}:</b> ${had}${past?'':` (through ${esc(chText(start+had-1))})`} · <b>Have read:</b> ${read}${read>had?` · <span style="color:var(--sage-ink);font-weight:600;">${read-had} ahead</span>`:''}`;
   }
   actual += `<div class="small-note" style="margin-top:2px;">Tap a chapter when you've read it. The list stays the same all week; extra chapters show with a ＋.</div>`;
   return { chips, read, actual };
@@ -1639,6 +1874,46 @@ function renderWeekBible(ws){
       <div class="bchips">${b.chips}</div>
       <div style="font-size:12.5px;">${b.actual}</div>
     </div>`;
+}
+function jwChipsHtml(ws){
+  const start = weekJwStart(ws), t = today0(), tw = startOfWeek(t), wsk = dateKey(ws), wek = dateKey(addDays(ws,6));
+  const past = ws < tw, future = ws > tw;
+  let chips = '', planRead = 0;
+  for (let i=0;i<7;i++){
+    const idx = start+i; if (idx >= READ_UNITS.length) break;
+    const d = addDays(ws,i), isT = dateKey(d)===dateKey(t);
+    const later = jwIsRead(idx) && S.jwRead[idx] > wek;
+    const rd = jwIsRead(idx) && !later;
+    if (rd) planRead++;
+    chips += later
+      ? `<span class="bchip">${DAY_ABBR[d.getDay()]} · ${esc(jwShort(idx))} · read later</span>`
+      : `<button type="button" class="bchip ${rd?'read':''} ${isT?'today':''}" aria-pressed="${rd}" onclick="tapJw(${idx},'${wsk}',${i})">${DAY_ABBR[d.getDay()]} · ${esc(jwShort(idx))}${rd?' ✓':''}</button>`;
+  }
+  const extras = jwBetween(ws, addDays(ws,6)).filter(i=>i<start || i>=start+7);
+  chips += extras.map(i=>`<button type="button" class="bchip read extra" aria-pressed="true" onclick="tapJw(${i},'${wsk}',-1)">＋ ${esc(jwShort(i))} ✓</button>`).join('');
+  const read = planRead + extras.length;
+  let actual;
+  if (future) actual = 'Planned. This list will settle on Monday, from wherever you are then.';
+  else {
+    const had = past ? 7 : Math.min(7, dayDiff(ws,t)+1);
+    actual = `<b>Wanted to read${past?'':' so far'}:</b> ${had} · <b>Have read:</b> ${read}${read>had?` · <span style="color:var(--sage-ink);font-weight:600;">${read-had} ahead</span>`:''}`;
+  }
+  return { chips, actual };
+}
+function renderWeekJw(ws){
+  const b = jwChipsHtml(ws);
+  document.getElementById('weekJw').innerHTML = `
+    <div class="wk-summary taped tape-right">
+      <div class="title-doodle-row"><div class="floor-title" style="font-size:24px;">This week's JW reading</div>${doodle('leaf',28)}</div>
+      <div class="small-note" style="margin-top:2px;">Just reading, 1 chapter a day. Read more? Tap the + on Today.</div>
+      <div class="bchips">${b.chips}</div>
+      <div style="font-size:12.5px;">${b.actual}</div>
+    </div>`;
+}
+function tapJw(idx, wsk, i){
+  if (jwIsRead(idx)) delete S.jwRead[idx];
+  else { const ws=fromKey(wsk), tw=startOfWeek(today0()); S.jwRead[idx] = (ws<tw && i>=0) ? dateKey(addDays(ws,i)) : dateKey(); }
+  saveState(); refreshBible();
 }
 function weekWins(ws){ return [0,1,2,3,4,5,6].map(i=>addDays(ws,i)).filter(d=>S.wins[dateKey(d)]).map(d=>({d, t:S.wins[dateKey(d)]})); }
 function backupLineHtml(){
@@ -1663,6 +1938,8 @@ function renderCheckin(){
   const cp = checkpointForDate(now), cpText = checkpointText(now);
   const wins = weekWins(ws);
   const showPrep = !!cp || !!ci.prep;
+  const jDays = days.filter(d=>(S.checked[dateKey(d)]||{})['fl-journal']===true);
+  const jMethods = jDays.map(d=>({ d, m:((S.dayNotes[dateKey(d)]||{}).journal||'').trim() })).filter(x=>x.m);
   document.getElementById('checkinBox').innerHTML = `
     <div class="checkin taped tape-grid ${isFri?'friday':''}" id="checkinCard">
       <div class="checkin-head" role="button" tabindex="0" onclick="checkinOpen=!checkinOpen;renderCheckin();">
@@ -1675,6 +1952,9 @@ function renderCheckin(){
         <textarea class="note-input" data-ci="well" placeholder="Anything else that went well — start here">${esc(ci.well||'')}</textarea>
         <div class="note-label">Daily floor, last 7 days</div>
         <div class="stat-grid">${statRows}<span>Weekly floor</span><span class="n">${wfHeld} / ${WEEKLY_FLOOR_IDS.length}</span></div>
+        <div class="note-label">Journaling, last 7 days: ${jDays.length} of 7 days</div>
+        ${jMethods.length ? `<ul class="wins-list">${jMethods.map(x=>`<li><span>${DAY_ABBR[x.d.getDay()]}</span>${esc(x.m)}</li>`).join('')}</ul>` : `<div class="small-note">Methods you note after journaling will collect here.</div>`}
+        <textarea class="note-input" data-ci="journal" placeholder="Which methods felt useful? Which ones to drop?">${esc(ci.journal||'')}</textarea>
         <div class="note-label">Bedtimes (the night before each day)</div>
         <div class="bed-row">${beds}</div>
         <div class="note-label">How far did I get this week?</div>
@@ -1705,34 +1985,47 @@ function renderThisWeek(){
     + `<div class="event-chip" style="background:var(--sage-dim);border-color:var(--sage);color:var(--sage-ink);">🎧 This week's Zoom focus: <b>${zoomThemeForDate(ws)}</b></div>`;
   renderWeeklyFloor(ws);
   renderWeekBible(ws);
+  renderWeekJw(ws);
   renderCheckin();
   document.getElementById('motivationInput').value = S.weekMotivation[wk] || '';
+  document.getElementById('weekTitle').textContent = rotatingName(WEEK_NAMES);
 
   const c = weekListChecks(wk);
-  let html = buildWeekList(ws).map(i=>{
+  const rowHtml = (i)=>{
+    if (i.on){
+      const [dow,id] = i.on, d = dayOfWeek(ws,dow), done = (S.checked[dateKey(d)]||{})[id]===true;
+      return `<div class="item ${done?'done':''}" data-ondow="${dow}" data-onid="${id}" role="button" tabindex="0"><div class="box">${CHECK_SVG}</div>
+        <div class="itext"><div class="iname">${dot(i.domain)}<span class="badge" style="margin-right:6px;">${DAY_ABBR[dow]}</span>${esc(i.name)}</div>${i.detail?`<div class="idetail">${esc(i.detail)}</div>`:''}</div></div>`;
+    }
     let subHtml = '';
     if (i.vicars){
       const base = vicarsWeekBase(wk);
       subHtml = `<div class="subrow">${[0,1].filter(k=>base+k<VICARS_TOTAL).map(k=>`<button type="button" class="subchip ${c['wl-vicars-'+k]?'done':''}" data-vicars="${k}">${esc(vicarsLabel(base+k))}</button>`).join('')}</div>`;
     } else if (i.sub){
       subHtml = `<div class="subrow">${i.sub.map(s=>{ const sid=i.id+'-'+s.replace(/\s+/g,''); return `<button type="button" class="subchip ${c[sid]?'done':''}" data-subid="${sid}">${s}</button>`; }).join('')}</div>`;
+    } else if (i.langKey){
+      subHtml = `<div class="subrow"><button type="button" class="subchip" data-langstep="${i.langKey}">＋ 1 Busuu chapter done</button></div>`;
     }
     const noteHtml = i.noteKey ? `<div class="note-label">What to work on this week</div>
       <textarea class="note-input" data-notekey="${i.noteKey}" placeholder="${i.noteKey==='house'?'e.g. which room, which task…':'e.g. which topic, which publication…'}">${esc(weekNotesFor(wk)[i.noteKey]||'')}</textarea>` : '';
     return `<div class="item wk ${c[i.id]?'done':''}" data-id="${i.id}" ${i.vicars?'style="cursor:default;"':''}><div class="box">${CHECK_SVG}</div>
-      <div class="itext"><div class="iname">${dot(i.domain)}${esc(i.name)}</div>${i.detail?`<div class="idetail">${esc(i.detail)}</div>`:''}${subHtml}${noteHtml}</div></div>`;
-  }).join('');
-  const mc = monthlyTaskChecks();
-  html += `<div class="section-label">This month</div>
-    <div class="item ${mc['hairstyle']?'done':''}" id="monthlyHairstyle"><div class="box">${CHECK_SVG}</div>
-      <div class="itext"><div class="iname">Protective style — redo braids</div><div class="idetail">Flexible: 1–3 days depending on energy, during a wash week</div></div></div>`;
+      <div class="itext"><div class="iname">${dot(i.domain)}${i.day?`<span class="badge" style="margin-right:6px;">${i.day}</span>`:''}${esc(i.name)}</div>${i.detail?`<div class="idetail">${esc(i.detail)}</div>`:''}${subHtml}${noteHtml}</div></div>`;
+  };
+  let html = buildWeekList(ws).map(rowHtml).join('');
+  document.getElementById('nextWeekItems').innerHTML = buildNextWeekList(ws).map(rowHtml).join('') + protectiveHtml(ws);
   const other = S.weekOther[wk] || [];
   html += `<div class="section-label">Other</div><div class="other-list">
     ${other.map((t,i)=>`<div class="other-row"><span>${esc(t)}</span><button type="button" class="rm" aria-label="Remove" onclick="removeOther(${i})">×</button></div>`).join('')}
     <div class="other-add"><input id="otherInput" placeholder="add something…" aria-label="Add something to this week"><button type="button" onclick="addOther()">Add</button></div></div>`;
   document.getElementById('weekListItems').innerHTML = html;
-  document.getElementById('monthlyHairstyle').onclick = (ev)=>toggleMonthlyTask('hairstyle', ev.currentTarget);
-  document.querySelectorAll('#weekListItems .item[data-id]').forEach(el=>{
+  document.querySelectorAll('#top-week .item[data-onid]').forEach(el=>{
+    const go = ()=>toggleOnDay(dayOfWeek(ws, Number(el.dataset.ondow)), el.dataset.onid);
+    el.onclick = go; el.onkeydown = (ev)=>{ if (ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); go(); } };
+  });
+  const pr = document.querySelector('#nextWeekItems [data-protective]');
+  if (pr){ pr.onclick = ()=>toggleProtective(ws); pr.onkeydown = (ev)=>{ if (ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); toggleProtective(ws); } }; }
+  document.querySelectorAll('#weekListItems .subchip[data-langstep]').forEach(el=>{ el.onclick=(ev)=>{ ev.stopPropagation(); langStep(el.dataset.langstep,1); renderThisWeek(); showToast('Chapter noted 🌱'); }; });
+  document.querySelectorAll('#top-week .item[data-id]').forEach(el=>{
     el.onclick = (ev)=>{
       if (ev.target.closest('.subchip') || ev.target.closest('.note-input')) return;
       if (el.dataset.id==='wl-vicars') return;
@@ -1785,7 +2078,7 @@ function autoProgress(m){
   if (m.auto==='languages'){ let d=0,t=0; LANGUAGES.forEach(L=>{ d+=langDone(L); t+=langTotal(L); }); return { pct:d/t, text:LANGUAGES.map(L=>`${L.flag} ${L.levels[langPos(L.key).level][0]}`).join('  ') }; }
   if (m.auto==='asl'){ return { pct:S.vicarsIndex/VICARS_TOTAL, text:`Bill Vicars: ${vicarsLabel(S.vicarsIndex)} · Bloom ${Math.min(S.bloomIndex,BLOOM_TOTAL)}/76 · Intersign section ${S.intersign.s+1}` }; }
   if (m.auto==='pioneer') return { pct:S.pioneerIndex/PIONEER.length, text:`${pioneerShort(S.pioneerIndex)} · ${S.pioneerIndex} of ${PIONEER.length} parts done` };
-  if (m.auto==='jw') return { pct:S.readIndex/READ_UNITS.length, text:READ_UNITS[S.readIndex] };
+  if (m.auto==='jw') return { pct:Object.keys(S.jwRead).length/READ_UNITS.length, text:`Reading next: ${jwShort(jwNext())} · Study: ${studyLabel(S.studyIndex)}` };
   if (m.steps.length){ const d=m.steps.filter(s=>s.d).length; return { pct:d/m.steps.length, text:`${d} of ${m.steps.length} steps done` }; }
   return null;
 }
@@ -1858,13 +2151,15 @@ function dayDigest(d, plan){
   else if (c['fl-bible']===true) lines.spiritual.push('Meeting reading');
   else lines.spiritual.push(`<span class="muted">Base ${esc(chText(plan.planned))}${isRead(plan.planned)?' · read ✓':''}</span>`);
   const floor = dailyFloorItems(d), bonus = bonusItemsForDate(d);
+  { const jo = jwOn(dk); if (!future && jo.length) lines.spiritual.push(`JW: ${esc(jwListText(jo))}`); }
   if (!future){
     const fs = S.fsDayLog[dk]; if (fs) lines.spiritual.push(`${fs} hrs field service`);
     floor.forEach(i=>{ if (i.id!=='fl-bible' && c[i.id]===true) lines[domainOf(i)].push(esc(DAILY_FLOOR_NAMES[i.id])); });
     const mv = (S.dayNotes[dk]||{}).movement; if (mv) lines.physical.push(`<span class="muted">moved: ${esc(mv)}</span>`);
+    const jn = (S.dayNotes[dk]||{}).journal; if (jn) lines.mental.push(`<span class="muted">journal: ${esc(jn)}</span>`);
     const w = S.dailyWeight[dk]; if (w!=null) lines.physical.push(`${w} lbs`);
     bonus.forEach(i=>{
-      if (c[i.id]!==true) return;
+      if (c[i.id]!==true || i.id==='jw-read') return;
       let label = esc(shortName(i));
       const u = (S.unitLog[dk]||{})[i.id];
       if (u!=null) label += ` <span class="muted">(${esc(i.id==='pioneer-session'?pioneerShort(u):bloomLabel(u))})</span>`;
@@ -1872,10 +2167,10 @@ function dayDigest(d, plan){
     });
     const bt = S.bedtimes[dk]; if (bt) lines.mental.push(`<span class="muted">bed ${fmtTime(bt)}</span>`);
   } else {
-    lines.physical.push('<span class="plan">Floor: meds ×2 · move · clean</span>');
+    lines.physical.push('<span class="plan">Floor: meds ×2 · move · clean · journal</span>');
     bonus.forEach(i=>{ if (!ROUTINE_IDS.has(i.id)) lines[domainOf(i)].push(`<span class="plan">${esc(shortName(i))}</span>`); });
   }
-  const n = dailyFloorCount(dk), energy = S.energy[dk];
+  const n = dailyFloorCount(dk), max = floorN(dk), energy = S.energy[dk];
   const others = S.dayOther[dk] || [];
   const body = DOMAINS.filter(([k])=>lines[k].length).map(([k,label])=>`<div class="dl"><span class="domain-dot" style="background:var(${DOMAIN_COLOR_VAR[k]});" title="${label}"></span><span>${lines[k].join(' · ')}</span></div>`).join('');
   const evs = eventsOnDate(dk).map(e=>`<div class="dl"><span>📌 ${esc(e.title)}</span></div>`).join('');
@@ -1885,7 +2180,7 @@ function dayDigest(d, plan){
   return `<div class="wk-day ${isT?'today':''} ${future?'future':''}">
     <div class="wk-day-head">
       <span class="wk-day-name">${DAY_NAME[d.getDay()]}</span>${doodle(DAY_DOODLE[d.getDay()],18)}<span class="wk-day-date">${fmtDate(d)}${isT?' · today':''}</span>
-      <span class="wk-day-meta">${energy?`<span class="badge">${energy==='ok'?'okay':energy} energy</span>`:''}${future?'':`${plantSVG(n,FLOOR_N,20)}<span>${n}/${FLOOR_N}</span>`}</span>
+      <span class="wk-day-meta">${energy?`<span class="badge">${energy==='ok'?'okay':energy} energy</span>`:''}${future?'':`${plantSVG(n,max,20)}<span>${n}/${max}</span>`}</span>
     </div>
     ${evs}${body}${otherHtml}${win}${add}
   </div>`;
@@ -1898,7 +2193,7 @@ function monthStats(mi){
   const read = chaptersBetween(mo.start, end).length;
   const startIdx = baseAsOf(mo.start);
   const endIdx = mo.end < t ? baseAsOf(addDays(mo.end,1)) : nextUnread();
-  let full = 0; for (let i=0;i<elapsed;i++) if (dailyFloorCount(dateKey(addDays(mo.start,i)))===DAILY_FLOOR_IDS.length) full++;
+  let full = 0; for (let i=0;i<elapsed;i++) if (isFullFloor(dateKey(addDays(mo.start,i)))) full++;
   const wks = weeksOfMonth(mi).filter(w=>w<=t).map(w=>weekKey(w));
   const fs = round1(wks.reduce((a,k)=>a+fsHoursForWeek(k),0));
   const avgs = wks.map(k=>weeklyAvg(k)).filter(v=>v!=null);
@@ -1922,8 +2217,8 @@ function monthCalendar(mi){
   const heads = ['M','T','W','T','F','S','S'].map(h=>`<div class="cal-h">${h}</div>`).join('');
   let cells = '';
   for (let d=new Date(mo.start); d<=mo.end; d=addDays(d,1)){
-    const fut = d > t, n = dailyFloorCount(dateKey(d)), isT = dateKey(d)===dateKey(t);
-    cells += `<div class="cal-d ${isT?'today':''}" title="${fmtDate(d)}: ${fut?'ahead':n+' of '+FLOOR_N}">${plantSVG(n,FLOOR_N,22,{future:fut})}<span>${d.getDate()}</span></div>`;
+    const dk = dateKey(d), fut = d > t, n = dailyFloorCount(dk), max = floorN(dk), isT = dk===dateKey(t);
+    cells += `<div class="cal-d ${isT?'today':''}" title="${fmtDate(d)}: ${fut?'ahead':n+' of '+max}">${plantSVG(n,max,22,{future:fut})}<span>${d.getDate()}</span></div>`;
   }
   return `<div class="cal">${heads}${cells}</div>`;
 }
@@ -2024,7 +2319,7 @@ function renderRoadmap(){
     const isCur = mi===curIdx;
     let summary = '';
     if (st){
-      const bibleBase = st.current ? `had to read so far ${st.elapsed} · whole month ${st.total}` : `had to read ${st.total}`;
+      const bibleBase = st.current ? `wanted to read so far ${st.elapsed} · whole month ${st.total}` : `wanted to read ${st.total}`;
       const diff = st.read - st.elapsed;
       summary = `<div class="wk-summary taped tape-dots">
         <div class="title-doodle-row"><div class="floor-title" style="font-size:24px;">${st.current?'Where I am this month':'Where I landed'}</div>${doodle('star',24)}</div>
@@ -2044,7 +2339,7 @@ function renderRoadmap(){
       let stats = 'Planned';
       if (!fut){
         const days = [0,1,2,3,4,5,6].map(i=>addDays(w,i)).filter(d=>d<=t);
-        const full = days.filter(d=>dailyFloorCount(dateKey(d))===DAILY_FLOOR_IDS.length).length;
+        const full = days.filter(d=>isFullFloor(dateKey(d))).length;
         const read = chaptersBetween(w, addDays(w,6)).length;
         stats = `${full}/${days.length} full floors · ${read} ch. read · ${fsHoursForWeek(wk)} hrs service`;
       }
@@ -2076,7 +2371,7 @@ function renderRoadmap(){
       ${evs.length ? `<div class="events-card"><div class="events-card-title">Events this month</div>${evs.map(e=>`<div class="event-row"><span>📌 ${esc(e.title)} — ${fmtDate(fromKey(e.date))}</span></div>`).join('')}</div>` : ''}
       <div class="pcard">
         <div class="title-doodle-row"><div class="floor-title" style="font-size:24px;">My garden</div><span class="doodles">${doodle('butterfly',24)}${doodle('flower',28)}</span></div>
-        <div class="small-note" style="margin-top:2px;">Each plant is one day's floor. A flower means all six held.</div>
+        <div class="small-note" style="margin-top:2px;">Each plant is one day's floor. A flower means the whole floor held, day and evening.</div>
         ${monthCalendar(mi)}
       </div>
       ${summary}
@@ -2146,7 +2441,10 @@ function bibleBookGo(i){ bibleViewBook = i; renderProgress(); }
 function bibleHere(){ bibleViewBook = null; renderProgress(); }
 let bibleFullOpen=false;
 function toggleBibleFull(){ bibleFullOpen=!bibleFullOpen; document.getElementById('bibleFull').style.display=bibleFullOpen?'block':'none'; document.querySelector('.bible-toggle').textContent=bibleFullOpen?'Hide the full reading order':'See the full reading order'; }
-function readStep(d){ S.readIndex=clamp(S.readIndex+d,0,READ_UNITS.length-1); saveState(); renderProgress(); }
+let jwViewBook = null;
+function jwBookStep(d){ const cur = jwViewBook==null ? jwBookOf(Math.min(jwNext(), READ_UNITS.length-1)) : jwViewBook; jwViewBook = clamp(cur+d, 0, JW_BOOKS.length-1); renderProgress(); }
+function tapJwUnit(i){ if (jwIsRead(i)) delete S.jwRead[i]; else S.jwRead[i]=dateKey(); saveState(); refreshBible(); }
+function studyStep(d){ S.studyIndex=clamp(S.studyIndex+d,0,READ_UNITS.length); saveState(); renderProgress(); renderDaily(); }
 function pioneerStep(d){ S.pioneerIndex=clamp(S.pioneerIndex+d,0,PIONEER.length); saveState(); renderProgress(); renderDaily(); }
 function vicarsStep(d){ S.vicarsIndex=clamp(S.vicarsIndex+d,0,VICARS_TOTAL); saveState(); renderProgress(); }
 function bloomStep(d){ S.bloomIndex=clamp(S.bloomIndex+d,0,BLOOM_TOTAL); saveState(); renderProgress(); renderDaily(); }
@@ -2178,7 +2476,7 @@ function renderHistory(){
   const t = today0();
   const days = [...Array(7)].map((_,i)=>addDays(ws,i)).filter(d=>d<=t);
   const rows = DAILY_FLOOR_IDS.map(id=>{ const n=days.filter(d=>(S.checked[dateKey(d)]||{})[id]===true).length; return `<span>${DAILY_FLOOR_NAMES[id]}</span><span class="n">${n} / ${days.length}</span>`; }).join('');
-  const full = days.filter(d=>dailyFloorCount(dateKey(d))===DAILY_FLOOR_IDS.length).length;
+  const full = days.filter(d=>isFullFloor(dateKey(d))).length;
   const wf = WEEKLY_FLOOR_IDS.filter(id=>weeklyFloorHeld(id,wk)).length;
   const beds = [...Array(7)].map((_,i)=>addDays(ws,i)).map(d=>`<span class="bed-chip">${DAY_ABBR[d.getDay()]} ${fmtTime(S.bedtimes[dateKey(addDays(d,-1))])}</span>`).join('');
   const ci = S.checkin[wk] || {};
@@ -2221,10 +2519,17 @@ function renderProgress(){
       return `<button type="button" class="book-row ${r===n?'done':''} ${i===vb?'viewing':''}" onclick="bibleBookGo(${i})"><span>${i+1}. ${esc(b)}</span><span>${r}/${n}</span></button>`;
     }).join(''); }
 
-  document.getElementById('readCurrent').textContent = READ_UNITS[S.readIndex];
-  document.getElementById('readProgLabel').textContent = `Unit ${S.readIndex+1} of ${READ_UNITS.length}`;
-  const rp = Math.round(S.readIndex/READ_UNITS.length*100);
-  document.getElementById('readProgVal').textContent = rp+'%'; document.getElementById('readBar').style.width = rp+'%';
+  { const jn = jwNext(), jt = Object.keys(S.jwRead).length;
+    const jb = jwViewBook==null ? jwBookOf(Math.min(jn, READ_UNITS.length-1)) : jwViewBook;
+    const [jname, jcount] = JW_BOOKS[jb], j0 = jwBookStart(jb);
+    document.getElementById('readCurrent').textContent = jname;
+    document.getElementById('readProgLabel').textContent = `Book ${jb+1} of ${JW_BOOKS.length} · next to read: ${jwShort(jn)}`;
+    document.getElementById('readProgVal').textContent = `${jt} of ${READ_UNITS.length}`;
+    document.getElementById('readBar').style.width = Math.round(jt/READ_UNITS.length*100)+'%';
+    document.getElementById('jwGrid').innerHTML = [...Array(jcount)].map((_,k)=>{ const i=j0+k, rd=jwIsRead(i), lab = jb===5 ? READ_UNITS[i].split('box ')[1] : k+1;
+      return `<button type="button" class="chap ${rd?'read':''} ${i===jn?'next':''}" aria-pressed="${rd}" aria-label="${esc(READ_UNITS[i])}" onclick="tapJwUnit(${i})">${lab}</button>`; }).join('');
+    document.getElementById('studyCurrent').textContent = studyLabel(S.studyIndex);
+    document.getElementById('studyBar').style.width = Math.round(S.studyIndex/READ_UNITS.length*100)+'%'; }
 
   document.getElementById('pioneerCurrent').textContent = pioneerShort(S.pioneerIndex);
   document.getElementById('pioneerTitle').textContent = S.pioneerIndex<PIONEER.length ? PIONEER[S.pioneerIndex].title : 'Every part studied';
@@ -2349,16 +2654,16 @@ function importBackup(ev){
     let imp;
     try { imp = JSON.parse(e.target.result); } catch(err){ showToast("Couldn't read this file. Choose a backup exported from Ma Course."); return; }
     askConfirm('This replaces all current data with the backup file. Continue?', 'Replace my data', ()=>{
-      S = Object.assign(defaultState(), {migV2:false, migV3:false}, imp); normalizeState(); saveState();
+      S = Object.assign(defaultState(), {migV2:false, migV3:false, migV4:false}, imp); normalizeState(); saveState();
       showToast('Backup restored'); applyCalm(); renderDaily(); renderThisWeek(); renderProgress(); renderRoadmap();
     });
   };
   r.readAsText(f); ev.target.value='';
 }
 function confirmResetToday(){ askConfirm("Reset today's checklist? Weekly items and trackers stay.", 'Reset', ()=>{
-  const dk=dateKey(); chaptersOn(dk).forEach(i=>{ delete S.bibleRead[i]; }); syncBiblePos();
+  const dk=dateKey(); chaptersOn(dk).forEach(i=>{ delete S.bibleRead[i]; }); jwOn(dk).forEach(i=>{ delete S.jwRead[i]; }); syncBiblePos();
   const ul=S.unitLog[dk]||{}; Object.keys(ul).forEach(id=>{ if (ADV[id]) ADV[id].set(ul[id]); }); delete S.unitLog[dk];
-  S.checked[dk]={}; saveState(); renderDaily(); renderProgress(); showToast("Today's checklist reset");
+  S.checked[dk]={}; delete S.floorMoved[dk]; saveState(); renderDaily(); renderProgress(); showToast("Today's checklist reset");
 }); }
 
 // ══════════════ MISSION SCREEN ══════════════
@@ -2387,6 +2692,7 @@ function backToMission(){ document.getElementById('mainApp').style.display='none
   loadState();
   applyCalm();
   applyEvening();
+  applyLook();
   applySeasonTheme(currentSeason());
   ensureWeekSnapshot();
   const n = new Date();
